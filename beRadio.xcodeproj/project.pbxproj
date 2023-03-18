@@ -13,6 +13,8 @@
 		92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7B29C3A49100EFF179 /* ContentView.swift */; };
 		92AB2A7E29C3A49100EFF179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A7D29C3A49100EFF179 /* Assets.xcassets */; };
 		92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */; };
+		92AB2A8A29C3A9CB00EFF179 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92AB2A8929C3A9CB00EFF179 /* SwiftSoup */; };
+		92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		92AB2A7D29C3A49100EFF179 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = beRadio.entitlements; sourceTree = "<group>"; };
 		92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92AB2A8C29C3AA9C00EFF179 /* extract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AB2A8A29C3A9CB00EFF179 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
 				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				92AB2A7D29C3A49100EFF179 /* Assets.xcassets */,
+				92AB2A8B29C3AA6600EFF179 /* Functions */,
 				92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */,
 				92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */,
 				92AB2A8029C3A49100EFF179 /* Preview Content */,
@@ -73,6 +78,14 @@
 				92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92AB2A8B29C3AA6600EFF179 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +104,9 @@
 			dependencies = (
 			);
 			name = beRadio;
+			packageProductDependencies = (
+				92AB2A8929C3A9CB00EFF179 /* SwiftSoup */,
+			);
 			productName = beRadio;
 			productReference = 92AB2A7129C3A49100EFF179 /* beRadio.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +135,9 @@
 				Base,
 			);
 			mainGroup = 92AB2A6829C3A49100EFF179;
+			packageReferences = (
+				92AB2A8829C3A9CB00EFF179 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 92AB2A7229C3A49100EFF179 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -148,6 +167,7 @@
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
+				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92AB2A8829C3A9CB00EFF179 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92AB2A8929C3A9CB00EFF179 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92AB2A8829C3A9CB00EFF179 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */ = {

@@ -10,17 +10,25 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var links: [String] = []
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(items) { item in
                     NavigationLink {
+                        if links.isEmpty {
+                            Text("Loading...")
+                        } else {
+                            List(links, id: \.self) { link in
+                                Text(link)
+                            }
+                        }
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                     } label: {
                         Text(item.timestamp!, formatter: itemFormatter)
@@ -40,15 +48,22 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear {
+                getHtmlContent(url: "https://103fm.maariv.co.il/programs/") { extractedLinks in
+                    DispatchQueue.main.async {
+                        links = extractedLinks
+                    }
+                }
+            }
             Text("Select an item")
         }
     }
-
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -59,11 +74,11 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
