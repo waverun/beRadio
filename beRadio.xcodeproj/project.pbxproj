@@ -15,6 +15,7 @@
 		92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */; };
 		92AB2A8A29C3A9CB00EFF179 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92AB2A8929C3A9CB00EFF179 /* SwiftSoup */; };
 		92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
+		92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = beRadio.entitlements; sourceTree = "<group>"; };
 		92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92AB2A8C29C3AA9C00EFF179 /* extract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extract.swift; sourceTree = "<group>"; };
+		92ADFC5429C7321700582B66 /* Full programs view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full programs view.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
 				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				92AB2A7D29C3A49100EFF179 /* Assets.xcassets */,
+				92ADFC5329C731D900582B66 /* Views */,
 				92AB2A8B29C3AA6600EFF179 /* Functions */,
 				92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */,
 				92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */,
@@ -86,6 +89,14 @@
 				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		92ADFC5329C731D900582B66 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92ADFC5429C7321700582B66 /* Full programs view.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,

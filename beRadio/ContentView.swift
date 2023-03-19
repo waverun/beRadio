@@ -26,7 +26,10 @@ struct ContentView: View {
                             Text("Loading...")
                         } else {
                             List(links, id: \.self) { link in
-                                Text(link)
+                                //                                Text(link)
+                                NavigationLink(destination: fullProgramsView(link: link)) {
+                                    Text(link)
+                                }
                             }
                         }
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
