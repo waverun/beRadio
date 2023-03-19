@@ -52,7 +52,7 @@ struct ContentView: View {
                 }
             }
             .onAppear {
-                getHtmlContent(url: "https://103fm.maariv.co.il/programs/") { extractedLinks in
+                getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
                     DispatchQueue.main.async {
                         links = extractedLinks
                     }

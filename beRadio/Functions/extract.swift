@@ -12,8 +12,8 @@ import SwiftUI
 
 import Foundation
 
-func extractLinks(htmlContent: String, completion: @escaping ([String]) -> Void) {
-    let pattern = "href=\"(/program/[^\"]+\\.aspx)\""
+func extractLinks(htmlContent: String, search: String, completion: @escaping ([String]) -> Void) {
+    let pattern = search
     
     do {
         let regex = try NSRegularExpression(pattern: pattern, options: [])
@@ -35,7 +35,7 @@ func extractLinks(htmlContent: String, completion: @escaping ([String]) -> Void)
     }
 }
 
-func getHtmlContent(url: String, completion: @escaping ([String]) -> Void) {
+func getHtmlContent(url: String, search: String, completion: @escaping ([String]) -> Void) {
     guard let url = URL(string: url) else {
         print("Invalid URL")
         completion([])
@@ -48,7 +48,7 @@ func getHtmlContent(url: String, completion: @escaping ([String]) -> Void) {
             completion([])
         } else if let data = data {
             if let htmlContent = String(data: data, encoding: .utf8) {
-                extractLinks(htmlContent: htmlContent, completion: completion)
+                extractLinks(htmlContent: htmlContent, search: search, completion: completion)
             } else {
                 print("Failed to decode the data as UTF-8")
                 completion([])
