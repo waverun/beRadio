@@ -98,7 +98,7 @@ func extractDatesAndLinks(html: String) -> [ExtractedData] {
 //        }
     }
 
-    print(result[0])
+//    print(result[0])
 
     return result
 }
@@ -157,7 +157,8 @@ func extractLinks(htmlContent: String, search: String, completion: @escaping ([S
             }
         }
         
-        completion(links)
+        completion(links.unique())
+                   
     } catch {
         print("Error creating regular expression: \(error)")
         completion([])

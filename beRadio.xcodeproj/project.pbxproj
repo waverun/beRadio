@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923803BD29D5CCF6001BADF2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923803BC29D5CCF6001BADF2 /* Array.swift */; };
 		92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
 		92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
 		92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		923803BB29D4AE70001BADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		923803BC29D5CCF6001BADF2 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		92AB2A7129C3A49100EFF179 /* beRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AB2A7429C3A49100EFF179 /* beRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beRadioApp.swift; sourceTree = "<group>"; };
 		92AB2A7629C3A49100EFF179 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				92ADFC5729C73E7A00582B66 /* String.swift */,
+				923803BC29D5CCF6001BADF2 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
 				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,
+				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
 			);
