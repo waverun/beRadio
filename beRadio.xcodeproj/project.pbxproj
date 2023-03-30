@@ -16,9 +16,11 @@
 		92AB2A8A29C3A9CB00EFF179 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92AB2A8929C3A9CB00EFF179 /* SwiftSoup */; };
 		92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
 		92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
+		92ADFC5829C73E7A00582B66 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5729C73E7A00582B66 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		923803BB29D4AE70001BADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92AB2A7129C3A49100EFF179 /* beRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AB2A7429C3A49100EFF179 /* beRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beRadioApp.swift; sourceTree = "<group>"; };
 		92AB2A7629C3A49100EFF179 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -29,6 +31,7 @@
 		92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92AB2A8C29C3AA9C00EFF179 /* extract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extract.swift; sourceTree = "<group>"; };
 		92ADFC5429C7321700582B66 /* Full programs view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full programs view.swift"; sourceTree = "<group>"; };
+		92ADFC5729C73E7A00582B66 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +65,14 @@
 		92AB2A7329C3A49100EFF179 /* beRadio */ = {
 			isa = PBXGroup;
 			children = (
+				923803BB29D4AE70001BADF2 /* Info.plist */,
 				92AB2A7429C3A49100EFF179 /* beRadioApp.swift */,
 				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
 				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				92AB2A7D29C3A49100EFF179 /* Assets.xcassets */,
 				92ADFC5329C731D900582B66 /* Views */,
 				92AB2A8B29C3AA6600EFF179 /* Functions */,
+				92ADFC5629C73E3900582B66 /* Extensions */,
 				92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */,
 				92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */,
 				92AB2A8029C3A49100EFF179 /* Preview Content */,
@@ -97,6 +102,14 @@
 				92ADFC5429C7321700582B66 /* Full programs view.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		92ADFC5629C73E3900582B66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92ADFC5729C73E7A00582B66 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +192,7 @@
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
+				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
 			);
@@ -309,6 +323,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = beRadio/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -347,6 +363,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = beRadio/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
