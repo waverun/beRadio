@@ -25,12 +25,27 @@ struct ContentView: View {
                         if links.isEmpty {
                             Text("Loading...")
                         } else {
-                            List(links, id: \.self) { link in
-                                //                                Text(link)
-                                NavigationLink(destination: fullProgramsView(link: link)) {
-                                    Text(link)
+                            List {
+                                ForEach(links, id: \.self) { link in
+                                    //                                Text(link)
+                                    NavigationLink(destination: fullProgramsView(link: link)) {
+                                        Text(link)
+                                    }
+                                }.onDelete(perform: deleteLink)
+                            }
+                            .toolbar {
+                #if os(iOS)
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    EditButton()
+                                }
+                #endif
+                                ToolbarItem {
+                                    Button(action: addLink) {
+                                        Label("Add link", systemImage: "plus")
+                                    }
                                 }
                             }
+
                         }
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                     } label: {
@@ -62,6 +77,16 @@ struct ContentView: View {
         }
     }
     
+    private func addLink() {
+        // Create a new Program instance and add it to the programs array
+        let newLink = "New program"
+        links.append(newLink)
+    }
+
+    private func deleteLink(at offsets: IndexSet) {
+        links.remove(atOffsets: offsets)
+    }
+
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)

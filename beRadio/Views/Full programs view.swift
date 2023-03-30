@@ -64,27 +64,42 @@ struct fullProgramsView: View {
                     _ = processLink(link)
                 }
             } else {
-                List(programs) { program in
-                    //                NavigationLink(destination: program.link.openInSafari()) {
-                    //                    Text(program.date)
-                    //                    Text(program.link)
-                    //                Link(program.date, destination: program.link.openInSafari())
-                    ProgramButton(label: program.date, link: program.link) { link in
-                        //                    if let link = programs.first(where: { $0.date == Button.tit })?.link {
-                        //                        print("Link for date \(searchDate): \(link)")
-                        
-                        if let url = URL(string: "https://103fm.maariv.co.il" + link) {
-                            UIApplication.shared.open(url)
+                List {
+                    ForEach (programs) { program in
+                        ProgramButton(label: program.date, link: program.link) { link in
+                            if let url = URL(string: "https://103fm.maariv.co.il" + link) {
+                                UIApplication.shared.open(url)
+                            }
+                        }
+                        .font(.title)
+                        .foregroundColor(.blue)
+                    }
+                    .onDelete(perform: deleteProgram)
+                }
+                .toolbar {
+    #if os(iOS)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+    #endif
+                    ToolbarItem {
+                        Button(action: addProgram) {
+                            Label("Add program", systemImage: "plus")
                         }
                     }
-                    .font(.title)
-                    .foregroundColor(.blue)
-                    
-                    //                }
-                    //                NavigationLink(destination: fullProgramsView(link: link)) {
-                    //                    Text(link)
                 }
             }
         }.navigationBarTitle(title, displayMode: .inline)
     }
+    
+    private func deleteProgram(at offsets: IndexSet) {
+        programs.remove(atOffsets: offsets)
+    }
+    
+    private func addProgram() {
+        // Create a new Program instance and add it to the programs array
+        let newProgram = ExtractedData(date: "New Date", link: "New Link")
+        programs.append(newProgram)
+    }
+
 }
