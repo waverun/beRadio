@@ -34,7 +34,7 @@ struct ContentView: View {
                         }
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(item.station ?? "New station")
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -66,6 +66,7 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            newItem.station = "103 FM"
             
             do {
                 try viewContext.save()
