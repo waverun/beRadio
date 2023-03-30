@@ -29,7 +29,7 @@ struct ContentView: View {
                                 ForEach(links, id: \.self) { link in
                                     //                                Text(link)
                                     NavigationLink(destination: fullProgramsView(link: link)) {
-                                        Text(link)
+                                        Text(link.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: ""))
                                     }
                                 }.onDelete(perform: deleteLink)
                             }
@@ -75,6 +75,7 @@ struct ContentView: View {
             }
             Text("Select an item")
         }
+        .environment(\.layoutDirection, .rightToLeft)
     }
     
     private func addLink() {
