@@ -4,4 +4,7 @@
         <attribute name="station" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Link" representedClassName="Link" syncable="YES" codeGenerationType="class">
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
 </model>

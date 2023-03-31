@@ -54,6 +54,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+            .navigationBarTitle("beRadio", displayMode: .inline)
             .toolbar {
 #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -76,6 +77,7 @@ struct ContentView: View {
             Text("Select an item")
         }
         .environment(\.layoutDirection, .rightToLeft)
+        .navigationBarTitle("beRadio", displayMode: .inline)
     }
     
     private func addLink() {
