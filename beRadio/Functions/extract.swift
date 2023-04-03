@@ -16,6 +16,7 @@ struct ExtractedData: Identifiable {
     let id = UUID()
     let date: String
     let link: String
+    let image: String
 }
 
 import Foundation
@@ -65,46 +66,33 @@ import Foundation
 //}
 
 func extractDatesAndLinks(html: String) -> [ExtractedData] {
-//    let datePattern = "<div class=\"segment_date_txt\">\\s*(\\d{2}/\\d{2}/\\d{4})\\s*</div>"
     let datePattern = "התוכנית המלאה \\d\\d\\.\\d\\d\\.\\d\\d"
-//    let linkPattern = "<a href=\"(/programs/media\\.aspx\\?[^\"]+)\""
-
-//    let dateRegex = try? NSRegularExpression(pattern: datePattern, options: [])
-//    let linkRegex = try? NSRegularExpression(pattern: linkPattern, options: [])
-
-//    let dates = dateRegex?.matches(in: html, options: [], range: NSRange(html.startIndex..., in: html)).compactMap { result -> String? in
-//            guard let range = Range(result.range(at: 1), in: html) else { return nil }
-//            return String(html[range])
-//        }
-//    let dates = dateRegex?.matches(in: html, options: [], range: NSRange(html.startIndex..., in: html)).map { result -> String in
-//        let range = Range(result.range(at: 1), in: html)!
-//        return String(html[range])
-//    }
 
     let dates = getDates(html: html, pattern: datePattern)
     
-//    let links = linkRegex?.matches(in: html, options: [], range: NSRange(html.startIndex..., in: html)).map { result -> String in
-//        let range = Range(result.range(at: 1), in: html)!
-//        return String(html[range])
-//    }
-
     let links = getLinks(html: html, pattern: #"(?<=<a href=")[^"]*(?=" id="mainPageSegmentsRpt_fullShowLink_\d+")"#)
+    
+    var images = extractLinks(htmlContent: html, search:  #"img src="(/download/programs/FullShowImg_.*?\.jpg)""#)
+    
+    if images.count == 0 {
+        images = extractImages(html: html, search: #"(?<=https:\/\/103fm\.maariv\.co\.il)\/download\/programs\/imgNewTop_\d+\.jpg"#)
+    }
+    
     var result: [ExtractedData] = []
 
-//    if let links = links {
-        for (date, link) in zip(dates, links) {
-            result.append(ExtractedData(date: date, link: link))
-            print("Found: " + date + link)
-//        }
+    for ((date, link), image) in zip(zip(dates, links), images) {
+        result.append(ExtractedData(date: date, link: link, image: image))
     }
 
-//    print(result[0])
+//        for (date, link) in zip(dates, links) {
+//            result.append(ExtractedData(date: date, link: link))
+//            print("Found: " + date + link)
+//    }
 
     return result
 }
 
 func getLinks(html: String, pattern: String) -> [String] {
-//    let pattern = #"(?<=<a href=")[^"]*(?=" id="mainPageSegmentsRpt_fullShowLink_\d+">)"#
     let regex = try! NSRegularExpression(pattern: pattern, options: [])
 
     let matches = regex.matches(in: html, options: [], range: NSRange(html.startIndex..., in: html))
@@ -141,7 +129,8 @@ func getDates(html: String, pattern: String) -> [String] {
     }
     return dates
 }
-func extractLinks(htmlContent: String, search: String, completion: @escaping ([String]) -> Void) {
+
+func extractLinks(htmlContent: String, search: String, completion: (([String]) -> Void)? = nil) -> [String] {
     let pattern = search
     
     do {
@@ -157,12 +146,45 @@ func extractLinks(htmlContent: String, search: String, completion: @escaping ([S
             }
         }
         
-        completion(links.unique())
-                   
+        if let completion = completion {
+            completion(links.unique())
+        }
+           
+        return links
+        
     } catch {
         print("Error creating regular expression: \(error)")
-        completion([])
+        if let completion = completion {
+            completion([])
+        }
     }
+    return []
+}
+
+func extractImages(html: String, search: String) -> [String] {
+    let pattern = search
+
+    do {
+        let regex = try NSRegularExpression(pattern: pattern, options: [])
+        let matches = regex.matches(in: html, options: [], range: NSRange(html.startIndex..., in: html))
+
+        var extractedImageURLs: [String] = []
+
+        for match in matches {
+            if let range = Range(match.range, in: html) {
+                let url = String(html[range])
+                extractedImageURLs.append(url)
+            }
+        }
+        
+        print(extractedImageURLs)
+        return extractedImageURLs
+
+    } catch {
+        print("Error with regex: \(error)")
+    }
+    
+    return []
 }
 
 func getHtmlContent(url: String, search: String? = nil, completion: @escaping ([String]) -> Void) {
@@ -181,7 +203,7 @@ func getHtmlContent(url: String, search: String? = nil, completion: @escaping ([
         } else if let data = data {
             if let htmlContent = String(data: data, encoding: .utf8) {
                 if let search = search {
-                    extractLinks(htmlContent: htmlContent, search: search, completion: completion)
+                    _ = extractLinks(htmlContent: htmlContent, search: search, completion: completion)
                     return
                 }
                 completion([htmlContent])

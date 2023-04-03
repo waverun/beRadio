@@ -12,15 +12,29 @@ import CoreData
 struct ProgramButton: View {
     var label: String
     var link: String
+    var imageUrl: String
     var action: (String) -> Void
 
     var body: some View {
-        Button(action: {
-            action(link)
-        }, label: {
-            Text(label)
-        })
-    }
+           Button(action: {
+               action(link)
+           },
+           label: {
+               HStack {
+                   AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
+                       .frame(width: 60, height: 60) // Adjust the size as needed
+                   Text(label)
+               }
+           })
+       }
+//    var body: some View {
+//        Button(action: {
+//            action(link)
+//        },
+//        label: {
+//            Text(label)
+//        })
+//    }
 }
 
 struct fullProgramsView: View {
@@ -68,7 +82,7 @@ struct fullProgramsView: View {
                     ForEach (programs) { program in
                         if let dateStr = program.date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
                            let date = dateStr.toDate(format: "dd.MM.yy") {
-                            ProgramButton(label: date.relativeDate(), link: program.link) { link in
+                            ProgramButton(label: date.relativeDate(), link: program.link, imageUrl: program.image) { link in
                                 if let url = URL(string: "https://103fm.maariv.co.il" + link) {
                                     UIApplication.shared.open(url)
                                 }
@@ -85,11 +99,11 @@ struct fullProgramsView: View {
                         EditButton()
                     }
     #endif
-                    ToolbarItem {
-                        Button(action: addProgram) {
-                            Label("Add program", systemImage: "plus")
-                        }
-                    }
+//                    ToolbarItem {
+//                        Button(action: addProgram) {
+//                            Label("Add program", systemImage: "plus")
+//                        }
+//                    }
                 }
             }
         }.navigationBarTitle(title, displayMode: .inline)
@@ -99,10 +113,10 @@ struct fullProgramsView: View {
         programs.remove(atOffsets: offsets)
     }
     
-    private func addProgram() {
-        // Create a new Program instance and add it to the programs array
-        let newProgram = ExtractedData(date: "New Date", link: "New Link")
-        programs.append(newProgram)
-    }
+//    private func addProgram() {
+//        // Create a new Program instance and add it to the programs array
+//        let newProgram = ExtractedData(date: "New Date", link: "New Link")
+//        programs.append(newProgram)
+//    }
 
 }
