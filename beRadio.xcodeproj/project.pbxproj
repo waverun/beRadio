@@ -20,6 +20,7 @@
 		92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
 		92ADFC5829C73E7A00582B66 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5729C73E7A00582B66 /* String.swift */; };
 		92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */; };
+		92E59A3929DB09E7002754E5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3829DB09E7002754E5 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		92ADFC5429C7321700582B66 /* Full programs view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full programs view.swift"; sourceTree = "<group>"; };
 		92ADFC5729C73E7A00582B66 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksFetcher.swift; sourceTree = "<group>"; };
+		92E59A3829DB09E7002754E5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				92ADFC5729C73E7A00582B66 /* String.swift */,
 				923803BC29D5CCF6001BADF2 /* Array.swift */,
+				92E59A3829DB09E7002754E5 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
+				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
 			);

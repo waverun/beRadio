@@ -66,13 +66,16 @@ struct fullProgramsView: View {
             } else {
                 List {
                     ForEach (programs) { program in
-                        ProgramButton(label: program.date, link: program.link) { link in
-                            if let url = URL(string: "https://103fm.maariv.co.il" + link) {
-                                UIApplication.shared.open(url)
+                        if let dateStr = program.date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
+                           let date = dateStr.toDate(format: "dd.MM.yy") {
+                            ProgramButton(label: date.relativeDate(), link: program.link) { link in
+                                if let url = URL(string: "https://103fm.maariv.co.il" + link) {
+                                    UIApplication.shared.open(url)
+                                }
                             }
+                            .font(.title)
+                            .foregroundColor(.blue)
                         }
-                        .font(.title)
-                        .foregroundColor(.blue)
                     }
                     .onDelete(perform: deleteProgram)
                 }
