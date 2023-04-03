@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		923803BD29D5CCF6001BADF2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923803BC29D5CCF6001BADF2 /* Array.swift */; };
 		92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
 		92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
@@ -18,9 +19,11 @@
 		92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
 		92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
 		92ADFC5829C73E7A00582B66 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5729C73E7A00582B66 /* String.swift */; };
+		92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		923803BB29D4AE70001BADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		923803BC29D5CCF6001BADF2 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		92AB2A7129C3A49100EFF179 /* beRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +37,7 @@
 		92AB2A8C29C3AA9C00EFF179 /* extract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extract.swift; sourceTree = "<group>"; };
 		92ADFC5429C7321700582B66 /* Full programs view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full programs view.swift"; sourceTree = "<group>"; };
 		92ADFC5729C73E7A00582B66 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 		92AB2A7329C3A49100EFF179 /* beRadio */ = {
 			isa = PBXGroup;
 			children = (
+				92E59A3529DAD7C4002754E5 /* Classes */,
 				923803BB29D4AE70001BADF2 /* Info.plist */,
 				92AB2A7429C3A49100EFF179 /* beRadioApp.swift */,
 				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				92ADFC5429C7321700582B66 /* Full programs view.swift */,
+				92038E7C29D9D786008EDC1B /* AddLinkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,6 +119,14 @@
 				923803BC29D5CCF6001BADF2 /* Array.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		92E59A3529DAD7C4002754E5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */,
+				92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
@@ -199,6 +214,7 @@
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
+				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
