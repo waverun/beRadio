@@ -10,6 +10,14 @@ import SwiftUI
 
 extension String {
     
+    func relativeColor() -> Color {
+        switch self {
+        case "Today" : return .green
+        case "Yesterday" : return .orange
+        default : return .gray
+        }
+    }
+    
     func toDate(format: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format

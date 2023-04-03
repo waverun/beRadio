@@ -14,6 +14,7 @@ struct ProgramButton: View {
     var link: String
     var imageUrl: String
     var action: (String) -> Void
+    var color : UIColor = .gray
 
     var body: some View {
            Button(action: {
@@ -43,53 +44,57 @@ struct fullProgramsView: View {
 
     let link: String
     
-    func processLink(_ link: String) -> String {
-        // Add your logic here to process the link and return the desired output
-        print("processLink: link: \(link)")
-        title = link.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-        getHtmlContent(url: "https://103fm.maariv.co.il" + link.replacingOccurrences(of: " ", with: "-"), search: #"href="([^"]+)">תוכניות מלאות</a>"#) { extractedLinks in
-            //            DispatchQueue.main.async {
-            //                links = extractedLinks
-            //            }
-            guard extractedLinks.count == 1 else {
-                print("process link extracteLinks: \(extractedLinks)")
-                print("\(extractedLinks.count) extracted. Should be only 1")
-                return
-            }
-            print("processLink: url: \("https://103fm.maariv.co.il" + extractedLinks[0])")
-            getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0], search: #"(?<=href=")(/programs/complete_episodes\.aspx\?[^"]+)(?=">תוכניות מלאות</a>)"#) { extractedLink in
-                if extractedLink.count == 1 {
-                    getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLink[0]) { htmlContent in
-                        programs = extractDatesAndLinks(html: htmlContent[0])
-                        return
-                    }
-                }
-                print("getHtmlContent: searching for the link to full episodes gave: \(extractedLink)")
-            }
-        }
-        return "Processed Link: \(link)"
-    }
+//    func processLink(_ link: String) -> String {
+//        // Add your logic here to process the link and return the desired output
+//        print("processLink: link: \(link)")
+//        title = link.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
+//        getHtmlContent(url: "https://103fm.maariv.co.il" + link.replacingOccurrences(of: " ", with: "-"), search: #"href="([^"]+)">תוכניות מלאות</a>"#) { extractedLinks in
+//            //            DispatchQueue.main.async {
+//            //                links = extractedLinks
+//            //            }
+//            guard extractedLinks.count == 1 else {
+//                print("process link extracteLinks: \(extractedLinks)")
+//                print("\(extractedLinks.count) extracted. Should be only 1")
+//                return
+//            }
+//            print("processLink: url: \("https://103fm.maariv.co.il" + extractedLinks[0])")
+//            getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0], search: #"(?<=href=")(/programs/complete_episodes\.aspx\?[^"]+)(?=">תוכניות מלאות</a>)"#) { extractedLink in
+//                if extractedLink.count == 1 {
+//                    getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLink[0]) { htmlContent in
+//                        programs = extractDatesAndLinks(html: htmlContent[0])
+//                        return
+//                    }
+//                }
+//                print("getHtmlContent: searching for the link to full episodes gave: \(extractedLink)")
+//            }
+//        }
+//        return "Processed Link: \(link)"
+//    }
     
     var body: some View {
         //        Text(processLink(link))
         VStack {
             if programs.isEmpty {
                 Text("Loading...").onAppear {
-                    _ = processLink(link)
+//                    _ = processLink(link)
+                    LinkProcessor.processLink(link) { (processedTitle, extractedPrograms) in
+                        title = processedTitle
+                        programs = extractedPrograms
+                    }
                 }
             } else {
                 List {
                     ForEach (programs) { program in
-                        if let dateStr = program.date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
-                           let date = dateStr.toDate(format: "dd.MM.yy") {
-                            ProgramButton(label: date.relativeDate(), link: program.link, imageUrl: program.image) { link in
+//                        if let dateStr = program.date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
+//                           let date = dateStr.toDate(format: "dd.MM.yy") {
+                        ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
                                 if let url = URL(string: "https://103fm.maariv.co.il" + link) {
                                     UIApplication.shared.open(url)
                                 }
                             }
                             .font(.title)
-                            .foregroundColor(.blue)
-                        }
+                            .foregroundColor(program.date.relativeColor())
+//                        }
                     }
                     .onDelete(perform: deleteProgram)
                 }

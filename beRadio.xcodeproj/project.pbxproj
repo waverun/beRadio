@@ -22,6 +22,9 @@
 		92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */; };
 		92E59A3929DB09E7002754E5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3829DB09E7002754E5 /* Date.swift */; };
 		92E59A3B29DB23AB002754E5 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3A29DB23AB002754E5 /* ImageLoader.swift */; };
+		92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */; };
+		92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3E29DB371F002754E5 /* LinkButton.swift */; };
+		92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4029DB4899002754E5 /* LinkProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksFetcher.swift; sourceTree = "<group>"; };
 		92E59A3829DB09E7002754E5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		92E59A3A29DB23AB002754E5 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredProgramButton.swift; sourceTree = "<group>"; };
+		92E59A3E29DB371F002754E5 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		92E59A4029DB4899002754E5 /* LinkProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
+				92E59A4029DB4899002754E5 /* LinkProcessor.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -113,6 +120,8 @@
 				92ADFC5429C7321700582B66 /* Full programs view.swift */,
 				92038E7C29D9D786008EDC1B /* AddLinkView.swift */,
 				92E59A3A29DB23AB002754E5 /* ImageLoader.swift */,
+				92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */,
+				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,8 +221,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */,
+				92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */,
 				92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */,
 				92E59A3B29DB23AB002754E5 /* ImageLoader.swift in Sources */,
+				92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
@@ -222,6 +233,7 @@
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
+				92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */,
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,7 +50,10 @@ struct ContentView: View {
                                         //                                Text(link)
                                     if !removedLinks.contains(where: { $0.url == link.url }) {
                                         NavigationLink(destination: fullProgramsView(link: link.url!)) {
-                                            Text(link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: ""))
+//                                            Text(link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: ""))
+                                            let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
+                                            
+                                            LinkButton(label: text, link: link.url!) { _ in }
                                         }
 //                                        .onAppear {
 //                                            print("list links: \(link.url) \(link.isHidden) \(ContentView.lastRemovedUrl)")

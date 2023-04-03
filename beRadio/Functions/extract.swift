@@ -14,7 +14,7 @@ import Foundation
 
 struct ExtractedData: Identifiable {
     let id = UUID()
-    let date: String
+    var date: String
     let link: String
     let image: String
 }
