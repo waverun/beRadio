@@ -81,7 +81,8 @@ struct ContentView: View {
                                 AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
                             }
                         }
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("beRadio")
                     } label: {
                         Text(item.station ?? "New station")
                     }
