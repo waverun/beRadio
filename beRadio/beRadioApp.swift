@@ -11,6 +11,10 @@ import SwiftUI
 struct beRadioApp: App {
     let persistenceController = PersistenceController.shared
 
+    init() {
+        configureAudioSession()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

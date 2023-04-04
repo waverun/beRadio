@@ -45,6 +45,7 @@ struct fullProgramsView: View {
     
     @State private var programs: [ExtractedData] = []
     @State private var title = ""
+    private static let audioPlayer = AudioPlayer()
 
     let link: String
     
@@ -89,19 +90,20 @@ struct fullProgramsView: View {
             } else {
                 List {
                     ForEach (programs) { program in
-//                        if let dateStr = program.date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
-//                           let date = dateStr.toDate(format: "dd.MM.yy") {
-                        ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
-                            if URL(string: "https://103fm.maariv.co.il" + link) != nil {
-//                                    UIApplication.shared.open(url)
-//                                    selectedURL = url
-//                                    showSafariView = true
-                                    didSelectURL(link)
-                                }
+                        //                        ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
+                        //                            if URL(string: "https://103fm.maariv.co.il" + link) != nil {
+                        //                                    didSelectURL(link)
+                        //                                }
+                        //                            }
+                        //                            .font(.title)
+                        //                            .foregroundColor(program.date.relativeColor())
+                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
+                            NavigationLink(destination: AudioPlayerView(url: URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3?aw_0_1st.collectionid=mag&aw_0_1st.episodeid=404238&aw_0_1st.skey=1680607885&listenerid=59d2d94be9079a8d0be6c6eeced5ec01&awparams=companionAds%3Atrue&nimblesessionid=483946759")!)) {
+                                ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in }
+                                    .font(.title)
+                                    .foregroundColor(program.date.relativeColor())
                             }
-                            .font(.title)
-                            .foregroundColor(program.date.relativeColor())
-//                        }
+                        }
                     }
                     .onDelete(perform: deleteProgram)
                 }

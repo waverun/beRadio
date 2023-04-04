@@ -27,6 +27,9 @@
 		92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4029DB4899002754E5 /* LinkProcessor.swift */; };
 		92E59A4329DB5EEA002754E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */; };
 		92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
+		92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4729DC5625002754E5 /* AudioPlayer.swift */; };
+		92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */; };
+		92E59A4D29DC5D08002754E5 /* ConfigureAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		92E59A4029DB4899002754E5 /* LinkProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkProcessor.swift; sourceTree = "<group>"; };
 		92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E59A4429DC31EC002754E5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		92E59A4729DC5625002754E5 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureAudioSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 		92AB2A7329C3A49100EFF179 /* beRadio */ = {
 			isa = PBXGroup;
 			children = (
+				92E59A4629DC55F9002754E5 /* Observables */,
 				92E59A3529DAD7C4002754E5 /* Classes */,
 				923803BB29D4AE70001BADF2 /* Info.plist */,
 				92AB2A7429C3A49100EFF179 /* beRadioApp.swift */,
@@ -114,6 +121,7 @@
 			children = (
 				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
 				92E59A4029DB4899002754E5 /* LinkProcessor.swift */,
+				92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 				92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */,
 				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
 				92E59A4429DC31EC002754E5 /* SafariView.swift */,
+				92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +157,14 @@
 				92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		92E59A4629DC55F9002754E5 /* Observables */ = {
+			isa = PBXGroup;
+			children = (
+				92E59A4729DC5625002754E5 /* AudioPlayer.swift */,
+			);
+			path = Observables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +247,7 @@
 				92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */,
 				92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */,
 				92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */,
+				92E59A4D29DC5D08002754E5 /* ConfigureAudioSession.swift in Sources */,
 				92E59A3B29DB23AB002754E5 /* ImageLoader.swift in Sources */,
 				92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
@@ -237,9 +255,11 @@
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
 				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
+				92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
 				92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */,
+				92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
 				92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */,
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
