@@ -8,23 +8,22 @@ class AudioPlayer: ObservableObject {
     @Published var currentProgressString: String = "00:00"
     @Published var totalDurationString: String = "00:00"
 
+//    let timeFormatter: DateComponentsFormatter = {
+//        let formatter = DateComponentsFormatter()
+//        formatter.allowedUnits = [.minute, .second]
+//        formatter.zeroFormattingBehavior = .pad
+//        return formatter
+//    }()
+    
     let timeFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = .pad
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = [.dropLeading, .pad]
         return formatter
     }()
 
     private var timeObserverToken: Any?
 
-//    func play(url: URL) {
-//        player = AVPlayer(url: url)
-//        player?.play()
-//        isPlaying = true
-//        updateTotalDurationString()
-//        startUpdatingCurrentProgress()
-//    }
-    
     func play(url: URL) {
         player = AVPlayer(url: url)
         player?.play()
