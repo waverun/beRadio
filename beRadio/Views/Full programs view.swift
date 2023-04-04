@@ -10,6 +10,7 @@ import SwiftUI
 import CoreData
 
 struct ProgramButton: View {
+
     var label: String
     var link: String
     var imageUrl: String
@@ -39,6 +40,9 @@ struct ProgramButton: View {
 }
 
 struct fullProgramsView: View {
+    @State private var showSafariView: Bool = false
+    @State private var selectedURL: URL?
+    
     @State private var programs: [ExtractedData] = []
     @State private var title = ""
 
@@ -88,8 +92,11 @@ struct fullProgramsView: View {
 //                        if let dateStr = program.date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
 //                           let date = dateStr.toDate(format: "dd.MM.yy") {
                         ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
-                                if let url = URL(string: "https://103fm.maariv.co.il" + link) {
-                                    UIApplication.shared.open(url)
+                            if URL(string: "https://103fm.maariv.co.il" + link) != nil {
+//                                    UIApplication.shared.open(url)
+//                                    selectedURL = url
+//                                    showSafariView = true
+                                    didSelectURL(link)
                                 }
                             }
                             .font(.title)
@@ -97,6 +104,16 @@ struct fullProgramsView: View {
 //                        }
                     }
                     .onDelete(perform: deleteProgram)
+                }
+                .sheet(isPresented: $showSafariView) {
+                    if let url = selectedURL {
+                        SafariView(url: url)
+                    } else {
+                        Text("No URL selected")
+                    }
+                }
+                .onChange(of: selectedURL) { newValue in
+                    showSafariView = newValue != nil
                 }
                 .toolbar {
     #if os(iOS)
@@ -118,10 +135,12 @@ struct fullProgramsView: View {
         programs.remove(atOffsets: offsets)
     }
     
-//    private func addProgram() {
-//        // Create a new Program instance and add it to the programs array
-//        let newProgram = ExtractedData(date: "New Date", link: "New Link")
-//        programs.append(newProgram)
-//    }
-
+    func didSelectURL(_ link: String) {
+        if let url = URL(string: "https://103fm.maariv.co.il" + link) {
+            DispatchQueue.main.async {
+                selectedURL = url
+                showSafariView = true
+            }
+        }
+    }
 }

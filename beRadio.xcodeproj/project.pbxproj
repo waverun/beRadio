@@ -26,6 +26,7 @@
 		92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3E29DB371F002754E5 /* LinkButton.swift */; };
 		92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4029DB4899002754E5 /* LinkProcessor.swift */; };
 		92E59A4329DB5EEA002754E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */; };
+		92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		92E59A3E29DB371F002754E5 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		92E59A4029DB4899002754E5 /* LinkProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkProcessor.swift; sourceTree = "<group>"; };
 		92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92E59A4429DC31EC002754E5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				92E59A3A29DB23AB002754E5 /* ImageLoader.swift */,
 				92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */,
 				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
+				92E59A4429DC31EC002754E5 /* SafariView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
+				92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
 				92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */,
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
