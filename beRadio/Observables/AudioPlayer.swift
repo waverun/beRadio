@@ -62,18 +62,18 @@ class AudioPlayer: ObservableObject {
     
     init() {
 //        super.init()
-        configureAudioSession()
+//        configureAudioSession()
     }
 
-    private func configureAudioSession() {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.playback, mode: .default, options: [.allowAirPlay])
-            try audioSession.setActive(true, options: [])
-        } catch {
-            print("Failed to set up audio session: \(error)")
-        }
-    }
+//    private func configureAudioSession() {
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(.playback, mode: .default, options: [.allowAirPlay])
+//            try audioSession.setActive(true, options: [])
+//        } catch {
+//            print("Failed to set up audio session: \(error)")
+//        }
+//    }
 
 //    // ...
 //

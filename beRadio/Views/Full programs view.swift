@@ -98,7 +98,7 @@ struct fullProgramsView: View {
                         //                            .font(.title)
                         //                            .foregroundColor(program.date.relativeColor())
                         if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
-                            NavigationLink(destination: AudioPlayerView(url: URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3?aw_0_1st.collectionid=mag&aw_0_1st.episodeid=404238&aw_0_1st.skey=1680607885&listenerid=59d2d94be9079a8d0be6c6eeced5ec01&awparams=companionAds%3Atrue&nimblesessionid=483946759")!)) {
+                            NavigationLink(destination: AudioPlayerView(url: URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3")!)) {
                                 ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in }
                                     .font(.title)
                                     .foregroundColor(program.date.relativeColor())
