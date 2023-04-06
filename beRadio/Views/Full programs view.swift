@@ -45,36 +45,13 @@ struct fullProgramsView: View {
     
     @State private var programs: [ExtractedData] = []
     @State private var title = ""
+    
+    @State private var showAudioPlayerView: Bool = false
+    static private var selectedAudioUrl: URL?
+
     private static let audioPlayer = AudioPlayer()
 
     let link: String
-    
-//    func processLink(_ link: String) -> String {
-//        // Add your logic here to process the link and return the desired output
-//        print("processLink: link: \(link)")
-//        title = link.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-//        getHtmlContent(url: "https://103fm.maariv.co.il" + link.replacingOccurrences(of: " ", with: "-"), search: #"href="([^"]+)">תוכניות מלאות</a>"#) { extractedLinks in
-//            //            DispatchQueue.main.async {
-//            //                links = extractedLinks
-//            //            }
-//            guard extractedLinks.count == 1 else {
-//                print("process link extracteLinks: \(extractedLinks)")
-//                print("\(extractedLinks.count) extracted. Should be only 1")
-//                return
-//            }
-//            print("processLink: url: \("https://103fm.maariv.co.il" + extractedLinks[0])")
-//            getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0], search: #"(?<=href=")(/programs/complete_episodes\.aspx\?[^"]+)(?=">תוכניות מלאות</a>)"#) { extractedLink in
-//                if extractedLink.count == 1 {
-//                    getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLink[0]) { htmlContent in
-//                        programs = extractDatesAndLinks(html: htmlContent[0])
-//                        return
-//                    }
-//                }
-//                print("getHtmlContent: searching for the link to full episodes gave: \(extractedLink)")
-//            }
-//        }
-//        return "Processed Link: \(link)"
-//    }
     
     var body: some View {
         //        Text(processLink(link))
@@ -88,24 +65,41 @@ struct fullProgramsView: View {
                     }
                 }
             } else {
+//                List {
+//                    ForEach (programs) { program in
+//                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
+//                            NavigationLink(destination: AudioPlayerView(url: URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3")!)) {
+//                                ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in }
+//                                    .font(.title)
+//                                    .foregroundColor(program.date.relativeColor())
+//                            }
+//                        }
+//                    }
+//                    .onDelete(perform: deleteProgram)
+//                }
                 List {
                     ForEach (programs) { program in
-                        //                        ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
-                        //                            if URL(string: "https://103fm.maariv.co.il" + link) != nil {
-                        //                                    didSelectURL(link)
-                        //                                }
-                        //                            }
-                        //                            .font(.title)
-                        //                            .foregroundColor(program.date.relativeColor())
                         if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
-                            NavigationLink(destination: AudioPlayerView(url: URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3")!)) {
-                                ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in }
-                                    .font(.title)
-                                    .foregroundColor(program.date.relativeColor())
+                            // Update the ProgramButton's action to toggle the sheet's visibility
+                            ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
+                                fullProgramsView.selectedAudioUrl = URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3")
+//                                DispatchQueue.main.async {
+                                    showAudioPlayerView.toggle()
+//                                }
                             }
+                            .font(.title)
+                            .foregroundColor(program.date.relativeColor())
                         }
                     }
                     .onDelete(perform: deleteProgram)
+                }
+                // Present the AudioPlayerView using a sheet
+                .sheet(isPresented: $showAudioPlayerView) {
+                    if let url = fullProgramsView.selectedAudioUrl {
+                        AudioPlayerView(url: url)
+                    } else {
+                        Text("No URL selected")
+                    }
                 }
                 .sheet(isPresented: $showSafariView) {
                     if let url = selectedURL {
