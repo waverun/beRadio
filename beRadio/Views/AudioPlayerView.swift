@@ -23,7 +23,13 @@ struct AudioPlayerView: View {
                 Spacer()
                 VStack {
                     VStack {
+                        Spacer()
+                            .frame(height: 50) // Adjust the height value as needed
+                        
                         Text(heading)
+                            .font(.system(size: 24)) // Adjust the size value as needed
+                            .bold()
+
                         AsyncImage(url: "https://103fm.maariv.co.il" + imageSrc)
                             .frame(width: 240, height: 240)
                         
