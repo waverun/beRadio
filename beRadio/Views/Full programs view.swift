@@ -79,17 +79,19 @@ struct fullProgramsView: View {
 //                }
                 List {
                     ForEach (programs) { program in
-                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
+//                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
                             // Update the ProgramButton's action to toggle the sheet's visibility
-                            ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in
-                                fullProgramsView.selectedAudioUrl = URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3")
-//                                DispatchQueue.main.async {
+                            ProgramButton(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image) { link in
+                                fetchAudioUrl(link: link) { url in
+                                    fullProgramsView.selectedAudioUrl = url
+                                    //                                DispatchQueue.main.async {
                                     showAudioPlayerView.toggle()
+                                }
 //                                }
                             }
                             .font(.title)
                             .foregroundColor(program.date.relativeColor())
-                        }
+//                        }
                     }
                     .onDelete(perform: deleteProgram)
                 }
@@ -117,11 +119,6 @@ struct fullProgramsView: View {
                         EditButton()
                     }
     #endif
-//                    ToolbarItem {
-//                        Button(action: addProgram) {
-//                            Label("Add program", systemImage: "plus")
-//                        }
-//                    }
                 }
             }
         }.navigationBarTitle(title, displayMode: .inline)

@@ -30,6 +30,7 @@
 		92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4729DC5625002754E5 /* AudioPlayer.swift */; };
 		92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */; };
 		92E59A4D29DC5D08002754E5 /* ConfigureAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */; };
+		92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		92E59A4729DC5625002754E5 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureAudioSession.swift; sourceTree = "<group>"; };
+		92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAudiUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
 				92E59A4029DB4899002754E5 /* LinkProcessor.swift */,
 				92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */,
+				92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
+				92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */,
 				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
 				92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */,
 				92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */,
