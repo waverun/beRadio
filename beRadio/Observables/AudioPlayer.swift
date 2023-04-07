@@ -52,6 +52,7 @@
 
 import SwiftUI
 import AVFoundation
+import MediaPlayer
 
 class AudioPlayer: ObservableObject {
     private var player: AVPlayer?
@@ -63,6 +64,30 @@ class AudioPlayer: ObservableObject {
     init() {
 //        super.init()
 //        configureAudioSession()
+        setupRemoteCommandCenter()
+    }
+
+    func setupRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.playCommand.addTarget { [unowned self] _ in
+            self.play()
+            return .success
+        }
+        
+        commandCenter.pauseCommand.addTarget { [unowned self] _ in
+            self.pause()
+            return .success
+        }
+        
+        commandCenter.togglePlayPauseCommand.addTarget { [unowned self] _ in
+            if self.player!.timeControlStatus == .paused {
+                self.play()
+            } else {
+                self.pause()
+            }
+            return .success
+        }
     }
 
 //    private func configureAudioSession() {
@@ -97,9 +122,11 @@ class AudioPlayer: ObservableObject {
     private var timeObserverToken: Any?
     private var isObservingTime = false
 
-    func play(url: URL) {
-        if player == nil {
+    func play(url: URL? = nil) {
+        if player == nil,
+        let url = url {
             player = AVPlayer(url: url)
+//            player?.allowsExternalPlayback = false
             Task {
                 await updateTotalDurationString()
             }

@@ -13,6 +13,7 @@ struct beRadioApp: App {
 
     init() {
         configureAudioSession()
+//        selectAudioOutput()
     }
 
     var body: some Scene {

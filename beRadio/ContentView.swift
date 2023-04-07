@@ -7,9 +7,11 @@
 
 import SwiftUI
 import CoreData
+import AVFoundation
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
 //    @State private var links: [String] = []
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
@@ -118,6 +120,14 @@ struct ContentView: View {
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
+        .onAppear {
+//            .onAppear {
+                        configureAudioSession()
+//            setupRemoteCommandCenter()
+
+//                        NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: AVAudioSession.routeChangeNotification, object: nil)
+////                    }
+        }
     }
     
 //    private func addLink() {

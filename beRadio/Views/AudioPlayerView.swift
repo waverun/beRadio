@@ -3,6 +3,9 @@ import AVFoundation
 
 struct AudioPlayerView: View {
     @ObservedObject private var audioPlayer: AudioPlayer
+    
+    @StateObject private var routeChangeHandler = RouteChangeHandler()
+
     private let audioUrl: URL
     private let imageSrc: String
     private let heading: String
@@ -13,7 +16,7 @@ struct AudioPlayerView: View {
         self.imageSrc = image
         self.heading = date
     }
-
+    
     var body: some View {
         VStack {
             Text(heading)
@@ -22,7 +25,7 @@ struct AudioPlayerView: View {
             HStack {
                 Text("\(audioPlayer.totalDurationString)")
                     .foregroundColor(.white)
-
+                
                 Button(action: {
                     audioPlayer.rewind()
                 }) {
@@ -31,7 +34,7 @@ struct AudioPlayerView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40, height: 40)
                 }
-
+                
                 Button(action: {
                     audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
                 }) {
@@ -40,7 +43,7 @@ struct AudioPlayerView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                 }
-
+                
                 Button(action: {
                     audioPlayer.forward()
                 }) {
@@ -49,10 +52,19 @@ struct AudioPlayerView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40, height: 40)
                 }
-
+                
                 Text("\(audioPlayer.currentProgressString)")
                     .foregroundColor(.white)
             }
+            Button("Select Audio Output") {
+                selectAudioOutput()
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
         }
+        
     }
 }
+

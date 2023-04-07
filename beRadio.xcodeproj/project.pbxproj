@@ -31,6 +31,9 @@
 		92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */; };
 		92E59A4D29DC5D08002754E5 /* ConfigureAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */; };
 		92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */; };
+		92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */; };
+		92E59A5D29E0305A002754E5 /* RouteChangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */; };
+		92E59A5F29E04D60002754E5 /* setupRemoteCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureAudioSession.swift; sourceTree = "<group>"; };
 		92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAudiUrl.swift; sourceTree = "<group>"; };
+		92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectAudioOutput.swift; sourceTree = "<group>"; };
+		92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteChangeHandler.swift; sourceTree = "<group>"; };
+		92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupRemoteCommandCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,8 @@
 				92E59A4029DB4899002754E5 /* LinkProcessor.swift */,
 				92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */,
 				92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */,
+				92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */,
+				92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */,
+				92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -255,8 +264,11 @@
 				92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
+				92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
 				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,
+				92E59A5F29E04D60002754E5 /* setupRemoteCommandCenter.swift in Sources */,
+				92E59A5D29E0305A002754E5 /* RouteChangeHandler.swift in Sources */,
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
