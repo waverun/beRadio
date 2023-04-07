@@ -48,6 +48,8 @@ struct fullProgramsView: View {
     
     @State private var showAudioPlayerView: Bool = false
     static private var selectedAudioUrl: URL?
+    static private var selectedAudioImage: String?
+    static private var selectedAudioDate: String?
 
     private static let audioPlayer = AudioPlayer()
 
@@ -65,18 +67,6 @@ struct fullProgramsView: View {
                     }
                 }
             } else {
-//                List {
-//                    ForEach (programs) { program in
-//                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
-//                            NavigationLink(destination: AudioPlayerView(url: URL(string: "https://awaod01.streamgates.net/103fm_aw/mag0404238.mp3")!)) {
-//                                ProgramButton(label: program.date, link: program.link, imageUrl: program.image) { link in }
-//                                    .font(.title)
-//                                    .foregroundColor(program.date.relativeColor())
-//                            }
-//                        }
-//                    }
-//                    .onDelete(perform: deleteProgram)
-//                }
                 List {
                     ForEach (programs) { program in
 //                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
@@ -84,6 +74,8 @@ struct fullProgramsView: View {
                             ProgramButton(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image) { link in
                                 fetchAudioUrl(link: link) { url in
                                     fullProgramsView.selectedAudioUrl = url
+                                    fullProgramsView.selectedAudioImage = program.image
+                                    fullProgramsView.selectedAudioDate = program.date
                                     //                                DispatchQueue.main.async {
                                     showAudioPlayerView.toggle()
                                 }
@@ -97,8 +89,10 @@ struct fullProgramsView: View {
                 }
                 // Present the AudioPlayerView using a sheet
                 .sheet(isPresented: $showAudioPlayerView) {
-                    if let url = fullProgramsView.selectedAudioUrl {
-                        AudioPlayerView(url: url)
+                    if let url = fullProgramsView.selectedAudioUrl,
+                       let image = fullProgramsView.selectedAudioImage,
+                       let date = fullProgramsView.selectedAudioDate {
+                        AudioPlayerView(url: url, image: image, date: date)
                     } else {
                         Text("No URL selected")
                     }
