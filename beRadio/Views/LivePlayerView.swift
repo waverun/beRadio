@@ -1,18 +1,18 @@
 import SwiftUI
 import AVFoundation
 
-struct AudioPlayerView: View {
-    @ObservedObject private var audioPlayer: AudioPlayer
+struct LivePlayerView: View {
+    @ObservedObject private var audioPlayer: LiveAudioPlayer
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
 
     private let audioUrl: URL
-    private let imageSrc: String?
+    private let imageSrc: String
     private let heading: String
     
-    init(url: URL, image: String?, date: String) {
-        self.audioPlayer = AudioPlayer()
-        self.audioUrl = url
+    init(url: URL, image: String, date: String) {
+        self.audioPlayer = LiveAudioPlayer()
+        self.audioUrl = URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!
         self.imageSrc = image
         self.heading = date
     }
@@ -29,10 +29,10 @@ struct AudioPlayerView: View {
                         Text(heading)
                             .font(.system(size: 24)) // Adjust the size value as needed
                             .bold()
-                        if let imageSrc = imageSrc {
-                            AsyncImage(url: "https://103fm.maariv.co.il" + imageSrc)
-                                .frame(width: 240, height: 240)
-                        }
+
+                        AsyncImage(url: "https://103fm.maariv.co.il" + imageSrc)
+                            .frame(width: 240, height: 240)
+                        
                         HStack {
                             Text("\(audioPlayer.totalDurationString)")
                                 .foregroundColor(.white)

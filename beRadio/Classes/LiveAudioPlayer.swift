@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 import MediaPlayer
 
-class AudioPlayer: ObservableObject {
+class LiveAudioPlayer: ObservableObject {
     private var player: AVPlayer?
     @Published var isPlaying = false
 

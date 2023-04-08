@@ -13,7 +13,7 @@ struct ProgramButton: View {
 
     var label: String
     var link: String
-    var imageUrl: String
+    var imageUrl: String?
     var action: (String) -> Void
     var color : UIColor = .gray
 
@@ -23,8 +23,10 @@ struct ProgramButton: View {
            },
            label: {
                HStack {
-                   AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
-                       .frame(width: 60, height: 60) // Adjust the size as needed
+                   if let imageUrl = imageUrl {
+                       AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
+                           .frame(width: 60, height: 60) // Adjust the size as needed
+                   }
                    Text(label)
                }
            })
@@ -47,6 +49,7 @@ struct fullProgramsView: View {
     @State private var title = ""
     
     @State private var showAudioPlayerView: Bool = false
+    @State private var showLivePlayerView: Bool = false
     static private var selectedAudioUrl: URL?
     static private var selectedAudioImage: String?
     static private var selectedAudioDate: String?
@@ -68,6 +71,17 @@ struct fullProgramsView: View {
                 }
             } else {
                 List {
+                    ProgramButton(label: "Live", link: "https://103fm.maariv.co.il", imageUrl: nil) { link in
+                        fetchAudioUrl(link: link) { url in
+                            fullProgramsView.selectedAudioUrl = url
+                            fullProgramsView.selectedAudioImage = nil
+                            fullProgramsView.selectedAudioDate = "103 FM"
+                            //                                DispatchQueue.main.async {
+                            showLivePlayerView.toggle()
+                        }
+//                                }
+                    }
+                    .font(.title)
                     ForEach (programs) { program in
 //                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
                             // Update the ProgramButton's action to toggle the sheet's visibility
@@ -88,6 +102,16 @@ struct fullProgramsView: View {
                     .onDelete(perform: deleteProgram)
                 }
                 // Present the AudioPlayerView using a sheet
+                .sheet(isPresented: $showLivePlayerView) {
+                    if let url = fullProgramsView.selectedAudioUrl,
+//                       let image = fullProgramsView.selectedAudioImage,
+                       let date = fullProgramsView.selectedAudioDate {
+                       let image = fullProgramsView.selectedAudioImage
+                        AudioPlayerView(url: url, image: image, date: date)
+                    } else {
+                        Text("No Stream found")
+                    }
+                }
                 .sheet(isPresented: $showAudioPlayerView) {
                     if let url = fullProgramsView.selectedAudioUrl,
                        let image = fullProgramsView.selectedAudioImage,

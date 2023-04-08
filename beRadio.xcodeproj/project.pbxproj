@@ -34,6 +34,8 @@
 		92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */; };
 		92E59A5D29E0305A002754E5 /* RouteChangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */; };
 		92E59A5F29E04D60002754E5 /* setupRemoteCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */; };
+		92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6029E07302002754E5 /* LivePlayerView.swift */; };
+		92E59A6329E0733F002754E5 /* LiveAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectAudioOutput.swift; sourceTree = "<group>"; };
 		92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteChangeHandler.swift; sourceTree = "<group>"; };
 		92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupRemoteCommandCenter.swift; sourceTree = "<group>"; };
+		92E59A6029E07302002754E5 /* LivePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlayerView.swift; sourceTree = "<group>"; };
+		92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
 				92E59A4429DC31EC002754E5 /* SafariView.swift */,
 				92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */,
+				92E59A6029E07302002754E5 /* LivePlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			children = (
 				92E59A3629DAD7DD002754E5 /* LinksFetcher.swift */,
 				92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */,
+				92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -271,9 +277,11 @@
 				92E59A5D29E0305A002754E5 /* RouteChangeHandler.swift in Sources */,
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */,
+				92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */,
 				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
+				92E59A6329E0733F002754E5 /* LiveAudioPlayer.swift in Sources */,
 				92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */,
 				92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
