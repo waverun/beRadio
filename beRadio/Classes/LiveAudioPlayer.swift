@@ -3,7 +3,10 @@ import AVFoundation
 import MediaPlayer
 
 class LiveAudioPlayer: ObservableObject {
-    private var player: AVPlayer?
+//    private var player: AVPlayer?
+    private var player: AVQueuePlayer?
+    var streamBuffer: StreamBuffer?
+
     @Published var isPlaying = false
 
     @Published var currentProgressString: String = "00:00"
@@ -70,24 +73,49 @@ class LiveAudioPlayer: ObservableObject {
     private var timeObserverToken: Any?
     private var isObservingTime = false
 
-    func play(url: URL? = nil) {
-        if player == nil,
-        let url = url {
-            player = AVPlayer(url: url)
-//            player?.allowsExternalPlayback = false
-            Task {
-                await updateTotalDurationString()
+//    func play(url: URL? = nil) {
+//        if player == nil,
+//        let url = url {
+//            player = AVPlayer(url: url)
+////            player?.allowsExternalPlayback = false
+//            Task {
+//                await updateTotalDurationString()
+//            }
+//        }
+//
+//        if !isObservingTime {
+//            startUpdatingCurrentProgress()
+//        }
+//
+//        player?.play()
+//        isPlaying = true
+//    }
+
+    func play() {
+            if player == nil {
+                streamBuffer = StreamBuffer(streamURL: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, chunkDuration: 15)
+                player = AVQueuePlayer()
+                startBufferingAndPlaying()
+            }
+            
+            player?.play()
+            isPlaying = true
+        }
+        
+    private func startBufferingAndPlaying() {
+        streamBuffer?.downloadChunk { [weak self] url in
+            guard let self = self, let url = url else { return }
+            
+            let playerItem = AVPlayerItem(url: url)
+            self.player?.insert(playerItem, after: nil)
+            
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
+                self.streamBuffer?.removePlayedChunk()
+                self.startBufferingAndPlaying()
             }
         }
-
-        if !isObservingTime {
-            startUpdatingCurrentProgress()
-        }
-
-        player?.play()
-        isPlaying = true
     }
-
+    
     func pause() {
         player?.pause()
         isPlaying = false

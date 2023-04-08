@@ -5,7 +5,7 @@ struct LivePlayerView: View {
     @ObservedObject private var audioPlayer: LiveAudioPlayer
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
-
+    
     private let audioUrl: URL
     private let imageSrc: String
     private let heading: String
@@ -29,7 +29,7 @@ struct LivePlayerView: View {
                         Text(heading)
                             .font(.system(size: 24)) // Adjust the size value as needed
                             .bold()
-
+                        
                         AsyncImage(url: "https://103fm.maariv.co.il" + imageSrc)
                             .frame(width: 240, height: 240)
                         
@@ -47,7 +47,8 @@ struct LivePlayerView: View {
                             }
                             
                             Button(action: {
-                                audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
+                                //                                audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
+                                audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play()
                             }) {
                                 Image(systemName: audioPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
                                     .resizable()
@@ -91,6 +92,10 @@ struct LivePlayerView: View {
                 Spacer()
             }
             .edgesIgnoringSafeArea(.bottom)
+            .onDisappear {
+                audioPlayer.pause()
+                audioPlayer.streamBuffer?.deleteAllChunks()
+            }
         }
     }
 }
