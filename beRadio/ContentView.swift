@@ -12,32 +12,22 @@ import AVFoundation
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-//    @State private var links: [String] = []
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
-//    static private var lastRemovedUrl = ""
+    
+    @State private var showLivePlayerView: Bool = false
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    
-//    @FetchRequest(
-//            entity: Link.entity(),
-//            sortDescriptors: [NSSortDescriptor(keyPath: \Link.url, ascending: true)],
-//            animation: .default)
-//    private var links: FetchedResults<Link>
-    
-//    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Link.isHidden, ascending: false)], animation: .default) private var links: FetchedResults<Link>
-    
+        
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Link.url, ascending: true)],
-//    predicate: NSPredicate(format: "isHidden == false"),
-    animation: .default) private var links: FetchedResults<Link>
-
+                  animation: .default) private var links: FetchedResults<Link>
+    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \RemovedLink.url, ascending: true)],
-//    predicate: NSPredicate(format: "isHidden == false"),
-    animation: .default) private var removedLinks: FetchedResults<RemovedLink>
-
+                  animation: .default) private var removedLinks: FetchedResults<RemovedLink>
+    
     var body: some View {
         NavigationView {
             List {
@@ -46,47 +36,73 @@ struct ContentView: View {
                         if links.isEmpty {
                             Text("Loading...")
                         } else {
-                            List {
-                                ForEach(links, id: \.self) { link in
-//                                    if !link.isHidden && link.url != ContentView.lastRemovedUrl {
-                                        //                                Text(link)
-                                    if !removedLinks.contains(where: { $0.url == link.url }) {
-                                        NavigationLink(destination: fullProgramsView(link: link.url!)) {
-//                                            Text(link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: ""))
-                                            let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-                                            
-                                            LinkButton(label: text, link: link.url!) { _ in }
+                                List {
+                                    HStack {
+                                        Spacer()
+                                        Button(action: {
+                                            showLivePlayerView.toggle()
+                                        }) {
+                                            Text("Live!")
+                                                .padding(.horizontal, 8) // Adjust horizontal padding
+                                                .padding(.vertical, 8) // Adjust vertical padding
+                                                .background(Color.blue)
+                                                .foregroundColor(.white)
+                                                .cornerRadius(8)
                                         }
-//                                        .onAppear {
-//                                            print("list links: \(link.url) \(link.isHidden) \(ContentView.lastRemovedUrl)")
-//                                        }
+                                        Spacer()
                                     }
-                                }.onDelete(perform: removeLinks)
-                            }
-                            .onAppear {
-                                title = "103 FM"
-                            }
+                                    ForEach(links, id: \.self) { link in
+                                        if !removedLinks.contains(where: { $0.url == link.url }) {
+                                            NavigationLink(destination: fullProgramsView(link: link.url!)) {
+                                                let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
+                                                
+                                                LinkButton(label: text, link: link.url!) { _ in }
+                                            }
+                                        }
+                                    }
+                                    .onDelete(perform: removeLinks)
+                                    .padding(.top, -10)
+                                    .padding(.bottom, -10)
+                                }
+                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .onAppear {
+                                    title = "103 FM"
+                                }
+//                                .padding(.top, -10)
+
+                                //                            .padding(.top, -40) // Adjust the value to your desired padding
+                                .sheet(isPresented: $showLivePlayerView) {
+                                    //                                if let url = fullProgramsView.selectedAudioUrl,
+                                    //            //                       let image = fullProgramsView.selectedAudioImage,
+                                    //                                   let date = fullProgramsView.selectedAudioDate {
+                                    //                                   let image = fullProgramsView.selectedAudioImage
+                                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM")
+                                    //                                } else {
+                                    //                                    Text("No Stream found")
+                                    //                                }
+                                }
+//                            }
                             .toolbar {
-                #if os(iOS)
+#if os(iOS)
                                 ToolbarItem(placement: .navigationBarTrailing) {
                                     EditButton()
                                 }
-                #endif
+#endif
                                 ToolbarItem {
-//                                    Button(action: addNewLink) {
-//                                        Label("Add link", systemImage: "plus")
-//                                    }
+                                    //                                    Button(action: addNewLink) {
+                                    //                                        Label("Add link", systemImage: "plus")
+                                    //                                    }
                                     Button(action: { showingAddLinkView.toggle() }) {
                                         Label("Add link", systemImage: "plus")
                                     }
                                 }
                             }
                             .sheet(isPresented: $showingAddLinkView) {
-//                                AddLinkView(links: $links)
+                                //                                AddLinkView(links: $links)
                                 AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
                             }
                         }
-//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                         Text("beRadio")
                     } label: {
                         Text(item.station ?? "New station")
@@ -109,8 +125,8 @@ struct ContentView: View {
             .onAppear {
                 getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
                     DispatchQueue.main.async {
-//                        links = extractedLinks
-//                        clearAllUrls()
+                        //                        links = extractedLinks
+                        //                        clearAllUrls()
                         addLinks(urls: extractedLinks)
                     }
                 }
@@ -121,24 +137,24 @@ struct ContentView: View {
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
         .onAppear {
-//            .onAppear {
-                        configureAudioSession()
-//            setupRemoteCommandCenter()
-
-//                        NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: AVAudioSession.routeChangeNotification, object: nil)
-////                    }
+            //            .onAppear {
+            configureAudioSession()
+            //            setupRemoteCommandCenter()
+            
+            //                        NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: AVAudioSession.routeChangeNotification, object: nil)
+            ////                    }
         }
     }
     
-//    private func addLink() {
-//        // Create a new Program instance and add it to the programs array
-//        let newLink = "New program"
-//        links.append(newLink)
-//    }
-
+    //    private func addLink() {
+    //        // Create a new Program instance and add it to the programs array
+    //        let newLink = "New program"
+    //        links.append(newLink)
+    //    }
+    
     private func clearAllUrls() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Link.fetchRequest()
-
+        
         do {
             let results = try viewContext.fetch(fetchRequest)
             for linkObject in results {
@@ -161,8 +177,8 @@ struct ContentView: View {
                     let newLink = Link(context: viewContext)
                     newLink.url = url
                 }
-//                newLink.isHidden = false
-//                ContentView.lastRemovedUrl = ""
+                //                newLink.isHidden = false
+                //                ContentView.lastRemovedUrl = ""
             }
             do {
                 try viewContext.save()
@@ -175,27 +191,27 @@ struct ContentView: View {
     
     func urlFound(_ url: String) -> Bool {
         return links.contains(where: { $0.url == url }) || removedLinks.contains(where: { $0.url == url })
-//        return false
+        //        return false
     }
-//
-//    private func addNewLink() {
-//            addLink()
-//    }
+    //
+    //    private func addNewLink() {
+    //            addLink()
+    //    }
     
-//    private func addLink(url: String? = nil) {
-//        let url = url ?? "New program"
-//        let newLink = Link(context: viewContext)
-//        newLink.url = url
-//        newLink.isHidden = false
-//
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            let nsError = error as NSError
-//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//        }
-//    }
-        
+    //    private func addLink(url: String? = nil) {
+    //        let url = url ?? "New program"
+    //        let newLink = Link(context: viewContext)
+    //        newLink.url = url
+    //        newLink.isHidden = false
+    //
+    //        do {
+    //            try viewContext.save()
+    //        } catch {
+    //            let nsError = error as NSError
+    //            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    //        }
+    //    }
+    
     static var firstRemove = true
     
     private func removeLinks(atOffsets offsets: IndexSet) {
@@ -217,8 +233,8 @@ struct ContentView: View {
                     viewContext.delete(links[index]) // Delete the removedLink from viewContext
                 }
                 ContentView.firstRemove = false
-//                viewContext.delete(links[index]) // Delete the removedLink from viewContext
-
+                //                viewContext.delete(links[index]) // Delete the removedLink from viewContext
+                
                 //                   do {
                 //                       try viewContext.save()
                 //                       if let index1 = links.firstIndex(where: { $0.url == links[index].url }) {
@@ -237,28 +253,28 @@ struct ContentView: View {
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
-//           refreshLinks()
+            //           refreshLinks()
         }
     }
-
-//    private func removeLinks(atOffsets offsets: IndexSet) {
-//        for index in offsets {
-//            let link = links[index]
-//            link.isHidden = true
-////            viewContext.delete(link)
-//        }
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            let nsError = error as NSError
-//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//        }
-//    }
     
-//    private func deleteLink(at offsets: IndexSet) {
-//        links.remove(atOffsets: offsets)
-//    }
-
+    //    private func removeLinks(atOffsets offsets: IndexSet) {
+    //        for index in offsets {
+    //            let link = links[index]
+    //            link.isHidden = true
+    ////            viewContext.delete(link)
+    //        }
+    //        do {
+    //            try viewContext.save()
+    //        } catch {
+    //            let nsError = error as NSError
+    //            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    //        }
+    //    }
+    
+    //    private func deleteLink(at offsets: IndexSet) {
+    //        links.remove(atOffsets: offsets)
+    //    }
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
