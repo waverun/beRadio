@@ -42,6 +42,8 @@
 		92E59A7229E33250002754E5 /* fetchRadioStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7129E33250002754E5 /* fetchRadioStations.swift */; };
 		92E59A7429E33292002754E5 /* RadioStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7329E33292002754E5 /* RadioStationView.swift */; };
 		92E59A7629E33896002754E5 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7529E33896002754E5 /* JSONDecoder.swift */; };
+		92E59A8129E4983E002754E5 /* StationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A8029E4983E002754E5 /* StationListViewModel.swift */; };
+		92E59A8329E4992F002754E5 /* CheckUrlExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A8229E4992F002754E5 /* CheckUrlExists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		92E59A7129E33250002754E5 /* fetchRadioStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchRadioStations.swift; sourceTree = "<group>"; };
 		92E59A7329E33292002754E5 /* RadioStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationView.swift; sourceTree = "<group>"; };
 		92E59A7529E33896002754E5 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		92E59A8029E4983E002754E5 /* StationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListViewModel.swift; sourceTree = "<group>"; };
+		92E59A8229E4992F002754E5 /* CheckUrlExists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUrlExists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 				92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */,
 				92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */,
 				92E59A7129E33250002754E5 /* fetchRadioStations.swift */,
+				92E59A8229E4992F002754E5 /* CheckUrlExists.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */,
 				92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */,
 				92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */,
+				92E59A8029E4983E002754E5 /* StationListViewModel.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -319,6 +325,8 @@
 				92E59A7429E33292002754E5 /* RadioStationView.swift in Sources */,
 				92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */,
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
+				92E59A8329E4992F002754E5 /* CheckUrlExists.swift in Sources */,
+				92E59A8129E4983E002754E5 /* StationListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
