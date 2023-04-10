@@ -3,6 +3,9 @@ import SwiftUI
 struct RadioStationsView: View {
     @State private var searchQuery: String = ""
     @State private var radioStations: [RadioStation] = []
+    
+    @Environment(\.presentationMode) private var presentationMode
+    let onDone: (String) -> Void
 
     var body: some View {
         VStack {
@@ -27,9 +30,12 @@ struct RadioStationsView: View {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                }
-                .onTapGesture {
-                    print("Selected station URL: \(station.url)")
+                    Button(action: {
+                        onDone(station.name)
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Done")
+                    }
                 }
             }
         }

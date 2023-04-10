@@ -161,8 +161,9 @@ struct ContentView: View {
             configureAudioSession()
         }
         .sheet(isPresented: $showingRadioStationsView) {
-//            SearchView()
-            RadioStationsView()
+            RadioStationsView { station in
+                print("Station " + station)
+            }
         }
     }
     
