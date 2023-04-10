@@ -5,7 +5,7 @@ struct RadioStationsView: View {
     @State private var radioStations: [RadioStation] = []
     
     @Environment(\.presentationMode) private var presentationMode
-    let onDone: (String) -> Void
+    let onDone: (RadioStation) -> Void
 
     var body: some View {
         VStack {
@@ -31,7 +31,7 @@ struct RadioStationsView: View {
                             .foregroundColor(.secondary)
                     }
                     Button(action: {
-                        onDone(station.name)
+                        onDone(station)
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Done")

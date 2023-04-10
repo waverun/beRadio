@@ -162,7 +162,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingRadioStationsView) {
             RadioStationsView { station in
-                print("Station " + station)
+                print("Station \(station)")
             }
         }
     }
