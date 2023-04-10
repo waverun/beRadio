@@ -37,6 +37,11 @@
 		92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6029E07302002754E5 /* LivePlayerView.swift */; };
 		92E59A6329E0733F002754E5 /* LiveAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */; };
 		92E59A6529E1EA7D002754E5 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */; };
+		92E59A6D29E32431002754E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6C29E32431002754E5 /* SearchView.swift */; };
+		92E59A7029E33213002754E5 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6F29E33213002754E5 /* RadioStation.swift */; };
+		92E59A7229E33250002754E5 /* fetchRadioStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7129E33250002754E5 /* fetchRadioStations.swift */; };
+		92E59A7429E33292002754E5 /* RadioStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7329E33292002754E5 /* RadioStationView.swift */; };
+		92E59A7629E33896002754E5 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7529E33896002754E5 /* JSONDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		92E59A6029E07302002754E5 /* LivePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlayerView.swift; sourceTree = "<group>"; };
 		92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAudioPlayer.swift; sourceTree = "<group>"; };
 		92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamBuffer.swift; sourceTree = "<group>"; };
+		92E59A6C29E32431002754E5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		92E59A6F29E33213002754E5 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
+		92E59A7129E33250002754E5 /* fetchRadioStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchRadioStations.swift; sourceTree = "<group>"; };
+		92E59A7329E33292002754E5 /* RadioStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationView.swift; sourceTree = "<group>"; };
+		92E59A7529E33896002754E5 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,8 @@
 				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
 				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				92AB2A7D29C3A49100EFF179 /* Assets.xcassets */,
+				92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */,
+				92E59A6E29E331FA002754E5 /* Structs */,
 				92ADFC5329C731D900582B66 /* Views */,
 				92AB2A8B29C3AA6600EFF179 /* Functions */,
 				92ADFC5629C73E3900582B66 /* Extensions */,
@@ -139,6 +151,7 @@
 				92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */,
 				92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */,
 				92E59A5E29E04D60002754E5 /* setupRemoteCommandCenter.swift */,
+				92E59A7129E33250002754E5 /* fetchRadioStations.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -146,15 +159,16 @@
 		92ADFC5329C731D900582B66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92ADFC5429C7321700582B66 /* Full programs view.swift */,
-				92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */,
 				92038E7C29D9D786008EDC1B /* AddLinkView.swift */,
-				92E59A3A29DB23AB002754E5 /* ImageLoader.swift */,
-				92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */,
-				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
-				92E59A4429DC31EC002754E5 /* SafariView.swift */,
 				92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */,
+				92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */,
+				92ADFC5429C7321700582B66 /* Full programs view.swift */,
+				92E59A3A29DB23AB002754E5 /* ImageLoader.swift */,
+				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
 				92E59A6029E07302002754E5 /* LivePlayerView.swift */,
+				92E59A7329E33292002754E5 /* RadioStationView.swift */,
+				92E59A4429DC31EC002754E5 /* SafariView.swift */,
+				92E59A6C29E32431002754E5 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +179,7 @@
 				92ADFC5729C73E7A00582B66 /* String.swift */,
 				923803BC29D5CCF6001BADF2 /* Array.swift */,
 				92E59A3829DB09E7002754E5 /* Date.swift */,
+				92E59A7529E33896002754E5 /* JSONDecoder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +201,14 @@
 				92E59A4729DC5625002754E5 /* AudioPlayer.swift */,
 			);
 			path = Observables;
+			sourceTree = "<group>";
+		};
+		92E59A6E29E331FA002754E5 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				92E59A6F29E33213002754E5 /* RadioStation.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,11 +307,16 @@
 				92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */,
+				92E59A6D29E32431002754E5 /* SearchView.swift in Sources */,
 				92E59A3929DB09E7002754E5 /* Date.swift in Sources */,
+				92E59A7229E33250002754E5 /* fetchRadioStations.swift in Sources */,
 				92E59A6329E0733F002754E5 /* LiveAudioPlayer.swift in Sources */,
+				92E59A7029E33213002754E5 /* RadioStation.swift in Sources */,
 				92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */,
 				92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
+				92E59A7629E33896002754E5 /* JSONDecoder.swift in Sources */,
+				92E59A7429E33292002754E5 /* RadioStationView.swift in Sources */,
 				92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */,
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
 			);

@@ -14,8 +14,8 @@ struct ContentView: View {
     
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
-    
     @State private var showLivePlayerView: Bool = false
+    @State private var showingRadioStationsView = false
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -29,13 +29,14 @@ struct ContentView: View {
                   animation: .default) private var removedLinks: FetchedResults<RemovedLink>
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        if links.isEmpty {
-                            Text("Loading...")
-                        } else {
+        ZStack {
+            NavigationView {
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            if links.isEmpty {
+                                Text("Loading...")
+                            } else {
                                 List {
                                     HStack {
                                         Spacer()
@@ -68,8 +69,8 @@ struct ContentView: View {
                                 .onAppear {
                                     title = "103 FM"
                                 }
-//                                .padding(.top, -10)
-
+                                //                                .padding(.top, -10)
+                                
                                 //                            .padding(.top, -40) // Adjust the value to your desired padding
                                 .sheet(isPresented: $showLivePlayerView) {
                                     //                                if let url = fullProgramsView.selectedAudioUrl,
@@ -81,76 +82,89 @@ struct ContentView: View {
                                     //                                    Text("No Stream found")
                                     //                                }
                                 }
-//                            }
-                            .toolbar {
+                                //                            }
+                                .toolbar {
 #if os(iOS)
-                                ToolbarItem(placement: .navigationBarTrailing) {
-                                    EditButton()
-                                }
+                                    ToolbarItem(placement: .navigationBarTrailing) {
+                                        EditButton()
+                                    }
 #endif
-                                ToolbarItem {
-                                    //                                    Button(action: addNewLink) {
-                                    //                                        Label("Add link", systemImage: "plus")
-                                    //                                    }
-                                    Button(action: { showingAddLinkView.toggle() }) {
-                                        Label("Add link", systemImage: "plus")
+                                    ToolbarItem {
+                                        //                                    Button(action: addNewLink) {
+                                        //                                        Label("Add link", systemImage: "plus")
+                                        //                                    }
+                                        Button(action: { showingAddLinkView.toggle() }) {
+                                            Label("Add link", systemImage: "plus")
+                                        }
                                     }
                                 }
+                                .sheet(isPresented: $showingAddLinkView) {
+                                    //                                AddLinkView(links: $links)
+                                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
+                                }
                             }
-                            .sheet(isPresented: $showingAddLinkView) {
-                                //                                AddLinkView(links: $links)
-                                AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
-                            }
+                            //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            Text("beRadio")
+                        } label: {
+                            Text(item.station ?? "New station")
                         }
-                        //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                        Text("beRadio")
-                    } label: {
-                        Text(item.station ?? "New station")
                     }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
+                .toolbar {
 #if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
 #endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    ToolbarItem {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
                     }
                 }
-            }
-            .onAppear {
-                getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
-                    DispatchQueue.main.async {
-                        //                        links = extractedLinks
-                        //                        clearAllUrls()
-                        addLinks(urls: extractedLinks)
+                .onAppear {
+                    getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
+                        DispatchQueue.main.async {
+                            //                        links = extractedLinks
+                            //                        clearAllUrls()
+                            addLinks(urls: extractedLinks)
+                        }
                     }
                 }
+                .navigationBarTitle(title, displayMode: .inline)
+                Text("Select an item")
             }
-            .navigationBarTitle(title, displayMode: .inline)
-            Text("Select an item")
+            VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            showingRadioStationsView.toggle()
+                        }) {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
+                                .padding(.trailing, 16)
+                                .padding(.bottom, 16)
+                        }
+                    }
+                }
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
         .onAppear {
-            //            .onAppear {
             configureAudioSession()
-            //            setupRemoteCommandCenter()
-            
-            //                        NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: AVAudioSession.routeChangeNotification, object: nil)
-            ////                    }
+        }
+        .sheet(isPresented: $showingRadioStationsView) {
+//            SearchView()
+            RadioStationsView()
         }
     }
-    
-    //    private func addLink() {
-    //        // Create a new Program instance and add it to the programs array
-    //        let newLink = "New program"
-    //        links.append(newLink)
-    //    }
     
     private func clearAllUrls() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Link.fetchRequest()
