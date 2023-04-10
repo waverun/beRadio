@@ -144,8 +144,8 @@ struct ContentView: View {
                         }) {
                             Image(systemName: "magnifyingglass")
                                 .resizable()
-                                .frame(width: 24, height: 24)
-                                .padding()
+                                .frame(width: 16, height: 16)
+                                .padding(10)
                                 .background(Color.blue)
                                 .foregroundColor(.white)
                                 .clipShape(Circle())
