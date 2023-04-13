@@ -53,9 +53,11 @@ struct AsyncImage: View {
     var body: some View {
         Group {
             if let image = loader.image {
+//                let b = avoidBlackBackground(of: image)
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
+                    .background(avoidBlackBackground(of: image) ? Color(UIColor.darkGray) : Color.clear)
             } else {
                 Image(systemName: "antenna.radiowaves.left.and.right")
                     .resizable()
@@ -95,13 +97,13 @@ struct AsyncImage: View {
 //class ImageLoader: ObservableObject {
 //    @Published var image: UIImage?
 //    @Published var showFallbackImage = false
-//    
+//
 //    private var cancellable: AnyCancellable?
 //    private let timeoutInSeconds: TimeInterval = 5
-//    
+//
 //    init(url: String) {
 //        guard let url = URL(string: url) else { return }
-//        
+//
 //        cancellable = URLSession.shared.dataTaskPublisher(for: url)
 //            .map { UIImage(data: $0.data) }
 //            .replaceError(with: nil)

@@ -5,7 +5,7 @@ struct AudioPlayerView: View {
     @ObservedObject private var audioPlayer: AudioPlayer
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
-
+    
     private let audioUrl: URL
     private let imageSrc: String?
     private let heading: String
@@ -30,8 +30,15 @@ struct AudioPlayerView: View {
                             .font(.system(size: 24)) // Adjust the size value as needed
                             .bold()
                         if let imageSrc = imageSrc {
-                            AsyncImage(url: "https://103fm.maariv.co.il" + imageSrc)
-                                .frame(width: 240, height: 240)
+                            if audioUrl.absoluteString.hasPrefix("/") {
+                                AsyncImage(url: imageSrc)
+                                    .frame(width: 240, height: 240)
+                            }
+                            else {
+                                AsyncImage(url: imageSrc)
+                                    .frame(width: 60, height: 60)
+//                                    .background(Color(UIColor.darkGray))
+                            }
                         }
                         HStack {
                             Text("\(audioPlayer.totalDurationString)")

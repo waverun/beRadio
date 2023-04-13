@@ -109,15 +109,24 @@ struct ContentView: View {
                                     .frame(width: 60, height: 60) // Adjust the size as needed
                             }
                             NavigationLink {
-                                if links.isEmpty {
+                                switch true {
+                                case  links.isEmpty :
                                     Text("Loading...")
-                                } else {
-                                    ProgramsListView(links: links,
-                                                     removedLinks: removedLinks,
-                                                     removeLinks: removeLinks(atOffsets:),
-                                                     title: $title,
-                                                     showLivePlayerView: $showLivePlayerView,
-                                                     showingAddLinkView: $showingAddLinkView)
+//                                default :
+                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+                                        ProgramsListView(links: links,
+                                                         removedLinks: removedLinks,
+                                                         removeLinks: removeLinks(atOffsets:),
+                                                         title: $title,
+                                                         showLivePlayerView: $showLivePlayerView,
+                                                         showingAddLinkView: $showingAddLinkView)
+//                                    }
+                                default :
+                                    if  let urlString = item.url,
+                                        let url = URL(string: urlString) {
+                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio")
+                                    }
+//                                    showLivePlayerView.toggle()
                                 }
                             } label: {
                                 Text(item.name ?? "New station")
