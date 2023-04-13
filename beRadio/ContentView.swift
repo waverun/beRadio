@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
+//    @State private var showingSearchIcon = true
     @State private var showLivePlayerView: Bool = false
     @State private var showingRadioStationsView = false
 
@@ -118,7 +119,7 @@ struct ContentView: View {
                     }
 #endif
                     ToolbarItem {
-                        Button(action: addItem) {
+                        Button(action: showSearch) {
                             Label("Add Item", systemImage: "plus")
                         }
                     }
@@ -135,25 +136,27 @@ struct ContentView: View {
                 .navigationBarTitle(title, displayMode: .inline)
                 Text("Select an item")
             }
-            VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            showingRadioStationsView.toggle()
-                        }) {
-                            Image(systemName: "magnifyingglass")
-                                .resizable()
-                                .frame(width: 16, height: 16)
-                                .padding(10)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .clipShape(Circle())
-                                .padding(.trailing, 16)
-                                .padding(.bottom, 16)
-                        }
-                    }
-                }
+//            if showingSearchIcon {
+//                VStack {
+//                    Spacer()
+//                    HStack {
+//                        Spacer()
+//                        Button(action: {
+//                            showingRadioStationsView.toggle()
+//                        }) {
+//                            Image(systemName: "magnifyingglass")
+//                                .resizable()
+//                                .frame(width: 16, height: 16)
+//                                .padding(10)
+//                                .background(Color.blue)
+//                                .foregroundColor(.white)
+//                                .clipShape(Circle())
+//                                .padding(.trailing, 16)
+//                                .padding(.bottom, 16)
+//                        }
+//                    }
+//                }
+//            }
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
@@ -162,7 +165,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingRadioStationsView) {
             RadioStationsView() { station in
-//                print("Station \(station)")
+                addItem(station)
             }
         }
     }
@@ -290,12 +293,16 @@ struct ContentView: View {
     //        links.remove(atOffsets: offsets)
     //    }
     
-    private func addItem() {
+    private func showSearch() {
+        showingRadioStationsView.toggle()
+    }
+    
+    private func addItem(_ station: RadioStation) {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
             newItem.station = "103 FM"
-            
+
             do {
                 try viewContext.save()
             } catch {

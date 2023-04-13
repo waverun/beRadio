@@ -49,12 +49,12 @@ struct RadioStationsView: View {
 //    HStack {
 //        if let urlString = station.favicon {
 //            @State private var urlExists = true // A state variable to keep track of whether the URL exists
-//            
+//
 //            // Call the checkIfURLExists function to determine if the URL exists
 //            checkIfURLExists(url: urlString) { exists in
 //                urlExists = exists
 //            }
-//            
+//
 //            // Use the urlExists state variable to conditionally display either the AsyncImage or a placeholder
 //            if urlExists {
 //                AsyncImage(url: urlString)
