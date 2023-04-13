@@ -32,85 +32,100 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             NavigationView {
+//                List {
+//                    ForEach(items) { item in
+//                        NavigationLink {
+//                            if links.isEmpty {
+//                                Text("Loading...")
+//                            } else {
+//                                List {
+//                                    HStack {
+//                                        Spacer()
+//                                        Button(action: {
+//                                            showLivePlayerView.toggle()
+//                                        }) {
+//                                            Text("Live!")
+//                                                .padding(.horizontal, 8) // Adjust horizontal padding
+//                                                .padding(.vertical, 8) // Adjust vertical padding
+//                                                .background(Color.blue)
+//                                                .foregroundColor(.white)
+//                                                .cornerRadius(8)
+//                                        }
+//                                        Spacer()
+//                                    }
+//                                    ForEach(links, id: \.self) { link in
+//                                        if !removedLinks.contains(where: { $0.url == link.url }) {
+//                                            NavigationLink(destination: fullProgramsView(link: link.url!)) {
+//                                                let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
+//
+//                                                LinkButton(label: text, link: link.url!) { _ in }
+//                                            }
+//                                        }
+//                                    }
+//                                    .onDelete(perform: removeLinks)
+//                                    .padding(.top, -10)
+//                                    .padding(.bottom, -10)
+//                                }
+//                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+//                                .onAppear {
+//                                    title = "103 FM"
+//                                }
+//                                .sheet(isPresented: $showLivePlayerView) {
+//                                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM")
+//                                }
+//                                .toolbar {
+//#if os(iOS)
+//                                    ToolbarItem(placement: .navigationBarTrailing) {
+//                                        EditButton()
+//                                    }
+//#endif
+//                                    ToolbarItem {
+//                                        //                                    Button(action: addNewLink) {
+//                                        //                                        Label("Add link", systemImage: "plus")
+//                                        //                                    }
+//                                        Button(action: { showingAddLinkView.toggle() }) {
+//                                            Label("Add link", systemImage: "plus")
+//                                        }
+//                                    }
+//                                }
+//                                .sheet(isPresented: $showingAddLinkView) {
+//                                    //                                AddLinkView(links: $links)
+//                                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
+//                                }
+//                            }
+//                            //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//                            Text("beRadio")
+//                        } label: {
+//                            Text(item.name ?? "New station")
+//                        }
+//                    }
+//                    .onDelete(perform: deleteItems)
+//                }
                 List {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            if links.isEmpty {
-                                Text("Loading...")
-                            } else {
-                                List {
-                                    HStack {
-                                        Spacer()
-                                        Button(action: {
-                                            showLivePlayerView.toggle()
-                                        }) {
-                                            Text("Live!")
-                                                .padding(.horizontal, 8) // Adjust horizontal padding
-                                                .padding(.vertical, 8) // Adjust vertical padding
-                                                .background(Color.blue)
-                                                .foregroundColor(.white)
-                                                .cornerRadius(8)
-                                        }
-                                        Spacer()
-                                    }
-                                    ForEach(links, id: \.self) { link in
-                                        if !removedLinks.contains(where: { $0.url == link.url }) {
-                                            NavigationLink(destination: fullProgramsView(link: link.url!)) {
-                                                let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-                                                
-                                                LinkButton(label: text, link: link.url!) { _ in }
-                                            }
-                                        }
-                                    }
-                                    .onDelete(perform: removeLinks)
-                                    .padding(.top, -10)
-                                    .padding(.bottom, -10)
+                        ForEach(items) { item in
+                            NavigationLink {
+                                if links.isEmpty {
+                                    Text("Loading...")
+                                } else {
+                                    ProgramsListView(links: links,
+                                                  removedLinks: removedLinks,
+                                                  removeLinks: removeLinks(atOffsets:),
+                                                  title: $title,
+                                                  showLivePlayerView: $showLivePlayerView,
+                                                  showingAddLinkView: $showingAddLinkView)
                                 }
-                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                                .onAppear {
-                                    title = "103 FM"
-                                }
-                                //                                .padding(.top, -10)
-                                
-                                //                            .padding(.top, -40) // Adjust the value to your desired padding
-                                .sheet(isPresented: $showLivePlayerView) {
-                                    //                                if let url = fullProgramsView.selectedAudioUrl,
-                                    //            //                       let image = fullProgramsView.selectedAudioImage,
-                                    //                                   let date = fullProgramsView.selectedAudioDate {
-                                    //                                   let image = fullProgramsView.selectedAudioImage
-                                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM")
-                                    //                                } else {
-                                    //                                    Text("No Stream found")
-                                    //                                }
-                                }
-                                //                            }
-                                .toolbar {
-#if os(iOS)
-                                    ToolbarItem(placement: .navigationBarTrailing) {
-                                        EditButton()
-                                    }
-#endif
-                                    ToolbarItem {
-                                        //                                    Button(action: addNewLink) {
-                                        //                                        Label("Add link", systemImage: "plus")
-                                        //                                    }
-                                        Button(action: { showingAddLinkView.toggle() }) {
-                                            Label("Add link", systemImage: "plus")
-                                        }
-                                    }
-                                }
-                                .sheet(isPresented: $showingAddLinkView) {
-                                    //                                AddLinkView(links: $links)
-                                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
-                                }
+                            } label: {
+                                Text(item.name ?? "New station")
                             }
-                            //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                            Text("beRadio")
-                        } label: {
-                            Text(item.name ?? "New station")
                         }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
+                .sheet(isPresented: $showLivePlayerView) {
+                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM")
+                }
+                .sheet(isPresented: $showingAddLinkView) {
+                    //                                AddLinkView(links: $links)
+                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
                 }
                 .toolbar {
 #if os(iOS)
@@ -190,13 +205,10 @@ struct ContentView: View {
     private func addLinks(urls: [String]) {
         withAnimation {
             for url in urls {
-                //                addLink(url: url)
                 if !urlFound(url) {
                     let newLink = Link(context: viewContext)
                     newLink.url = url
                 }
-                //                newLink.isHidden = false
-                //                ContentView.lastRemovedUrl = ""
             }
             do {
                 try viewContext.save()
@@ -209,61 +221,22 @@ struct ContentView: View {
     
     func urlFound(_ url: String) -> Bool {
         return links.contains(where: { $0.url == url }) || removedLinks.contains(where: { $0.url == url })
-        //        return false
     }
-    //
-    //    private func addNewLink() {
-    //            addLink()
-    //    }
-    
-    //    private func addLink(url: String? = nil) {
-    //        let url = url ?? "New program"
-    //        let newLink = Link(context: viewContext)
-    //        newLink.url = url
-    //        newLink.isHidden = false
-    //
-    //        do {
-    //            try viewContext.save()
-    //        } catch {
-    //            let nsError = error as NSError
-    //            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-    //        }
-    //    }
     
     static var firstRemove = true
     
     private func removeLinks(atOffsets offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                //                let link = links[index]
-                //                links[index].isHidden = true
-                //                ContentView.lastRemovedUrl = links[index].url!
-                
-                //                print("Updated lastRemovedUrl: \(ContentView.lastRemovedUrl)")
-                //                removedLinks.append(links[index])
                 if !removedLinks.contains(where: { $0.url == links[index].url }) {
                     let removedLink = RemovedLink(context: viewContext)
                     removedLink.url = links[index].url
                 }
-                //                offsets.map { links[$0] }.forEach(viewContext.delete)
                 if !ContentView.firstRemove {
                     viewContext.delete(links[index]) // Delete the removedLink from viewContext
                     viewContext.delete(links[index]) // Delete the removedLink from viewContext
                 }
                 ContentView.firstRemove = false
-                //                viewContext.delete(links[index]) // Delete the removedLink from viewContext
-                
-                //                   do {
-                //                       try viewContext.save()
-                //                       if let index1 = links.firstIndex(where: { $0.url == links[index].url }) {
-                //                           links.remove(at: index1) // Update the removedLinks array
-                //                       }
-                //                   } catch {
-                //                       print("Error saving viewContext: \(error)")
-                //                   }
-                
-                //                link.isHidden = true
-                //            }
                 do {
                     try viewContext.save()
                 } catch {
@@ -271,27 +244,8 @@ struct ContentView: View {
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
-            //           refreshLinks()
         }
     }
-    
-    //    private func removeLinks(atOffsets offsets: IndexSet) {
-    //        for index in offsets {
-    //            let link = links[index]
-    //            link.isHidden = true
-    ////            viewContext.delete(link)
-    //        }
-    //        do {
-    //            try viewContext.save()
-    //        } catch {
-    //            let nsError = error as NSError
-    //            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-    //        }
-    //    }
-    
-    //    private func deleteLink(at offsets: IndexSet) {
-    //        links.remove(atOffsets: offsets)
-    //    }
     
     private func showSearch() {
         showingRadioStationsView.toggle()
