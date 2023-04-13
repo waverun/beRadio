@@ -107,7 +107,7 @@ struct ContentView: View {
                             //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                             Text("beRadio")
                         } label: {
-                            Text(item.station ?? "New station")
+                            Text(item.name ?? "New station")
                         }
                     }
                     .onDelete(perform: deleteItems)
@@ -301,7 +301,9 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-            newItem.station = "103 FM"
+            newItem.name = station.name
+            newItem.url = station.url
+            newItem.favicon = station.favicon
 
             do {
                 try viewContext.save()
