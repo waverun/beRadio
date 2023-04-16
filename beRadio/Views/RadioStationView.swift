@@ -18,23 +18,28 @@ struct RadioStationsView: View {
             .textFieldStyle(RoundedBorderTextFieldStyle())
 
             List(radioStations) { station in
-                HStack {
-                    if let urlString = station.favicon {
-                        AsyncImage(url: urlString)
-                            .frame(width: 60, height: 60) // Adjust the size as needed
-                    }
-                    VStack(alignment: .leading) {
-                        Text(station.name)
-                            .font(.headline)
-                        Text(station.country ?? "")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    Button(action: {
-                        onDone(station)
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("Done")
+                Button(action: {
+                    onDone(station)
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        if let urlString = station.favicon {
+                            AsyncImage(url: urlString)
+                                .frame(width: 60, height: 60) // Adjust the size as needed
+                        }
+                        VStack(alignment: .leading) {
+                            Text(station.name)
+                                .font(.headline)
+                            Text(station.country ?? "")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        //                    Button(action: {
+                        //                        onDone(station)
+                        //                        presentationMode.wrappedValue.dismiss()
+                        //                    }) {
+                        //                        Text("Done")
+                        //                    }
                     }
                 }
             }
