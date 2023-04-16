@@ -3,8 +3,9 @@ import SwiftUI
 struct RadioStationsView: View {
     @State private var searchQuery: String = ""
     @State private var radioStations: [RadioStation] = []
-    @State private var searchStarted = false
-    @State private var searchEnded = false
+//    @State private var searchStarted = false
+//    @State private var searchEnded = false
+    @State private var showNoStationFound = false
     
     @Environment(\.presentationMode) private var presentationMode
     let onDone: (RadioStation) -> Void
@@ -12,16 +13,23 @@ struct RadioStationsView: View {
     var body: some View {
         VStack {
             TextField("Search", text: $searchQuery, onCommit: {
-                searchStarted = true
+//                searchStarted = true
                 fetchRadioStations(searchQuery: searchQuery) { stations in
                     radioStations = stations
-                    searchEnded = true
+//                    searchEnded = true
+                    showNoStationFound = false
+                    if stations.count == 0 {
+                        showNoStationFound = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            showNoStationFound = false
+                        }
+                    }
                 }
             })
             .padding()
             .textFieldStyle(RoundedBorderTextFieldStyle())
 
-            if searchEnded && radioStations.count == 0 && searchStarted {
+            if showNoStationFound {
                 Text("No station found")
             }
             List(radioStations) { station in
