@@ -10,55 +10,43 @@ class AudioPlayer: ObservableObject {
     @Published var totalDurationString: String = "00:00"
     
     init() {
-//        super.init()
-//        configureAudioSession()
         setupRemoteCommandCenter()
     }
 
     func setupRemoteCommandCenter() {
         let commandCenter = MPRemoteCommandCenter.shared()
         
-        commandCenter.playCommand.addTarget { [unowned self] _ in
-            self.play()
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            self?.play()
             return .success
         }
         
-        commandCenter.pauseCommand.addTarget { [unowned self] _ in
-            self.pause()
+        commandCenter.pauseCommand.addTarget { [weak self] _ in
+            self?.pause()
             return .success
         }
         
-        commandCenter.togglePlayPauseCommand.addTarget { [unowned self] _ in
-            if self.player!.timeControlStatus == .paused {
-                self.play()
+        commandCenter.togglePlayPauseCommand.addTarget { [weak self] _ in
+            if self?.player?.timeControlStatus == .paused {
+                self?.play()
             } else {
-                self.pause()
+                self?.pause()
             }
             return .success
         }
+        
+        commandCenter.skipForwardCommand.preferredIntervals = [15] // Set the preferred skip interval (in seconds)
+            commandCenter.skipForwardCommand.addTarget { [weak self] _ in
+                self?.forward()
+                return .success
+            }
+        
+        commandCenter.skipBackwardCommand.preferredIntervals = [15] // Set the preferred skip interval (in seconds)
+            commandCenter.skipBackwardCommand.addTarget { [weak self] _ in
+                self?.rewind()
+                return .success
+            }
     }
-
-//    private func configureAudioSession() {
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(.playback, mode: .default, options: [.allowAirPlay])
-//            try audioSession.setActive(true, options: [])
-//        } catch {
-//            print("Failed to set up audio session: \(error)")
-//        }
-//    }
-
-//    // ...
-//
-//    private func configureAudioSession() {
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(.playback, mode: .default, options: [])
-//            try audioSession.setActive(true, options: [])
-//        } catch {
-//            print("Failed to set up audio session: \(error)")
-//        }
-//    }
 
     let timeFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
@@ -74,7 +62,6 @@ class AudioPlayer: ObservableObject {
         if player == nil,
         let url = url {
             player = AVPlayer(url: url)
-//            player?.allowsExternalPlayback = false
             Task {
                 await updateTotalDurationString()
             }
@@ -86,6 +73,28 @@ class AudioPlayer: ObservableObject {
 
         player?.play()
         isPlaying = true
+        
+        configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArt: UIImage(systemName: "antenna.radiowaves.left.and.right"))
+    }
+
+    func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) {
+        var nowPlayingInfo = [String: Any]()
+
+        nowPlayingInfo[MPMediaItemPropertyTitle] = title
+        nowPlayingInfo[MPMediaItemPropertyArtist] = artist
+
+        if let albumArt = albumArt {
+            let artwork = MPMediaItemArtwork(boundsSize: albumArt.size) { _ in
+                return albumArt
+            }
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+        }
+
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime().seconds
+//        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player!.currentItem!.asset.duration.seconds
+            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player?.rate
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
 
     func pause() {
@@ -102,6 +111,9 @@ class AudioPlayer: ObservableObject {
             let forwardTime = CMTimeMake(value: 15, timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), forwardTime)
             player.seek(to: newTime)
+            player.seek(to: newTime) { [weak self] _ in
+                self?.updateNowPlayingInfoElapsedPlaybackTime()
+            }
         }
     }
 
@@ -110,6 +122,16 @@ class AudioPlayer: ObservableObject {
             let rewindTime = CMTimeMake(value: -15, timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), rewindTime)
             player.seek(to: newTime)
+            player.seek(to: newTime) { [weak self] _ in
+                self?.updateNowPlayingInfoElapsedPlaybackTime()
+            }
+        }
+    }
+
+    func updateNowPlayingInfoElapsedPlaybackTime() {
+        if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo {
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime().seconds
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
     }
 
@@ -127,18 +149,6 @@ class AudioPlayer: ObservableObject {
         }
     }
 
-//    private func updateTotalDurationString() async {
-//        if let currentItem = player?.currentItem {
-//            do {
-//                let duration = try await currentItem.asset.load(.duration)
-//                DispatchQueue.main.async { [self] in
-//                    totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
-//                }
-//            } catch {
-//                print("Error loading duration: \(error)")
-//            }
-//        }
-//    }
     private func updateTotalDurationString() async {
         if let currentItem = player?.currentItem {
             do {

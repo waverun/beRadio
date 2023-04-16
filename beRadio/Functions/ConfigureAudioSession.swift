@@ -24,7 +24,8 @@ import AVFoundation
 func configureAudioSession() {
     let audioSession = AVAudioSession.sharedInstance()
     do {
-        try audioSession.setCategory(.playback, mode: .default, policy: .default, options: [.mixWithOthers])
+//        try audioSession.setCategory(.playback, mode: .default, policy: .default, options: [.mixWithOthers])
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
         try audioSession.setActive(true, options: [])
     } catch {
         print("Failed to set up audio session: \(error)")

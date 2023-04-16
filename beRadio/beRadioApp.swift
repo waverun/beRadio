@@ -10,16 +10,40 @@ import SwiftUI
 @main
 struct beRadioApp: App {
     let persistenceController = PersistenceController.shared
-
+    
+    @UIApplicationDelegateAdaptor(AppAudioController.self) var appDelegate
+    
     init() {
         configureAudioSession()
-//        selectAudioOutput()
     }
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .background(RemoteControlReceiver())
+        }
+        .commands {
+            CommandGroup(replacing: .appInfo) {
+                // Add your commands here, if needed
+            }
         }
     }
 }
+
+//@main
+//struct beRadioApp: App {
+//    let persistenceController = PersistenceController.shared
+//
+//    init() {
+//        configureAudioSession()
+////        selectAudioOutput()
+//    }
+//
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//        }
+//    }
+//}
