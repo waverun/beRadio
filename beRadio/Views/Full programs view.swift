@@ -63,20 +63,7 @@ struct fullProgramsView: View {
                 }
             } else {
                 List {
-//                    ProgramButton(label: "Live", link: "https://103fm.maariv.co.il", imageUrl: nil) { link in
-//                        fetchAudioUrl(link: link) { url in
-//                            fullProgramsView.selectedAudioUrl = url
-//                            fullProgramsView.selectedAudioImage = nil
-//                            fullProgramsView.selectedAudioDate = "103 FM"
-//                            //                                DispatchQueue.main.async {
-//                            showLivePlayerView.toggle()
-//                        }
-////                                }
-//                    }
-//                    .font(.title)
                     ForEach (programs) { program in
-//                        if URL(string: "https://103fm.maariv.co.il" + program.link) != nil {
-                            // Update the ProgramButton's action to toggle the sheet's visibility
                             ProgramButton(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image) { link in
                                 fetchAudioUrl(link: link) { url in
                                     fullProgramsView.selectedAudioUrl = url
@@ -85,7 +72,6 @@ struct fullProgramsView: View {
                                     //                                DispatchQueue.main.async {
                                     showAudioPlayerView.toggle()
                                 }
-//                                }
                             }
                             .font(.title)
                             .foregroundColor(program.date.relativeColor())
@@ -95,7 +81,7 @@ struct fullProgramsView: View {
                 .sheet(isPresented: $showAudioPlayerView) {
                     if let url = fullProgramsView.selectedAudioUrl,
                        let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
-                       let date = fullProgramsView.selectedAudioDate {
+                       let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
                         AudioPlayerView(url: url, image: image, date: date)
                     } else {
                         Text("No URL selected")
