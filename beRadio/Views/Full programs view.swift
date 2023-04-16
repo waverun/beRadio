@@ -89,24 +89,12 @@ struct fullProgramsView: View {
                             }
                             .font(.title)
                             .foregroundColor(program.date.relativeColor())
-//                        }
                     }
                     .onDelete(perform: deleteProgram)
                 }
-                // Present the AudioPlayerView using a sheet
-//                .sheet(isPresented: $showLivePlayerView) {
-//                    if let url = fullProgramsView.selectedAudioUrl,
-////                       let image = fullProgramsView.selectedAudioImage,
-//                       let date = fullProgramsView.selectedAudioDate {
-//                       let image = fullProgramsView.selectedAudioImage
-//                        AudioPlayerView(url: url, image: image, date: date)
-//                    } else {
-//                        Text("No Stream found")
-//                    }
-//                }
                 .sheet(isPresented: $showAudioPlayerView) {
                     if let url = fullProgramsView.selectedAudioUrl,
-                       let image = fullProgramsView.selectedAudioImage,
+                       let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
                        let date = fullProgramsView.selectedAudioDate {
                         AudioPlayerView(url: url, image: image, date: date)
                     } else {
