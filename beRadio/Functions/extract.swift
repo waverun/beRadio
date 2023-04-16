@@ -28,7 +28,8 @@ func extractDatesAndLinks(html: String) -> [ExtractedData] {
     
     let links = getLinks(html: html, pattern: #"(?<=<a href=")[^"]*(?=" id="mainPageSegmentsRpt_fullShowLink_\d+")"#)
     
-    var images = extractLinks(htmlContent: html, search:  #"img src="(/download/programs/FullShowImg_.*?\.jpg)""#)
+//    var images = extractLinks(htmlContent: html, search:  #"img src="(/download/programs/FullShowImg_.*?\.jpg)""#)
+    var images = extractLinks(htmlContent: html, search:  #"<img src="(?:https?://[^/]+)?(/download/programs/(FullShowImg_\d+_\d+_\d+_|imgNewTop_\d+)\.jpg)"#)
     
     if images.count == 0 {
         images = extractImages(html: html, search: #"(?<=https:\/\/103fm\.maariv\.co\.il)\/download\/programs\/imgNewTop_\d+\.jpg"#)
