@@ -58,10 +58,30 @@ class AudioPlayer: ObservableObject {
     private var timeObserverToken: Any?
     private var isObservingTime = false
     
+    func resetPlayer() {
+        if let oldPlayer = player {
+            if let timeObserverToken = timeObserverToken {
+                oldPlayer.removeTimeObserver(timeObserverToken)
+                self.timeObserverToken = nil
+            }
+            player = nil
+        }
+    }
+
     func play(url: URL? = nil) {
+//        resetPlayer()
+        
         if player == nil,
            let url = url {
-            player = AVPlayer(url: url)
+            do {
+                let asset = AVURLAsset(url: url)
+                let item = AVPlayerItem(asset: asset)
+                player = AVPlayer(playerItem: item)
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+            } catch {
+                print("Error setting up AVPlayer: \(error)")
+                return
+            }
             Task {
                 await updateTotalDurationString()
             }
@@ -79,7 +99,7 @@ class AudioPlayer: ObservableObject {
            await configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArt: UIImage(systemName: "antenna.radiowaves.left.and.right"))
         }
     }
-    
+
     func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) async {
         var nowPlayingInfo = [String: Any]()
         
@@ -98,7 +118,18 @@ class AudioPlayer: ObservableObject {
         if let currentItem = player?.currentItem {
             do {
                 let duration = try await currentItem.asset.load(.duration)
-                nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
+                
+                if duration.timescale == 0 {
+                    if let buffer = currentItem.loadedTimeRanges.first {
+                        let timeRange = buffer.timeRangeValue
+                        let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+                        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = bufferedDuration
+                    }
+                } else {
+                    nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
+                }
+                
+                //                nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
             } catch {
                 print("Error loading duration: \(error)")
             }
@@ -158,6 +189,7 @@ class AudioPlayer: ObservableObject {
     private func stopUpdatingCurrentProgress() {
         if let timeObserverToken = timeObserverToken {
             player?.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
         }
     }
     
@@ -183,3 +215,31 @@ class AudioPlayer: ObservableObject {
         }
     }
 }
+
+//    func play(url: URL? = nil) {
+//        if player == nil,
+//           let url = url {
+//            if let oldPlayer = player {
+//                if let timeObserverToken = timeObserverToken {
+//                    oldPlayer.removeTimeObserver(timeObserverToken)
+//                }
+//            }
+//            player = AVPlayer(url: url)
+//            Task {
+//                await updateTotalDurationString()
+//            }
+//        }
+//
+//        if !isObservingTime {
+//            startUpdatingCurrentProgress()
+//        }
+//
+//        player?.play()
+//        isPlaying = true
+//        updateNowPlayingInfoElapsedPlaybackTime()
+//
+//        Task {
+//           await configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArt: UIImage(systemName: "antenna.radiowaves.left.and.right"))
+//        }
+//    }
+    

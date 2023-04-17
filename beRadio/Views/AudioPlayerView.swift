@@ -101,5 +101,8 @@ struct AudioPlayerView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .onDisappear {
+            audioPlayer.pause()
+        }
     }
 }
