@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+//import AVFoundation.AVAsyncProperty
 import MediaPlayer
 
 class AudioPlayer: ObservableObject {
@@ -13,6 +14,24 @@ class AudioPlayer: ObservableObject {
         setupRemoteCommandCenter()
     }
     
+//    private func startUpdatingTotalDuration() {
+//        let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+//        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] _ in
+//            guard let self = self else { return }
+//            DispatchQueue.main.async {
+//                self.updateTotalDurationString()
+//            }
+//        }
+//    }
+    
+    private func startUpdatingTotalDuration() {
+        let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] _ in
+            guard let self = self else { return }
+            self.updateTotalDurationString()
+        }
+    }
+
     func setupRemoteCommandCenter() {
         let commandCenter = MPRemoteCommandCenter.shared()
         
@@ -97,6 +116,11 @@ class AudioPlayer: ObservableObject {
         
         Task {
            await configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArt: UIImage(systemName: "antenna.radiowaves.left.and.right"))
+        }
+        
+        if !isObservingTime {
+            startUpdatingCurrentProgress()
+            startUpdatingTotalDuration() // Add this line
         }
     }
 
@@ -193,27 +217,266 @@ class AudioPlayer: ObservableObject {
         }
     }
     
-    private func updateTotalDurationString() async {
+//    import AVFoundation.AVAsyncProperty
+
+    private var maxCurrentProgress = 0.0
+    
+    private var streamStartTime: Date?
+
+    private func updateTotalDurationString() {
         if let currentItem = player?.currentItem {
-            do {
-                let duration = try await currentItem.asset.load(.duration)
-                
-                if duration.isIndefinite {
-                    // Handle the case where duration is indefinite (e.g., live streams)
-                    DispatchQueue.main.async { [self] in
-                        totalDurationString = "--:--"
+            let keys = ["duration"]
+            currentItem.asset.loadValuesAsynchronously(forKeys: keys) {
+                var error: NSError? = nil
+                let status = currentItem.asset.statusOfValue(forKey: "duration", error: &error)
+                switch status {
+                case .loaded:
+                    let duration = currentItem.asset.duration
+                    if duration.isIndefinite {
+                        // Handle the case where duration is indefinite (e.g., live streams)
+                        DispatchQueue.main.async { [weak self] in
+                            if let buffer = currentItem.loadedTimeRanges.first {
+                                let timeRange = buffer.timeRangeValue
+                                let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+                                
+                                if self?.streamStartTime == nil {
+                                    self?.streamStartTime = Date()
+                                }
+                                
+                                let timeElapsedSinceStart = Date().timeIntervalSince(self!.streamStartTime!)
+                                
+                                let currentProgress = self?.player?.currentTime().seconds ?? 0
+                                self?.maxCurrentProgress = max(self?.maxCurrentProgress ?? 0, currentProgress)
+                                
+                                let maxDuration = min(bufferedDuration, max(self?.maxCurrentProgress ?? 0, timeElapsedSinceStart))
+                                self?.totalDurationString = self?.timeFormatter.string(from: maxDuration) ?? "--:--"
+                            } else {
+                                self?.totalDurationString = "--:--"
+                            }
+                        }
+                    } else {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.totalDurationString = self?.timeFormatter.string(from: duration.seconds) ?? "00:00"
+                        }
                     }
-                } else {
-                    DispatchQueue.main.async { [self] in
-                        totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
-                    }
+                case .failed, .cancelled:
+                    print("Error loading duration: \(error?.localizedDescription ?? "Unknown error")")
+                default:
+                    break
                 }
-                
-            } catch {
-                print("Error loading duration: \(error)")
             }
         }
     }
+
+//    private func updateTotalDurationString() {
+//        if let currentItem = player?.currentItem {
+//            let keys = ["duration"]
+//            currentItem.asset.loadValuesAsynchronously(forKeys: keys) {
+//                var error: NSError? = nil
+//                let status = currentItem.asset.statusOfValue(forKey: "duration", error: &error)
+//                switch status {
+//                case .loaded:
+//                    let duration = currentItem.asset.duration
+//                    if duration.isIndefinite {
+//                        // Handle the case where duration is indefinite (e.g., live streams)
+//                        DispatchQueue.main.async { [weak self] in
+//                            if let buffer = currentItem.loadedTimeRanges.first {
+//                                let timeRange = buffer.timeRangeValue
+//                                let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+//                                let currentProgress = self?.player?.currentTime().seconds ?? 0
+//                                self?.maxCurrentProgress = max(self?.maxCurrentProgress ?? 0, currentProgress)
+//                                let maxDuration = min(bufferedDuration, self?.maxCurrentProgress ?? 0)
+//                                self?.totalDurationString = self?.timeFormatter.string(from: maxDuration) ?? "--:--"
+//                            } else {
+//                                self?.totalDurationString = "--:--"
+//                            }
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async { [weak self] in
+//                            self?.totalDurationString = self?.timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                        }
+//                    }
+//                case .failed, .cancelled:
+//                    print("Error loading duration: \(error?.localizedDescription ?? "Unknown error")")
+//                default:
+//                    break
+//                }
+//            }
+//        }
+//    }
+
+//    private func updateTotalDurationString() {
+//        if let currentItem = player?.currentItem {
+//            let keys = ["duration"]
+//            currentItem.asset.loadValuesAsynchronously(forKeys: keys) {
+//                var error: NSError? = nil
+//                let status = currentItem.asset.statusOfValue(forKey: "duration", error: &error)
+//                switch status {
+//                case .loaded:
+//                    let duration = currentItem.asset.duration
+//                    if duration.isIndefinite {
+//                        // Handle the case where duration is indefinite (e.g., live streams)
+//                        DispatchQueue.main.async { [weak self] in
+//                            if let buffer = currentItem.loadedTimeRanges.first {
+//                                let timeRange = buffer.timeRangeValue
+//                                let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+//                                self?.totalDurationString = self?.timeFormatter.string(from: bufferedDuration) ?? "--:--"
+//                            } else {
+//                                self?.totalDurationString = "--:--"
+//                            }
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async { [weak self] in
+//                            self?.totalDurationString = self?.timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                        }
+//                    }
+//                case .failed, .cancelled:
+//                    print("Error loading duration: \(error?.localizedDescription ?? "Unknown error")")
+//                default:
+//                    break
+//                }
+//            }
+//        }
+//    }
+
+//    private func updateTotalDurationString() {
+//        if let currentItem = player?.currentItem {
+//            let keys = ["duration"]
+//            currentItem.asset.loadValuesAsynchronously(forKeys: keys) {
+//                var error: NSError? = nil
+//                let status = currentItem.asset.statusOfValue(forKey: "duration", error: &error)
+//                switch status {
+//                case .loaded:
+//                    let duration = currentItem.asset.duration
+//                    if duration.isIndefinite {
+////                    if duration.timescale == 0 {
+//                        // Handle the case where duration is indefinite (e.g., live streams)
+//                        DispatchQueue.main.async { [self] in
+//                            totalDurationString = "--:--"
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async { [self] in
+//                            totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                        }
+//                    }
+//                case .failed, .cancelled:
+//                    print("Error loading duration: \(error?.localizedDescription ?? "Unknown error")")
+//                default:
+//                    break
+//                }
+//            }
+//        }
+//    }
+
+//    private func updateTotalDurationString() {
+//        if let currentItem = player?.currentItem {
+//            let keys: [String] = ["duration"]
+//            currentItem.asset.loadValuesAsynchronously(forKeys: keys) {
+//                var error: NSError? = nil
+//                let status = currentItem.asset.statusOfValue(forKey: "duration", error: &error)
+//
+//                switch status {
+//                case .loaded:
+//                    let duration = currentItem.asset.duration
+//                    if duration.isIndefinite {
+//                        // Handle the case where duration is indefinite (e.g., live streams)
+//                        if let buffer = currentItem.loadedTimeRanges.first {
+//                            let timeRange = buffer.timeRangeValue
+//                            let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+//                            DispatchQueue.main.async { [self] in
+//                                totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
+//                            }
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async { [self] in
+//                            totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                        }
+//                    }
+//
+//                case .failed, .cancelled:
+//                    print("Error loading duration: \(error?.localizedDescription ?? "Unknown error")")
+//
+//                default:
+//                    break
+//                }
+//            }
+//        }
+//    }
+
+//    private func updateTotalDurationString() {
+//        if let currentItem = player?.currentItem {
+//            do {
+//                let duration = try currentItem.asset.load(.duration)
+//
+//                if duration.isIndefinite {
+//                    // Handle the case where duration is indefinite (e.g., live streams)
+//                    if let buffer = currentItem.loadedTimeRanges.first {
+//                        let timeRange = buffer.timeRangeValue
+//                        let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+//                        DispatchQueue.main.async { [self] in
+//                            totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
+//                        }
+//                    }
+//                } else {
+//                    DispatchQueue.main.async { [self] in
+//                        totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                    }
+//                }
+//
+//            } catch {
+//                print("Error loading duration: \(error)")
+//            }
+//        }
+//    }
+
+////    private func updateTotalDurationString() async {
+//    private func updateTotalDurationString() {
+//        if let currentItem = player?.currentItem {
+//            do {
+//                let duration = try await currentItem.asset.load(.duration)
+//
+//                if duration.isIndefinite {
+//                    // Handle the case where duration is indefinite (e.g., live streams)
+//                    if let buffer = currentItem.loadedTimeRanges.first {
+//                        let timeRange = buffer.timeRangeValue
+//                        let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+//                        DispatchQueue.main.async { [self] in
+//                            totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
+//                        }
+//                    }
+//                } else {
+//                    DispatchQueue.main.async { [self] in
+//                        totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                    }
+//                }
+//
+//            } catch {
+//                print("Error loading duration: \(error)")
+//            }
+//        }
+//    }
+
+//    private func updateTotalDurationString() async {
+//        if let currentItem = player?.currentItem {
+//            do {
+//                let duration = try await currentItem.asset.load(.duration)
+//
+//                if duration.isIndefinite {
+//                    // Handle the case where duration is indefinite (e.g., live streams)
+//                    DispatchQueue.main.async { [self] in
+//                        totalDurationString = "--:--"
+//                    }
+//                } else {
+//                    DispatchQueue.main.async { [self] in
+//                        totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+//                    }
+//                }
+//
+//            } catch {
+//                print("Error loading duration: \(error)")
+//            }
+//        }
+//    }
 }
 
 //    func play(url: URL? = nil) {
