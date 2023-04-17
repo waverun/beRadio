@@ -46,7 +46,7 @@ struct fullProgramsView: View {
     static private var selectedAudioImage: String?
     static private var selectedAudioDate: String?
 
-    private static let audioPlayer = AudioPlayer()
+    private static let audioPlayer = AudioPlayer(isLive: false)
 
     let link: String
     
@@ -82,7 +82,7 @@ struct fullProgramsView: View {
                     if let url = fullProgramsView.selectedAudioUrl,
                        let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
                        let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
-                        AudioPlayerView(url: url, image: image, date: date)
+                        AudioPlayerView(url: url, image: image, date: date, isLive: false)
                     } else {
                         Text("No URL selected")
                     }

@@ -9,18 +9,13 @@ class AudioPlayer: ObservableObject {
     @Published var currentProgressString: String = "00:00"
     @Published var totalDurationString: String = "00:00"
     
-    init() {
+    private var isLive: Bool
+    
+    init(isLive: Bool) {
+        self.isLive = isLive
         setupRemoteCommandCenter()
     }
-        
-//    private func startUpdatingTotalDuration() {
-//        let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-//        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] _ in
-//            guard let self = self else { return }
-//            self.updateTotalDurationString()
-//        }
-//    }
-    
+            
     private func startUpdatingTotalDuration() {
         if timeObserverToken == nil {
             let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -102,9 +97,6 @@ class AudioPlayer: ObservableObject {
                 print("Error setting up AVPlayer: \(error)")
                 return
             }
-//            Task {
-//                await updateTotalDurationString()
-//            }
         }
         
         if !isObservingTime {
@@ -121,12 +113,49 @@ class AudioPlayer: ObservableObject {
         
         if !isObservingTime {
             startUpdatingCurrentProgress()
-//            startUpdatingTotalDuration() // Add this line
         }
         
         stopDurationUpdateTimer()
         startUpdatingTotalDuration()
     }
+    
+//    func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) async {
+//        var nowPlayingInfo = [String: Any]()
+//
+//        nowPlayingInfo[MPMediaItemPropertyTitle] = title
+//        nowPlayingInfo[MPMediaItemPropertyArtist] = artist
+//
+//        if let albumArt = albumArt {
+//            let artwork = MPMediaItemArtwork(boundsSize: albumArt.size) { _ in
+//                return albumArt
+//            }
+//            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+//        }
+//
+//        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime().seconds
+//        if let currentItem = player?.currentItem {
+//            do {
+//                let duration = try await currentItem.asset.load(.duration)
+//
+//                if duration.timescale == 0 {
+//                    if let buffer = currentItem.loadedTimeRanges.first {
+//                        let timeRange = buffer.timeRangeValue
+//                        let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+//                        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = bufferedDuration
+//                    }
+//                } else {
+//                    nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
+//                }
+//
+//                //                nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
+//            } catch {
+//                print("Error loading duration: \(error)")
+//            }
+//        }
+//        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player?.rate
+//
+//        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+//    }
     
     func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) async {
         var nowPlayingInfo = [String: Any]()
@@ -142,8 +171,10 @@ class AudioPlayer: ObservableObject {
         }
         
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime().seconds
-        //        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player!.currentItem!.asset.duration.seconds
-        if let currentItem = player?.currentItem {
+        
+        if isLive {
+            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = TimeInterval(Double.infinity)
+        } else if let currentItem = player?.currentItem {
             do {
                 let duration = try await currentItem.asset.load(.duration)
                 
@@ -157,16 +188,16 @@ class AudioPlayer: ObservableObject {
                     nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
                 }
                 
-                //                nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
             } catch {
                 print("Error loading duration: \(error)")
             }
         }
+        
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player?.rate
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
-    
+
     func pause() {
         player?.pause()
         isPlaying = false
@@ -522,5 +553,13 @@ class AudioPlayer: ObservableObject {
 //                    break
 //                }
 //            }
+//        }
+//    }
+
+//    private func startUpdatingTotalDuration() {
+//        let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+//        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] _ in
+//            guard let self = self else { return }
+//            self.updateTotalDurationString()
 //        }
 //    }

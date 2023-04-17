@@ -9,12 +9,14 @@ struct AudioPlayerView: View {
     private let audioUrl: URL
     private let imageSrc: String?
     private let heading: String
+    private let isLive: Bool
     
-    init(url: URL, image: String?, date: String) {
-        self.audioPlayer = AudioPlayer()
+    init(url: URL, image: String?, date: String, isLive: Bool) {
+        self.audioPlayer = AudioPlayer(isLive: isLive)
         self.audioUrl = url
         self.imageSrc = image
         self.heading = date
+        self.isLive = isLive
     }
     
     var body: some View {

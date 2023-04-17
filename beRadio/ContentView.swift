@@ -124,7 +124,7 @@ struct ContentView: View {
                                 default :
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {
-                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio")
+                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
                                     }
 //                                    showLivePlayerView.toggle()
                                 }
@@ -136,7 +136,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                 }
                 .sheet(isPresented: $showLivePlayerView) {
-                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM")
+                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
                 }
                 .sheet(isPresented: $showingAddLinkView) {
                     //                                AddLinkView(links: $links)
