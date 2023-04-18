@@ -29,6 +29,11 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \RemovedLink.url, ascending: true)],
                   animation: .default) private var removedLinks: FetchedResults<RemovedLink>
     
+    @State private var audioUrl: URL = URL(string: "https://example.com/audio.mp3")!
+    @State private var imageSrc: String? = "https://example.com/image.jpg"
+    @State private var heading: String = "Some Heading"
+    @State private var isLive: Bool = false
+
     var body: some View {
         ZStack {
             NavigationView {
@@ -53,7 +58,15 @@ struct ContentView: View {
                                 default :
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {
-                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
+//                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
+                                        AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)
+                                            .onAppear {
+                                                audioUrl = url
+                                                imageSrc = item.favicon
+                                                heading =  item.name ?? "Radio"
+                                                isLive = true
+                                            }
+
                                     }
                                 }
                             } label: {

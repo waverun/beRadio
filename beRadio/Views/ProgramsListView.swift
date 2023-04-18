@@ -9,10 +9,15 @@ struct ProgramsListView: View {
 //    @Binding var showLivePlayerView: Bool
     @Binding var showingAddLinkView: Bool
 
+    @State private var audioUrl: URL = URL(string: "https://example.com/audio.mp3")!
+    @State private var imageSrc: String? = "https://example.com/image.jpg"
+    @State private var heading: String = "Some Heading"
+    @State private var isLive: Bool = false
+
     var body: some View {
         List {
-            if let url = URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio") {
-                NavigationLink (destination: AudioPlayerView(url: url, image: nil, date: "103 FM", isLive: true)) {
+//                NavigationLink (destination: AudioPlayerView(url: url, image: nil, date: "103 FM", isLive: true)) {
+                NavigationLink (destination: AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)) {
                     HStack {
                         Spacer()
                         Button(action: {
@@ -27,7 +32,15 @@ struct ProgramsListView: View {
                         Spacer()
                     }
                 }
-            }
+                .onAppear {
+                    if let url = URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio") {
+                        audioUrl = url
+                        imageSrc = nil
+                        heading = "103 FM"
+                        isLive = true
+                    }
+                }
+//            }
             ForEach(links, id: \.self) { link in
                 if !removedLinks.contains(where: { $0.url == link.url }) {
                     NavigationLink(destination: fullProgramsView(link: link.url!)) {

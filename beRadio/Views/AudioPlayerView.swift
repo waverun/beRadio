@@ -6,19 +6,19 @@ struct AudioPlayerView: View {
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
     
-    private let audioUrl: URL
-    private let imageSrc: String?
-    private let heading: String
-    private let isLive: Bool
+    @Binding private var audioUrl: URL
+    @Binding private var imageSrc: String?
+    @Binding private var heading: String
+    @Binding private var isLive: Bool
     
-    init(url: URL, image: String?, date: String, isLive: Bool) {
-        self.audioPlayer = AudioPlayer(isLive: isLive)
-        self.audioUrl = url
-        self.imageSrc = image
-        self.heading = date
-        self.isLive = isLive
+    init(url: Binding<URL>, image: Binding<String?>, date: Binding<String>, isLive: Binding<Bool>) {
+        self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue)
+        _audioUrl = url
+        _imageSrc = image
+        _heading = date
+        _isLive = isLive
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             HStack {

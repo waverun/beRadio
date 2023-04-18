@@ -47,6 +47,11 @@ struct fullProgramsView: View {
 
     private static let audioPlayer = AudioPlayer(isLive: false)
 
+    @State private var audioUrl: URL = URL(string: "https://example.com/audio.mp3")!
+    @State private var imageSrc: String? = "https://example.com/image.jpg"
+    @State private var heading: String = "Some Heading"
+    @State private var isLive: Bool = false
+
     let link: String
     
     var body: some View {
@@ -66,7 +71,6 @@ struct fullProgramsView: View {
                                     fullProgramsView.selectedAudioUrl = url
                                     fullProgramsView.selectedAudioImage = program.image
                                     fullProgramsView.selectedAudioDate = program.date
-                                    //                                DispatchQueue.main.async {
                                     showAudioPlayerView.toggle()
                                 }
                             }
@@ -76,12 +80,29 @@ struct fullProgramsView: View {
                     .onDelete(perform: deleteProgram)
                 }
                 .sheet(isPresented: $showAudioPlayerView) {
-                    if let url = fullProgramsView.selectedAudioUrl,
-                       let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
-                       let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
-                        AudioPlayerView(url: url, image: image, date: date, isLive: false)
-                    } else {
-                        Text("No URL selected")
+                    VStack {
+                        if let url = fullProgramsView.selectedAudioUrl,
+                           let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
+                           let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
+                            
+//                            audioUrl = url
+//                            imageSrc = image
+//                            heading = date
+//                            isLive = true
+                            //                        AudioPlayerView(url: url, image: image, date: date, isLive: false)
+//                            AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)
+                            AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)
+                                .onAppear {
+                                    DispatchQueue.main.async {
+                                        audioUrl = url
+                                        imageSrc = image
+                                        heading = date
+                                        isLive = true
+                                    }
+                                }
+                        } else {
+                            Text("No URL selected")
+                        }
                     }
                 }
                 .sheet(isPresented: $showSafariView) {
