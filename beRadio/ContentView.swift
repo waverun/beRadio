@@ -48,7 +48,7 @@ struct ContentView: View {
                                                          removedLinks: removedLinks,
                                                          removeLinks: removeLinks(atOffsets:),
                                                          title: $title,
-                                                         showLivePlayerView: $showLivePlayerView,
+//                                                         showLivePlayerView: $showLivePlayerView,
                                                          showingAddLinkView: $showingAddLinkView)
                                 default :
                                     if  let urlString = item.url,
@@ -63,9 +63,9 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deleteItems)
                 }
-                .sheet(isPresented: $showLivePlayerView) {
-                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
-                }
+//                .sheet(isPresented: $showLivePlayerView) {
+//                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
+//                }
                 .sheet(isPresented: $showingAddLinkView) {
                     //                                AddLinkView(links: $links)
                     AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
