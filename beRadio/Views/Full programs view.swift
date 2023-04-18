@@ -9,28 +9,89 @@ import Foundation
 import SwiftUI
 import CoreData
 
-struct ProgramButton: View {
+//struct ProgramButton: View {
+//
+//    var label: String
+//    var link: String
+//    var imageUrl: String?
+//    var action: (String) -> Void
+//    var color : UIColor = .gray
+//
+//    var body: some View {
+//           Button(action: {
+//               action(link)
+//           },
+//           label: {
+//               HStack {
+//                   if let imageUrl = imageUrl {
+//                       AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
+//                           .frame(width: 60, height: 60) // Adjust the size as needed
+//                   }
+//                   Text(label)
+//               }
+//           })
+//       }
+//}
+
+struct ProgramNavLink: View {
 
     var label: String
     var link: String
     var imageUrl: String?
-    var action: (String) -> Void
     var color : UIColor = .gray
 
+    @Binding private var audioUrl: URL
+    @Binding private var imageSrc: String?
+    @Binding private var heading: String
+    @Binding private var isLive: Bool
+
+    init(label: String, link: String, imageUrl: String? = nil, color: UIColor = .gray, audioUrl: Binding<URL>, imageSrc: Binding<String?>, heading: Binding<String>, isLive: Binding<Bool>) {
+        self.label = label
+        self.link = link
+        self.imageUrl = imageUrl
+        self.color = color
+        _audioUrl = audioUrl
+        _imageSrc = imageSrc
+        _heading = heading
+        _isLive = isLive
+    }
+    
     var body: some View {
-           Button(action: {
-               action(link)
-           },
-           label: {
-               HStack {
-                   if let imageUrl = imageUrl {
-                       AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
-                           .frame(width: 60, height: 60) // Adjust the size as needed
-                   }
-                   Text(label)
-               }
-           })
-       }
+        NavigationLink(destination: AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive, onAppearAction: {
+            fetchAudioUrl(link: link) { url in
+                DispatchQueue.main.async {
+                    if let url = url {
+                        audioUrl = url
+                    }
+                    if let imageUrl = imageUrl {
+                        imageSrc = "https://103fm.maariv.co.il" + imageUrl
+                    }
+                    heading = label
+                    isLive = false
+                }
+            }
+        })) {
+            HStack {
+                if let imageUrl = imageUrl {
+                    AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
+                        .frame(width: 60, height: 60) // Adjust the size as needed
+                }
+                Text(label)
+            }
+            .onAppear {
+//                fetchAudioUrl(link: link) { url in
+//                    DispatchQueue.main.async {
+//                        if let url = url {
+//                            audioUrl = url
+//                        }
+//                        imageSrc = imageUrl
+//                        heading = label
+//                        isLive = false
+//                    }
+//                }
+            }
+        }
+    }
 }
 
 struct fullProgramsView: View {
@@ -66,14 +127,15 @@ struct fullProgramsView: View {
             } else {
                 List {
                     ForEach (programs) { program in
-                            ProgramButton(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image) { link in
-                                fetchAudioUrl(link: link) { url in
-                                    fullProgramsView.selectedAudioUrl = url
-                                    fullProgramsView.selectedAudioImage = program.image
-                                    fullProgramsView.selectedAudioDate = program.date
-                                    showAudioPlayerView.toggle()
-                                }
-                            }
+                            ProgramNavLink(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image, audioUrl: $audioUrl, imageSrc: $imageSrc, heading: $heading, isLive: $isLive)
+//                        { link in
+//                                fetchAudioUrl(link: link) { url in
+//                                    fullProgramsView.selectedAudioUrl = url
+//                                    fullProgramsView.selectedAudioImage = program.image
+//                                    fullProgramsView.selectedAudioDate = program.date
+//                                    showAudioPlayerView.toggle()
+//                                }
+//                            }
                             .font(.title)
                             .foregroundColor(program.date.relativeColor())
                     }
@@ -84,13 +146,6 @@ struct fullProgramsView: View {
                         if let url = fullProgramsView.selectedAudioUrl,
                            let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
                            let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
-                            
-//                            audioUrl = url
-//                            imageSrc = image
-//                            heading = date
-//                            isLive = true
-                            //                        AudioPlayerView(url: url, image: image, date: date, isLive: false)
-//                            AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)
                             AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)
                                 .onAppear {
                                     DispatchQueue.main.async {

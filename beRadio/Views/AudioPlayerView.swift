@@ -13,12 +13,15 @@ struct AudioPlayerView: View {
     
     @State private var currentImageSrc: String?
 
-    init(url: Binding<URL>, image: Binding<String?>, date: Binding<String>, isLive: Binding<Bool>) {
+    let onAppearAction: (() -> Void)?
+
+    init(url: Binding<URL>, image: Binding<String?>, date: Binding<String>, isLive: Binding<Bool>, onAppearAction: (() -> Void)? = nil) {
         self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue)
         _audioUrl = url
         _imageSrc = image
         _heading = date
         _isLive = isLive
+        self.onAppearAction = onAppearAction
     }
 
     var body: some View {
@@ -124,6 +127,9 @@ struct AudioPlayerView: View {
         }
         .onAppear {
             currentImageSrc = imageSrc
+            if let action = onAppearAction {
+                action()
+            }
         }
         .onDisappear {
             audioPlayer.pause()
