@@ -14,7 +14,6 @@ struct ContentView: View {
     
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
-    //    @State private var showingSearchIcon = true
     @State private var showLivePlayerView: Bool = false
     @State private var showingRadioStationsView = false
     
@@ -52,9 +51,14 @@ struct ContentView: View {
                                         ProgramsListView(links: links,
                                                          removedLinks: removedLinks,
                                                          removeLinks: removeLinks(atOffsets:),
-                                                         title: $title,
+                                                         title: $heading,
+                                                         liveImageSrc: $imageSrc,
 //                                                         showLivePlayerView: $showLivePlayerView,
                                                          showingAddLinkView: $showingAddLinkView)
+                                        .onAppear {
+                                            heading = item.name ?? "Radio"
+                                            imageSrc = item.favicon
+                                        }
                                 default :
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {

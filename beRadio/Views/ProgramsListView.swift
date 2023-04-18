@@ -6,6 +6,8 @@ struct ProgramsListView: View {
     let removeLinks: (IndexSet) -> Void
 //    let title: String
     @Binding var title: String
+    @Binding var liveImageSrc: String?
+    
 //    @Binding var showLivePlayerView: Bool
     @Binding var showingAddLinkView: Bool
 
@@ -19,6 +21,8 @@ struct ProgramsListView: View {
 //                NavigationLink (destination: AudioPlayerView(url: url, image: nil, date: "103 FM", isLive: true)) {
                 NavigationLink (destination: AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)) {
                     HStack {
+                        AsyncImage(url: liveImageSrc ?? "")
+                            .frame(width: 60, height: 60) // Adjust the size as needed
                         Spacer()
                         Button(action: {
                         }) {
@@ -35,8 +39,8 @@ struct ProgramsListView: View {
                 .onAppear {
                     if let url = URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio") {
                         audioUrl = url
-                        imageSrc = nil
-                        heading = "103 FM"
+                        imageSrc = liveImageSrc
+                        heading = title
                         isLive = true
                     }
                 }
