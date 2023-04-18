@@ -32,75 +32,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                //                List {
-                //                    ForEach(items) { item in
-                //                        NavigationLink {
-                //                            if links.isEmpty {
-                //                                Text("Loading...")
-                //                            } else {
-                //                                List {
-                //                                    HStack {
-                //                                        Spacer()
-                //                                        Button(action: {
-                //                                            showLivePlayerView.toggle()
-                //                                        }) {
-                //                                            Text("Live!")
-                //                                                .padding(.horizontal, 8) // Adjust horizontal padding
-                //                                                .padding(.vertical, 8) // Adjust vertical padding
-                //                                                .background(Color.blue)
-                //                                                .foregroundColor(.white)
-                //                                                .cornerRadius(8)
-                //                                        }
-                //                                        Spacer()
-                //                                    }
-                //                                    ForEach(links, id: \.self) { link in
-                //                                        if !removedLinks.contains(where: { $0.url == link.url }) {
-                //                                            NavigationLink(destination: fullProgramsView(link: link.url!)) {
-                //                                                let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-                //
-                //                                                LinkButton(label: text, link: link.url!) { _ in }
-                //                                            }
-                //                                        }
-                //                                    }
-                //                                    .onDelete(perform: removeLinks)
-                //                                    .padding(.top, -10)
-                //                                    .padding(.bottom, -10)
-                //                                }
-                //                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                //                                .onAppear {
-                //                                    title = "103 FM"
-                //                                }
-                //                                .sheet(isPresented: $showLivePlayerView) {
-                //                                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM")
-                //                                }
-                //                                .toolbar {
-                //#if os(iOS)
-                //                                    ToolbarItem(placement: .navigationBarTrailing) {
-                //                                        EditButton()
-                //                                    }
-                //#endif
-                //                                    ToolbarItem {
-                //                                        //                                    Button(action: addNewLink) {
-                //                                        //                                        Label("Add link", systemImage: "plus")
-                //                                        //                                    }
-                //                                        Button(action: { showingAddLinkView.toggle() }) {
-                //                                            Label("Add link", systemImage: "plus")
-                //                                        }
-                //                                    }
-                //                                }
-                //                                .sheet(isPresented: $showingAddLinkView) {
-                //                                    //                                AddLinkView(links: $links)
-                //                                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
-                //                                }
-                //                            }
-                //                            //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                //                            Text("beRadio")
-                //                        } label: {
-                //                            Text(item.name ?? "New station")
-                //                        }
-                //                    }
-                //                    .onDelete(perform: deleteItems)
-                //                }
                 List {
                     ForEach(items) { item in
                         HStack {
@@ -112,7 +43,6 @@ struct ContentView: View {
                                 switch true {
                                 case  links.isEmpty :
                                     Text("Loading...")
-//                                default :
                                 case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
                                         ProgramsListView(links: links,
                                                          removedLinks: removedLinks,
@@ -120,13 +50,11 @@ struct ContentView: View {
                                                          title: $title,
                                                          showLivePlayerView: $showLivePlayerView,
                                                          showingAddLinkView: $showingAddLinkView)
-//                                    }
                                 default :
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {
                                         AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
                                     }
-//                                    showLivePlayerView.toggle()
                                 }
                             } label: {
                                 Text(item.name ?? "New station")
@@ -166,27 +94,6 @@ struct ContentView: View {
                 .navigationBarTitle(title, displayMode: .inline)
                 Text("Select an item")
             }
-            //            if showingSearchIcon {
-            //                VStack {
-            //                    Spacer()
-            //                    HStack {
-            //                        Spacer()
-            //                        Button(action: {
-            //                            showingRadioStationsView.toggle()
-            //                        }) {
-            //                            Image(systemName: "magnifyingglass")
-            //                                .resizable()
-            //                                .frame(width: 16, height: 16)
-            //                                .padding(10)
-            //                                .background(Color.blue)
-            //                                .foregroundColor(.white)
-            //                                .clipShape(Circle())
-            //                                .padding(.trailing, 16)
-            //                                .padding(.bottom, 16)
-            //                        }
-            //                    }
-            //                }
-            //            }
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)

@@ -41,7 +41,6 @@ struct AudioPlayerView: View {
                             else {
                                 AsyncImage(url: imageSrc)
                                     .frame(width: 60, height: 60)
-//                                    .background(Color(UIColor.darkGray))
                             }
                         }
                         HStack {
