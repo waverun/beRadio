@@ -9,6 +9,8 @@ class AudioPlayer: ObservableObject {
     @Published var currentProgressString: String = "00:00"
     @Published var totalDurationString: String = "00:00"
     
+    private var shouldUpdateTime: Bool = true
+
     private var isLive: Bool
     
     init(isLive: Bool) {
@@ -71,15 +73,15 @@ class AudioPlayer: ObservableObject {
     private var timeObserverToken: Any?
 //    private var isObservingTime = false
     
-    func resetPlayer() {
-        if let oldPlayer = player {
-            if let timeObserverToken = timeObserverToken {
-                oldPlayer.removeTimeObserver(timeObserverToken)
-                self.timeObserverToken = nil
-            }
-            player = nil
-        }
-    }
+//    func resetPlayer() {
+//        if let oldPlayer = player {
+//            if let timeObserverToken = timeObserverToken {
+//                oldPlayer.removeTimeObserver(timeObserverToken)
+//                self.timeObserverToken = nil
+//            }
+//            player = nil
+//        }
+//    }
     
     func play(url: URL? = nil) {
         var isNewPlayer = false
@@ -100,7 +102,6 @@ class AudioPlayer: ObservableObject {
         
         player?.play()
         isPlaying = true
-//        updateNowPlayingInfoElapsedPlaybackTime()
         
         if isNewPlayer {
             Task {
@@ -115,7 +116,10 @@ class AudioPlayer: ObservableObject {
             updateTotalDurationString()
         }
 
+        shouldUpdateTime = true
         startUpdatingCurrentProgress()
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = 1
     }
         
     func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) async {
@@ -163,11 +167,15 @@ class AudioPlayer: ObservableObject {
         player?.pause()
         isPlaying = false
         updateNowPlayingInfoElapsedPlaybackTime()
-        stopUpdatingCurrentProgress()
+//        stopUpdatingCurrentProgress()
+        shouldUpdateTime = false
+
 
         if isLive {
             startDurationUpdateTimer()
         }
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = 0
     }
     
     private var durationUpdateTimer: Timer?
@@ -215,24 +223,19 @@ class AudioPlayer: ObservableObject {
             MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
     }
-    
-//    private func startUpdatingCurrentProgress() {
-//        let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-//        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
-//            guard let self = self else { return }
-//            self.currentProgressString = self.timeFormatter.string(from: time.seconds) ?? "00:00"
-//        }
-//    }
-    
+        
     private func startUpdatingCurrentProgress() {
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
             guard let self = self else { return }
-            self.currentProgressString = self.timeFormatter.string(from: time.seconds) ?? "00:00"
-
-            if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo {
-                nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = time.seconds
-                MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+            
+            if self.shouldUpdateTime {
+                self.currentProgressString = self.timeFormatter.string(from: time.seconds) ?? "00:00"
+                
+                if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo {
+                    nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = time.seconds
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+                }
             }
         }
     }
