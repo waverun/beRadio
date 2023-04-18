@@ -37,17 +37,6 @@ struct AudioPlayerView: View {
                             .font(.system(size: 24)) // Adjust the size value as needed
                             .bold()
                             .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true) // Optional: This will make sure the Text view expands vertically as needed
-//                        if let imageSrc = imageSrc {
-//                            if audioUrl.absoluteString.hasPrefix("/") {
-//                                AsyncImage(url: imageSrc)
-//                                    .frame(width: 240, height: 240)
-//                            }
-//                            else {
-//                                AsyncImage(url: imageSrc)
-//                                    .frame(width: 60, height: 60)
-//                            }
-//                        }
                         if let imageSrc = currentImageSrc {
                             if audioUrl.absoluteString.hasPrefix("/") {
                                 AsyncImage(url: imageSrc)
@@ -68,6 +57,7 @@ struct AudioPlayerView: View {
                         }
                         HStack {
                             Text("\(audioPlayer.totalDurationString)")
+                                .frame(width: 60, alignment: .leading) // Adjust the width as needed
                                 .foregroundColor(.white)
                             
                             Button(action: {
@@ -98,6 +88,7 @@ struct AudioPlayerView: View {
                             }
                             
                             Text("\(audioPlayer.currentProgressString)")
+                                .frame(width: 60, alignment: .trailing) // Adjust the width as needed
                                 .foregroundColor(.white)
                         }
                     }

@@ -9,30 +9,6 @@ import Foundation
 import SwiftUI
 import CoreData
 
-//struct ProgramButton: View {
-//
-//    var label: String
-//    var link: String
-//    var imageUrl: String?
-//    var action: (String) -> Void
-//    var color : UIColor = .gray
-//
-//    var body: some View {
-//           Button(action: {
-//               action(link)
-//           },
-//           label: {
-//               HStack {
-//                   if let imageUrl = imageUrl {
-//                       AsyncImage(url: "https://103fm.maariv.co.il" + imageUrl)
-//                           .frame(width: 60, height: 60) // Adjust the size as needed
-//                   }
-//                   Text(label)
-//               }
-//           })
-//       }
-//}
-
 struct ProgramNavLink: View {
 
     var label: String
@@ -79,16 +55,6 @@ struct ProgramNavLink: View {
                 Text(label)
             }
             .onAppear {
-//                fetchAudioUrl(link: link) { url in
-//                    DispatchQueue.main.async {
-//                        if let url = url {
-//                            audioUrl = url
-//                        }
-//                        imageSrc = imageUrl
-//                        heading = label
-//                        isLive = false
-//                    }
-//                }
             }
         }
     }
