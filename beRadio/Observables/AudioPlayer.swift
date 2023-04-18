@@ -170,7 +170,6 @@ class AudioPlayer: ObservableObject {
 //        stopUpdatingCurrentProgress()
         shouldUpdateTime = false
 
-
         if isLive {
             startDurationUpdateTimer()
         }
@@ -218,8 +217,9 @@ class AudioPlayer: ObservableObject {
     }
     
     func updateNowPlayingInfoElapsedPlaybackTime() {
-        if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo {
-            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime().seconds ?? 0
+        if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo,
+           let seconds = player?.currentTime().seconds {
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = seconds
             MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
     }
