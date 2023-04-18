@@ -11,20 +11,55 @@ struct ProgramsListView: View {
 
     var body: some View {
         List {
-            HStack {
-                Spacer()
-                Button(action: {
-                    showLivePlayerView.toggle()
-                }) {
-                    Text("Live!")
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+//            HStack {
+//                Spacer()
+//                Button(action: {
+//                    showLivePlayerView.toggle()
+//                }) {
+//                    Text("Live!")
+//                        .padding(.horizontal, 8)
+//                        .padding(.vertical, 8)
+//                        .background(Color.blue)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(8)
+//                }
+//                Spacer()
+//            }
+            if let url = URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio") {
+                NavigationLink (destination: AudioPlayerView(url: url, image: nil, date: "103 FM", isLive: true)) {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+//                            showLivePlayerView.toggle()
+                        }) {
+                            Text("Live!")
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 8)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
+                        Spacer()
+                    }
                 }
-                Spacer()
             }
+//                switch true {
+//                case  links.isEmpty :
+//                    Text("Loading...")
+//                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+//                        ProgramsListView(links: links,
+//                                         removedLinks: removedLinks,
+//                                         removeLinks: removeLinks(atOffsets:),
+//                                         title: $title,
+//                                         showLivePlayerView: $showLivePlayerView,
+//                                         showingAddLinkView: $showingAddLinkView)
+//                default :
+//                    if  //let urlString = item.url,
+//                        let url = URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio") {
+//                        AudioPlayerView(url: url, image: nil, date: "103 FM", isLive: true)
+//                    }
+////                }
+//            }
             ForEach(links, id: \.self) { link in
                 if !removedLinks.contains(where: { $0.url == link.url }) {
                     NavigationLink(destination: fullProgramsView(link: link.url!)) {
