@@ -33,7 +33,7 @@ struct ProgramNavLink: View {
     }
     
     var body: some View {
-        NavigationLink(destination: AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive, onAppearAction: {
+        NavigationLink(destination: AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive, onAppearAction: {
             fetchAudioUrl(link: link) { url in
                 DispatchQueue.main.async {
                     if let url = url {
@@ -112,7 +112,7 @@ struct fullProgramsView: View {
                         if let url = fullProgramsView.selectedAudioUrl,
                            let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
                            let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
-                            AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)
+                            AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive)
                                 .onAppear {
                                     DispatchQueue.main.async {
                                         audioUrl = url

@@ -19,7 +19,7 @@ struct ProgramsListView: View {
     var body: some View {
         List {
 //                NavigationLink (destination: AudioPlayerView(url: url, image: nil, date: "103 FM", isLive: true)) {
-                NavigationLink (destination: AudioPlayerView(url: $audioUrl, image: $imageSrc, date: $heading, isLive: $isLive)) {
+                NavigationLink (destination: AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive)) {
                     HStack {
                         AsyncImage(url: liveImageSrc ?? "")
                             .frame(width: 60, height: 60) // Adjust the size as needed

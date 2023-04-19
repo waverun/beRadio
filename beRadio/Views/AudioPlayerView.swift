@@ -7,7 +7,7 @@ struct AudioPlayerView: View {
     @StateObject private var routeChangeHandler = RouteChangeHandler()
     
     @Binding private var audioUrl: URL
-    @Binding private var imageSrc: String?
+    private var imageSrc: String?
     @Binding private var heading: String
     @Binding private var isLive: Bool
     
@@ -15,10 +15,10 @@ struct AudioPlayerView: View {
 
     let onAppearAction: (() -> Void)?
 
-    init(url: Binding<URL>, image: Binding<String?>, date: Binding<String>, isLive: Binding<Bool>, onAppearAction: (() -> Void)? = nil) {
+    init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, onAppearAction: (() -> Void)? = nil) {
         self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue)
         _audioUrl = url
-        _imageSrc = image
+        self.imageSrc = image
         _heading = date
         _isLive = isLive
         self.onAppearAction = onAppearAction
