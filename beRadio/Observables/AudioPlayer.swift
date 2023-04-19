@@ -136,7 +136,7 @@ class AudioPlayer: ObservableObject {
         if let albumArtURL = albumArtURL {
             do {
                 let imageData = try await downloadImageData(from: albumArtURL)
-                let albumArt = UIImage(data: imageData)
+                let albumArt = imageData == nil ? UIImage(systemName: "antenna.radiowaves.left.and.right") : UIImage(data: imageData!)
                 let artwork = MPMediaItemArtwork(boundsSize: albumArt!.size) { _ in
                     return albumArt!
                 }
@@ -174,10 +174,12 @@ class AudioPlayer: ObservableObject {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
 
-    func downloadImageData(from urlString: String) async throws -> Data {
-        let url = URL(string: urlString)!
-        let (data, _) = try await URLSession.shared.data(from: url)
-        return data
+    func downloadImageData(from urlString: String) async throws -> Data? {
+        if let url = URL(string: urlString) {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return data
+        }
+        return nil
     }
     
 //    func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) async {
