@@ -14,6 +14,7 @@ struct ProgramNavLink: View {
     var label: String
     var link: String
     var imageUrl: String?
+    var title: String
     var color : UIColor = .gray
 
     @Binding private var audioUrl: URL
@@ -21,11 +22,12 @@ struct ProgramNavLink: View {
     @Binding private var heading: String
     @Binding private var isLive: Bool
 
-    init(label: String, link: String, imageUrl: String? = nil, color: UIColor = .gray, audioUrl: Binding<URL>, imageSrc: Binding<String?>, heading: Binding<String>, isLive: Binding<Bool>) {
+    init(label: String, link: String, imageUrl: String? = nil, color: UIColor = .gray, audioUrl: Binding<URL>, imageSrc: Binding<String?>, heading: Binding<String>, isLive: Binding<Bool>, title: String) {
         self.label = label
         self.link = link
         self.imageUrl = imageUrl
         self.color = color
+        self.title = title
         _audioUrl = audioUrl
         _imageSrc = imageSrc
         _heading = heading
@@ -33,7 +35,7 @@ struct ProgramNavLink: View {
     }
     
     var body: some View {
-        NavigationLink(destination: AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive, onAppearAction: {
+        NavigationLink(destination: AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive, title: title, artist: heading, onAppearAction: {
             fetchAudioUrl(link: link) { url in
                 DispatchQueue.main.async {
                     if let url = url {
@@ -67,7 +69,7 @@ struct fullProgramsView: View {
     @State private var programs: [ExtractedData] = []
     @State private var title = ""
     
-    @State private var showAudioPlayerView: Bool = false
+//    @State private var showAudioPlayerView: Bool = false
     static private var selectedAudioUrl: URL?
     static private var selectedAudioImage: String?
     static private var selectedAudioDate: String?
@@ -93,7 +95,7 @@ struct fullProgramsView: View {
             } else {
                 List {
                     ForEach (programs) { program in
-                            ProgramNavLink(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image, audioUrl: $audioUrl, imageSrc: $imageSrc, heading: $heading, isLive: $isLive)
+                            ProgramNavLink(label: program.date, link: "https://103fm.maariv.co.il" + program.link, imageUrl: program.image, audioUrl: $audioUrl, imageSrc: $imageSrc, heading: $heading, isLive: $isLive, title: title)
 //                        { link in
 //                                fetchAudioUrl(link: link) { url in
 //                                    fullProgramsView.selectedAudioUrl = url
@@ -107,25 +109,25 @@ struct fullProgramsView: View {
                     }
                     .onDelete(perform: deleteProgram)
                 }
-                .sheet(isPresented: $showAudioPlayerView) {
-                    VStack {
-                        if let url = fullProgramsView.selectedAudioUrl,
-                           let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
-                           let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
-                            AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive)
-                                .onAppear {
-                                    DispatchQueue.main.async {
-                                        audioUrl = url
-                                        imageSrc = image
-                                        heading = date
-                                        isLive = true
-                                    }
-                                }
-                        } else {
-                            Text("No URL selected")
-                        }
-                    }
-                }
+//                .sheet(isPresented: $showAudioPlayerView) {
+//                    VStack {
+//                        if let url = fullProgramsView.selectedAudioUrl,
+//                           let image = "https://103fm.maariv.co.il" + (fullProgramsView.selectedAudioImage ?? ""),
+//                           let date = title + "\n" + (fullProgramsView.selectedAudioDate ?? "") {
+//                            AudioPlayerView(url: $audioUrl, image: imageSrc, date: $heading, isLive: $isLive)
+//                                .onAppear {
+//                                    DispatchQueue.main.async {
+//                                        audioUrl = url
+//                                        imageSrc = image
+//                                        heading = date
+//                                        isLive = true
+//                                    }
+//                                }
+//                        } else {
+//                            Text("No URL selected")
+//                        }
+//                    }
+//                }
                 .sheet(isPresented: $showSafariView) {
                     if let url = selectedURL {
                         SafariView(url: url)

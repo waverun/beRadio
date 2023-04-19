@@ -63,7 +63,7 @@ struct ContentView: View {
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {
                                         //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
-                                        AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive)
+                                        AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
                                             .onAppear {
                                                 DispatchQueue.main.async {
                                                     audioUrl = url

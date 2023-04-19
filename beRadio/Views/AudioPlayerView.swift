@@ -11,16 +11,20 @@ struct AudioPlayerView: View {
     @Binding private var heading: String
     @Binding private var isLive: Bool
     
+    private var title, artist: String
+
     @State private var currentImageSrc: String?
 
     let onAppearAction: (() -> Void)?
 
-    init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, onAppearAction: (() -> Void)? = nil) {
-        self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image)
+    init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
+        self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
         _audioUrl = url
         self.imageSrc = image
         _heading = date
         _isLive = isLive
+        self.title = title
+        self.artist = artist
         self.onAppearAction = onAppearAction
     }
 

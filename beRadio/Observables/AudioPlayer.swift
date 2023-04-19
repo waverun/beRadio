@@ -11,11 +11,14 @@ class AudioPlayer: ObservableObject {
     
     private var shouldUpdateTime: Bool = true
     private var albumArt: String?
+    private var title, artist: String
     private var isLive: Bool
     
-    init(isLive: Bool, albumArt: String?) {
+    init(isLive: Bool, albumArt: String?, title: String, artist: String) {
         self.isLive = isLive
         self.albumArt = albumArt
+        self.title = title
+        self.artist = artist
         setupRemoteCommandCenter()
     }
             
@@ -107,7 +110,7 @@ class AudioPlayer: ObservableObject {
         if isNewPlayer {
             Task {
 //                await configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArt: UIImage(systemName: "antenna.radiowaves.left.and.right"))
-                await configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArtURL: albumArt)
+                await configureNowPlayingInfo(title: title, artist: artist, albumArtURL: albumArt)
             }
         }
         
