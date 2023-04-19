@@ -72,7 +72,7 @@ struct fullProgramsView: View {
     static private var selectedAudioImage: String?
     static private var selectedAudioDate: String?
 
-    private static let audioPlayer = AudioPlayer(isLive: false)
+//    private static let audioPlayer = AudioPlayer(isLive: false)
 
     @State private var audioUrl: URL = URL(string: "https://example.com/audio.mp3")!
     @State private var imageSrc: String? = "https://example.com/image.jpg"

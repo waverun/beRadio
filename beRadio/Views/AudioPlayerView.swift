@@ -16,7 +16,7 @@ struct AudioPlayerView: View {
     let onAppearAction: (() -> Void)?
 
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, onAppearAction: (() -> Void)? = nil) {
-        self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue)
+        self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image)
         _audioUrl = url
         self.imageSrc = image
         _heading = date
