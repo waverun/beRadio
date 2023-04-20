@@ -258,7 +258,7 @@ class AudioPlayer: ObservableObject {
         if let player = player {
             let forwardTime = CMTimeMake(value: 15, timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), forwardTime)
-            player.seek(to: newTime)
+//            player.seek(to: newTime)
             player.seek(to: newTime) { [weak self] _ in
                 self?.updateNowPlayingInfoElapsedPlaybackTime()
             }
@@ -269,7 +269,7 @@ class AudioPlayer: ObservableObject {
         if let player = player {
             let rewindTime = CMTimeMake(value: -15, timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), rewindTime)
-            player.seek(to: newTime)
+//            player.seek(to: newTime)
             player.seek(to: newTime) { [weak self] _ in
                 self?.updateNowPlayingInfoElapsedPlaybackTime()
             }
