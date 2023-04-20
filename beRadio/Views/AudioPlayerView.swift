@@ -61,7 +61,7 @@ struct AudioPlayerView: View {
                         }
                         HStack {
                             Text("\(audioPlayer.totalDurationString)")
-                                .frame(width: 60, alignment: .leading) // Adjust the width as needed
+                                .frame(width: 70, alignment: .leading) // Adjust the width as needed
                                 .foregroundColor(.white)
                             
                             Button(action: {
@@ -92,7 +92,7 @@ struct AudioPlayerView: View {
                             }
                             
                             Text("\(audioPlayer.currentProgressString)")
-                                .frame(width: 60, alignment: .trailing) // Adjust the width as needed
+                                .frame(width: 70, alignment: .trailing) // Adjust the width as needed
                                 .foregroundColor(.white)
                         }
                     }
