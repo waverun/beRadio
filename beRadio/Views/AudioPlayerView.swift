@@ -52,7 +52,7 @@ struct AudioPlayerView: View {
                             }
                             else {
                                 AsyncImage(url: imageSrc)
-                                    .frame(width: 60, height: 60)
+                                    .frame(width: 120, height: 120)
                                     .onChange(of: self.imageSrc) { newValue in
                                         currentImageSrc = newValue
                                         print("currentImageSrc: \(currentImageSrc ?? "no value")")
