@@ -128,6 +128,7 @@ struct AudioPlayerView: View {
         }
         .onDisappear {
             audioPlayer.pause()
+            audioPlayer.removePlayer()
         }
     }
 }

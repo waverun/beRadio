@@ -75,17 +75,12 @@ class AudioPlayer: ObservableObject {
     }()
     
     private var timeObserverToken: Any?
-//    private var isObservingTime = false
     
-//    func resetPlayer() {
-//        if let oldPlayer = player {
-//            if let timeObserverToken = timeObserverToken {
-//                oldPlayer.removeTimeObserver(timeObserverToken)
-//                self.timeObserverToken = nil
-//            }
-//            player = nil
-//        }
-//    }
+    func removePlayer() {
+        player = nil
+        currentProgressString = "00:00"
+        totalDurationString = "00:00"
+    }
     
     func play(url: URL? = nil) {
         var isNewPlayer = false
@@ -109,7 +104,6 @@ class AudioPlayer: ObservableObject {
         
         if isNewPlayer {
             Task {
-//                await configureNowPlayingInfo(title: "Song Title", artist: "Artist Name", albumArt: UIImage(systemName: "antenna.radiowaves.left.and.right"))
                 await configureNowPlayingInfo(title: title, artist: artist, albumArtURL: albumArt)
             }
         }
