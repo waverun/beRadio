@@ -56,13 +56,13 @@ class AudioPlayer: ObservableObject {
         
         commandCenter.skipForwardCommand.preferredIntervals = [15] // Set the preferred skip interval (in seconds)
         commandCenter.skipForwardCommand.addTarget { [weak self] _ in
-            self?.forward()
+            self?.forward(by: 15)
             return .success
         }
         
         commandCenter.skipBackwardCommand.preferredIntervals = [15] // Set the preferred skip interval (in seconds)
         commandCenter.skipBackwardCommand.addTarget { [weak self] _ in
-            self?.rewind()
+            self?.rewind(by: 15)
             return .success
         }
     }
@@ -248,28 +248,46 @@ class AudioPlayer: ObservableObject {
 
     // ... rest of the class code
     
-    func forward() {
+//    func forward() {
+//        if let player = player {
+//            let forwardTime = CMTimeMake(value: 15, timescale: 1)
+//            let newTime = CMTimeAdd(player.currentTime(), forwardTime)
+//            player.seek(to: newTime) { [weak self] _ in
+//                self?.updateNowPlayingInfoElapsedPlaybackTime()
+//            }
+//        }
+//    }
+//
+//    func rewind() {
+//        if let player = player {
+//            let rewindTime = CMTimeMake(value: -15, timescale: 1)
+//            let newTime = CMTimeAdd(player.currentTime(), rewindTime)
+//            player.seek(to: newTime) { [weak self] _ in
+//                self?.updateNowPlayingInfoElapsedPlaybackTime()
+//            }
+//        }
+//    }
+    
+    func forward(by interval: Int) {
         if let player = player {
-            let forwardTime = CMTimeMake(value: 15, timescale: 1)
+            let forwardTime = CMTimeMake(value: Int64(interval), timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), forwardTime)
-//            player.seek(to: newTime)
             player.seek(to: newTime) { [weak self] _ in
                 self?.updateNowPlayingInfoElapsedPlaybackTime()
             }
         }
     }
-    
-    func rewind() {
+
+    func rewind(by interval: Int) {
         if let player = player {
-            let rewindTime = CMTimeMake(value: -15, timescale: 1)
+            let rewindTime = CMTimeMake(value: -Int64(interval), timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), rewindTime)
-//            player.seek(to: newTime)
             player.seek(to: newTime) { [weak self] _ in
                 self?.updateNowPlayingInfoElapsedPlaybackTime()
             }
         }
     }
-    
+
     func updateNowPlayingInfoElapsedPlaybackTime() {
         if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo,
            let seconds = player?.currentTime().seconds {

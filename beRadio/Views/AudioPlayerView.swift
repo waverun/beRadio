@@ -2,6 +2,9 @@ import SwiftUI
 import AVFoundation
 
 struct AudioPlayerView: View {
+    
+    let skipIntervals = [15, 30, 60, 120, 240, 480]
+
     @ObservedObject private var audioPlayer: AudioPlayer
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
@@ -60,46 +63,122 @@ struct AudioPlayerView: View {
                             }
                         }
                         HStack {
-                            Text("\(audioPlayer.totalDurationString)")
-                                .frame(width: 70, alignment: .leading) // Adjust the width as needed
-                                .foregroundColor(.white)
-                            
-                            Button(action: {
-                                audioPlayer.forward()
-                            }) {
-                                Image(systemName: "goforward.15")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 40, height: 40)
+                            VStack {
+                                HStack {
+                                    Button(action: {
+                                        audioPlayer.rewind(by: 60)
+                                    }) {
+                                        Image(systemName: "gobackward.60")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                    }
+                                    
+                                    Button(action: {
+                                        audioPlayer.rewind(by: 30)
+                                    }) {
+                                        Image(systemName: "gobackward.30")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                    }
+                                }
+                                
+                                HStack {
+                                    Button(action: {
+                                        audioPlayer.forward(by: 15)
+                                    }) {
+                                        Image(systemName: "goforward.15")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                    }
+                                    
+                                    Text("\(audioPlayer.totalDurationString)")
+                                        .frame(width: 70, alignment: .leading)
+                                        .foregroundColor(.white)
+                                    
+                                    Button(action: {
+                                        audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
+                                    }) {
+                                        Image(systemName: audioPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 50, height: 50)
+                                    }
+                                    
+                                    Text("\(audioPlayer.currentProgressString)")
+                                        .frame(width: 70, alignment: .trailing)
+                                        .foregroundColor(.white)
+                                    
+                                    Button(action: {
+                                        audioPlayer.rewind(by: 15)
+                                    }) {
+                                        Image(systemName: "gobackward.15")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                    }
+                                }
+                                
+                                HStack {
+                                    Button(action: {
+                                        audioPlayer.forward(by: 30)
+                                    }) {
+                                        Image(systemName: "goforward.30")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                    }
+                                    
+                                    Button(action: {
+                                        audioPlayer.forward(by: 60)
+                                    }) {
+                                        Image(systemName: "goforward.60")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                    }
+                                }
                             }
-                            
-                            Button(action: {
-                                audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
-                            }) {
-                                Image(systemName: audioPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 50, height: 50)
-                            }
-                            
-                            Button(action: {
-                                audioPlayer.rewind()
-                            }) {
-                                Image(systemName: "gobackward.15")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 40, height: 40)
-                            }
-                            
-                            Text("\(audioPlayer.currentProgressString)")
-                                .frame(width: 70, alignment: .trailing) // Adjust the width as needed
-                                .foregroundColor(.white)
                         }
+//                        HStack {
+//                            Button(action: {
+//                                audioPlayer.rewind(by: 120)
+//                            }) {
+//                                Image(systemName: "gobackward.15")
+//                                    .resizable()
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(width: 40, height: 40)
+//                            }
+//
+//                            Spacer()
+//
+//                            Button(action: {
+//                                audioPlayer.forward(by: 120)
+//                            }) {
+//                                Image(systemName: "goforward.15")
+//                                    .resizable()
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(width: 40, height: 40)
+//                            }
+//                        }
+
+//                        HStack {
+//                            Button(action: {
+//                                audioPlayer.rewind(by: 240)
+//                            }) {
+//                                Image(systemName: "gobackward.15")
+//                                    .resizable()
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(width: 40, height: 40)
+//                            }
+//                        }
                     }
                     
                     let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
                     Spacer()
-                        .frame(height: availableSpace / 2)
+                        .frame(height: availableSpace / 4)
                     
                     Button(action: {
                         selectAudioOutput()
