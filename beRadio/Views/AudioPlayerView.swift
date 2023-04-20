@@ -65,9 +65,9 @@ struct AudioPlayerView: View {
                                 .foregroundColor(.white)
                             
                             Button(action: {
-                                audioPlayer.rewind()
+                                audioPlayer.forward()
                             }) {
-                                Image(systemName: "gobackward.15")
+                                Image(systemName: "goforward.15")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40, height: 40)
@@ -83,9 +83,9 @@ struct AudioPlayerView: View {
                             }
                             
                             Button(action: {
-                                audioPlayer.forward()
+                                audioPlayer.rewind()
                             }) {
-                                Image(systemName: "goforward.15")
+                                Image(systemName: "gobackward.15")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40, height: 40)
