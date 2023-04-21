@@ -31,6 +31,7 @@ struct AudioPlayerView: View {
         self.title = title
         self.artist = artist
         self.onAppearAction = onAppearAction
+        gAudioPlayerView = self
     }
 
     var body: some View {
@@ -202,7 +203,7 @@ struct AudioPlayerView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .onAppear {
-            gAudioPlayerView = self
+//            gAudioPlayerView = self
             currentImageSrc = imageSrc
             if let action = onAppearAction {
                 action()

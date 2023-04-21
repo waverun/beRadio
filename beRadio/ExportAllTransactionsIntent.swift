@@ -4,14 +4,15 @@ struct OpenCurrentlyReading: AudioStartingIntent {
     static var title: LocalizedStringResource =
     "Open Currently Reading"
     
-    @MainActor
+//    @MainActora
     func perform() async throws -> some IntentResult {
         print("perform")
-        //        DispatchQueue.main.async {
-        if let audioPlayerView = gAudioPlayerView {
-            audioPlayerView.audioPlayer.rewind(by: 15)
+        DispatchQueue.main.async {
+            if gAudioPlayerView != nil,
+             let audioPlayer = gAudioPlayer {
+                audioPlayer.rewind(by: 15)
+            }
         }
-        //        }
         return .result ()
     }
 }

@@ -2,6 +2,8 @@ import SwiftUI
 import AVFoundation
 import MediaPlayer
 
+var gAudioPlayer: AudioPlayer?
+
 class AudioPlayer: ObservableObject {
     var player: AVPlayer?
     @Published var isPlaying = false
@@ -92,6 +94,7 @@ class AudioPlayer: ObservableObject {
                 let asset = AVURLAsset(url: url)
                 let item = AVPlayerItem(asset: asset)
                 player = AVPlayer(playerItem: item)
+                gAudioPlayer = self
                 try AVAudioSession.sharedInstance().setCategory(.playback)
             } catch {
                 print("Error setting up AVPlayer: \(error)")
@@ -278,13 +281,41 @@ class AudioPlayer: ObservableObject {
         }
     }
 
-    func rewind(by interval: Int) {
+//    func rewind(by interval: Int, wasPlaying: Bool? = nil) {
+//        if let player = player {
+//            let rewindTime = CMTimeMake(value: -Int64(interval), timescale: 1)
+//            let newTime = CMTimeAdd(player.currentTime(), rewindTime)
+//            player.seek(to: newTime) { [weak self] _ in
+//                self?.updateNowPlayingInfoElapsedPlaybackTime()
+//                if let isPlaying = self?.isPlaying,
+//                   isPlaying {
+//                    self?.play()
+//                }
+//            }
+//        }
+//    }
+
+    private func updateCurrentProgressString() {
+        if let currentTime = player?.currentTime() {
+            currentProgressString = timeFormatter.string(from: currentTime.seconds) ?? "00:00"
+        }
+    }
+    
+    func rewind(by interval: Int, wasPlaying: Bool? = nil) {
         if let player = player {
             let rewindTime = CMTimeMake(value: -Int64(interval), timescale: 1)
             let newTime = CMTimeAdd(player.currentTime(), rewindTime)
             player.seek(to: newTime) { [weak self] _ in
                 self?.updateNowPlayingInfoElapsedPlaybackTime()
+                // Update the current progress string when rewinding
+                self?.updateCurrentProgressString()
+                if let isPlaying = self?.isPlaying,
+                   isPlaying {
+                    self?.play()
+                }
             }
+        } else {
+            print("player is nil")
         }
     }
 
