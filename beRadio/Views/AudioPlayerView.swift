@@ -1,11 +1,13 @@
 import SwiftUI
 import AVFoundation
 
+var gAudioPlayerView: AudioPlayerView?
+
 struct AudioPlayerView: View {
     
-    let skipIntervals = [15, 30, 60, 120, 240, 480]
+//    let skipIntervals = [15, 30, 60, 120, 240, 480]
 
-    @ObservedObject private var audioPlayer: AudioPlayer
+    @ObservedObject var audioPlayer: AudioPlayer
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
     
@@ -200,12 +202,14 @@ struct AudioPlayerView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .onAppear {
+            gAudioPlayerView = self
             currentImageSrc = imageSrc
             if let action = onAppearAction {
                 action()
             }
         }
         .onDisappear {
+            gAudioPlayerView = nil
             audioPlayer.pause()
             audioPlayer.removePlayer()
         }

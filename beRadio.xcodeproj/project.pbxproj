@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
+		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
 		923803BD29D5CCF6001BADF2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923803BC29D5CCF6001BADF2 /* Array.swift */; };
 		92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
 		92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
+		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
 		923803BB29D4AE70001BADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		923803BC29D5CCF6001BADF2 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		92AB2A7129C3A49100EFF179 /* beRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */,
 				92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */,
 				92AB2A8029C3A49100EFF179 /* Preview Content */,
+				922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */,
 			);
 			path = beRadio;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
+				922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */,
 				92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
 				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,

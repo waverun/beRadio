@@ -3,7 +3,7 @@ import AVFoundation
 import MediaPlayer
 
 class AudioPlayer: ObservableObject {
-    private var player: AVPlayer?
+    var player: AVPlayer?
     @Published var isPlaying = false
     
     @Published var currentProgressString: String = "00:00"
