@@ -3,6 +3,7 @@ import AVFoundation
 import MediaPlayer
 
 var gAudioPlayer: AudioPlayer?
+var gPlayer: AVPlayer?
 
 class AudioPlayer: ObservableObject {
     var player: AVPlayer?
@@ -95,6 +96,7 @@ class AudioPlayer: ObservableObject {
                 let item = AVPlayerItem(asset: asset)
                 player = AVPlayer(playerItem: item)
                 gAudioPlayer = self
+                gPlayer = player
                 try AVAudioSession.sharedInstance().setCategory(.playback)
             } catch {
                 print("Error setting up AVPlayer: \(error)")
@@ -277,6 +279,11 @@ class AudioPlayer: ObservableObject {
             let newTime = CMTimeAdd(player.currentTime(), forwardTime)
             player.seek(to: newTime) { [weak self] _ in
                 self?.updateNowPlayingInfoElapsedPlaybackTime()
+                self?.updateCurrentProgressString()
+                if let isPlaying = self?.isPlaying,
+                   isPlaying {
+                    self?.play()
+                }
             }
         }
     }
