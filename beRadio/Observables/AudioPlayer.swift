@@ -25,6 +25,11 @@ class AudioPlayer: ObservableObject {
         setupRemoteCommandCenter()
     }
             
+//    func seek(to progress: Double) {
+//        let time = CMTime(seconds: progress, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+//        player?.seek(to: time)
+//    }
+
     private func startUpdatingTotalDuration() {
         if timeObserverToken == nil {
             let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -62,7 +67,7 @@ class AudioPlayer: ObservableObject {
             self?.forward(by: 15)
             return .success
         }
-        
+    
         commandCenter.skipBackwardCommand.preferredIntervals = [15] // Set the preferred skip interval (in seconds)
         commandCenter.skipBackwardCommand.addTarget { [weak self] _ in
             self?.rewind(by: 15)
@@ -273,6 +278,24 @@ class AudioPlayer: ObservableObject {
 //        }
 //    }
     
+    func seekToNewTime(_ newTime: CMTime) {
+        if let player = player {
+           let isPlaying = isPlaying
+            player.seek(to: newTime) { [weak self] _ in
+                if isPlaying {
+                    self?.pause()
+                }
+                
+                self?.updateNowPlayingInfoElapsedPlaybackTime()
+                self?.updateCurrentProgressString()
+                                
+                if isPlaying {
+                    self?.play()
+                }
+            }
+        }
+    }
+    
     func forward(by interval: Int) {
         if let player = player {
             let forwardTime = CMTimeMake(value: Int64(interval), timescale: 1)
@@ -287,20 +310,6 @@ class AudioPlayer: ObservableObject {
             }
         }
     }
-
-//    func rewind(by interval: Int, wasPlaying: Bool? = nil) {
-//        if let player = player {
-//            let rewindTime = CMTimeMake(value: -Int64(interval), timescale: 1)
-//            let newTime = CMTimeAdd(player.currentTime(), rewindTime)
-//            player.seek(to: newTime) { [weak self] _ in
-//                self?.updateNowPlayingInfoElapsedPlaybackTime()
-//                if let isPlaying = self?.isPlaying,
-//                   isPlaying {
-//                    self?.play()
-//                }
-//            }
-//        }
-//    }
 
     private func updateCurrentProgressString() {
         if let currentTime = player?.currentTime() {

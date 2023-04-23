@@ -10,6 +10,38 @@ import SwiftUI
 
 extension String {
     
+    func timeStringToDouble() -> Double {
+        let timeStr = self
+        let timeParts = timeStr.split(separator: ":")
+        var totalSeconds: Double = 0.0
+        
+        switch timeParts.count {
+        case 1: // Format: ss
+            guard let seconds = Double(timeParts[0]) else {
+                print("Invalid time format. Please use 'ss', 'mm:ss', or 'hh:mm:ss' formats.")
+                return -1.0
+            }
+            totalSeconds = seconds
+        case 2: // Format: mm:ss
+            guard let minutes = Double(timeParts[0]), let seconds = Double(timeParts[1]) else {
+                print("Invalid time format. Please use 'ss', 'mm:ss', or 'hh:mm:ss' formats.")
+                return -1.0
+            }
+            totalSeconds = minutes * 60 + seconds
+        case 3: // Format: hh:mm:ss
+            guard let hours = Double(timeParts[0]), let minutes = Double(timeParts[1]), let seconds = Double(timeParts[2]) else {
+                print("Invalid time format. Please use 'ss', 'mm:ss', or 'hh:mm:ss' formats.")
+                return -1.0
+            }
+            totalSeconds = hours * 3600 + minutes * 60 + seconds
+        default:
+            print("Invalid time format. Please use 'ss', 'mm:ss', or 'hh:mm:ss' formats.")
+            return -1.0
+        }
+        
+        return totalSeconds
+    }
+    
     func relativeColor() -> Color {
         switch self {
         case "Today" : return .green

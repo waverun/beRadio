@@ -5,8 +5,10 @@ var gAudioPlayerView: AudioPlayerView?
 
 struct AudioPlayerView: View {
     
-//    let skipIntervals = [15, 30, 60, 120, 240, 480]
-
+    @State private var currentProgress: Double = 0
+    
+    //    let skipIntervals = [15, 30, 60, 120, 240, 480]
+    
     @ObservedObject var audioPlayer: AudioPlayer
     
     @StateObject private var routeChangeHandler = RouteChangeHandler()
@@ -17,11 +19,11 @@ struct AudioPlayerView: View {
     @Binding private var isLive: Bool
     
     private var title, artist: String
-
+    
     @State private var currentImageSrc: String?
-
+    
     let onAppearAction: (() -> Void)?
-
+    
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
         self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
         _audioUrl = url
@@ -33,7 +35,7 @@ struct AudioPlayerView: View {
         self.onAppearAction = onAppearAction
         gAudioPlayerView = self
     }
-
+    
     var body: some View {
         GeometryReader { geometry in
             HStack {
@@ -69,29 +71,9 @@ struct AudioPlayerView: View {
                             VStack {
                                 HStack {
                                     Button(action: {
-                                        audioPlayer.rewind(by: 60)
+                                        audioPlayer.rewind(by: 15)
                                     }) {
-                                        Image(systemName: "gobackward.60")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                    
-                                    Button(action: {
-                                        audioPlayer.rewind(by: 30)
-                                    }) {
-                                        Image(systemName: "gobackward.30")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                }
-                                
-                                HStack {
-                                    Button(action: {
-                                        audioPlayer.forward(by: 15)
-                                    }) {
-                                        Image(systemName: "goforward.15")
+                                        Image(systemName: "gobackward.15")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 40, height: 40)
@@ -115,29 +97,9 @@ struct AudioPlayerView: View {
                                         .foregroundColor(.white)
                                     
                                     Button(action: {
-                                        audioPlayer.rewind(by: 15)
+                                        audioPlayer.forward(by: 15)
                                     }) {
-                                        Image(systemName: "gobackward.15")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                }
-                                
-                                HStack {
-                                    Button(action: {
-                                        audioPlayer.forward(by: 30)
-                                    }) {
-                                        Image(systemName: "goforward.30")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                    
-                                    Button(action: {
-                                        audioPlayer.forward(by: 60)
-                                    }) {
-                                        Image(systemName: "goforward.60")
+                                        Image(systemName: "goforward.15")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 40, height: 40)
@@ -145,40 +107,16 @@ struct AudioPlayerView: View {
                                 }
                             }
                         }
-//                        HStack {
-//                            Button(action: {
-//                                audioPlayer.rewind(by: 120)
-//                            }) {
-//                                Image(systemName: "gobackward.15")
-//                                    .resizable()
-//                                    .aspectRatio(contentMode: .fit)
-//                                    .frame(width: 40, height: 40)
-//                            }
-//
-//                            Spacer()
-//
-//                            Button(action: {
-//                                audioPlayer.forward(by: 120)
-//                            }) {
-//                                Image(systemName: "goforward.15")
-//                                    .resizable()
-//                                    .aspectRatio(contentMode: .fit)
-//                                    .frame(width: 40, height: 40)
-//                            }
-//                        }
-
-//                        HStack {
-//                            Button(action: {
-//                                audioPlayer.rewind(by: 240)
-//                            }) {
-//                                Image(systemName: "gobackward.15")
-//                                    .resizable()
-//                                    .aspectRatio(contentMode: .fit)
-//                                    .frame(width: 40, height: 40)
-//                            }
-//                        }
+                        Slider(value: $currentProgress,
+                               in: 0...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
+                               onEditingChanged: { isEditing in
+                            audioPlayer.seekToNewTime(currentProgress.toCMTime())
+                        })
+                        .padding(.horizontal)
+                        .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
+                            currentProgress = newValue
+                        }
                     }
-                    
                     let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
                     Spacer()
                         .frame(height: availableSpace / 4)
@@ -203,7 +141,6 @@ struct AudioPlayerView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .onAppear {
-//            gAudioPlayerView = self
             currentImageSrc = imageSrc
             if let action = onAppearAction {
                 action()
@@ -214,5 +151,6 @@ struct AudioPlayerView: View {
             audioPlayer.pause()
             audioPlayer.removePlayer()
         }
+        .environment(\.layoutDirection, .leftToRight)
     }
 }

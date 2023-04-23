@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
+		922672AD29F5664800D92281 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AC29F5664800D92281 /* Double.swift */; };
+		922672AF29F56DD500D92281 /* RightToLeftSliderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */; };
 		923803BD29D5CCF6001BADF2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923803BC29D5CCF6001BADF2 /* Array.swift */; };
 		92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
 		92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
+		922672AC29F5664800D92281 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightToLeftSliderStyle.swift; sourceTree = "<group>"; };
 		923803BB29D4AE70001BADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		923803BC29D5CCF6001BADF2 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		92AB2A7129C3A49100EFF179 /* beRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +203,7 @@
 				923803BC29D5CCF6001BADF2 /* Array.swift */,
 				92E59A3829DB09E7002754E5 /* Date.swift */,
 				92E59A7529E33896002754E5 /* JSONDecoder.swift */,
+				922672AC29F5664800D92281 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				92E59A6F29E33213002754E5 /* RadioStation.swift */,
+				922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 				92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */,
 				92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */,
 				92E59A4D29DC5D08002754E5 /* ConfigureAudioSession.swift in Sources */,
+				922672AD29F5664800D92281 /* Double.swift in Sources */,
 				92E59A3B29DB23AB002754E5 /* ImageLoader.swift in Sources */,
 				92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */,
 				92AB2A7529C3A49100EFF179 /* beRadioApp.swift in Sources */,
@@ -347,6 +354,7 @@
 				92E59A3729DAD7DD002754E5 /* LinksFetcher.swift in Sources */,
 				92E59A8329E4992F002754E5 /* CheckUrlExists.swift in Sources */,
 				92E59A8129E4983E002754E5 /* StationListViewModel.swift in Sources */,
+				922672AF29F56DD500D92281 /* RightToLeftSliderStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"beRadio/Preview Content\"";
 				DEVELOPMENT_TEAM = NRTGJB9J65;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -510,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"beRadio/Preview Content\"";
 				DEVELOPMENT_TEAM = NRTGJB9J65;
 				ENABLE_HARDENED_RUNTIME = YES;
