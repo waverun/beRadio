@@ -79,7 +79,7 @@ struct AudioPlayerView: View {
                                             .frame(width: 40, height: 40)
                                     }
                                     
-                                    Text("\(audioPlayer.totalDurationString)")
+                                    Text("\(audioPlayer.currentProgressString)")
                                         .frame(width: 70, alignment: .leading)
                                         .foregroundColor(.white)
                                     
@@ -92,7 +92,7 @@ struct AudioPlayerView: View {
                                             .frame(width: 50, height: 50)
                                     }
                                     
-                                    Text("\(audioPlayer.currentProgressString)")
+                                    Text("\(audioPlayer.totalDurationString)")
                                         .frame(width: 70, alignment: .trailing)
                                         .foregroundColor(.white)
                                     

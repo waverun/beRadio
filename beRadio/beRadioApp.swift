@@ -30,20 +30,3 @@ struct beRadioApp: App {
         }
     }
 }
-
-//@main
-//struct beRadioApp: App {
-//    let persistenceController = PersistenceController.shared
-//
-//    init() {
-//        configureAudioSession()
-////        selectAudioOutput()
-//    }
-//
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//        }
-//    }
-//}
