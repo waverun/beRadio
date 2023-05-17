@@ -81,7 +81,7 @@ struct AudioPlayerView: View {
                                     
                                     Text("\(audioPlayer.currentProgressString)")
                                         .frame(width: 70, alignment: .leading)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.primary)
                                     
                                     Button(action: {
                                         audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
@@ -94,7 +94,7 @@ struct AudioPlayerView: View {
                                     
                                     Text("\(audioPlayer.totalDurationString)")
                                         .frame(width: 70, alignment: .trailing)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.primary)
                                     
                                     Button(action: {
                                         audioPlayer.forward(by: 15)
@@ -131,7 +131,7 @@ struct AudioPlayerView: View {
                     }
                     .padding()
                     .background(Color.blue)
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary)
                     .cornerRadius(8)
                     
                     Spacer()

@@ -30,7 +30,7 @@ struct ProgramsListView: View {
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 8)
                                 .background(Color.blue)
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .cornerRadius(8)
                         }
                         Spacer()

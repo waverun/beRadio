@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
 		922672AD29F5664800D92281 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AC29F5664800D92281 /* Double.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
 		922672AC29F5664800D92281 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -132,17 +134,17 @@
 		92AB2A7329C3A49100EFF179 /* beRadio */ = {
 			isa = PBXGroup;
 			children = (
-				92E59A4629DC55F9002754E5 /* Observables */,
-				92E59A3529DAD7C4002754E5 /* Classes */,
 				92AB2A7429C3A49100EFF179 /* beRadioApp.swift */,
 				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
 				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				92AB2A7D29C3A49100EFF179 /* Assets.xcassets */,
 				92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */,
+				92E59A3529DAD7C4002754E5 /* Classes */,
+				92ADFC5629C73E3900582B66 /* Extensions */,
+				92AB2A8B29C3AA6600EFF179 /* Functions */,
+				92E59A4629DC55F9002754E5 /* Observables */,
 				92E59A6E29E331FA002754E5 /* Structs */,
 				92ADFC5329C731D900582B66 /* Views */,
-				92AB2A8B29C3AA6600EFF179 /* Functions */,
-				92ADFC5629C73E3900582B66 /* Extensions */,
 				92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */,
 				92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */,
 				92AB2A8029C3A49100EFF179 /* Preview Content */,
@@ -202,6 +204,7 @@
 				92E59A3829DB09E7002754E5 /* Date.swift */,
 				92E59A7529E33896002754E5 /* JSONDecoder.swift */,
 				922672AC29F5664800D92281 /* Double.swift */,
+				50E5AD172A154F270083DC04 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */,
 				92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
+				50E5AD182A154F270083DC04 /* Color.swift in Sources */,
 				92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */,
 				92E59A6D29E32431002754E5 /* SearchView.swift in Sources */,
 				92BEBE0A29EC45A600DF52BE /* ConfigurePlayingInfro.swift in Sources */,
