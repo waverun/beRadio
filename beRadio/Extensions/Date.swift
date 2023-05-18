@@ -5,11 +5,9 @@ extension Date {
     func relativeDate() -> String {
         let date = self
         let calendar = Calendar.current
-//        let now = Date()
-        
+
         let isToday = calendar.isDateInToday(date)
         let isYesterday = calendar.isDateInYesterday(date)
-//        let dateInfo = (isToday: isToday, isYesterday: isYesterday)
         
         switch true {
         case isToday:

@@ -76,10 +76,6 @@ class AppAudioController: UIResponder, UIApplicationDelegate {
         application.beginReceivingRemoteControlEvents()
         return true
     }
-    
-//    override func remoteControlReceived(with event: UIEvent?) {
-//        // Handle remote control events
-//    }
 }
 
 struct RemoteControlReceiver: UIViewControllerRepresentable {

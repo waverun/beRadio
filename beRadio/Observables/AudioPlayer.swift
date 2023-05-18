@@ -11,7 +11,8 @@ class AudioPlayer: ObservableObject {
     
     @Published var currentProgressString: String = "00:00"
     @Published var totalDurationString: String = "00:00"
-    
+    @Published var shouldUpdateTotalDuration: Bool = true // For stoppting the update when moving the slider.
+
     private var shouldUpdateTime: Bool = true
     private var albumArt: String?
     private var title, artist: String
@@ -25,11 +26,6 @@ class AudioPlayer: ObservableObject {
         setupRemoteCommandCenter()
     }
             
-//    func seek(to progress: Double) {
-//        let time = CMTime(seconds: progress, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-//        player?.seek(to: time)
-//    }
-
     private func startUpdatingTotalDuration() {
         if timeObserverToken == nil {
             let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -279,6 +275,7 @@ class AudioPlayer: ObservableObject {
 //    }
     
     func seekToNewTime(_ newTime: CMTime) {
+        print("seekToNewTime: \(newTime.seconds)")
         if let player = player {
            let isPlaying = isPlaying
             player.seek(to: newTime) { [weak self] _ in
@@ -292,10 +289,13 @@ class AudioPlayer: ObservableObject {
                 if isPlaying {
                     self?.play()
                 }
+                self?.shouldUpdateTotalDuration = true
             }
+        } else {
+            shouldUpdateTime = true
         }
     }
-    
+
     func forward(by interval: Int) {
         if let player = player {
             let forwardTime = CMTimeMake(value: Int64(interval), timescale: 1)
@@ -388,13 +388,17 @@ class AudioPlayer: ObservableObject {
                             let timeRange = buffer.timeRangeValue
                             let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration)) + durationOffset
                             DispatchQueue.main.async { [self] in
-                                totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
-                                print("totalDurationString \(totalDurationString)")
+                                if shouldUpdateTotalDuration {
+                                    totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
+                                    print("totalDurationString \(totalDurationString)")
+                                }
                             }
                         }
                     } else {
                         DispatchQueue.main.async { [self] in
-                            totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+                            if shouldUpdateTotalDuration {
+                                totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
+                            }
                         }
                     }
                     

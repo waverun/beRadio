@@ -1,10 +1,3 @@
-//
-//  Persistence.swift
-//  beRadio
-//
-//  Created by Shay  on 16/03/2023.
-//
-
 import CoreData
 
 struct PersistenceController {

@@ -113,6 +113,7 @@ struct AudioPlayerView: View {
                                onEditingChanged: { isEditing in
                             print("slider: \(isEditing)")
                             if isEditing {
+                                audioPlayer.shouldUpdateTotalDuration = false
                                 isCurrentlyPlaying = audioPlayer.isPlaying
                                 audioPlayer.pause()
                             } else {
@@ -120,6 +121,7 @@ struct AudioPlayerView: View {
                                 if isCurrentlyPlaying {
                                     audioPlayer.play()
                                 }
+//                                audioPlayer.shouldUpdateTotalDuration = true
                             }
                         })
                         .padding(.horizontal)

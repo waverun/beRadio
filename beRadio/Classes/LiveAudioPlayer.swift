@@ -155,18 +155,6 @@ class LiveAudioPlayer: ObservableObject {
         }
     }
 
-//    private func updateTotalDurationString() async {
-//        if let currentItem = player?.currentItem {
-//            do {
-//                let duration = try await currentItem.asset.load(.duration)
-//                DispatchQueue.main.async { [self] in
-//                    totalDurationString = timeFormatter.string(from: duration.seconds) ?? "00:00"
-//                }
-//            } catch {
-//                print("Error loading duration: \(error)")
-//            }
-//        }
-//    }
     private func updateTotalDurationString() async {
         if let currentItem = player?.currentItem {
             do {

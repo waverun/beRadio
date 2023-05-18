@@ -58,8 +58,6 @@ extension String {
     }
     
     func extract(regexp regexPattern: String) -> String? {
-        // Extract numbers from the string using a regular expression
-//        let regexPattern = "\\d{2}\\.\\d{2}\\.\\d{2}"
         let inputString = self
         let regex = try! NSRegularExpression(pattern: regexPattern)
         let matches = regex.matches(in: inputString, range: NSRange(inputString.startIndex..., in: inputString))
@@ -70,22 +68,11 @@ extension String {
         }
         
         return nil
-//            if let date = dateFormatter.date(from: dateString) {
-//                print("Extracted date: \(date)")
-//            } else {
-//                print("Failed to parse date from string")
-//            }
-//        } else {
-//            print("Failed to find date in string")
-//        }
     }
     
     func openInSafari() {
         if let url = URL(string: self) {
-//            DispatchQueue.main.async {
-    //            url.play()
                 UIApplication.shared.open(url)
-//            }
         }
     }
     
