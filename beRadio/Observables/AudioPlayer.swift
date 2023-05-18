@@ -311,6 +311,12 @@ class AudioPlayer: ObservableObject {
         }
     }
 
+    func setCurrentProgressString(time: Double) {
+//        if let currentTime = player?.currentTime() {
+        currentProgressString = timeFormatter.string(from: time) ?? "00:00"
+//        }
+    }
+
     private func updateCurrentProgressString() {
         if let currentTime = player?.currentTime() {
             currentProgressString = timeFormatter.string(from: currentTime.seconds) ?? "00:00"

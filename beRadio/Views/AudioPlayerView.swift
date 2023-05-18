@@ -21,7 +21,8 @@ struct AudioPlayerView: View {
     private var title, artist: String
     
     @State private var currentImageSrc: String?
-    
+    @State private var isCurrentlyPlaying = false
+
     let onAppearAction: (() -> Void)?
     
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
@@ -110,9 +111,21 @@ struct AudioPlayerView: View {
                         Slider(value: $currentProgress,
                                in: 0...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
                                onEditingChanged: { isEditing in
-                            audioPlayer.seekToNewTime(currentProgress.toCMTime())
+                            print("slider: \(isEditing)")
+                            if isEditing {
+                                isCurrentlyPlaying = audioPlayer.isPlaying
+                                audioPlayer.pause()
+                            } else {
+                                audioPlayer.seekToNewTime(currentProgress.toCMTime())
+                                if isCurrentlyPlaying {
+                                    audioPlayer.play()
+                                }
+                            }
                         })
                         .padding(.horizontal)
+                        .onChange(of: currentProgress) {newValue in
+                            audioPlayer.setCurrentProgressString(time: newValue)
+                        }
                         .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
                             currentProgress = newValue
                         }
