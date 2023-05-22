@@ -47,18 +47,18 @@ struct ContentView: View {
                                 switch true {
                                 case  links.isEmpty :
                                     Text("Loading...")
-                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
-                                        ProgramsListView(links: links,
-                                                         removedLinks: removedLinks,
-                                                         removeLinks: removeLinks(atOffsets:),
-                                                         title: $heading,
-                                                         liveImageSrc: $imageSrc,
-//                                                         showLivePlayerView: $showLivePlayerView,
-                                                         showingAddLinkView: $showingAddLinkView)
-                                        .onAppear {
-                                            heading = item.name ?? "Radio"
-                                            imageSrc = item.favicon
-                                        }
+//                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+//                                        ProgramsListView(links: links,
+//                                                         removedLinks: removedLinks,
+//                                                         removeLinks: removeLinks(atOffsets:),
+//                                                         title: $heading,
+//                                                         liveImageSrc: $imageSrc,
+////                                                         showLivePlayerView: $showLivePlayerView,
+//                                                         showingAddLinkView: $showingAddLinkView)
+//                                        .onAppear {
+//                                            heading = item.name ?? "Radio"
+//                                            imageSrc = item.favicon
+//                                        }
                                 default :
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {
@@ -233,8 +233,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}

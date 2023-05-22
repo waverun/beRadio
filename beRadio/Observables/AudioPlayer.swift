@@ -25,7 +25,12 @@ class AudioPlayer: ObservableObject {
         self.artist = artist
         setupRemoteCommandCenter()
     }
-            
+
+    func seekToStart() {
+        let targetTime = CMTime(seconds: 0, preferredTimescale: 1)
+        player?.seek(to: targetTime)
+    }
+
     private func startUpdatingTotalDuration() {
         if timeObserverToken == nil {
             let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -85,7 +90,22 @@ class AudioPlayer: ObservableObject {
         currentProgressString = "00:00"
         totalDurationString = "00:00"
     }
-    
+
+    func getAvailableBufferSize(seconds: TimeInterval) -> TimeInterval {
+        if checkMemoryAvailability(bufferSize: seconds) {
+            return seconds
+        }
+        var seconds = seconds / 2
+        if checkMemoryAvailability(bufferSize: seconds) {
+            return seconds
+        }
+        seconds /= 2
+        if checkMemoryAvailability(bufferSize: seconds) {
+            return seconds
+        }
+        return TimeInterval(600)
+    }
+
     func play(url: URL? = nil) {
         var isNewPlayer = false
         
@@ -95,6 +115,10 @@ class AudioPlayer: ObservableObject {
             do {
                 let asset = AVURLAsset(url: url)
                 let item = AVPlayerItem(asset: asset)
+                let bufferDuration: TimeInterval = getAvailableBufferSize(seconds: 7200)
+                print("bufferDuration: \(bufferDuration)")
+                item.preferredForwardBufferDuration = bufferDuration
+
                 player = AVPlayer(playerItem: item)
                 gAudioPlayer = self
                 gPlayer = player

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50B847172A1B777F0002007A /* CheckMemoryAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMemoryAvailability.swift; sourceTree = "<group>"; };
 		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				92E59A8229E4992F002754E5 /* CheckUrlExists.swift */,
 				92BEBE0329E8968700DF52BE /* imageBrightness.swift */,
 				92BEBE0929EC45A600DF52BE /* ConfigurePlayingInfro.swift */,
+				50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				92E59A6329E0733F002754E5 /* LiveAudioPlayer.swift in Sources */,
 				92BEBE0429E8968700DF52BE /* imageBrightness.swift in Sources */,
 				92E59A7029E33213002754E5 /* RadioStation.swift in Sources */,
+				50B847172A1B777F0002007A /* CheckMemoryAvailability.swift in Sources */,
 				92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */,
 				92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */,
 				92AB2A7729C3A49100EFF179 /* Persistence.swift in Sources */,
