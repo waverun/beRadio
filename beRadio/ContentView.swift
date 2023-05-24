@@ -80,14 +80,39 @@ struct ContentView: View {
                         }
                     }
                     .onDelete(perform: deleteItems)
+                    NavigationLink {
+                    } label: {
+                        ZStack {
+//                            LinearGradient(
+//                                gradient: Gradient(colors: [.red, .blue]),
+//                                startPoint: .top,
+//                                endPoint: .bottom
+//                            )
+                            RadialGradient(
+                                gradient: Gradient(colors: [.red, .blue]),
+                                center: .center,
+                                startRadius: 0,
+                                endRadius: 200
+                            )
+//                            AngularGradient(
+//                                gradient: Gradient(colors: [.red, .blue]),
+//                                center: .center,
+//                                angle: .degrees(45)
+//                            )
+                            .edgesIgnoringSafeArea(.all)
+                            .cornerRadius(10) // Adjust the corner radius as needed
+                            Text("Local stations")
+                                .foregroundColor(.white)
+                        }
+                    }
                 }
 //                .sheet(isPresented: $showLivePlayerView) {
 //                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
 //                }
-                .sheet(isPresented: $showingAddLinkView) {
-                    //                                AddLinkView(links: $links)
-                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
-                }
+//                .sheet(isPresented: $showingAddLinkView) {
+//                    //                                AddLinkView(links: $links)
+//                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
+//                }
                 .toolbar {
 #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
