@@ -16,7 +16,9 @@ struct ContentView: View {
     @State private var showingAddLinkView = false
     @State private var showLivePlayerView: Bool = false
     @State private var showingRadioStationsView = false
-    
+    @State private var showingLocalStationsView = false
+//    @State private var locationManager: LocationManager!
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
@@ -81,6 +83,9 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deleteItems)
                     NavigationLink {
+                        RadioStationsView(localStations: true) { station in
+                            addItem(station)
+                        }
                     } label: {
                         ZStack {
 //                            LinearGradient(
