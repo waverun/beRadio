@@ -8,15 +8,18 @@
 import SwiftUI
 import CoreData
 import AVFoundation
-
+import CoreLocation
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @ObservedObject var locationManager = LocationManager()
+
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
     @State private var showLivePlayerView: Bool = false
     @State private var showingRadioStationsView = false
     @State private var showingLocalStationsView = false
+//    @State private var locationManager = LocationManager()
+
 //    @State private var locationManager: LocationManager!
 
     @FetchRequest(
@@ -34,6 +37,7 @@ struct ContentView: View {
     @State private var imageSrc: String? = "https://example.com/image.jpg"
     @State private var heading: String = "Some Heading"
     @State private var isLive: Bool = false
+    @State private var isAuthorized = false
 
     var body: some View {
         ZStack {
@@ -83,9 +87,16 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deleteItems)
                     NavigationLink {
-                        RadioStationsView(localStations: true) { station in
-                            addItem(station)
+                        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
+                            RadioStationsView(localStations: true) { station in
+                                addItem(station)
+                            }
+                        } else {
+                            LocationPermissionView(locationManager: locationManager)
                         }
+//                        RadioStationsView(localStations: true) { station in
+//                            addItem(station)
+//                        }
                     } label: {
                         ZStack {
 //                            LinearGradient(
@@ -138,6 +149,11 @@ struct ContentView: View {
                             addLinks(urls: extractedLinks)
                         }
                     }
+                    locationManager.checkLocationAuthorization()
+                    isAuthorized = locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse
+                }
+                .onChange(of: locationManager.authorizationStatus) { newStatus in
+                    isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
                 }
                 .navigationBarTitle(title, displayMode: .inline)
                 Text("Select an item")

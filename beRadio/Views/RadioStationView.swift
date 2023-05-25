@@ -27,7 +27,7 @@ struct RadioStationsView: View {
             TextField("Search", text: $searchQuery, onCommit: {
 //                searchStarted = true
                 if localStations {
-                    _ = LocationManager()
+//                    _ = LocationManager()
                 }
                 fetchRadioStations(searchQuery: searchQuery) { stations in
                     radioStations = stations

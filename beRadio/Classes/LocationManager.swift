@@ -7,13 +7,25 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     @Published var currentCountry: String = ""
     @Published var currentState: String = ""
+    @Published var authorizationStatus: CLAuthorizationStatus
 
     override init() {
+        authorizationStatus = locationManager.authorizationStatus
         super.init()
         if LocationManager.shared == nil {
             LocationManager.shared = self
             locationManager.delegate = self
             locationManager.startUpdatingLocation()
+        }
+    }
+
+    func checkLocationAuthorization() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        DispatchQueue.main.async {
+            self.authorizationStatus = manager.authorizationStatus
         }
     }
 
