@@ -21,29 +21,29 @@ struct RadioStationsView: View {
             LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .blue, .purple]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack {
-                TextField("Search Text", text: $searchQuery, onCommit: {
-                    if localStations {
-                    }
-                    fetchRadioStations(searchQuery: searchQuery) { stations in
-                        radioStations = stations
-                        showNoStationFound = false
-                        if stations.count == 0 {
-                            showNoStationFound = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                showNoStationFound = false
-                            }
+                HStack {
+                    TextField("Search Text", text: $searchQuery, onCommit: {
+                        if localStations {
                         }
-                    }
-                })
-                .padding(5)
-                .background(Color.clear)
-                .foregroundColor(.purple)
-//                .cornerRadius(8)
-                .padding(.horizontal)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        searchRadioStations()
+                    })
+                    .padding(5)
+                    .background(Color.clear)
+                    .foregroundColor(.purple)
+                    //                .cornerRadius(8)
+                    .padding(.horizontal)
+                    //                .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                if showNoStationFound {
-                    Text("No station found")
+                    if showNoStationFound {
+                        Text("No station found")
+                    }
+                    Button(action: {
+                        searchRadioStations()
+                    }) {
+                        Image(systemName: "magnifyingglass") // replace with your custom image name if any
+                            .foregroundColor(.purple)
+                    }
+                    .padding(.trailing)
                 }
                 List(radioStations) { station in
                     Button(action: {
@@ -69,6 +69,19 @@ struct RadioStationsView: View {
         }
         .navigationBarTitle("Search for Stations")
         .environment(\.layoutDirection, .leftToRight)
+    }
+
+    func searchRadioStations() {
+        fetchRadioStations(searchQuery: searchQuery) { stations in
+            radioStations = stations
+            showNoStationFound = false
+            if stations.count == 0 {
+                showNoStationFound = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    showNoStationFound = false
+                }
+            }
+        }
     }
 }
 
