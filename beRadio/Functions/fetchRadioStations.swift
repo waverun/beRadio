@@ -13,13 +13,6 @@ func fetchRadioStations(name: String, country: String, state: String, completion
         let encodedSearchCountry = country.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? country
         encodedSearchString += "country=" + encodedSearchCountry
     }
-//    if !state.isEmpty {
-//        if !encodedSearchString.isEmpty {
-//            encodedSearchString += "&"
-//        }
-//        let encodedSearchState = state.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? state
-//        encodedSearchString += "state=" + encodedSearchState
-//    }
     if !encodedSearchString.isEmpty {
         encodedSearchString = "?" + encodedSearchString
     }
@@ -32,8 +25,15 @@ func fetchRadioStations(name: String, country: String, state: String, completion
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
         if let data = data {
             let decoder = JSONDecoder()
-            if let stations = try? decoder.decode([RadioStation].self, from: data) {
+            if var stations = try? decoder.decode([RadioStation].self, from: data) {
                 DispatchQueue.main.async {
+                    if !state.isEmpty && !country.isEmpty {
+                        stations.sort { station1, station2 in
+                            let matches1 = station1.state == state && station1.country == country
+                            let matches2 = station2.state == state && station2.country == country
+                            return matches1 && !matches2
+                        }
+                    }
                     completion(stations)
                 }
                 return
