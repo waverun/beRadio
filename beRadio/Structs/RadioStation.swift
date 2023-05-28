@@ -40,7 +40,7 @@
 
 import Foundation
 
-struct RadioStation: Codable, Identifiable {
+struct RadioStation: Codable, Identifiable, Hashable {
     let id: String
     let name: String
     let url: String
