@@ -158,6 +158,7 @@ struct ContentView: View {
                 .navigationBarTitle(title, displayMode: .inline)
                 Text("Select an item")
             }
+//            .navigationBarTitle(<#T##SwiftUI.Text#>)
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
