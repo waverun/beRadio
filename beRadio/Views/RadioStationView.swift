@@ -58,37 +58,39 @@ struct RadioStationsView: View {
                     .padding(.trailing)
                 }
                 ScrollView {
-                    GeometryReader { geometry in
-                        VStack(alignment: .leading) {
-                            ForEach(radioStations, id: \.self) { station in
-                                Button(action: {
-                                    onDone(station)
-                                    presentationMode.wrappedValue.dismiss()
-                                }) {
-                                    HStack {
-                                        if let urlString = station.favicon {
-                                            AsyncImage(url: urlString)
-                                                .frame(width: 60, height: 60) // Adjust the size as needed
-                                        }
+//                    VStack {
+//                        GeometryReader { geometry in
+                            VStack(alignment: .leading) {
+                                ForEach(radioStations, id: \.self) { station in
+                                    Button(action: {
+                                        onDone(station)
+                                        presentationMode.wrappedValue.dismiss()
+                                    }) {
                                         HStack {
-                                            VStack(alignment: .leading) {
-                                                Text(station.name)
-                                                    .font(.headline)
-                                                Text(station.country ?? "")
-                                                    .font(.subheadline)
-                                                    .foregroundColor(.secondary)
+                                            if let urlString = station.favicon {
+                                                AsyncImage(url: urlString)
+                                                    .frame(width: 60, height: 60) // Adjust the size as needed
                                             }
+                                            HStack {
+                                                VStack(alignment: .leading) {
+                                                    Text(station.name)
+                                                        .font(.headline)
+                                                    Text(station.country ?? "")
+                                                        .font(.subheadline)
+                                                        .foregroundColor(.secondary)
+                                                }
+                                            }
+                                            .padding() // Padding around the text
+                                            .background(RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.white.opacity(0.5)))
                                         }
-                                        .padding() // Padding around the text
-                                        .background(RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color.white.opacity(0.5)))
+//                                        Divider()
                                     }
-                                    Divider()
                                 }
-                            }
-                            .padding(.horizontal, 10)
-                        }
-                        .frame(width: geometry.size.width)
+                                .padding(.horizontal, 10)
+//                            }
+//                            .frame(width: geometry.size.width)
+//                        }
                     }
                 }
 
