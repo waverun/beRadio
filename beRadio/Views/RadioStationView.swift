@@ -23,46 +23,50 @@ struct RadioStationsView: View {
     }
 
     var body: some View {
-        VStack {
-            TextField("Search", text: $searchQuery, onCommit: {
-//                searchStarted = true
-                if localStations {
-//                    _ = LocationManager()
-                }
-                fetchRadioStations(searchQuery: searchQuery) { stations in
-                    radioStations = stations
-//                    searchEnded = true
-                    showNoStationFound = false
-                    if stations.count == 0 {
-                        showNoStationFound = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            showNoStationFound = false
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .blue, .purple]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            VStack {
+                TextField("Search", text: $searchQuery, onCommit: {
+                    //                searchStarted = true
+                    if localStations {
+                        //                    _ = LocationManager()
+                    }
+                    fetchRadioStations(searchQuery: searchQuery) { stations in
+                        radioStations = stations
+                        //                    searchEnded = true
+                        showNoStationFound = false
+                        if stations.count == 0 {
+                            showNoStationFound = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                showNoStationFound = false
+                            }
                         }
                     }
-                }
-            })
-            .padding()
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+                })
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
 
-            if showNoStationFound {
-                Text("No station found")
-            }
-            List(radioStations) { station in
-                Button(action: {
-                    onDone(station)
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        if let urlString = station.favicon {
-                            AsyncImage(url: urlString)
-                                .frame(width: 60, height: 60) // Adjust the size as needed
-                        }
-                        VStack(alignment: .leading) {
-                            Text(station.name)
-                                .font(.headline)
-                            Text(station.country ?? "")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                if showNoStationFound {
+                    Text("No station found")
+                }
+                List(radioStations) { station in
+                    Button(action: {
+                        onDone(station)
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            if let urlString = station.favicon {
+                                AsyncImage(url: urlString)
+                                    .frame(width: 60, height: 60) // Adjust the size as needed
+                            }
+                            VStack(alignment: .leading) {
+                                Text(station.name)
+                                    .font(.headline)
+                                Text(station.country ?? "")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 }
