@@ -6,6 +6,8 @@ struct RadioStationsView: View {
     @State private var showNoStationFound = false
     @State private var country = ""
     @State private var state = ""
+    @State private var searching = false // <- Here
+
     private var localStations = false
 
     @Environment(\.presentationMode) private var presentationMode
@@ -20,6 +22,13 @@ struct RadioStationsView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .blue, .purple]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+
+            if searching {
+                ProgressView()
+                    .scaleEffect(2)
+                    .progressViewStyle(CircularProgressViewStyle(tint: .purple))
+            }
+
             VStack {
                 HStack {
                     TextField("Search Text", text: $searchQuery, onCommit: {
@@ -30,9 +39,7 @@ struct RadioStationsView: View {
                     .padding(5)
                     .background(Color.clear)
                     .foregroundColor(.purple)
-                    //                .cornerRadius(8)
                     .padding(.horizontal)
-                    //                .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     if showNoStationFound {
                         Text("No station found")
@@ -68,45 +75,18 @@ struct RadioStationsView: View {
                                             }
                                         }
                                         .padding() // Padding around the text
-                                        .background(RoundedRectangle(cornerRadius: 10) // Rounded rectangle with corner radius 10
-                                            .fill(Color.white.opacity(0.5))) // Fill the rectangle with gray color
+                                        .background(RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.white.opacity(0.5)))
                                     }
-                                    //                                }
-                                    //                                .padding(.leading)
-                                    Divider() // Optional: If you want a line between each item like List
+                                    Divider()
                                 }
                             }
-                            .padding(.horizontal, 10) // Add horizontal padding to separate the image from the text box
+                            .padding(.horizontal, 10)
                         }
                         .frame(width: geometry.size.width)
                     }
                 }
 
-                //                ScrollView {
-                //                    VStack {
-                //                        ForEach(radioStations, id: \.self) { station in
-                //                            Button(action: {
-                //                                onDone(station)
-                //                                presentationMode.wrappedValue.dismiss()
-                //                            }) {
-                //                                HStack {
-                //                                    if let urlString = station.favicon {
-                //                                        AsyncImage(url: urlString)
-                //                                            .frame(width: 60, height: 60) // Adjust the size as needed
-                //                                    }
-                //                                    VStack(alignment: .leading) {
-                //                                        Text(station.name)
-                //                                            .font(.headline)
-                //                                        Text(station.country ?? "")
-                //                                            .font(.subheadline)
-                //                                            .foregroundColor(.secondary)
-                //                                    }
-                //                                }
-                //                            }
-                //                            Divider() // Optional: If you want a line between each item like List
-                //                        }
-                //                    }
-                //                }
                 //                List(radioStations) { station in
                 //                    Button(action: {
                 //                        onDone(station)
@@ -134,7 +114,9 @@ struct RadioStationsView: View {
     }
 
     func searchRadioStations() {
+        searching = true
         fetchRadioStations(searchQuery: searchQuery) { stations in
+            searching = false
             radioStations = stations
             showNoStationFound = false
             if stations.count == 0 {
