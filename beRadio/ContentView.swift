@@ -88,7 +88,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                     NavigationLink {
                         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-                            RadioStationsView(localStations: true) { station in
+                            RadioStationsView(localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
                                 addItem(station)
                             }
                         } else {
@@ -158,7 +158,6 @@ struct ContentView: View {
                 .navigationBarTitle(title, displayMode: .inline)
                 Text("Select an item")
             }
-//            .navigationBarTitle(<#T##SwiftUI.Text#>)
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
