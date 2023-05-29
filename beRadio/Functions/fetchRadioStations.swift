@@ -28,15 +28,13 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
     }
 
     func isCountryName(_ name: String) -> Bool {
+        if name.lowercased() == "usa" {
+            return true
+        }
         let locales: [String: Locale] = Locale.availableIdentifiers.reduce(into: [:]) { $0[$1] = Locale(identifier: $1) }
         let countryCodes = locales.compactMap { $1.language.region?.identifier }
 
-        // Translate the name to a country code.
-//        let countryCode = countryCodes.first(where: {
-//            locales[$0]?.localizedString(forRegionCode: $0)?.lowercased() == name.lowercased()
-//        })
         let countryCode = countryCode(from: name)
-        // Check if the country code exists.
 
         if let countryCode = countryCode {
             return countryCodes.contains(countryCode)
@@ -53,6 +51,9 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
             if isCountryName(name1) {
                 name = name.replacingOccurrences(of: name1, with: "")
                 country = name1
+                if name1.lowercased() == "usa" {
+                    country = "The United States Of America"
+                }
                 break
             }
         }
@@ -71,6 +72,7 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         if !encodedSearchString.isEmpty {
             encodedSearchString += "&"
         }
+        let country = country == "Untited States" ? "The United States Of America" : country
         let encodedSearchCountry = country.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? country
         encodedSearchString += "country=" + encodedSearchCountry
     }
