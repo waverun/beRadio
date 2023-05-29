@@ -27,7 +27,9 @@ struct RadioStationsView: View {
         self.gradient = Gradient(colors: colors)
         switch true {
             case localStations: title = "Local Stations"
-            case genre.contains(" Stations") : title = genre
+            case genre.contains(" Stations") :
+                title = genre
+                self.genre = ""
             default: title = genre + " Stations"
         }
 //        if localStations && !country.isEmpty {
