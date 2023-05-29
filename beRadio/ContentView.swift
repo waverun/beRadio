@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
     @State private var showLivePlayerView: Bool = false
-    @State private var showingRadioStationsView = false
+//    @State private var showingRadioStationsView = false
     @State private var showingLocalStationsView = false
 //    @State private var locationManager = LocationManager()
 
@@ -207,11 +207,11 @@ struct ContentView: View {
                         EditButton()
                     }
 #endif
-                    ToolbarItem {
-                        Button(action: showSearch) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
+//                    ToolbarItem {
+//                        Button(action: showSearch) {
+//                            Label("Add Item", systemImage: "plus")
+//                        }
+//                    }
                 }
                 .onAppear {
                     getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
@@ -236,11 +236,11 @@ struct ContentView: View {
         .onAppear {
             configureAudioSession()
         }
-        .sheet(isPresented: $showingRadioStationsView) {
-            RadioStationsView() { station in
-                addItem(station)
-            }
-        }
+//        .sheet(isPresented: $showingRadioStationsView) {
+//            RadioStationsView() { station in
+//                addItem(station)
+//            }
+//        }
     }
     
     private func clearAllUrls() {
@@ -305,9 +305,9 @@ struct ContentView: View {
         }
     }
     
-    private func showSearch() {
-        showingRadioStationsView.toggle()
-    }
+//    private func showSearch() {
+//        showingRadioStationsView.toggle()
+//    }
     
     private func addItem(_ station: RadioStation) {
         withAnimation {
