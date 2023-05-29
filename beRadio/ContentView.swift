@@ -39,6 +39,30 @@ struct ContentView: View {
     @State private var isLive: Bool = false
     @State private var isAuthorized = false
 
+    let genres = ["Pop", "Rock", "Country", "Jazz", "Blues", "Reggae", "Hip Hop", "Classical", "Latin", "Bluegrass", "Soul", "Punk", "Metal", "Gospel", "R&B", "EDM", "Folk", "Disco", "Funk", "New Age"]
+    let gradients = [
+        Gradient(colors: [.blue, .purple]),
+        Gradient(colors: [.purple, .red]),
+        Gradient(colors: [.orange, .yellow]),
+        Gradient(colors: [.pink, .blue]),
+        Gradient(colors: [.green, .orange]),
+        Gradient(colors: [.yellow, .red]),
+        Gradient(colors: [.blue, .pink]),
+        Gradient(colors: [.red, .yellow]),
+        Gradient(colors: [.purple, .green]),
+        Gradient(colors: [.red, .blue]),
+        Gradient(colors: [.blue, .purple]),
+        Gradient(colors: [.purple, .red]),
+        Gradient(colors: [.orange, .yellow]),
+        Gradient(colors: [.pink, .blue]),
+        Gradient(colors: [.green, .orange]),
+        Gradient(colors: [.yellow, .red]),
+        Gradient(colors: [.blue, .pink]),
+        Gradient(colors: [.red, .yellow]),
+        Gradient(colors: [.purple, .green]),
+        Gradient(colors: [.red, .blue])
+    ]
+
     var body: some View {
         ZStack {
             NavigationView {
@@ -119,6 +143,26 @@ struct ContentView: View {
                             .cornerRadius(10) // Adjust the corner radius as needed
                             Text("Local stations")
                                 .foregroundColor(.white)
+                        }
+                    }
+                    ForEach(Array(zip(genres, gradients)), id: \.0) { genre, gradient in
+                        NavigationLink {
+                            RadioStationsView(genre: genre) { station in
+                                addItem(station)
+                            }
+                        } label: {
+                            ZStack {
+                                RadialGradient(
+                                    gradient: gradient,
+                                    center: .center,
+                                    startRadius: 0,
+                                    endRadius: 200
+                                )
+                                .edgesIgnoringSafeArea(.all)
+                                .cornerRadius(10)
+                                Text(genre)
+                                    .foregroundColor(.white)
+                            }
                         }
                     }
                 }

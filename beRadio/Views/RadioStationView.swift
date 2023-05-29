@@ -13,7 +13,7 @@ struct RadioStationsView: View {
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
 
-    init(localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
+    init(genre: String = "", localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
         self.onDone = onDone
         self.localStations = localStations
         self.country = country
