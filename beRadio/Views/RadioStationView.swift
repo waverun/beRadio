@@ -45,7 +45,7 @@ struct RadioStationsView: View {
                     TextField("Search Text", text: $searchQuery, onCommit: {
                         if localStations {
                         }
-                        searchRadioStations()
+                        searchRadioStations(genre)
                     })
                     .padding(5)
                     .background(Color.clear)
@@ -56,7 +56,7 @@ struct RadioStationsView: View {
                         Text("No station found")
                     }
                     Button(action: {
-                        searchRadioStations()
+                        searchRadioStations(genre)
                     }) {
                         Image(systemName: "magnifyingglass") // replace with your custom image name if any
                             .foregroundColor(.purple)
@@ -134,10 +134,10 @@ struct RadioStationsView: View {
 
     func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {
         searching = true
-        if !genre.isEmpty {
-            searchQuery = genre
+        if !genre.isEmpty && !searchQuery.contains(genre) {
+            searchQuery = genre + " " + searchQuery
         }
-        fetchRadioStations(name: searchQuery, country: country, state: state) { stations in
+        fetchRadioStations(genre: genre, name: searchQuery, country: country, state: state) { stations in
             searching = false
             radioStations = stations
             showNoStationFound = false

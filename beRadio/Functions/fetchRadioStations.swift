@@ -1,10 +1,14 @@
 import Foundation
 
-func fetchRadioStations(name: String, country: String, state: String, completion: @escaping ([RadioStation]) -> Void) {
+func fetchRadioStations(genre: String, name: String, country: String, state: String, completion: @escaping ([RadioStation]) -> Void) {
     var encodedSearchString = ""
     if !name.isEmpty {
         let encodedSearchName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? name
         encodedSearchString = "name=" + encodedSearchName
+    }
+    if !genre.isEmpty {
+        let encodedSearchGenre = genre.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? genre
+        encodedSearchString = "name=" + encodedSearchGenre
     }
     if !country.isEmpty {
         if !encodedSearchString.isEmpty {
@@ -25,8 +29,14 @@ func fetchRadioStations(name: String, country: String, state: String, completion
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
         if let data = data {
             let decoder = JSONDecoder()
+
             if var stations = try? decoder.decode([RadioStation].self, from: data) {
                 DispatchQueue.main.async {
+                    let name = name.trimmingCharacters(in: .whitespaces)
+                    if !genre.isEmpty && name != genre && name.contains(genre) {
+                        let search = name.replacingOccurrences(of: genre, with: "").lowercased()
+                        stations = stations.filter { $0.name.lowercased().contains(search) }
+                    }
                     stations = Array(stations.prefix(100))
                     if !state.isEmpty && !country.isEmpty {
                         stations.sort { station1, station2 in
