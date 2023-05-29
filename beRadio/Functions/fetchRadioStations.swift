@@ -15,11 +15,49 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         return filteredArray.filter { element in
             filteringArray.allSatisfy { filterElement in
                 element.name.lowercased().contains(filterElement.lowercased())
+//                || (element.country ?? "").lowercased().contains(filterElement.lowercased())
             }
         }
     }
 
+    func countryCode(from countryName: String) -> String? {
+        return NSLocale.isoCountryCodes.first { (code) -> Bool in
+            let name = NSLocale.current.localizedString(forRegionCode: code)
+            return name == countryName
+        }
+    }
+
+    func isCountryName(_ name: String) -> Bool {
+        let locales: [String: Locale] = Locale.availableIdentifiers.reduce(into: [:]) { $0[$1] = Locale(identifier: $1) }
+        let countryCodes = locales.compactMap { $1.language.region?.identifier }
+
+        // Translate the name to a country code.
+//        let countryCode = countryCodes.first(where: {
+//            locales[$0]?.localizedString(forRegionCode: $0)?.lowercased() == name.lowercased()
+//        })
+        let countryCode = countryCode(from: name)
+        // Check if the country code exists.
+
+        if let countryCode = countryCode {
+            return countryCodes.contains(countryCode)
+        }
+        return false
+    }
+
     var encodedSearchString = ""
+    var name = name
+    var country = country
+
+    if country.isEmpty {
+        for name1 in name.components(separatedBy: " ") {
+            if isCountryName(name1) {
+                name = name.replacingOccurrences(of: name1, with: "")
+                country = name1
+                break
+            }
+        }
+    }
+
     if !name.isEmpty {
         let name = longestWord(in: name)
         let encodedSearchName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? name
@@ -36,6 +74,13 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         let encodedSearchCountry = country.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? country
         encodedSearchString += "country=" + encodedSearchCountry
     }
+//    if country.isEmpty && isCountryName(name) {
+//            if !encodedSearchString.isEmpty {
+//                encodedSearchString += "&"
+//            }
+//            let encodedSearchCountry = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? name
+//            encodedSearchString += "country=" + encodedSearchCountry
+//    }
     if !encodedSearchString.isEmpty {
         encodedSearchString = "?" + encodedSearchString
     }

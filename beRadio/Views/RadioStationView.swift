@@ -53,7 +53,7 @@ struct RadioStationsView: View {
                     TextField("Search Text", text: $searchQuery, onCommit: {
                         if localStations {
                         }
-                        searchRadioStations(genre)
+                        searchRadioStations(genre, country, state)
                     })
                     .padding(5)
                     .background(Color.clear)
@@ -64,7 +64,7 @@ struct RadioStationsView: View {
                         Text("No station found")
                     }
                     Button(action: {
-                        searchRadioStations(genre)
+                        searchRadioStations(genre, country, state)
                     }) {
                         Image(systemName: "magnifyingglass") // replace with your custom image name if any
                             .foregroundColor(.purple)
