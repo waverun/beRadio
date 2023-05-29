@@ -42,6 +42,11 @@ struct AudioPlayerView: View {
             ZStack {
                 RadialGradient(gradient: Gradient(colors: [.red, .yellow]), center: .center, startRadius: 5, endRadius: 500)
                     .scaleEffect(1.5)
+                    .ignoresSafeArea()
+                LinearGradient(gradient: Gradient(colors: [.white, .clear]), startPoint: .top, endPoint: .bottom)
+                    .frame(height: UIScreen.main.bounds.height / 2)
+                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 8)
+                    .ignoresSafeArea()
                 HStack {
                     Spacer()
                     VStack {
@@ -162,6 +167,7 @@ struct AudioPlayerView: View {
                 }
                 .edgesIgnoringSafeArea(.bottom)
             }
+//            .edgesIgnoringSafeArea(.all)
         }
         .onAppear {
             currentImageSrc = imageSrc
