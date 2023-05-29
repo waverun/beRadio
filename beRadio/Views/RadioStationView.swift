@@ -10,6 +10,7 @@ struct RadioStationsView: View {
     private var country = ""
     private var state = ""
     private var genre = ""
+    private var gradient: Gradient!
 
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
@@ -20,6 +21,9 @@ struct RadioStationsView: View {
         self.country = country
         self.state = state
         self.genre = genre
+        var colors = colors == nil ? [.blue, .purple] : colors!
+        colors = [Color.adaptiveBlack] + colors
+        self.gradient = Gradient(colors: colors)
 //        if localStations && !country.isEmpty {
 //            searchRadioStations(country, state)
 //        }
@@ -27,7 +31,7 @@ struct RadioStationsView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .blue, .purple]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
             if searching {
