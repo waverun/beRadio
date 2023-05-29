@@ -43,7 +43,7 @@ struct AudioPlayerView: View {
                 RadialGradient(gradient: Gradient(colors: [.red, .yellow]), center: .center, startRadius: 5, endRadius: 500)
                     .scaleEffect(1.5)
                     .ignoresSafeArea()
-                LinearGradient(gradient: Gradient(colors: [.white, .clear]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .clear]), startPoint: .top, endPoint: .bottom)
                     .frame(height: UIScreen.main.bounds.height / 2)
                     .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 8)
                     .ignoresSafeArea()
@@ -159,7 +159,7 @@ struct AudioPlayerView: View {
                         }
                         .padding()
                         .background(Color.white)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.gray)
                         .cornerRadius(8)
 
                         Spacer()

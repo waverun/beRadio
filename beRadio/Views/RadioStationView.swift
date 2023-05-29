@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct RadioStationsView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     @State private var searchQuery: String = ""
     @State private var radioStations: [RadioStation] = []
     @State private var showNoStationFound = false
@@ -10,7 +12,8 @@ struct RadioStationsView: View {
     private var country = ""
     private var state = ""
     private var genre = ""
-    private var gradient: Gradient!
+    private var gradientLight: Gradient!
+    private var gradientDark: Gradient!
     private var title = ""
 
     @Environment(\.presentationMode) private var presentationMode
@@ -24,7 +27,13 @@ struct RadioStationsView: View {
         self.genre = genre
         var colors = colors == nil ? [.blue, .purple] : colors!
         colors = [Color.adaptiveBlack] + colors
-        self.gradient = Gradient(colors: colors)
+        self.gradientLight = Gradient(colors: colors)
+        self.gradientDark =  Gradient(stops: [
+            .init(color: colors[0], location: 0),
+            .init(color: colors[1], location: 0.4),
+            .init(color: colors[2], location: 1)
+        ])
+
         switch true {
             case localStations: title = "Local Stations"
             case genre.contains(" Stations") :
@@ -39,7 +48,10 @@ struct RadioStationsView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: colorScheme == .light ? gradientLight : gradientDark, startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+
+//            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
             if searching {
@@ -96,7 +108,7 @@ struct RadioStationsView: View {
                                             }
                                             .padding() // Padding around the text
                                             .background(RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.white.opacity(0.5)))
+                                                .fill(Color.adaptiveBlack.opacity(0.5)))
                                         }
 //                                        Divider()
                                     }
