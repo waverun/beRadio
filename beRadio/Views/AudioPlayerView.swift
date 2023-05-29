@@ -39,121 +39,129 @@ struct AudioPlayerView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack {
-                Spacer()
-                VStack {
-                    VStack {
-                        Spacer()
-                            .frame(height: 50) // Adjust the height value as needed
-                        
-                        Text(heading)
-                            .font(.system(size: 24)) // Adjust the size value as needed
-                            .bold()
-                            .multilineTextAlignment(.center)
-                        if let imageSrc = currentImageSrc {
-                            if audioUrl.absoluteString.hasPrefix("/") {
-                                AsyncImage(url: imageSrc)
-                                    .frame(width: 240, height: 240)
-                                    .onChange(of: self.imageSrc) { newValue in
-                                        currentImageSrc = newValue
-                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
-                                    }
-                            }
-                            else {
-                                AsyncImage(url: imageSrc)
-                                    .frame(width: 120, height: 120)
-                                    .onChange(of: self.imageSrc) { newValue in
-                                        currentImageSrc = newValue
-                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
-                                    }
-                            }
-                        }
-                        HStack {
-                            VStack {
-                                HStack {
-                                    Button(action: {
-                                        audioPlayer.rewind(by: 15)
-                                    }) {
-                                        Image(systemName: "gobackward.15")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                    
-                                    Text("\(audioPlayer.currentProgressString)")
-                                        .frame(width: 70, alignment: .leading)
-                                        .foregroundColor(.primary)
-                                    
-                                    Button(action: {
-                                        audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
-                                    }) {
-                                        Image(systemName: audioPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 50, height: 50)
-                                    }
-                                    
-                                    Text("\(audioPlayer.totalDurationString)")
-                                        .frame(width: 70, alignment: .trailing)
-                                        .foregroundColor(.primary)
-                                    
-                                    Button(action: {
-                                        audioPlayer.forward(by: 15)
-                                    }) {
-                                        Image(systemName: "goforward.15")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                }
-                            }
-                        }
-                        Slider(value: $currentProgress,
-                               in: 0...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
-                               onEditingChanged: { isEditing in
-                            print("slider: \(isEditing)")
-                            if isEditing {
-                                audioPlayer.shouldUpdateTotalDuration = false
-                                isCurrentlyPlaying = audioPlayer.isPlaying
-                                audioPlayer.pause()
-                            } else {
-                                audioPlayer.seekToNewTime(currentProgress.toCMTime())
-                                if isCurrentlyPlaying {
-                                    audioPlayer.play()
-                                }
-//                                audioPlayer.shouldUpdateTotalDuration = true
-                            }
-                        })
-                        .padding(.horizontal)
-                        .onChange(of: currentProgress) {newValue in
-                            audioPlayer.setCurrentProgressString(time: newValue)
-                        }
-                        .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
-                            currentProgress = newValue
-                        }
-                    }
-                    let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
+            ZStack {
+                RadialGradient(gradient: Gradient(colors: [.red, .yellow]), center: .center, startRadius: 5, endRadius: 500)
+                    .scaleEffect(1.5)
+                HStack {
                     Spacer()
-                        .frame(height: availableSpace / 4)
-                    
-                    Button(action: {
-                        selectAudioOutput()
-                    }) {
-                        Image(systemName: "airplayaudio")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
+                    VStack {
+                        VStack {
+                            Spacer()
+                                .frame(height: 50) // Adjust the height value as needed
+
+                            Text(heading)
+                                .font(.system(size: 24)) // Adjust the size value as needed
+                                .bold()
+                                .multilineTextAlignment(.center)
+                            if let imageSrc = currentImageSrc {
+                                if audioUrl.absoluteString.hasPrefix("/") {
+                                    AsyncImage(url: imageSrc)
+                                        .frame(width: 240, height: 240)
+                                        .onChange(of: self.imageSrc) { newValue in
+                                            currentImageSrc = newValue
+                                            print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                        }
+                                }
+                                else {
+                                    AsyncImage(url: imageSrc)
+                                        .frame(width: 120, height: 120)
+                                        .onChange(of: self.imageSrc) { newValue in
+                                            currentImageSrc = newValue
+                                            print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                        }
+                                }
+                            }
+                            HStack {
+                                VStack {
+                                    HStack {
+                                        Button(action: {
+                                            audioPlayer.rewind(by: 15)
+                                        }) {
+                                            Image(systemName: "gobackward.15")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 40, height: 40)
+                                                .tint(.white)
+                                        }
+
+                                        Text("\(audioPlayer.currentProgressString)")
+                                            .frame(width: 70, alignment: .leading)
+                                            .foregroundColor(.white)
+
+                                        Button(action: {
+                                            audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
+                                        }) {
+                                            Image(systemName: audioPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 50, height: 50)
+                                                .tint(.white)
+                                        }
+
+                                        Text("\(audioPlayer.totalDurationString)")
+                                            .frame(width: 70, alignment: .trailing)
+                                            .foregroundColor(.white)
+
+                                        Button(action: {
+                                            audioPlayer.forward(by: 15)
+                                        }) {
+                                            Image(systemName: "goforward.15")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 40, height: 40)
+                                                .tint(.white)
+                                        }
+                                    }
+                                }
+                            }
+                            Slider(value: $currentProgress,
+                                   in: 0...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
+                                   onEditingChanged: { isEditing in
+                                print("slider: \(isEditing)")
+                                if isEditing {
+                                    audioPlayer.shouldUpdateTotalDuration = false
+                                    isCurrentlyPlaying = audioPlayer.isPlaying
+                                    audioPlayer.pause()
+                                } else {
+                                    audioPlayer.seekToNewTime(currentProgress.toCMTime())
+                                    if isCurrentlyPlaying {
+                                        audioPlayer.play()
+                                    }
+                                    //                                audioPlayer.shouldUpdateTotalDuration = true
+                                }
+                            })
+                            .tint(.secondary)
+                            .padding(.horizontal)
+                            .onChange(of: currentProgress) {newValue in
+                                audioPlayer.setCurrentProgressString(time: newValue)
+                            }
+                            .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
+                                currentProgress = newValue
+                            }
+                        }
+                        let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
+                        Spacer()
+                            .frame(height: availableSpace / 4)
+
+                        Button(action: {
+                            selectAudioOutput()
+                        }) {
+                            Image(systemName: "airplayaudio")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.secondary)
+                        .cornerRadius(8)
+
+                        Spacer()
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.primary)
-                    .cornerRadius(8)
-                    
                     Spacer()
                 }
-                Spacer()
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .edgesIgnoringSafeArea(.bottom)
         }
         .onAppear {
             currentImageSrc = imageSrc
