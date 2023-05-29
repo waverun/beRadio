@@ -58,6 +58,7 @@ struct AudioPlayerView: View {
                                 .font(.system(size: 24)) // Adjust the size value as needed
                                 .bold()
                                 .multilineTextAlignment(.center)
+                                .foregroundColor(.secondary)
                             if let imageSrc = currentImageSrc {
                                 if audioUrl.absoluteString.hasPrefix("/") {
                                     AsyncImage(url: imageSrc)
