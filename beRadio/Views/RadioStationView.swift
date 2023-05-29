@@ -9,6 +9,7 @@ struct RadioStationsView: View {
     private var localStations = false
     private var country = ""
     private var state = ""
+    private var genre = ""
 
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
@@ -18,6 +19,7 @@ struct RadioStationsView: View {
         self.localStations = localStations
         self.country = country
         self.state = state
+        self.genre = genre
 //        if localStations && !country.isEmpty {
 //            searchRadioStations(country, state)
 //        }
@@ -119,14 +121,18 @@ struct RadioStationsView: View {
         .navigationBarTitle("Search Stations")
         .environment(\.layoutDirection, .leftToRight)
         .onAppear {
-            if localStations && !country.isEmpty {
-                searchRadioStations(country, state)
+            if localStations && !country.isEmpty
+                || !genre.isEmpty {
+                searchRadioStations(genre, country, state)
             }
         }
     }
 
-    func searchRadioStations(_ country: String = "", _ state: String = "") {
+    func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {
         searching = true
+        if !genre.isEmpty {
+            searchQuery = genre
+        }
         fetchRadioStations(name: searchQuery, country: country, state: state) { stations in
             searching = false
             radioStations = stations
