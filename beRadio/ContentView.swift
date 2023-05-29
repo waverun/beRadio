@@ -40,27 +40,50 @@ struct ContentView: View {
     @State private var isAuthorized = false
 
     let genres = ["Pop", "Rock", "Country", "Jazz", "Blues", "Reggae", "Hip Hop", "Classical", "Latin", "Bluegrass", "Soul", "Punk", "Metal", "Gospel", "R&B", "EDM", "Folk", "Disco", "Funk", "New Age"]
-    let gradients = [
-        Gradient(colors: [.blue, .purple]),
-        Gradient(colors: [.purple, .red]),
-        Gradient(colors: [.orange, .yellow]),
-        Gradient(colors: [.pink, .blue]),
-        Gradient(colors: [.green, .orange]),
-        Gradient(colors: [.yellow, .red]),
-        Gradient(colors: [.blue, .pink]),
-        Gradient(colors: [.red, .yellow]),
-        Gradient(colors: [.purple, .green]),
-        Gradient(colors: [.red, .blue]),
-        Gradient(colors: [.blue, .purple]),
-        Gradient(colors: [.purple, .red]),
-        Gradient(colors: [.orange, .yellow]),
-        Gradient(colors: [.pink, .blue]),
-        Gradient(colors: [.green, .orange]),
-        Gradient(colors: [.yellow, .red]),
-        Gradient(colors: [.blue, .pink]),
-        Gradient(colors: [.red, .yellow]),
-        Gradient(colors: [.purple, .green]),
-        Gradient(colors: [.red, .blue])
+//    let gradients = [
+//        Gradient(colors: [.blue, .purple]),
+//        Gradient(colors: [.purple, .red]),
+//        Gradient(colors: [.orange, .yellow]),
+//        Gradient(colors: [.pink, .blue]),
+//        Gradient(colors: [.green, .orange]),
+//        Gradient(colors: [.yellow, .red]),
+//        Gradient(colors: [.blue, .pink]),
+//        Gradient(colors: [.red, .yellow]),
+//        Gradient(colors: [.purple, .green]),
+//        Gradient(colors: [.red, .blue]),
+//        Gradient(colors: [.blue, .purple]),
+//        Gradient(colors: [.purple, .red]),
+//        Gradient(colors: [.orange, .yellow]),
+//        Gradient(colors: [.pink, .blue]),
+//        Gradient(colors: [.green, .orange]),
+//        Gradient(colors: [.yellow, .red]),
+//        Gradient(colors: [.blue, .pink]),
+//        Gradient(colors: [.red, .yellow]),
+//        Gradient(colors: [.purple, .green]),
+//        Gradient(colors: [.red, .blue])
+//    ]
+
+    let colors: [[Color]] = [
+        [Color.blue, Color.purple],
+        [Color.purple, Color.red],
+        [Color.orange, Color.yellow],
+        [Color.pink, Color.blue],
+        [Color.green, Color.orange],
+        [Color.yellow, Color.red],
+        [Color.blue, Color.pink],
+        [Color.red, Color.yellow],
+        [Color.purple, Color.green],
+        [Color.red, Color.blue],
+        [Color.blue, Color.purple],
+        [Color.purple, Color.red],
+        [Color.orange, Color.yellow],
+        [Color.pink, Color.blue],
+        [Color.green, Color.orange],
+        [Color.yellow, Color.red],
+        [Color.blue, Color.pink],
+        [Color.red, Color.yellow],
+        [Color.purple, Color.green],
+        [Color.red, Color.blue]
     ]
 
     var body: some View {
@@ -145,15 +168,15 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    ForEach(Array(zip(genres, gradients)), id: \.0) { genre, gradient in
+                    ForEach(Array(zip(genres, colors)), id: \.0) { genre, colors1 in
                         NavigationLink {
-                            RadioStationsView(genre: genre) { station in
+                            RadioStationsView(genre: genre, colors: colors1) { station in
                                 addItem(station)
                             }
                         } label: {
                             ZStack {
                                 RadialGradient(
-                                    gradient: gradient,
+                                    gradient: Gradient(colors: colors1),
                                     center: .center,
                                     startRadius: 0,
                                     endRadius: 200
