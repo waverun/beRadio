@@ -35,6 +35,11 @@ func fetchRadioStations(name: String, country: String, state: String, completion
                             return matches1 && !matches2
                         }
                     }
+                    stations.sort { station1, station2 in
+                        let matches1 = station1.favicon != ""
+                        let matches2 = station2.favicon != ""
+                        return matches1 && !matches2
+                    }
                     completion(stations)
                 }
                 return
