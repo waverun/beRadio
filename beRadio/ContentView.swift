@@ -39,7 +39,7 @@ struct ContentView: View {
     @State private var isLive: Bool = false
     @State private var isAuthorized = false
 
-    let genres = ["Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
+    let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
 //    let gradients = [
 //        Gradient(colors: [.blue, .purple]),
 //        Gradient(colors: [.purple, .red]),
@@ -64,6 +64,7 @@ struct ContentView: View {
 //    ]
 
     let colors: [[Color]] = [
+        [Color.blue, Color.gray],
         [Color.blue, Color.purple],
         [Color.purple, Color.red],
         [Color.secondary, Color.white],

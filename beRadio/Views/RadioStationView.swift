@@ -11,6 +11,7 @@ struct RadioStationsView: View {
     private var state = ""
     private var genre = ""
     private var gradient: Gradient!
+    private var title = ""
 
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
@@ -24,6 +25,11 @@ struct RadioStationsView: View {
         var colors = colors == nil ? [.blue, .purple] : colors!
         colors = [Color.adaptiveBlack] + colors
         self.gradient = Gradient(colors: colors)
+        switch true {
+            case localStations: title = "Local Stations"
+            case genre.contains(" Stations") : title = genre
+            default: title = genre + " Stations"
+        }
 //        if localStations && !country.isEmpty {
 //            searchRadioStations(country, state)
 //        }
@@ -122,7 +128,7 @@ struct RadioStationsView: View {
                 //                }
             }
         }
-        .navigationBarTitle("Search Stations")
+        .navigationBarTitle(title)
         .environment(\.layoutDirection, .leftToRight)
         .onAppear {
             if localStations && !country.isEmpty
