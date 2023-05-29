@@ -27,6 +27,7 @@ func fetchRadioStations(name: String, country: String, state: String, completion
             let decoder = JSONDecoder()
             if var stations = try? decoder.decode([RadioStation].self, from: data) {
                 DispatchQueue.main.async {
+                    stations = Array(stations.prefix(100))
                     if !state.isEmpty && !country.isEmpty {
                         stations.sort { station1, station2 in
                             let matches1 = station1.state == state && station1.country == country
