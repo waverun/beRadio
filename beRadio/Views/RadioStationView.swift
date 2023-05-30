@@ -58,7 +58,7 @@ struct RadioStationsView: View {
                     .progressViewStyle(CircularProgressViewStyle(tint: .purple))
             }
 
-            VStack {
+            VStack (alignment: .leading) {
                 HStack {
                     TextField("Search Text", text: $radioStationsData.searchQuery, onCommit: {
                         if localStations {
