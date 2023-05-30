@@ -8,7 +8,7 @@ class RadioStationData: ObservableObject {
 struct RadioStationsView: View {
     @Environment(\.colorScheme) var colorScheme
 
-//    @State private var searchQuery: String = ""
+    //    @State private var searchQuery: String = ""
     @ObservedObject var radioStationsData = RadioStationData()
     @State private var showNoStationFound = false
     @State private var searching = false
@@ -82,38 +82,45 @@ struct RadioStationsView: View {
                     .padding(.trailing)
                 }
                 ScrollView {
-                            VStack(alignment: .leading) {
-                                ForEach(radioStationsData.radioStations, id: \.self) { station in
-                                    Button(action: {
-                                        onDone(station)
-                                        presentationMode.wrappedValue.dismiss()
-                                    }) {
-                                        HStack {
-                                            if let urlString = station.favicon {
-                                                AsyncImage(url: urlString)
-                                                    .frame(width: 60, height: 60) // Adjust the size as needed
-                                            }
-                                            HStack {
-                                                VStack(alignment: .leading) {
-                                                    Text(station.name)
-                                                        .font(.headline)
-                                                    Text(station.country ?? "")
-                                                        .font(.subheadline)
-                                                        .foregroundColor(.secondary)
-                                                }
-                                            }
-                                            .padding() // Padding around the text
-                                            .background(RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.adaptiveBlack.opacity(0.5)))
+                    VStack(alignment: .leading) {
+                        ForEach(radioStationsData.radioStations, id: \.self) { station in
+                            Button(action: {
+                                onDone(station)
+                                presentationMode.wrappedValue.dismiss()
+                            }) {
+                                HStack {
+                                    if let urlString = station.favicon {
+                                        AsyncImage(url: urlString)
+                                            .frame(width: 60, height: 60) // Adjust the size as needed
+                                    }
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text(station.name)
+                                                .font(.headline)
+                                            Text(station.country ?? "")
+                                                .font(.subheadline)
+                                                .foregroundColor(.secondary)
                                         }
                                     }
+                                    .padding() // Padding around the text
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.adaptiveBlack.opacity(0.5)))
                                 }
-                                .padding(.horizontal, 10)
+                            }
+                        }
+                        .padding(.horizontal, 10)
                     }
                 }
             }
         }
-        .navigationBarTitle(title)
+//        .navigationBarTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(title)
+                    .font(.headline)
+            }
+        }
         .environment(\.layoutDirection, .leftToRight)
         .onAppear {
             if localStations && !country.isEmpty
@@ -140,22 +147,22 @@ struct RadioStationsView: View {
             }
         }
     }
-//    func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {
-//        searching = true
-//        if !genre.isEmpty && !searchQuery.contains(genre) {
-//            searchQuery = genre + " " + searchQuery
-//        }
-//        fetchRadioStations(genre: genre, name: searchQuery, country: country, state: state) { stations in
-//            searching = false
-//            radioStations = stations
-//            showNoStationFound = false
-//            if stations.count == 0 {
-//                showNoStationFound = true
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                    showNoStationFound = false
-//                }
-//            }
-//        }
-//    }
+    //    func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {
+    //        searching = true
+    //        if !genre.isEmpty && !searchQuery.contains(genre) {
+    //            searchQuery = genre + " " + searchQuery
+    //        }
+    //        fetchRadioStations(genre: genre, name: searchQuery, country: country, state: state) { stations in
+    //            searching = false
+    //            radioStations = stations
+    //            showNoStationFound = false
+    //            if stations.count == 0 {
+    //                showNoStationFound = true
+    //                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    //                    showNoStationFound = false
+    //                }
+    //            }
+    //        }
+    //    }
 }
 
