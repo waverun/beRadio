@@ -104,6 +104,7 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
                         search = name.replacingOccurrences(of: genre, with: "").lowercased()
 //                        stations = stations.filter { $0.name.lowercased().contains(search) }
                     }
+                    search = search.trimmingCharacters(in: .whitespaces)
                     if !search.isEmpty {
                         stations = filterStations(filteredArray: stations, filteringArray: search.components(separatedBy: " "))
                     }
