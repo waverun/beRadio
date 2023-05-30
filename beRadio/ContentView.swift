@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  beRadio
-//
-//  Created by Shay  on 16/03/2023.
-//
-
 import SwiftUI
 import CoreData
 import AVFoundation
@@ -16,11 +9,7 @@ struct ContentView: View {
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
     @State private var showLivePlayerView: Bool = false
-//    @State private var showingRadioStationsView = false
     @State private var showingLocalStationsView = false
-//    @State private var locationManager = LocationManager()
-
-//    @State private var locationManager: LocationManager!
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -40,28 +29,6 @@ struct ContentView: View {
     @State private var isAuthorized = false
 
     let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
-//    let gradients = [
-//        Gradient(colors: [.blue, .purple]),
-//        Gradient(colors: [.purple, .red]),
-//        Gradient(colors: [.orange, .yellow]),
-//        Gradient(colors: [.pink, .blue]),
-//        Gradient(colors: [.green, .orange]),
-//        Gradient(colors: [.yellow, .red]),
-//        Gradient(colors: [.blue, .pink]),
-//        Gradient(colors: [.red, .yellow]),
-//        Gradient(colors: [.purple, .green]),
-//        Gradient(colors: [.red, .blue]),
-//        Gradient(colors: [.blue, .purple]),
-//        Gradient(colors: [.purple, .red]),
-//        Gradient(colors: [.orange, .yellow]),
-//        Gradient(colors: [.pink, .blue]),
-//        Gradient(colors: [.green, .orange]),
-//        Gradient(colors: [.yellow, .red]),
-//        Gradient(colors: [.blue, .pink]),
-//        Gradient(colors: [.red, .yellow]),
-//        Gradient(colors: [.purple, .green]),
-//        Gradient(colors: [.red, .blue])
-//    ]
 
     let colors: [[Color]] = [
         [Color.blue, Color.gray],
@@ -125,7 +92,6 @@ struct ContentView: View {
                                             .onAppear {
                                                 DispatchQueue.main.async {
                                                     audioUrl = url
-//                                                    imageSrc = item.favicon
                                                     heading =  item.name ?? "Radio"
                                                     isLive = true
                                                 }
@@ -207,11 +173,6 @@ struct ContentView: View {
                         EditButton()
                     }
 #endif
-//                    ToolbarItem {
-//                        Button(action: showSearch) {
-//                            Label("Add Item", systemImage: "plus")
-//                        }
-//                    }
                 }
                 .onAppear {
                     getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
@@ -230,17 +191,13 @@ struct ContentView: View {
                 .navigationBarTitle(title, displayMode: .inline)
                 Text("Select an item")
             }
+            .navigationViewStyle(.stack) // add this line after your NavigationView
         }
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
         .onAppear {
             configureAudioSession()
         }
-//        .sheet(isPresented: $showingRadioStationsView) {
-//            RadioStationsView() { station in
-//                addItem(station)
-//            }
-//        }
     }
     
     private func clearAllUrls() {
@@ -350,9 +307,3 @@ private let itemFormatter: DateFormatter = {
     formatter.timeStyle = .medium
     return formatter
 }()
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
