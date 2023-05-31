@@ -84,10 +84,10 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
 //            encodedSearchString += "country=" + encodedSearchCountry
 //    }
     if !encodedSearchString.isEmpty {
-        encodedSearchString = "?" + encodedSearchString
+        encodedSearchString = "&" + encodedSearchString
     }
 
-    guard let url = URL(string: "https://de1.api.radio-browser.info/json/stations/search\(encodedSearchString)") else {
+    guard let url = URL(string: "https://de1.api.radio-browser.info/json/stations/search?hidebroken=true&limit=100\(encodedSearchString)") else {
         print("Invalid URL")
         return
     }
