@@ -27,6 +27,12 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         }
     }
 
+    func filterHomePage(stations: [RadioStation]) -> [RadioStation] {
+        return stations.filter { station in
+            station.homepage != nil
+        }
+    }
+
     func isCountryName(_ name: String) -> Bool {
         if name.lowercased() == "usa" {
             return true
@@ -108,6 +114,7 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
                     if !search.isEmpty {
                         stations = filterStations(filteredArray: stations, filteringArray: search.components(separatedBy: " "))
                     }
+                    stations = filterHomePage(stations: stations)
                     stations = Array(stations.prefix(100))
                     if !state.isEmpty && !country.isEmpty {
                         stations.sort { station1, station2 in
