@@ -1,9 +1,9 @@
 import SwiftUI
 
-class RadioStationData: ObservableObject {
-    @Published var radioStations: [RadioStation] = []
-    @Published var searchQuery = ""
-}
+//class RadioStationData: ObservableObject {
+//    @Published var radioStations: [RadioStation] = []
+//    @Published var searchQuery = ""
+//}
 
 struct RadioStationsView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -11,7 +11,35 @@ struct RadioStationsView: View {
     //    @State private var searchQuery: String = ""
     @ObservedObject var radioStationsData = RadioStationData()
     @State private var showNoStationFound = false
+    @State private var showingWebView = false
     @State private var searching = false
+    @State private var isError = false
+
+//    @State private var showingActionSheet = false
+//    @AppStorage("selectedStationData") private var selectedStationData: Data?
+//    var selectedStation: RadioStation? {
+//        get {
+//            if let data = selectedStationData {
+//                let decoder = JSONDecoder()
+//                if let station = try? decoder.decode(RadioStation.self, from: data) {
+//                    return station
+//                }
+//            }
+//            return nil
+//        }
+//        set {
+//            if let station = newValue {
+//                let encoder = JSONEncoder()
+//                if let data = try? encoder.encode(station) {
+//                    selectedStationData = data
+//                }
+//            } else {
+//                selectedStationData = nil
+//            }
+//        }
+//    }
+
+//    @AppStorage("showingActionSheet") private var showingActionSheet = false
 
     private var localStations = false
     private var country = ""
@@ -46,6 +74,10 @@ struct RadioStationsView: View {
                 self.genre = ""
             default: title = genre + " Stations"
         }
+
+//        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { _ in
+//            radioStationsData.showingActionSheet = true
+//        }
     }
 
     var body: some View {
@@ -85,8 +117,16 @@ struct RadioStationsView: View {
                     VStack(alignment: .leading) {
                         ForEach(radioStationsData.radioStations, id: \.self) { station in
                             Button(action: {
-                                onDone(station)
-                                presentationMode.wrappedValue.dismiss()
+                                radioStationsData.selectedStation = station
+                                radioStationsData.showingActionSheet = true
+//                                fetchAndDisplayTermsAndConditions(url: station.homepage!) { termsAndConditions in
+//                                    // Display the terms and conditions to the user and ask for their approval.
+//                                    // If they approve, then:
+//                                    onDone(station)
+//                                    presentationMode.wrappedValue.dismiss()
+//                                }
+//                                onDone(station)
+//                                presentationMode.wrappedValue.dismiss()
                             }) {
                                 HStack {
                                     if let urlString = station.favicon {
@@ -113,6 +153,32 @@ struct RadioStationsView: View {
                 }
             }
         }
+        .actionSheet(isPresented: $radioStationsData.showingActionSheet) {
+            ActionSheet(title: Text("Terms and Conditions\n\(radioStationsData.selectedStation?.name ?? "")"),
+                        message: Text("By selecting this station, you agree to the station's terms and conditions. You can also visit the station's website for more information."),
+                        buttons: [
+                            .default(Text("Agree")) {
+                                onDone(radioStationsData.selectedStation!)
+                                presentationMode.wrappedValue.dismiss()
+                            },
+                            .default(Text("Go to station's site")) {
+//                                if let url = URL(string: radioStationsData.selectedStation?.homepage ?? "") {
+//                                    UIApplication.shared.open(url)
+//                                }
+                                showingWebView = true
+                            },
+                            .cancel(Text("Disagree"))
+                        ])
+        }
+//        .alert(isPresented: $showingAlert) {
+//            Alert(title: Text("Terms and Conditions"),
+//                  message: Text("By selecting this station, you agree to the station's terms and conditions."),
+//                  primaryButton: .default(Text("Agree")) {
+//                onDone(selectedStation!)
+//                presentationMode.wrappedValue.dismiss()
+//            },
+//              secondaryButton: .cancel(Text("Disagree")))
+//        }
 //        .navigationBarTitle(title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -128,6 +194,24 @@ struct RadioStationsView: View {
                 searchRadioStations(genre, country, state)
             }
         }
+        .sheet(isPresented: $showingWebView) {
+            if let selectedStation = radioStationsData.selectedStation,
+               let homepage = selectedStation.homepage,
+               let url = URL(string: homepage) {
+                WebView(url: url, isError: $isError)
+                    .onDisappear {
+                        radioStationsData.showingActionSheet = true
+                    }
+                    .alert(isPresented: $isError) {
+                        Alert(title: Text("Error"), message: Text("Failed to load webpage"), dismissButton: .default(Text("OK")))
+                    }
+            }
+        }
+//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+//            if radioStationsData.showingActionSheet {
+//                // Re-present the alert or perform some other action.
+//            }
+//        }
     }
 
     func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {

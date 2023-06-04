@@ -15,7 +15,6 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         return filteredArray.filter { element in
             filteringArray.allSatisfy { filterElement in
                 element.name.lowercased().contains(filterElement.lowercased())
-//                || (element.country ?? "").lowercased().contains(filterElement.lowercased())
             }
         }
     }
@@ -30,6 +29,7 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
     func filterHomePage(stations: [RadioStation]) -> [RadioStation] {
         return stations.filter { station in
             station.homepage != nil
+            && !station.homepage!.isEmpty
         }
     }
 
@@ -82,13 +82,6 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         let encodedSearchCountry = country.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? country
         encodedSearchString += "country=" + encodedSearchCountry
     }
-//    if country.isEmpty && isCountryName(name) {
-//            if !encodedSearchString.isEmpty {
-//                encodedSearchString += "&"
-//            }
-//            let encodedSearchCountry = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? name
-//            encodedSearchString += "country=" + encodedSearchCountry
-//    }
     if !encodedSearchString.isEmpty {
         encodedSearchString = "&" + encodedSearchString
     }
@@ -108,7 +101,6 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
                     var search = name
                     if !genre.isEmpty && name != genre && name.contains(genre) {
                         search = name.replacingOccurrences(of: genre, with: "").lowercased()
-//                        stations = stations.filter { $0.name.lowercased().contains(search) }
                     }
                     search = search.trimmingCharacters(in: .whitespaces)
                     if !search.isEmpty {

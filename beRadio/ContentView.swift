@@ -68,51 +68,51 @@ struct ContentView: View {
                                 AsyncImage(url: url)
                                     .frame(width: 60, height: 60) // Adjust the size as needed
                             }
-                            if let homepage = item.homepage,
-                               let homePageUrl = URL(string: homepage),
-                               let name = item.name {
-                                Button(name) {
-                                    if UIApplication.shared.canOpenURL(homePageUrl) {
-                                        UIApplication.shared.open(homePageUrl)
-                                    }
-                                }
-                            }
+//                            if let homepage = item.homepage,
+//                               let homePageUrl = URL(string: homepage),
+//                               let name = item.name {
+//                                Button(name) {
+//                                    if UIApplication.shared.canOpenURL(homePageUrl) {
+//                                        UIApplication.shared.open(homePageUrl)
+//                                    }
+//                                }
+//                            }
 //                            }
 
 //                            Do not remove: its the link to the player or programs
-//                            NavigationLink {
-//                                switch true {
-//                                case  links.isEmpty :
-//                                    Text("Loading...")
-////                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
-////                                        ProgramsListView(links: links,
-////                                                         removedLinks: removedLinks,
-////                                                         removeLinks: removeLinks(atOffsets:),
-////                                                         title: $heading,
-////                                                         liveImageSrc: $imageSrc,
-//////                                                         showLivePlayerView: $showLivePlayerView,
-////                                                         showingAddLinkView: $showingAddLinkView)
-////                                        .onAppear {
-////                                            heading = item.name ?? "Radio"
-////                                            imageSrc = item.favicon
-////                                        }
-//                                default :
-//                                    if  let urlString = item.url,
-//                                        let url = URL(string: urlString) {
-//                                        //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
-//                                        AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
-//                                            .onAppear {
-//                                                DispatchQueue.main.async {
-//                                                    audioUrl = url
-//                                                    heading =  item.name ?? "Radio"
-//                                                    isLive = true
-//                                                }
-//                                            }
-//                                    }
-//                                }
-//                            } label: {
-//                                Text(item.name ?? "New station")
-//                            }
+                            NavigationLink {
+                                switch true {
+                                case  links.isEmpty :
+                                    Text("Loading...")
+//                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+//                                        ProgramsListView(links: links,
+//                                                         removedLinks: removedLinks,
+//                                                         removeLinks: removeLinks(atOffsets:),
+//                                                         title: $heading,
+//                                                         liveImageSrc: $imageSrc,
+////                                                         showLivePlayerView: $showLivePlayerView,
+//                                                         showingAddLinkView: $showingAddLinkView)
+//                                        .onAppear {
+//                                            heading = item.name ?? "Radio"
+//                                            imageSrc = item.favicon
+//                                        }
+                                default :
+                                    if  let urlString = item.url,
+                                        let url = URL(string: urlString) {
+                                        //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
+                                        AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
+                                            .onAppear {
+                                                DispatchQueue.main.async {
+                                                    audioUrl = url
+                                                    heading =  item.name ?? "Radio"
+                                                    isLive = true
+                                                }
+                                            }
+                                    }
+                                }
+                            } label: {
+                                Text(item.name ?? "New station")
+                            }
                         }
                     }
                     .onDelete(perform: deleteItems)
@@ -187,13 +187,13 @@ struct ContentView: View {
 #endif
                 }
                 .onAppear {
-                    getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
-                        DispatchQueue.main.async {
-                            //                        links = extractedLinks
-                            //                        clearAllUrls()
-                            addLinks(urls: extractedLinks)
-                        }
-                    }
+//                    getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
+//                        DispatchQueue.main.async {
+//                            //                        links = extractedLinks
+//                            //                        clearAllUrls()
+//                            addLinks(urls: extractedLinks)
+//                        }
+//                    }
                     locationManager.checkLocationAuthorization()
                     isAuthorized = locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse
                 }
