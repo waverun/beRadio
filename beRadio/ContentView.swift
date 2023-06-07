@@ -5,18 +5,17 @@ import CoreLocation
 
 struct ContentView: View {
 
-    let approvedStations: [RadioStation] = []
-//    private init() {
-//        let station = RadioStation(
-//            id: "4d90c38f-b1c2-442c-91ff-ed4068b36454",
-//            name: "Le village pop",
-//            url: "https://listen.radioking.com/radio/200437/stream/243028",
-//            homepage: "http://levillagepop.com/",
-//            favicon: "",
-//            country: "France",
-//            state: ""
-//        )
-//    } // private
+    let approvedStations: [RadioStation] = [RadioStation(
+            id: "4d90c38f-b1c2-442c-91ff-ed4068b36454",
+            name: "Le village pop",
+            url: "https://listen.radioking.com/radio/200437/stream/243028",
+            homepage: "http://levillagepop.com/",
+            favicon: "",
+            country: "France",
+            state: ""
+        )
+    ]
+
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var locationManager = LocationManager()
 
@@ -204,6 +203,7 @@ struct ContentView: View {
 #endif
                 }
                 .onAppear {
+                    addApprovedStations()
 //                    getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
 //                        DispatchQueue.main.async {
 //                            //                        links = extractedLinks
@@ -301,29 +301,10 @@ struct ContentView: View {
     
     private func addItem(_ station: RadioStation) {
         withAnimation {
-            if itemExists(station: station) {
-                alertMessage = "The station \(station.name) already exists."
-                showingAlert = true
-                return
-            }
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.name = station.name
-            newItem.url = station.url
-            newItem.favicon = station.favicon
-            newItem.homepage = station.homepage
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            addStation(station)
         }
     }
-    
+
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
@@ -336,6 +317,37 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+        }
+    }
+
+    private func addApprovedStations() {
+        for station in approvedStations {
+            addStation(station, showMessage: false)
+        }
+    }
+
+    private func addStation(_ station: RadioStation, showMessage: Bool = true) {
+        if itemExists(station: station) {
+            if showMessage {
+                alertMessage = "The station \(station.name) already exists."
+                showingAlert = true
+                return
+            }
+        }
+        let newItem = Item(context: viewContext)
+        newItem.timestamp = Date()
+        newItem.name = station.name
+        newItem.url = station.url
+        newItem.favicon = station.favicon
+        newItem.homepage = station.homepage
+
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 
