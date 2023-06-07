@@ -1,45 +1,13 @@
 import SwiftUI
 
-//class RadioStationData: ObservableObject {
-//    @Published var radioStations: [RadioStation] = []
-//    @Published var searchQuery = ""
-//}
-
 struct RadioStationsView: View {
     @Environment(\.colorScheme) var colorScheme
 
-    //    @State private var searchQuery: String = ""
     @ObservedObject var radioStationsData = RadioStationData()
     @State private var showNoStationFound = false
     @State private var showingWebView = false
     @State private var searching = false
     @State private var isError = false
-
-//    @State private var showingActionSheet = false
-//    @AppStorage("selectedStationData") private var selectedStationData: Data?
-//    var selectedStation: RadioStation? {
-//        get {
-//            if let data = selectedStationData {
-//                let decoder = JSONDecoder()
-//                if let station = try? decoder.decode(RadioStation.self, from: data) {
-//                    return station
-//                }
-//            }
-//            return nil
-//        }
-//        set {
-//            if let station = newValue {
-//                let encoder = JSONEncoder()
-//                if let data = try? encoder.encode(station) {
-//                    selectedStationData = data
-//                }
-//            } else {
-//                selectedStationData = nil
-//            }
-//        }
-//    }
-
-//    @AppStorage("showingActionSheet") private var showingActionSheet = false
 
     private var localStations = false
     private var country = ""
@@ -48,11 +16,12 @@ struct RadioStationsView: View {
     private var gradientLight: Gradient!
     private var gradientDark: Gradient!
     private var title = ""
+    private var approvedStations: [RadioStation]!
 
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
 
-    init(genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
+    init(approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
         self.onDone = onDone
         self.localStations = localStations
         self.country = country
@@ -74,10 +43,7 @@ struct RadioStationsView: View {
                 self.genre = ""
             default: title = genre + " Stations"
         }
-
-//        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { _ in
-//            radioStationsData.showingActionSheet = true
-//        }
+        self.approvedStations = approvedStations
     }
 
     var body: some View {
@@ -95,7 +61,7 @@ struct RadioStationsView: View {
                     TextField("Search Text", text: $radioStationsData.searchQuery, onCommit: {
                         if localStations {
                         }
-                        searchRadioStations(genre, country, state)
+                        searchRadioStations(approvedStations, genre, country, state)
                     })
                     .padding(5)
                     .background(Color.clear)
@@ -106,7 +72,7 @@ struct RadioStationsView: View {
                         Text("No station found")
                     }
                     Button(action: {
-                        searchRadioStations(genre, country, state)
+                        searchRadioStations(approvedStations, genre, country, state)
                     }) {
                         Image(systemName: "magnifyingglass") // replace with your custom image name if any
                             .foregroundColor(.purple)
@@ -119,14 +85,6 @@ struct RadioStationsView: View {
                             Button(action: {
                                 radioStationsData.selectedStation = station
                                 radioStationsData.showingActionSheet = true
-//                                fetchAndDisplayTermsAndConditions(url: station.homepage!) { termsAndConditions in
-//                                    // Display the terms and conditions to the user and ask for their approval.
-//                                    // If they approve, then:
-//                                    onDone(station)
-//                                    presentationMode.wrappedValue.dismiss()
-//                                }
-//                                onDone(station)
-//                                presentationMode.wrappedValue.dismiss()
                             }) {
                                 HStack {
                                     if let urlString = station.favicon {
@@ -162,24 +120,11 @@ struct RadioStationsView: View {
                                 presentationMode.wrappedValue.dismiss()
                             },
                             .default(Text("Go to station's site")) {
-//                                if let url = URL(string: radioStationsData.selectedStation?.homepage ?? "") {
-//                                    UIApplication.shared.open(url)
-//                                }
                                 showingWebView = true
                             },
                             .cancel(Text("Disagree"))
                         ])
         }
-//        .alert(isPresented: $showingAlert) {
-//            Alert(title: Text("Terms and Conditions"),
-//                  message: Text("By selecting this station, you agree to the station's terms and conditions."),
-//                  primaryButton: .default(Text("Agree")) {
-//                onDone(selectedStation!)
-//                presentationMode.wrappedValue.dismiss()
-//            },
-//              secondaryButton: .cancel(Text("Disagree")))
-//        }
-//        .navigationBarTitle(title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -191,7 +136,7 @@ struct RadioStationsView: View {
         .onAppear {
             if localStations && !country.isEmpty
                 || !genre.isEmpty {
-                searchRadioStations(genre, country, state)
+                searchRadioStations(approvedStations, genre, country, state)
             }
         }
         .sheet(isPresented: $showingWebView) {
@@ -207,19 +152,14 @@ struct RadioStationsView: View {
                     }
             }
         }
-//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-//            if radioStationsData.showingActionSheet {
-//                // Re-present the alert or perform some other action.
-//            }
-//        }
     }
 
-    func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {
+    func searchRadioStations(_ approvedStations: [RadioStation], _ genre: String = "", _ country: String = "", _ state: String = "") {
         searching = true
         if !genre.isEmpty && !radioStationsData.searchQuery.contains(genre) {
             radioStationsData.searchQuery = genre + " " + radioStationsData.searchQuery
         }
-        fetchRadioStations(genre: genre, name: radioStationsData.searchQuery, country: country, state: state) { stations in
+        fetchRadioStations(approvedStations: approvedStations, genre: genre, name: radioStationsData.searchQuery, country: country, state: state) { stations in
             searching = false
             radioStationsData.radioStations = stations
             showNoStationFound = false
@@ -231,22 +171,5 @@ struct RadioStationsView: View {
             }
         }
     }
-    //    func searchRadioStations(_ genre: String = "", _ country: String = "", _ state: String = "") {
-    //        searching = true
-    //        if !genre.isEmpty && !searchQuery.contains(genre) {
-    //            searchQuery = genre + " " + searchQuery
-    //        }
-    //        fetchRadioStations(genre: genre, name: searchQuery, country: country, state: state) { stations in
-    //            searching = false
-    //            radioStations = stations
-    //            showNoStationFound = false
-    //            if stations.count == 0 {
-    //                showNoStationFound = true
-    //                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-    //                    showNoStationFound = false
-    //                }
-    //            }
-    //        }
-    //    }
 }
 

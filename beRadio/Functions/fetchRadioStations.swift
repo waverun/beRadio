@@ -1,6 +1,6 @@
 import Foundation
 
-func fetchRadioStations(genre: String, name: String, country: String, state: String, completion: @escaping ([RadioStation]) -> Void) {
+func fetchRadioStations(approvedStations: [RadioStation], genre: String, name: String, country: String, state: String, completion: @escaping ([RadioStation]) -> Void) {
 
     func longestWord(in string: String) -> String {
         let words = string.components(separatedBy: .whitespaces)
@@ -114,7 +114,7 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
                     for station in stations {
                         print("Station: \(station.name) \(station.country ?? "") \(station.homepage ?? "")")
                     }
-
+                    stations = filterApprovedStations(stations)
                     stations = Array(stations.prefix(100))
                     if !state.isEmpty && !country.isEmpty {
                         stations.sort { station1, station2 in
@@ -136,5 +136,11 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
     }
     task.resume()
+
+    func filterApprovedStations(_ stations: [RadioStation]) -> [RadioStation] {
+        return stations.filter { station in
+            approvedStations.contains(station)
+        }
+    }
 }
 

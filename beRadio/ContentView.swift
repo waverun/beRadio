@@ -134,15 +134,12 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                     NavigationLink {
                         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-                            RadioStationsView(localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
+                            RadioStationsView(approvedStations: approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
                                 addItem(station)
                             }
                         } else {
                             LocationPermissionView(locationManager: locationManager)
                         }
-//                        RadioStationsView(localStations: true) { station in
-//                            addItem(station)
-//                        }
                     } label: {
                         ZStack {
 //                            LinearGradient(
@@ -169,7 +166,7 @@ struct ContentView: View {
                     }
                     ForEach(Array(zip(genres, colors)), id: \.0) { genre, colors1 in
                         NavigationLink {
-                            RadioStationsView(genre: genre, colors: colors1) { station in
+                            RadioStationsView(approvedStations: approvedStations, genre: genre, colors: colors1) { station in
                                 addItem(station)
                             }
                         } label: {
@@ -294,11 +291,7 @@ struct ContentView: View {
             }
         }
     }
-    
-//    private func showSearch() {
-//        showingRadioStationsView.toggle()
-//    }
-    
+        
     private func addItem(_ station: RadioStation) {
         withAnimation {
             addStation(station)
@@ -331,8 +324,8 @@ struct ContentView: View {
             if showMessage {
                 alertMessage = "The station \(station.name) already exists."
                 showingAlert = true
-                return
             }
+            return
         }
         let newItem = Item(context: viewContext)
         newItem.timestamp = Date()
