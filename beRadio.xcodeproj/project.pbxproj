@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		50B847172A1B777F0002007A /* CheckMemoryAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */; };
 		50B847542A1E6A940002007A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847532A1E6A930002007A /* LocationManager.swift */; };
+		50BAC89F2A307A3D006E82DF /* addApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */; };
 		50C499102A2C8D1D00797C12 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */; };
 		50C499122A2C935100797C12 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
 		50C499142A2CAC8800797C12 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499132A2CAC8800797C12 /* WebView.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMemoryAvailability.swift; sourceTree = "<group>"; };
 		50B847532A1E6A930002007A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addApprovedStations.swift; sourceTree = "<group>"; };
 		50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		50C499112A2C935100797C12 /* RadioStationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationData.swift; sourceTree = "<group>"; };
 		50C499132A2CAC8800797C12 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -140,21 +142,21 @@
 		92AB2A7329C3A49100EFF179 /* beRadio */ = {
 			isa = PBXGroup;
 			children = (
-				92AB2A7429C3A49100EFF179 /* beRadioApp.swift */,
-				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
-				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				92AB2A7D29C3A49100EFF179 /* Assets.xcassets */,
-				92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */,
-				92E59A3529DAD7C4002754E5 /* Classes */,
-				92ADFC5629C73E3900582B66 /* Extensions */,
-				92AB2A8B29C3AA6600EFF179 /* Functions */,
-				92E59A4629DC55F9002754E5 /* Observables */,
-				92E59A6E29E331FA002754E5 /* Structs */,
-				92ADFC5329C731D900582B66 /* Views */,
 				92AB2A7F29C3A49100EFF179 /* beRadio.entitlements */,
 				92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */,
-				92AB2A8029C3A49100EFF179 /* Preview Content */,
+				92AB2A7429C3A49100EFF179 /* beRadioApp.swift */,
+				92E59A3529DAD7C4002754E5 /* Classes */,
+				92AB2A7B29C3A49100EFF179 /* ContentView.swift */,
 				922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */,
+				92ADFC5629C73E3900582B66 /* Extensions */,
+				92AB2A8B29C3AA6600EFF179 /* Functions */,
+				92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */,
+				92E59A4629DC55F9002754E5 /* Observables */,
+				92AB2A7629C3A49100EFF179 /* Persistence.swift */,
+				92AB2A8029C3A49100EFF179 /* Preview Content */,
+				92E59A6E29E331FA002754E5 /* Structs */,
+				92ADFC5329C731D900582B66 /* Views */,
 			);
 			path = beRadio;
 			sourceTree = "<group>";
@@ -170,16 +172,17 @@
 		92AB2A8B29C3AA6600EFF179 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
-				92E59A4029DB4899002754E5 /* LinkProcessor.swift */,
-				92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */,
-				92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */,
-				92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */,
-				92E59A7129E33250002754E5 /* fetchRadioStations.swift */,
-				92E59A8229E4992F002754E5 /* CheckUrlExists.swift */,
-				92BEBE0329E8968700DF52BE /* imageBrightness.swift */,
-				92BEBE0929EC45A600DF52BE /* ConfigurePlayingInfro.swift */,
+				50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */,
 				50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */,
+				92E59A8229E4992F002754E5 /* CheckUrlExists.swift */,
+				92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */,
+				92BEBE0929EC45A600DF52BE /* ConfigurePlayingInfro.swift */,
+				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
+				92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */,
+				92E59A7129E33250002754E5 /* fetchRadioStations.swift */,
+				92BEBE0329E8968700DF52BE /* imageBrightness.swift */,
+				92E59A4029DB4899002754E5 /* LinkProcessor.swift */,
+				92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -194,11 +197,11 @@
 				92E59A3A29DB23AB002754E5 /* ImageLoader.swift */,
 				92E59A3E29DB371F002754E5 /* LinkButton.swift */,
 				92E59A6029E07302002754E5 /* LivePlayerView.swift */,
+				50C520422A1F9859008E50E1 /* LocationPermissionView.swift */,
+				92BEBDFD29E86BF600DF52BE /* ProgramsListView.swift */,
 				92E59A7329E33292002754E5 /* RadioStationView.swift */,
 				92E59A4429DC31EC002754E5 /* SafariView.swift */,
 				92E59A6C29E32431002754E5 /* SearchView.swift */,
-				92BEBDFD29E86BF600DF52BE /* ProgramsListView.swift */,
-				50C520422A1F9859008E50E1 /* LocationPermissionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,12 +209,12 @@
 		92ADFC5629C73E3900582B66 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				92ADFC5729C73E7A00582B66 /* String.swift */,
 				923803BC29D5CCF6001BADF2 /* Array.swift */,
-				92E59A3829DB09E7002754E5 /* Date.swift */,
-				92E59A7529E33896002754E5 /* JSONDecoder.swift */,
-				922672AC29F5664800D92281 /* Double.swift */,
 				50E5AD172A154F270083DC04 /* Color.swift */,
+				92E59A3829DB09E7002754E5 /* Date.swift */,
+				922672AC29F5664800D92281 /* Double.swift */,
+				92E59A7529E33896002754E5 /* JSONDecoder.swift */,
+				92ADFC5729C73E7A00582B66 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,12 +222,12 @@
 		92E59A3529DAD7C4002754E5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */,
-				92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */,
-				92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */,
 				92BEBE0729EC42F000DF52BE /* AppAudioController.swift */,
+				92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */,
 				50B847532A1E6A930002007A /* LocationManager.swift */,
 				50C499112A2C935100797C12 /* RadioStationData.swift */,
+				92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */,
+				92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -240,9 +243,9 @@
 		92E59A6E29E331FA002754E5 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */,
 				92E59A6F29E33213002754E5 /* RadioStation.swift */,
 				922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */,
-				50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */,
 				50C499132A2CAC8800797C12 /* WebView.swift */,
 			);
 			path = Structs;
@@ -343,6 +346,7 @@
 				92E59A6529E1EA7D002754E5 /* StreamBuffer.swift in Sources */,
 				923803BD29D5CCF6001BADF2 /* Array.swift in Sources */,
 				92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */,
+				50BAC89F2A307A3D006E82DF /* addApprovedStations.swift in Sources */,
 				92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				50E5AD182A154F270083DC04 /* Color.swift in Sources */,

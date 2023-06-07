@@ -86,7 +86,7 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
         encodedSearchString = "&" + encodedSearchString
     }
 
-    guard let url = URL(string: "https://de1.api.radio-browser.info/json/stations/search?hidebroken=true&limit=100\(encodedSearchString)") else {
+    guard let url = URL(string: "https://de1.api.radio-browser.info/json/stations/search?hidebroken=true\(encodedSearchString)") else {
         print("Invalid URL")
         return
     }
@@ -107,6 +107,14 @@ func fetchRadioStations(genre: String, name: String, country: String, state: Str
                         stations = filterStations(filteredArray: stations, filteringArray: search.components(separatedBy: " "))
                     }
                     stations = filterHomePage(stations: stations)
+
+                    var seenHomepages = Set<String>()
+                    stations = stations.filter { seenHomepages.insert($0.homepage ?? "").inserted }
+
+                    for station in stations {
+                        print("Station: \(station.name) \(station.country ?? "") \(station.homepage ?? "")")
+                    }
+
                     stations = Array(stations.prefix(100))
                     if !state.isEmpty && !country.isEmpty {
                         stations.sort { station1, station2 in

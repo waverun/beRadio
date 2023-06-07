@@ -2,7 +2,21 @@ import SwiftUI
 import CoreData
 import AVFoundation
 import CoreLocation
+
 struct ContentView: View {
+
+    let approvedStations: [RadioStation] = []
+//    private init() {
+//        let station = RadioStation(
+//            id: "4d90c38f-b1c2-442c-91ff-ed4068b36454",
+//            name: "Le village pop",
+//            url: "https://listen.radioking.com/radio/200437/stream/243028",
+//            homepage: "http://levillagepop.com/",
+//            favicon: "",
+//            country: "France",
+//            state: ""
+//        )
+//    } // private
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var locationManager = LocationManager()
 
@@ -27,6 +41,9 @@ struct ContentView: View {
     @State private var heading: String = "Some Heading"
     @State private var isLive: Bool = false
     @State private var isAuthorized = false
+
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
 
     let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
 
@@ -208,7 +225,11 @@ struct ContentView: View {
         .environment(\.layoutDirection, .rightToLeft)
         .navigationBarTitle("beRadio", displayMode: .inline)
         .onAppear {
+//            addApprovedStations()
             configureAudioSession()
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -280,13 +301,18 @@ struct ContentView: View {
     
     private func addItem(_ station: RadioStation) {
         withAnimation {
+            if itemExists(station: station) {
+                alertMessage = "The station \(station.name) already exists."
+                showingAlert = true
+                return
+            }
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
             newItem.name = station.name
             newItem.url = station.url
             newItem.favicon = station.favicon
             newItem.homepage = station.homepage
-            
+
             do {
                 try viewContext.save()
             } catch {
@@ -312,11 +338,15 @@ struct ContentView: View {
             }
         }
     }
+
+    private func itemExists(station: RadioStation) -> Bool {
+        return items.contains(where: { $0.url == station.url })
+    }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+//private let itemFormatter: DateFormatter = {
+//    let formatter = DateFormatter()
+//    formatter.dateStyle = .short
+//    formatter.timeStyle = .medium
+//    return formatter
+//}()
