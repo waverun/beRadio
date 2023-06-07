@@ -80,6 +80,7 @@ struct RadioStationsView: View {
                     }
                     .padding(.trailing)
                 }
+                .padding()
                 ScrollView {
                     VStack(alignment: .leading) {
                         Button(action: {
