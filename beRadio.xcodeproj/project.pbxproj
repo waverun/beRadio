@@ -12,7 +12,6 @@
 		50BAC89F2A307A3D006E82DF /* addApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */; };
 		50C499102A2C8D1D00797C12 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */; };
 		50C499122A2C935100797C12 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
-		50C499142A2CAC8800797C12 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499132A2CAC8800797C12 /* WebView.swift */; };
 		50C520432A1F9859008E50E1 /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C520422A1F9859008E50E1 /* LocationPermissionView.swift */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
@@ -64,7 +63,6 @@
 		50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addApprovedStations.swift; sourceTree = "<group>"; };
 		50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		50C499112A2C935100797C12 /* RadioStationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationData.swift; sourceTree = "<group>"; };
-		50C499132A2CAC8800797C12 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		50C520422A1F9859008E50E1 /* LocationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionView.swift; sourceTree = "<group>"; };
 		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */,
 				92E59A6F29E33213002754E5 /* RadioStation.swift */,
 				922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */,
-				50C499132A2CAC8800797C12 /* WebView.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -350,7 +347,6 @@
 				92E59A6129E07302002754E5 /* LivePlayerView.swift in Sources */,
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				50E5AD182A154F270083DC04 /* Color.swift in Sources */,
-				50C499142A2CAC8800797C12 /* WebView.swift in Sources */,
 				92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */,
 				92E59A6D29E32431002754E5 /* SearchView.swift in Sources */,
 				50C499122A2C935100797C12 /* RadioStationData.swift in Sources */,
@@ -524,7 +520,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -568,7 +564,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

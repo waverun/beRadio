@@ -8,6 +8,7 @@ struct RadioStationsView: View {
     @State private var showingWebView = false
     @State private var searching = false
     @State private var isError = false
+    @State private var showingAlert = false
 
     private var localStations = false
     private var country = ""
@@ -81,6 +82,27 @@ struct RadioStationsView: View {
                 }
                 ScrollView {
                     VStack(alignment: .leading) {
+                        Button(action: {
+                            showingAlert = true
+                        }) {
+                            HStack {
+                                Image("AppIconImage")
+                                    .frame(width: 60, height: 60) // Adjust the size as needed
+                            }
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("beRadio")
+                                        .font(.headline)
+                                    Text("App")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                            .padding() // Padding around the text
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.adaptiveBlack.opacity(0.5)))
+                        }
+                        .padding(.horizontal, 10)
                         ForEach(radioStationsData.radioStations, id: \.self) { station in
                             Button(action: {
                                 radioStationsData.selectedStation = station
@@ -111,20 +133,20 @@ struct RadioStationsView: View {
                 }
             }
         }
-        .actionSheet(isPresented: $radioStationsData.showingActionSheet) {
-            ActionSheet(title: Text("Terms and Conditions\n\(radioStationsData.selectedStation?.name ?? "")"),
-                        message: Text("By selecting this station, you agree to the station's terms and conditions. You can also visit the station's website for more information."),
-                        buttons: [
-                            .default(Text("Agree")) {
-                                onDone(radioStationsData.selectedStation!)
-                                presentationMode.wrappedValue.dismiss()
-                            },
-                            .default(Text("Go to station's site")) {
-                                showingWebView = true
-                            },
-                            .cancel(Text("Disagree"))
-                        ])
-        }
+//        .actionSheet(isPresented: $radioStationsData.showingActionSheet) {
+//            ActionSheet(title: Text("Terms and Conditions\n\(radioStationsData.selectedStation?.name ?? "")"),
+//                        message: Text("By selecting this station, you agree to the station's terms and conditions. You can also visit the station's website for more information."),
+//                        buttons: [
+//                            .default(Text("Agree")) {
+//                                onDone(radioStationsData.selectedStation!)
+//                                presentationMode.wrappedValue.dismiss()
+//                            },
+//                            .default(Text("Go to station's site")) {
+//                                showingWebView = true
+//                            },
+//                            .cancel(Text("Disagree"))
+//                        ])
+//        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -139,19 +161,57 @@ struct RadioStationsView: View {
                 searchRadioStations(approvedStations, genre, country, state)
             }
         }
-        .sheet(isPresented: $showingWebView) {
-            if let selectedStation = radioStationsData.selectedStation,
-               let homepage = selectedStation.homepage,
-               let url = URL(string: homepage) {
-                WebView(url: url, isError: $isError)
-                    .onDisappear {
-                        radioStationsData.showingActionSheet = true
+        .alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Attention radio station owners and authorized representatives!"),
+                message: Text("If you own or hold the rights to authorize the streaming of a radio station, we would love to feature your station on our beRadio app."),
+                primaryButton: .default(Text("Email Us")) {
+                    if let url = URL(string: "mailto:shanymore1222@gmail.com") {
+                        UIApplication.shared.open(url)
                     }
-                    .alert(isPresented: $isError) {
-                        Alert(title: Text("Error"), message: Text("Failed to load webpage"), dismissButton: .default(Text("OK")))
-                    }
-            }
+                },
+                secondaryButton: .cancel()
+            )
         }
+
+//        .alert(isPresented: $showingAlert) {
+//            Alert(title: Text("Add station"), message: Text("Attention radio station owners and authorized representatives! If you own or hold the rights to authorize the streaming of a radio station, we would love to feature your station on our beRadio app. Please reach out to us at shanymore1222@gmail.com to discuss adding your station to our platform. We look forward to partnering with you to bring your station to our app users worldwide."), dismissButton: .default(Text("OK")))
+//        }
+//        .alert(isPresented: $showAlert) {
+//            Alert(
+//                title: Text("Attention radio station owners and authorized representatives!"),
+//                message: Text("If you own or hold the rights to authorize the streaming of a radio station, we would love to feature your station on our beRadio app."),
+//                dismissButton: .default(Text("Got it!"))
+//            )
+//        }
+//        .sheet(isPresented: $showingAlert) {
+//            VStack {
+//                Text("If you would like to discuss adding your station to our platform, please")
+//                Link("reach out to us", destination: URL(string: "mailto:shanymore1222@gmail.com")!)
+//                Text("We look forward to partnering with you to bring your station to our app users worldwide.")
+//                Button("Dismiss") {
+//                    self.showAlert = false
+//                }
+//            }
+//            .frame(maxWidth: 300, maxHeight: 200)
+//            .background(Color.white)
+//            .cornerRadius(15)
+//            .shadow(radius: 10)
+//        }
+
+//        .sheet(isPresented: $showingWebView) {
+//            if let selectedStation = radioStationsData.selectedStation,
+//               let homepage = selectedStation.homepage,
+//               let url = URL(string: homepage) {
+//                WebView(url: url, isError: $isError)
+//                    .onDisappear {
+//                        radioStationsData.showingActionSheet = true
+//                    }
+//                    .alert(isPresented: $isError) {
+//                        Alert(title: Text("Error"), message: Text("Failed to load webpage"), dismissButton: .default(Text("OK")))
+//                    }
+//            }
+//        }
     }
 
     func searchRadioStations(_ approvedStations: [RadioStation], _ genre: String = "", _ country: String = "", _ state: String = "") {
