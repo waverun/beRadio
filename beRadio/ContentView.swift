@@ -5,17 +5,6 @@ import CoreLocation
 
 struct ContentView: View {
 
-    let approvedStations: [RadioStation] = [RadioStation(
-            id: "4d90c38f-b1c2-442c-91ff-ed4068b36454",
-            name: "Le village pop",
-            url: "https://listen.radioking.com/radio/200437/stream/243028",
-            homepage: "http://levillagepop.com/",
-            favicon: "",
-            country: "France",
-            state: ""
-        )
-    ]
-
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var locationManager = LocationManager()
 
@@ -134,7 +123,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                     NavigationLink {
                         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-                            RadioStationsView(approvedStations: approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
+                            RadioStationsView(approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
                                 addItem(station)
                             }
                         } else {
@@ -166,7 +155,7 @@ struct ContentView: View {
                     }
                     ForEach(Array(zip(genres, colors)), id: \.0) { genre, colors1 in
                         NavigationLink {
-                            RadioStationsView(approvedStations: approvedStations, genre: genre, colors: colors1) { station in
+                            RadioStationsView(approvedStations: ApprovedStations.shared.approvedStations, genre: genre, colors: colors1) { station in
                                 addItem(station)
                             }
                         } label: {
@@ -314,7 +303,7 @@ struct ContentView: View {
     }
 
     private func addApprovedStations() {
-        for station in approvedStations {
+        for station in ApprovedStations.shared.approvedStations {
             addStation(station, showMessage: false)
         }
     }
