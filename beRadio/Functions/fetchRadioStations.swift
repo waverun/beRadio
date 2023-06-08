@@ -139,7 +139,10 @@ func fetchRadioStations(approvedStations: [RadioStation], genre: String, name: S
 
     func filterApprovedStations(_ stations: [RadioStation]) -> [RadioStation] {
         return stations.filter { station in
-            approvedStations.contains(station)
+//            approvedStations.contains(station)
+            approvedStations.contains { approvedStation in
+                approvedStation.url == station.url
+            }
         }
     }
 }

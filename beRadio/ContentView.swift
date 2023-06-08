@@ -32,6 +32,7 @@ struct ContentView: View {
 
     @State private var showingAlert = false
     @State private var alertMessage = ""
+    @State private var isRadioStationsViewPresented = true
 
     let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
 
@@ -123,7 +124,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                     NavigationLink {
                         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-                            RadioStationsView(approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
+                            RadioStationsView(isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
                                 addItem(station)
                             }
                         } else {
@@ -155,7 +156,7 @@ struct ContentView: View {
                     }
                     ForEach(Array(zip(genres, colors)), id: \.0) { genre, colors1 in
                         NavigationLink {
-                            RadioStationsView(approvedStations: ApprovedStations.shared.approvedStations, genre: genre, colors: colors1) { station in
+                            RadioStationsView(isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, genre: genre, colors: colors1) { station in
                                 addItem(station)
                             }
                         } label: {
@@ -215,7 +216,7 @@ struct ContentView: View {
             configureAudioSession()
         }
         .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            Alert(title: Text("Excellent Choice"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -331,6 +332,7 @@ struct ContentView: View {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
+        isRadioStationsViewPresented = false
     }
 
     private func itemExists(station: RadioStation) -> Bool {

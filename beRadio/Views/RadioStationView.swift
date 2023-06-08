@@ -2,7 +2,8 @@ import SwiftUI
 
 struct RadioStationsView: View {
     @Environment(\.colorScheme) var colorScheme
-
+    @Binding var isPresented: Bool
+    
     @ObservedObject var radioStationsData = RadioStationData()
     @State private var showNoStationFound = false
     @State private var showingWebView = false
@@ -22,7 +23,7 @@ struct RadioStationsView: View {
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
 
-    init(approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
+    init(isPresented: Binding<Bool>, approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
         self.onDone = onDone
         self.localStations = localStations
         self.country = country
@@ -45,6 +46,7 @@ struct RadioStationsView: View {
             default: title = genre + " Stations"
         }
         self.approvedStations = approvedStations
+        self._isPresented = isPresented
     }
 
     var body: some View {
@@ -107,7 +109,9 @@ struct RadioStationsView: View {
                         ForEach(radioStationsData.radioStations, id: \.self) { station in
                             Button(action: {
                                 radioStationsData.selectedStation = station
-                                radioStationsData.showingActionSheet = true
+                                onDone(station)
+                                isPresented = false
+//                                radioStationsData.showingActionSheet = true
                             }) {
                                 HStack {
                                     if let urlString = station.favicon {
@@ -134,6 +138,12 @@ struct RadioStationsView: View {
                 }
             }
         }
+        .onChange(of: isPresented) { value in
+            if !value {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
+        
 //        .actionSheet(isPresented: $radioStationsData.showingActionSheet) {
 //            ActionSheet(title: Text("Terms and Conditions\n\(radioStationsData.selectedStation?.name ?? "")"),
 //                        message: Text("By selecting this station, you agree to the station's terms and conditions. You can also visit the station's website for more information."),
@@ -157,6 +167,8 @@ struct RadioStationsView: View {
         }
         .environment(\.layoutDirection, .leftToRight)
         .onAppear {
+            isPresented = true
+
             if localStations && !country.isEmpty
                 || !genre.isEmpty {
                 searchRadioStations(approvedStations, genre, country, state)
