@@ -102,14 +102,18 @@ func fetchRadioStations(approvedStations: [RadioStation], genre: String, name: S
                     if !genre.isEmpty && name != genre && name.contains(genre) {
                         search = name.replacingOccurrences(of: genre, with: "").lowercased()
                     }
+
+                    stations.append(contentsOf: approvedStations)
+
                     search = search.trimmingCharacters(in: .whitespaces)
                     if !search.isEmpty {
                         stations = filterStations(filteredArray: stations, filteringArray: search.components(separatedBy: " "))
                     }
-                    stations = filterHomePage(stations: stations)
 
-                    var seenHomepages = Set<String>()
-                    stations = stations.filter { seenHomepages.insert($0.homepage ?? "").inserted }
+//                    stations = filterHomePage(stations: stations)
+
+//                    var seenHomepages = Set<String>()
+//                    stations = stations.filter { seenHomepages.insert($0.homepage ?? "").inserted }
 
                     for station in stations {
                         print("Station: \(station.name) \(station.country ?? "") \(station.homepage ?? "")")

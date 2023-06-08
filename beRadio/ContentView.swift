@@ -41,6 +41,7 @@ struct ContentView: View {
     @State private var showingAlert = false
     @State private var alertMessage = ""
     @State private var isRadioStationsViewPresented = true
+    @State private var searchText = ""
 
     let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
 
@@ -48,7 +49,7 @@ struct ContentView: View {
         [Color.blue, Color.gray],
         [Color.blue, Color.purple],
         [Color.purple, Color.red],
-        [Color.secondary, Color.white],
+//        [Color.secondary, Color.white],
         [Color.orange, Color.yellow],
         [Color.pink, Color.blue],
         [Color.green, Color.orange],
@@ -76,7 +77,10 @@ struct ContentView: View {
         ZStack {
             NavigationView {
                 List {
-                    ForEach(items) { item in
+//                    ForEach(items) { item in
+                    ForEach(items.filter { item in
+                        searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
+                    }) { item in
                         HStack {
                             if let url = item.favicon {
                                 AsyncImage(url: url)
@@ -183,6 +187,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .searchable(text: $searchText)
 //                .sheet(isPresented: $showLivePlayerView) {
 //                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
 //                }
@@ -277,7 +282,6 @@ struct ContentView: View {
                 }
                 if !ContentView.firstRemove {
                     viewContext.delete(links[index]) // Delete the removedLink from viewContext
-//                    viewContext.delete(links[index]) // Delete the removedLink from viewContext
                 }
                 ContentView.firstRemove = false
                 do {
@@ -298,17 +302,12 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-//            deletedItems.append(contentsOf: offsets.map { items[$0] })
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
             offsets.map { items[$0] }.forEach { item in
                 item.isItemDeleted = true
             }
-
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -355,10 +354,3 @@ struct ContentView: View {
         return items.contains(where: { $0.url == station.url })
     }
 }
-
-//private let itemFormatter: DateFormatter = {
-//    let formatter = DateFormatter()
-//    formatter.dateStyle = .short
-//    formatter.timeStyle = .medium
-//    return formatter
-//}()

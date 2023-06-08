@@ -26,6 +26,7 @@ struct RadioStationsView: View {
     var onDone: (RadioStation) -> Void
 
     init(radioStationsData: RadioStationData, isPresented: Binding<Bool>, approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
+//        radioStationsData.searchQuery = ""
         self.onDone = onDone
         self.localStations = localStations
         self.country = country
@@ -159,6 +160,7 @@ struct RadioStationsView: View {
 
             if localStations && !country.isEmpty
                 || !genre.isEmpty {
+                radioStationsData.searchQuery = ""
                 searchRadioStations(approvedStations, genre, country, state)
             }
         }
