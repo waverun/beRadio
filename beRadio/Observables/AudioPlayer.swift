@@ -86,6 +86,12 @@ class AudioPlayer: ObservableObject {
     private var timeObserverToken: Any?
     
     func removePlayer() {
+        if let timeObserverToken = timeObserverToken {
+            player?.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
+        }
+
+        player?.pause()
         player = nil
         currentProgressString = "00:00"
         totalDurationString = "00:00"
@@ -205,53 +211,11 @@ class AudioPlayer: ObservableObject {
         }
         return nil
     }
-    
-//    func configureNowPlayingInfo(title: String, artist: String, albumArt: UIImage? = nil) async {
-//        var nowPlayingInfo = [String: Any]()
-//
-//        nowPlayingInfo[MPMediaItemPropertyTitle] = title
-//        nowPlayingInfo[MPMediaItemPropertyArtist] = artist
-//
-//        if let albumArt = albumArt {
-//            let artwork = MPMediaItemArtwork(boundsSize: albumArt.size) { _ in
-//                return albumArt
-//            }
-//            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
-//        }
-//
-//        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime().seconds
-//
-//        if isLive {
-//            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = TimeInterval(Double.infinity)
-//        } else if let currentItem = player?.currentItem {
-//            do {
-//                let duration = try await currentItem.asset.load(.duration)
-//
-//                if duration.timescale == 0 {
-//                    if let buffer = currentItem.loadedTimeRanges.first {
-//                        let timeRange = buffer.timeRangeValue
-//                        let bufferedDuration = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
-//                        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = bufferedDuration
-//                    }
-//                } else {
-//                    nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = duration.seconds
-//                }
-//
-//            } catch {
-//                print("Error loading duration: \(error)")
-//            }
-//        }
-//
-//        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player?.rate
-//
-//        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-//    }
 
     func pause() {
         player?.pause()
         isPlaying = false
         updateNowPlayingInfoElapsedPlaybackTime()
-//        stopUpdatingCurrentProgress()
         shouldUpdateTime = false
 
         if isLive {
@@ -276,28 +240,6 @@ class AudioPlayer: ObservableObject {
         durationUpdateTimer = nil
     }
 
-    // ... rest of the class code
-    
-//    func forward() {
-//        if let player = player {
-//            let forwardTime = CMTimeMake(value: 15, timescale: 1)
-//            let newTime = CMTimeAdd(player.currentTime(), forwardTime)
-//            player.seek(to: newTime) { [weak self] _ in
-//                self?.updateNowPlayingInfoElapsedPlaybackTime()
-//            }
-//        }
-//    }
-//
-//    func rewind() {
-//        if let player = player {
-//            let rewindTime = CMTimeMake(value: -15, timescale: 1)
-//            let newTime = CMTimeAdd(player.currentTime(), rewindTime)
-//            player.seek(to: newTime) { [weak self] _ in
-//                self?.updateNowPlayingInfoElapsedPlaybackTime()
-//            }
-//        }
-//    }
-    
     func seekToNewTime(_ newTime: CMTime) {
         print("seekToNewTime: \(newTime.seconds)")
         if let player = player {
@@ -336,9 +278,7 @@ class AudioPlayer: ObservableObject {
     }
 
     func setCurrentProgressString(time: Double) {
-//        if let currentTime = player?.currentTime() {
         currentProgressString = timeFormatter.string(from: time) ?? "00:00"
-//        }
     }
 
     private func updateCurrentProgressString() {
