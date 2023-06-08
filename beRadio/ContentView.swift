@@ -15,8 +15,15 @@ struct ContentView: View {
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        predicate: NSPredicate(format: "isItemDeleted == %@", NSNumber(value: false)),
         animation: .default)
     private var items: FetchedResults<Item>
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        animation: .default)
+    private var deletedItems: FetchedResults<Item>
+
     let radioStationsData = RadioStationData()
 
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Link.url, ascending: true)],
@@ -270,7 +277,7 @@ struct ContentView: View {
                 }
                 if !ContentView.firstRemove {
                     viewContext.delete(links[index]) // Delete the removedLink from viewContext
-                    viewContext.delete(links[index]) // Delete the removedLink from viewContext
+//                    viewContext.delete(links[index]) // Delete the removedLink from viewContext
                 }
                 ContentView.firstRemove = false
                 do {
@@ -291,8 +298,12 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-            
+//            deletedItems.append(contentsOf: offsets.map { items[$0] })
+//            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { items[$0] }.forEach { item in
+                item.isItemDeleted = true
+            }
+
             do {
                 try viewContext.save()
             } catch {
@@ -306,7 +317,10 @@ struct ContentView: View {
 
     private func addApprovedStations() {
         for station in ApprovedStations.shared.approvedStations {
-            addStation(station, showMessage: false)
+            let isDeleted = deletedItems.contains { $0.url == station.url }
+            if !isDeleted {
+                addStation(station, showMessage: false)
+            }
         }
     }
 
@@ -324,6 +338,7 @@ struct ContentView: View {
         newItem.url = station.url
         newItem.favicon = station.favicon
         newItem.homepage = station.homepage
+        newItem.isItemDeleted = false
 
         do {
             try viewContext.save()
