@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5037A76A2A3268E600E03ADA /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
 		50B847172A1B777F0002007A /* CheckMemoryAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */; };
 		50B847542A1E6A940002007A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847532A1E6A930002007A /* LocationManager.swift */; };
 		50BAC89F2A307A3D006E82DF /* addApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5037A7692A3268E500E03ADA /* ApprovedStations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovedStations.swift; sourceTree = "<group>"; };
 		50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMemoryAvailability.swift; sourceTree = "<group>"; };
 		50B847532A1E6A930002007A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addApprovedStations.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		92E59A3529DAD7C4002754E5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5037A7692A3268E500E03ADA /* ApprovedStations.swift */,
 				92BEBE0729EC42F000DF52BE /* AppAudioController.swift */,
 				92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */,
 				50B847532A1E6A930002007A /* LocationManager.swift */,
@@ -348,6 +351,7 @@
 				92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */,
 				50E5AD182A154F270083DC04 /* Color.swift in Sources */,
 				92E59A5329DFF8DD002754E5 /* FetchAudiUrl.swift in Sources */,
+				5037A76A2A3268E600E03ADA /* ApprovedStations.swift in Sources */,
 				92E59A6D29E32431002754E5 /* SearchView.swift in Sources */,
 				50C499122A2C935100797C12 /* RadioStationData.swift in Sources */,
 				92BEBE0A29EC45A600DF52BE /* ConfigurePlayingInfro.swift in Sources */,
