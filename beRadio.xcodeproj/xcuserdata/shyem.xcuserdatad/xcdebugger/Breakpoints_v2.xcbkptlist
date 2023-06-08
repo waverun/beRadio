@@ -1,0 +1,1685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D79E6267-317C-4FBE-BA47-68685FFEE3DA"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF9C57F1-5E6C-4534-8FB7-B4ADB0B04DEA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/AudioPlayerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76700324-4DB0-40E1-887F-128420E5372D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Observables/AudioPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "updateTotalDurationString(durationOffset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9345935E-C949-4513-9ACE-D49C441A08E3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Observables/AudioPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "updateTotalDurationString(durationOffset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE4409A5-FEC9-45D5-8E85-5F1367A1F882"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LiveAudioPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "630"
+            endingLineNumber = "630">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A28A792E-C01F-44DB-ADB8-5E5A4677E294"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LiveAudioPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "641"
+            endingLineNumber = "641">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF7D71ED-1CAB-4BB7-8B24-B5959DAE000F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LiveAudioPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "642"
+            endingLineNumber = "642">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A449183D-715A-472F-B20F-430E1C8870DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/StreamBuffer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82C84A03-0F90-4CD5-858A-1F092008A563"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LiveAudioPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "82C84A03-0F90-4CD5-858A-1F092008A563 - 21719434f50f215e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in beRadio.LiveAudioPlayer.startBufferingAndPlaying() -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LiveAudioPlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "225">
+               </Location>
+               <Location
+                  uuid = "82C84A03-0F90-4CD5-858A-1F092008A563 - 21719434f50f215e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in beRadio.LiveAudioPlayer.startBufferingAndPlaying() -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LiveAudioPlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "82C84A03-0F90-4CD5-858A-1F092008A563 - 21719434f50f215e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in beRadio.LiveAudioPlayer.startBufferingAndPlaying() -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LiveAudioPlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "337">
+               </Location>
+               <Location
+                  uuid = "82C84A03-0F90-4CD5-858A-1F092008A563 - 21719434f50f215e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in beRadio.LiveAudioPlayer.startBufferingAndPlaying() -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LiveAudioPlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "383">
+               </Location>
+               <Location
+                  uuid = "82C84A03-0F90-4CD5-858A-1F092008A563 - 70556c7061398800"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.LiveAudioPlayer.startUpdatingCurrentProgress() -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LiveAudioPlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "640E1EE5-C1BF-4FB4-B387-7C1A6678D5E6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/StreamBuffer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "187334B3-2D9C-4925-97DE-94793F91643C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/StreamBuffer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "187334B3-2D9C-4925-97DE-94793F91643C - a95d18bb0a652ef0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.StreamBuffer.downloadChunk(completion: (Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/StreamBuffer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "759">
+               </Location>
+               <Location
+                  uuid = "187334B3-2D9C-4925-97DE-94793F91643C - f03ce2f794918676"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.StreamBuffer.downloadChunk(completion: (Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/StreamBuffer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "342">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03C9D2CA-8129-469B-ACB4-359585A455F3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "03C9D2CA-8129-469B-ACB4-359585A455F3 - 364df367631220b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(searchQuery: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "74">
+               </Location>
+               <Location
+                  uuid = "03C9D2CA-8129-469B-ACB4-359585A455F3 - 364df367631220b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(searchQuery: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A854648-A001-42EE-B10A-22049CA8CCFD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A854648-A001-42EE-B10A-22049CA8CCFD - d07c71fa5ed1da4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.LocationManager.init(skipInit: Swift.Bool) -&gt; beRadio.LocationManager"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "417">
+               </Location>
+               <Location
+                  uuid = "2A854648-A001-42EE-B10A-22049CA8CCFD - d07c71fa5ed1da4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.LocationManager.init(skipInit: Swift.Bool) -&gt; beRadio.LocationManager"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Classes/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "411">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BD18404-682B-46EC-B7EB-0F0456A54FB0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5BDDCEF-568D-4E5E-847A-98A110193A47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BE5AB94-BDEB-4D2D-A4E5-BA47FD7E2ACB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9BE5AB94-BDEB-4D2D-A4E5-BA47FD7E2ACB - b3323344d72fceb6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.textFieldStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.TextFieldStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, Swift.Optional&lt;SwiftUI.Text&gt;, SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;beRadio.RadioStation&gt;, Swift.String, SwiftUI.Button&lt;SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text)&gt;&gt;)&gt;&gt;&gt;&gt;&gt;)&gt; in beRadio.RadioStationsView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Views/RadioStationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "110">
+               </Location>
+               <Location
+                  uuid = "9BE5AB94-BDEB-4D2D-A4E5-BA47FD7E2ACB - b3323344d72fceb6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.textFieldStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.TextFieldStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, Swift.Optional&lt;SwiftUI.Text&gt;, SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;beRadio.RadioStation&gt;, Swift.String, SwiftUI.Button&lt;SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text)&gt;&gt;)&gt;&gt;&gt;&gt;&gt;)&gt; in beRadio.RadioStationsView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Views/RadioStationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF3489C9-0187-4166-A653-AA55968F4D5E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5D52602-7EFD-4909-92ED-BCD0E0DC7B61"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9F18193-76D8-4087-A5F9-362D66538296"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "locationManagerDidChangeAuthorization(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD6FB432-0E0F-4C26-B098-46BD691B09AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "ContentView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "BD6FB432-0E0F-4C26-B098-46BD691B09AA - 6ab89a6e7e00c8df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(_: &#x3c4;_1_0, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in closure #1 () -&gt; SwiftUI.NavigationView&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(_: &#x3c4;_1_0, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt;&gt; in beRadio.ContentView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1071">
+               </Location>
+               <Location
+                  uuid = "BD6FB432-0E0F-4C26-B098-46BD691B09AA - 80177b597a567f6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (__C.CLAuthorizationStatus) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(_: &#x3c4;_1_0, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in closure #1 () -&gt; SwiftUI.NavigationView&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(_: &#x3c4;_1_0, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt;&gt; in beRadio.ContentView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "119">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC817FD9-3EAF-4AF6-9943-26F4C8994E40"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "locationManagerDidChangeAuthorization(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5CCE2980-DBE7-4D16-BFB7-D58BF9F55FBA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A95C8E7D-2593-4DF1-9135-0A7F9BE7D0C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41F7DAB7-7618-4CB3-A1D6-8923C5032D88"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - 39dda8e113aaa651"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1150">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - a407a661ff9bcc86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2190">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - 39dda8e113aaa66e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "309">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - 271a1eda53014e93"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, genre: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2808">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - 576c97e8eceb1009"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, genre: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "405">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - 2673a43632e4090c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1004">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - f67863b7dc3a21e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - 2673a43632e40f1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "968">
+               </Location>
+               <Location
+                  uuid = "4B527A6E-20B7-4DD5-A084-F93389DC5CE0 - f67863b7dc3a2e98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "277">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D99A0FC9-5B1D-4045-8CE6-D85C6535F329"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "D99A0FC9-5B1D-4045-8CE6-D85C6535F329 - 127a6c89e4f4f3c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "D99A0FC9-5B1D-4045-8CE6-D85C6535F329 - f67863b7dc3a2f7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, genre: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "559">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D7782AC-D6F0-4BBB-B449-E8BF67D1037A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "2D7782AC-D6F0-4BBB-B449-E8BF67D1037A - ad82e165e904b2ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (beRadio.RadioStation) -&gt; SwiftUI.Button&lt;SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.Divider)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0 in closure #2 () -&gt; SwiftUI.GeometryReader&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI.GeometryReader&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.progressViewStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ProgressViewStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI.GeometryReader&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;&gt;)&gt;&gt;)&gt; in beRadio.RadioStationsView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Views/RadioStationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "2D7782AC-D6F0-4BBB-B449-E8BF67D1037A - 2c5d8509d02e0e53"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (beRadio.RadioStation) -&gt; SwiftUI.Button&lt;SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.Divider)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0 in closure #2 () -&gt; SwiftUI.GeometryReader&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI.GeometryReader&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.progressViewStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ProgressViewStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI.GeometryReader&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;&gt;)&gt;&gt;)&gt; in beRadio.RadioStationsView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Views/RadioStationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "278">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F578E20-08A6-4B12-9067-08BACCD6C049"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "deleteItems(offsets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB9D9202-D896-4E06-845D-39D7FE4E2E0E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "RadioStationsView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F54B53E-3850-4F68-81EE-344CB11DDB09"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "1F54B53E-3850-4F68-81EE-344CB11DDB09 - 576c97e8eceb1009"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, genre: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "405">
+               </Location>
+               <Location
+                  uuid = "1F54B53E-3850-4F68-81EE-344CB11DDB09 - 576c97e8eceb1009"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(name: Swift.String, country: Swift.String, state: Swift.String, genre: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "489">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11668876-EFB4-415E-A371-ACB1F3AB0816"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63DCC655-C8C6-40F7-84CD-A30F3EB33D7A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBB61D6C-9A47-496F-BEFE-43F5C801A8A6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5C38B98-2B64-4217-B2D1-F80B3F899E72"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80021257-7BB6-4F16-B719-BA9538257BF8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "80021257-7BB6-4F16-B719-BA9538257BF8 - d37045e52dc01f7a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "4672">
+               </Location>
+               <Location
+                  uuid = "80021257-7BB6-4F16-B719-BA9538257BF8 - 2673a43632e40615"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "433">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2A65FEE-64F8-4B41-8B1F-E3D9CCAC4811"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "B2A65FEE-64F8-4B41-8B1F-E3D9CCAC4811 - f67863b7dc3a2fd6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1104">
+               </Location>
+               <Location
+                  uuid = "B2A65FEE-64F8-4B41-8B1F-E3D9CCAC4811 - 8596e4ef628cfab5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (beRadio.RadioStation) -&gt; Swift.Bool in closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B0F7B24-1A51-4D0B-95FD-ECCA84B3FB80"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "init(radioStationsData:isPresented:approvedStations:genre:colors:localStations:country:state:onDone:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C285575-C938-48A8-B686-490BCE467EFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "5C285575-C938-48A8-B686-490BCE467EFC - f67863b7dc3a2089"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1601">
+               </Location>
+               <Location
+                  uuid = "5C285575-C938-48A8-B686-490BCE467EFC - f67863b7dc3a2089"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34F9269F-7A97-4409-8D53-982257B7EC80"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "34F9269F-7A97-4409-8D53-982257B7EC80 - 2673a43632e4096b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "729">
+               </Location>
+               <Location
+                  uuid = "34F9269F-7A97-4409-8D53-982257B7EC80 - f67863b7dc3a21e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C8AEBB3-66E1-4EB6-99B3-BFF4128DFD0A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "0C8AEBB3-66E1-4EB6-99B3-BFF4128DFD0A - f67863b7dc3a21a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "349">
+               </Location>
+               <Location
+                  uuid = "0C8AEBB3-66E1-4EB6-99B3-BFF4128DFD0A - f67863b7dc3a27b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "339">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9176E46-F9DA-4121-99ED-6687FC7E6888"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "346A25C1-D11E-49E5-A2A7-8F87B569373E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08AB882C-D019-4A04-9F79-501B5DF0FF31"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "filterStations(filteredArray:filteringArray:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "08AB882C-D019-4A04-9F79-501B5DF0FF31 - f33e248773e49eae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "filterStations(filteredArray: Swift.Array&lt;beRadio.RadioStation&gt;, filteringArray: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;beRadio.RadioStation&gt;"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "49">
+               </Location>
+               <Location
+                  uuid = "08AB882C-D019-4A04-9F79-501B5DF0FF31 - f8a05997d98cbf40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (beRadio.RadioStation) -&gt; Swift.Bool in filterStations(filteredArray: Swift.Array&lt;beRadio.RadioStation&gt;, filteringArray: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;beRadio.RadioStation&gt;"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  uuid = "08AB882C-D019-4A04-9F79-501B5DF0FF31 - f8a05997d98cbf40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (beRadio.RadioStation) -&gt; Swift.Bool in filterStations(filteredArray: Swift.Array&lt;beRadio.RadioStation&gt;, filteringArray: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;beRadio.RadioStation&gt;"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "93">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29FDD518-47A3-4975-96ED-3BFC0DC98D10"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "isCountryName(_:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "29FDD518-47A3-4975-96ED-3BFC0DC98D10 - da4f029e30dbd56a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "isCountryName(Swift.String) -&gt; Swift.Bool"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "510">
+               </Location>
+               <Location
+                  uuid = "29FDD518-47A3-4975-96ED-3BFC0DC98D10 - da4f029e30dbd5a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "isCountryName(Swift.String) -&gt; Swift.Bool"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "751">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4228158-B13A-4628-AD7D-8EB5038FE33F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "isCountryName(_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44511ABA-36EA-4F40-9E06-D9BECA9C7836"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "44511ABA-36EA-4F40-9E06-D9BECA9C7836 - d37045e52dc01fdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "4236">
+               </Location>
+               <Location
+                  uuid = "44511ABA-36EA-4F40-9E06-D9BECA9C7836 - d37045e52dc01fdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "beRadio.fetchRadioStations(genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "4669">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A131A440-9995-44EE-A1D6-2B5DC8819B59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "searchRadioStations(_:_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E98DD975-C03F-4528-8D90-7AF5699B8D7E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5099F348-FF01-4B31-82E9-B6E3523773BD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5099F348-FF01-4B31-82E9-B6E3523773BD - 8cdd398a81691a6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 () -&gt; () in beRadio.RadioStationsView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Views/RadioStationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "190"
+                  endingLineNumber = "190"
+                  offsetFromSymbolStart = "350">
+               </Location>
+               <Location
+                  uuid = "5099F348-FF01-4B31-82E9-B6E3523773BD - 8cdd398a81691a6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 () -&gt; () in beRadio.RadioStationsView.body.getter : some"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Views/RadioStationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "190"
+                  endingLineNumber = "190"
+                  offsetFromSymbolStart = "94">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4470C985-9B40-46D9-862C-EA87360E012D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Structs/WebView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "makeUIView(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF8F037C-4F82-4851-BBF4-ECA65BD2F63B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6846E198-9518-4FDB-B2D0-57F0CA4D58FE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C2C46BC-5553-40CB-BCEB-6BF5DBAC6B34"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Classes/ApprovedStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C61235C-4A92-4AB7-91C3-A244A05117BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "addStation(_:showMessage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5093D081-01C9-4938-B898-15ADE7AC9178"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "989003C1-0886-4DA0-9C89-5968E395F04E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/fetchRadioStations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "fetchRadioStations(approvedStations:genre:name:country:state:completion:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "989003C1-0886-4DA0-9C89-5968E395F04E - 8c86c42a4a7352df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(approvedStations: Swift.Array&lt;beRadio.RadioStation&gt;, genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1591">
+               </Location>
+               <Location
+                  uuid = "989003C1-0886-4DA0-9C89-5968E395F04E - 8c86c42a4a7352df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in beRadio.fetchRadioStations(approvedStations: Swift.Array&lt;beRadio.RadioStation&gt;, genre: Swift.String, name: Swift.String, country: Swift.String, state: Swift.String, completion: (Swift.Array&lt;beRadio.RadioStation&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "beRadio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyem/Desktop/beRadio/beRadio/Functions/fetchRadioStations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
