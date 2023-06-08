@@ -17,7 +17,8 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    
+    let radioStationsData = RadioStationData()
+
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Link.url, ascending: true)],
                   animation: .default) private var links: FetchedResults<Link>
     
@@ -124,7 +125,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                     NavigationLink {
                         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-                            RadioStationsView(isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
+                            RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
                                 addItem(station)
                             }
                         } else {
@@ -156,7 +157,7 @@ struct ContentView: View {
                     }
                     ForEach(Array(zip(genres, colors)), id: \.0) { genre, colors1 in
                         NavigationLink {
-                            RadioStationsView(isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, genre: genre, colors: colors1) { station in
+                            RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, genre: genre, colors: colors1) { station in
                                 addItem(station)
                             }
                         } label: {

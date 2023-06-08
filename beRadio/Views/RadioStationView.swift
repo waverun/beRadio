@@ -4,7 +4,9 @@ struct RadioStationsView: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var isPresented: Bool
     
-    @ObservedObject var radioStationsData = RadioStationData()
+//    @ObservedObject var radioStationsData = RadioStationData()
+    @ObservedObject var radioStationsData: RadioStationData
+
     @State private var showNoStationFound = false
     @State private var showingWebView = false
     @State private var searching = false
@@ -23,7 +25,7 @@ struct RadioStationsView: View {
     @Environment(\.presentationMode) private var presentationMode
     var onDone: (RadioStation) -> Void
 
-    init(isPresented: Binding<Bool>, approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
+    init(radioStationsData: RadioStationData, isPresented: Binding<Bool>, approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
         self.onDone = onDone
         self.localStations = localStations
         self.country = country
@@ -47,6 +49,7 @@ struct RadioStationsView: View {
         }
         self.approvedStations = approvedStations
         self._isPresented = isPresented
+        self.radioStationsData = radioStationsData
     }
 
     var body: some View {
@@ -110,7 +113,7 @@ struct RadioStationsView: View {
                             Button(action: {
                                 radioStationsData.selectedStation = station
                                 onDone(station)
-                                isPresented = false
+//                                isPresented = false
 //                                radioStationsData.showingActionSheet = true
                             }) {
                                 HStack {
@@ -143,21 +146,6 @@ struct RadioStationsView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
-        
-//        .actionSheet(isPresented: $radioStationsData.showingActionSheet) {
-//            ActionSheet(title: Text("Terms and Conditions\n\(radioStationsData.selectedStation?.name ?? "")"),
-//                        message: Text("By selecting this station, you agree to the station's terms and conditions. You can also visit the station's website for more information."),
-//                        buttons: [
-//                            .default(Text("Agree")) {
-//                                onDone(radioStationsData.selectedStation!)
-//                                presentationMode.wrappedValue.dismiss()
-//                            },
-//                            .default(Text("Go to station's site")) {
-//                                showingWebView = true
-//                            },
-//                            .cancel(Text("Disagree"))
-//                        ])
-//        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -186,45 +174,6 @@ struct RadioStationsView: View {
                 secondaryButton: .cancel()
             )
         }
-
-//        .alert(isPresented: $showingAlert) {
-//            Alert(title: Text("Add station"), message: Text("Attention radio station owners and authorized representatives! If you own or hold the rights to authorize the streaming of a radio station, we would love to feature your station on our beRadio app. Please reach out to us at shanymore1222@gmail.com to discuss adding your station to our platform. We look forward to partnering with you to bring your station to our app users worldwide."), dismissButton: .default(Text("OK")))
-//        }
-//        .alert(isPresented: $showAlert) {
-//            Alert(
-//                title: Text("Attention radio station owners and authorized representatives!"),
-//                message: Text("If you own or hold the rights to authorize the streaming of a radio station, we would love to feature your station on our beRadio app."),
-//                dismissButton: .default(Text("Got it!"))
-//            )
-//        }
-//        .sheet(isPresented: $showingAlert) {
-//            VStack {
-//                Text("If you would like to discuss adding your station to our platform, please")
-//                Link("reach out to us", destination: URL(string: "mailto:shanymore1222@gmail.com")!)
-//                Text("We look forward to partnering with you to bring your station to our app users worldwide.")
-//                Button("Dismiss") {
-//                    self.showAlert = false
-//                }
-//            }
-//            .frame(maxWidth: 300, maxHeight: 200)
-//            .background(Color.white)
-//            .cornerRadius(15)
-//            .shadow(radius: 10)
-//        }
-
-//        .sheet(isPresented: $showingWebView) {
-//            if let selectedStation = radioStationsData.selectedStation,
-//               let homepage = selectedStation.homepage,
-//               let url = URL(string: homepage) {
-//                WebView(url: url, isError: $isError)
-//                    .onDisappear {
-//                        radioStationsData.showingActionSheet = true
-//                    }
-//                    .alert(isPresented: $isError) {
-//                        Alert(title: Text("Error"), message: Text("Failed to load webpage"), dismissButton: .default(Text("OK")))
-//                    }
-//            }
-//        }
     }
 
     func searchRadioStations(_ approvedStations: [RadioStation], _ genre: String = "", _ country: String = "", _ state: String = "") {
