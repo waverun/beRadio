@@ -100,9 +100,9 @@ struct ContentView: View {
 //                            Do not remove: its the link to the player or programs
                             NavigationLink {
                                 switch true {
-                                case  links.isEmpty :
-                                    Text("Loading...")
-//                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+//                                case  links.isEmpty :
+//                                    Text("Loading...")
+////                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
 //                                        ProgramsListView(links: links,
 //                                                         removedLinks: removedLinks,
 //                                                         removeLinks: removeLinks(atOffsets:),
