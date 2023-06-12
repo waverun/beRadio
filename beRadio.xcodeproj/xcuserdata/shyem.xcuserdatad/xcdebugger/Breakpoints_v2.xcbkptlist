@@ -812,8 +812,8 @@
             filePath = "beRadio/Views/RadioStationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -876,8 +876,8 @@
             filePath = "beRadio/Views/RadioStationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "RadioStationsView"
             landmarkType = "14">
          </BreakpointContent>
@@ -1467,8 +1467,8 @@
             filePath = "beRadio/Views/RadioStationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "searchRadioStations(_:_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1499,8 +1499,8 @@
             filePath = "beRadio/Views/RadioStationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1627,8 +1627,8 @@
             filePath = "beRadio/Views/RadioStationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

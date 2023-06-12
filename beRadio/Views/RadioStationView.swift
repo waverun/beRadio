@@ -94,6 +94,7 @@ struct RadioStationsView: View {
                         }) {
                             HStack {
                                 Image("AppIconImage")
+                                    .resizable()
                                     .frame(width: 60, height: 60) // Adjust the size as needed
                             }
                             HStack {
