@@ -102,18 +102,20 @@ struct ContentView: View {
                                 switch true {
 //                                case  links.isEmpty :
 //                                    Text("Loading...")
-////                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
-//                                        ProgramsListView(links: links,
-//                                                         removedLinks: removedLinks,
-//                                                         removeLinks: removeLinks(atOffsets:),
-//                                                         title: $heading,
-//                                                         liveImageSrc: $imageSrc,
-////                                                         showLivePlayerView: $showLivePlayerView,
-//                                                         showingAddLinkView: $showingAddLinkView)
-//                                        .onAppear {
-//                                            heading = item.name ?? "Radio"
-//                                            imageSrc = item.favicon
-//                                        }
+                                        #if DEBUG
+                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+                                        ProgramsListView(links: links,
+                                                         removedLinks: removedLinks,
+                                                         removeLinks: removeLinks(atOffsets:),
+                                                         title: $heading,
+                                                         liveImageSrc: $imageSrc,
+//                                                         showLivePlayerView: $showLivePlayerView,
+                                                         showingAddLinkView: $showingAddLinkView)
+                                        .onAppear {
+                                            heading = item.name ?? "Radio"
+                                            imageSrc = item.favicon
+                                        }
+                                        #endif
                                 default :
                                     if  let urlString = item.url,
                                         let url = URL(string: urlString) {
@@ -204,13 +206,15 @@ struct ContentView: View {
                 }
                 .onAppear {
                     addApprovedStations()
-//                    getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
-//                        DispatchQueue.main.async {
-//                            //                        links = extractedLinks
-//                            //                        clearAllUrls()
-//                            addLinks(urls: extractedLinks)
-//                        }
-//                    }
+                    #if DEBUG
+                    getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
+                        DispatchQueue.main.async {
+                            //                        links = extractedLinks
+                            //                        clearAllUrls()
+                            addLinks(urls: extractedLinks)
+                        }
+                    }
+                    #endif
                     locationManager.checkLocationAuthorization()
                     isAuthorized = locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse
                 }

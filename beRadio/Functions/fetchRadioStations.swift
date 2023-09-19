@@ -118,7 +118,9 @@ func fetchRadioStations(approvedStations: [RadioStation], genre: String, name: S
                     for station in stations {
                         print("Station: \(station.name) \(station.country ?? "") \(station.homepage ?? "")")
                     }
+                    #if !DEBUG
                     stations = filterApprovedStations(stations)
+                    #endif
                     stations = Array(stations.prefix(100))
                     if !state.isEmpty && !country.isEmpty {
                         stations.sort { station1, station2 in

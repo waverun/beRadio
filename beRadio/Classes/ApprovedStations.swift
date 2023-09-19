@@ -99,7 +99,7 @@ class ApprovedStations {
 """
     private init() {
         add181FMStations()
-    } // private initialization to ensure just one instance is created.
+    }
 
     func add181FMStations() {
         let lines = stationList181FM.split(separator: "\n")
