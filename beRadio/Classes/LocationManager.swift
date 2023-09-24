@@ -1,3 +1,4 @@
+#if !os(tvOS)
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
@@ -59,3 +60,4 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("Location manager error: \(error.localizedDescription)")
     }
 }
+#endif

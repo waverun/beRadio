@@ -63,9 +63,11 @@ struct ProgramsListView: View {
             title = "103 FM"
         }
         .toolbar {
+#if !os(tvOS)
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()
             }
+#endif
             ToolbarItem {
                 Button(action: { showingAddLinkView.toggle() }) {
                     Label("Add link", systemImage: "plus")

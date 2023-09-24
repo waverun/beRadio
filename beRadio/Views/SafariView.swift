@@ -1,3 +1,4 @@
+#if !os(tvOS)
 import SwiftUI
 import SafariServices
 
@@ -12,3 +13,4 @@ struct SafariView: UIViewControllerRepresentable {
         // No update needed
     }
 }
+#endif 

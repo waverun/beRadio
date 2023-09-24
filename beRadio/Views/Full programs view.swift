@@ -129,11 +129,13 @@ struct fullProgramsView: View {
 //                    }
 //                }
                 .sheet(isPresented: $showSafariView) {
+#if !os(tvOS)
                     if let url = selectedURL {
                         SafariView(url: url)
                     } else {
                         Text("No URL selected")
                     }
+#endif
                 }
                 .onChange(of: selectedURL) { newValue in
                     showSafariView = newValue != nil
@@ -146,7 +148,10 @@ struct fullProgramsView: View {
     #endif
                 }
             }
-        }.navigationBarTitle(title, displayMode: .inline)
+        }
+#if !os(tvOS)
+        .navigationBarTitle(title, displayMode: .inline)
+#endif
     }
     
     private func deleteProgram(at offsets: IndexSet) {

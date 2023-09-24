@@ -148,7 +148,9 @@ struct RadioStationsView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
+#if !os(tvOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text(title)

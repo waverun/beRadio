@@ -6,7 +6,9 @@ import CoreLocation
 struct ContentView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
+    #if !os(tvOS)
     @ObservedObject var locationManager = LocationManager()
+    #endif
 
     @State private var title = "beRadio"
     @State private var showingAddLinkView = false
@@ -73,11 +75,15 @@ struct ContentView: View {
         [Color.red, Color.blue]
     ]
 
+    init() {
+        print("init")
+    }
+
     var body: some View {
         ZStack {
             NavigationView {
                 List {
-//                    ForEach(items) { item in
+                    //                    ForEach(items) { item in
                     ForEach(items.filter { item in
                         searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
                     }) { item in
@@ -86,49 +92,49 @@ struct ContentView: View {
                                 AsyncImage(url: url)
                                     .frame(width: 60, height: 60) // Adjust the size as needed
                             }
-//                            if let homepage = item.homepage,
-//                               let homePageUrl = URL(string: homepage),
-//                               let name = item.name {
-//                                Button(name) {
-//                                    if UIApplication.shared.canOpenURL(homePageUrl) {
-//                                        UIApplication.shared.open(homePageUrl)
-//                                    }
-//                                }
-//                            }
-//                            }
-
-//                            Do not remove: its the link to the player or programs
+                            //                            if let homepage = item.homepage,
+                            //                               let homePageUrl = URL(string: homepage),
+                            //                               let name = item.name {
+                            //                                Button(name) {
+                            //                                    if UIApplication.shared.canOpenURL(homePageUrl) {
+                            //                                        UIApplication.shared.open(homePageUrl)
+                            //                                    }
+                            //                                }
+                            //                            }
+                            //                            }
+                            
+                            //                            Do not remove: its the link to the player or programs
                             NavigationLink {
                                 switch true {
-//                                case  links.isEmpty :
-//                                    Text("Loading...")
-                                        #if DEBUG
-                                case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
+                                        //                                case  links.isEmpty :
+                                        //                                    Text("Loading...")
+#if DEBUG
+                                    case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
                                         ProgramsListView(links: links,
                                                          removedLinks: removedLinks,
                                                          removeLinks: removeLinks(atOffsets:),
                                                          title: $heading,
                                                          liveImageSrc: $imageSrc,
-//                                                         showLivePlayerView: $showLivePlayerView,
+                                                         //                                                         showLivePlayerView: $showLivePlayerView,
                                                          showingAddLinkView: $showingAddLinkView)
                                         .onAppear {
                                             heading = item.name ?? "Radio"
                                             imageSrc = item.favicon
                                         }
-                                        #endif
-                                default :
-                                    if  let urlString = item.url,
-                                        let url = URL(string: urlString) {
-                                        //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
-                                        AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
-                                            .onAppear {
-                                                DispatchQueue.main.async {
-                                                    audioUrl = url
-                                                    heading =  item.name ?? "Radio"
-                                                    isLive = true
+#endif
+                                    default :
+                                        if  let urlString = item.url,
+                                            let url = URL(string: urlString) {
+                                            //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
+                                            AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
+                                                .onAppear {
+                                                    DispatchQueue.main.async {
+                                                        audioUrl = url
+                                                        heading =  item.name ?? "Radio"
+                                                        isLive = true
+                                                    }
                                                 }
-                                            }
-                                    }
+                                        }
                                 }
                             } label: {
                                 Text(item.name ?? "New station")
@@ -137,31 +143,42 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deleteItems)
                     NavigationLink {
+//                        var country = ""
+//                        var state = ""
+#if os(tvOS)
+//                        country = NSLocale.current.regionCode ?? ""
+//                        state = ""
+#else
                         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-                            RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: locationManager.currentCountry, state: locationManager.currentState) { station in
-                                addItem(station)
-                            }
-                        } else {
+//                            country = locationManager.currentCountry
+//                            state = locationManager.currentState
+                        }
+                        //                    }
+                        else {
                             LocationPermissionView(locationManager: locationManager)
+                        }
+#endif
+                        RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: "country", state: "state") { station in
+                            addItem(station)
                         }
                     } label: {
                         ZStack {
-//                            LinearGradient(
-//                                gradient: Gradient(colors: [.red, .blue]),
-//                                startPoint: .top,
-//                                endPoint: .bottom
-//                            )
+                            //                            LinearGradient(
+                            //                                gradient: Gradient(colors: [.red, .blue]),
+                            //                                startPoint: .top,
+                            //                                endPoint: .bottom
+                            //                            )
                             RadialGradient(
                                 gradient: Gradient(colors: [.red, .blue]),
                                 center: .center,
                                 startRadius: 0,
                                 endRadius: 200
                             )
-//                            AngularGradient(
-//                                gradient: Gradient(colors: [.red, .blue]),
-//                                center: .center,
-//                                angle: .degrees(45)
-//                            )
+                            //                            AngularGradient(
+                            //                                gradient: Gradient(colors: [.red, .blue]),
+                            //                                center: .center,
+                            //                                angle: .degrees(45)
+                            //                            )
                             .edgesIgnoringSafeArea(.all)
                             .cornerRadius(10) // Adjust the corner radius as needed
                             Text("Local stations")
@@ -190,13 +207,13 @@ struct ContentView: View {
                     }
                 }
                 .searchable(text: $searchText)
-//                .sheet(isPresented: $showLivePlayerView) {
-//                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
-//                }
-//                .sheet(isPresented: $showingAddLinkView) {
-//                    //                                AddLinkView(links: $links)
-//                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
-//                }
+                //                .sheet(isPresented: $showLivePlayerView) {
+                //                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
+                //                }
+                //                .sheet(isPresented: $showingAddLinkView) {
+                //                    //                                AddLinkView(links: $links)
+                //                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
+                //                }
                 .toolbar {
 #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -205,8 +222,9 @@ struct ContentView: View {
 #endif
                 }
                 .onAppear {
+                    print("List: onAppear")
                     addApprovedStations()
-                    #if DEBUG
+#if DEBUG
                     getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
                         DispatchQueue.main.async {
                             //                        links = extractedLinks
@@ -214,21 +232,28 @@ struct ContentView: View {
                             addLinks(urls: extractedLinks)
                         }
                     }
-                    #endif
+#endif
+#if !os(tvOS)
                     locationManager.checkLocationAuthorization()
                     isAuthorized = locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse
+#endif
                 }
+#if !os(tvOS)
                 .onChange(of: locationManager.authorizationStatus) { newStatus in
                     isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
                 }
                 .navigationBarTitle(title, displayMode: .inline)
+#endif
                 Text("Select an item")
             }
             .navigationViewStyle(.stack) // add this line after your NavigationView
         }
         .environment(\.layoutDirection, .rightToLeft)
+#if !os(tvOS)
         .navigationBarTitle("beRadio", displayMode: .inline)
+#endif
         .onAppear {
+            print("ZStak: onAppear")
 //            addApprovedStations()
             configureAudioSession()
         }

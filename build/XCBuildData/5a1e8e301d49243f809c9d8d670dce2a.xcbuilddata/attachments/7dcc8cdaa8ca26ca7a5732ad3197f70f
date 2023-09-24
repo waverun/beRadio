@@ -1,0 +1,508 @@
+{
+  "" : {
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV-master.dia",
+    "emit-module-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV-master-emit-module.dia",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV-master.swiftdeps"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/beRadioApp.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/beRadioApp~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/AppAudioController.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AppAudioController~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/ApprovedStations.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ApprovedStations~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/LiveAudioPlayer.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LiveAudioPlayer~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/LocationManager.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationManager~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/RadioStationData.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationData~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/RouteChangeHandler.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RouteChangeHandler~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Classes/StreamBuffer.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/StreamBuffer~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/ContentView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ContentView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/ExportAllTransactionsIntent.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ExportAllTransactionsIntent~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Extensions/Array.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Array~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Extensions/Color.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Color~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Extensions/Date.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Date~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Extensions/Double.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Double~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Extensions/JSONDecoder.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/JSONDecoder~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Extensions/String.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/String~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/addApprovedStations.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/addApprovedStations~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/CheckMemoryAvailability.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckMemoryAvailability~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/CheckUrlExists.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CheckUrlExists~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/ConfigureAudioSession.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigureAudioSession~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/ConfigurePlayingInfro.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ConfigurePlayingInfro~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/extract.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/extract~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/FetchAudiUrl.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/FetchAudiUrl~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/fetchRadioStations.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/fetchRadioStations~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/imageBrightness.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/imageBrightness~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/LinkProcessor.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkProcessor~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/selectAudioOutput.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/selectAudioOutput~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Observables/AudioPlayer.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayer~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Persistence.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-1aef53f9ef264cff6bde9eeb0c20b5c1~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Structs/CustomAlertView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/CustomAlertView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Structs/RadioStation.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStation~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Structs/RightToLeftSliderStyle.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RightToLeftSliderStyle~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/AddLinkView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AddLinkView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/AudioPlayerView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/AudioPlayerView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/ColoredProgramButton.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ColoredProgramButton~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/Full programs view.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Full programs view~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/ImageLoader.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ImageLoader~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/LinkButton.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LinkButton~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/LivePlayerView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LivePlayerView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/LocationPermissionView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/LocationPermissionView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/ProgramsListView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/ProgramsListView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/RadioStationView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/RadioStationView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/SafariView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SafariView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/beRadio/Views/SearchView.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/SearchView~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/DerivedSources/CoreDataGenerated/radioTV/Item+CoreDataClass.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/DerivedSources/CoreDataGenerated/radioTV/Item+CoreDataProperties.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Item+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/DerivedSources/CoreDataGenerated/radioTV/radioTV+CoreDataModel.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTV+CoreDataModel~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/radioTV/Persistence.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/Persistence-dc7973e9778fd3f3097424617195a312~partial.swiftmodule"
+  },
+  "/Users/shyem/Desktop/Projects/beRadio/radioTV/radioTVApp.swift" : {
+    "const-values" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.swiftconstvalues",
+    "dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.d",
+    "diagnostics" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.dia",
+    "index-unit-output-path" : "/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.o",
+    "llvm-bc" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.bc",
+    "object" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.o",
+    "swift-dependencies" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp.swiftdeps",
+    "swiftmodule" : "/Users/shyem/Desktop/Projects/beRadio/build/beRadio.build/Debug-appletvsimulator/radioTV.build/Objects-normal/x86_64/radioTVApp~partial.swiftmodule"
+  }
+}

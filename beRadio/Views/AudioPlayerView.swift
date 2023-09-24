@@ -120,6 +120,7 @@ struct AudioPlayerView: View {
                                     }
                                 }
                             }
+#if !os(tvOS)
                             Slider(value: $currentProgress,
                                    in: 0...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
                                    onEditingChanged: { isEditing in
@@ -144,6 +145,7 @@ struct AudioPlayerView: View {
                             .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
                                 currentProgress = newValue
                             }
+#endif
                         }
                         let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
                         Spacer()

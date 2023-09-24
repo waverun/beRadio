@@ -1,3 +1,4 @@
+#if !os(tvOS)
 import SwiftUI
 import CoreLocation
 
@@ -112,3 +113,4 @@ struct LocationPermissionView: View {
 //        }
 //    }
 //}
+#endif

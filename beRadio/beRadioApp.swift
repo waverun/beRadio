@@ -23,10 +23,12 @@ struct beRadioApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .background(RemoteControlReceiver())
         }
+#if !os(tvOS)
         .commands {
             CommandGroup(replacing: .appInfo) {
                 // Add your commands here, if needed
             }
         }
+#endif
     }
 }

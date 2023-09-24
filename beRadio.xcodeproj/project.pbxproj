@@ -8,12 +8,107 @@
 
 /* Begin PBXBuildFile section */
 		5037A76A2A3268E600E03ADA /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
+		509E61602ABF774000B81C6F /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 509E615F2ABF774000B81C6F /* SwiftSoup */; };
+		509E61622AC033C400B81C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */; };
 		50B847172A1B777F0002007A /* CheckMemoryAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */; };
 		50B847542A1E6A940002007A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847532A1E6A930002007A /* LocationManager.swift */; };
 		50BAC89F2A307A3D006E82DF /* addApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */; };
 		50C499102A2C8D1D00797C12 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */; };
 		50C499122A2C935100797C12 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
 		50C520432A1F9859008E50E1 /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C520422A1F9859008E50E1 /* LocationPermissionView.swift */; };
+		50CFBE3B2ABDAE1100A00848 /* tvRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE3A2ABDAE1100A00848 /* tvRadioApp.swift */; };
+		50CFBE3F2ABDAE1400A00848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CFBE3E2ABDAE1400A00848 /* Assets.xcassets */; };
+		50CFBE422ABDAE1400A00848 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CFBE412ABDAE1400A00848 /* Preview Assets.xcassets */; };
+		50CFBE4B2ABDC71300A00848 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7B29C3A49100EFF179 /* ContentView.swift */; };
+		50CFBE652ABDC7DD00A00848 /* radioTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE642ABDC7DD00A00848 /* radioTVApp.swift */; };
+		50CFBE6E2ABDC7E000A00848 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6D2ABDC7E000A00848 /* Persistence.swift */; };
+		50CFBE712ABDC7E000A00848 /* radioTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */; };
+		50CFBE752ABF5A9900A00848 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7B29C3A49100EFF179 /* ContentView.swift */; };
+		50CFBE762ABF5E6700A00848 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
+		50CFBE772ABF5E6C00A00848 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
+		50CFBE782ABF5E8C00A00848 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
+		50CFBE792ABF5E8C00A00848 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
+		50CFBE7A2ABF5E9300A00848 /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
+		50CFBE7B2ABF5E9300A00848 /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
+		50CFBE7C2ABF5E9800A00848 /* AppAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0729EC42F000DF52BE /* AppAudioController.swift */; };
+		50CFBE7D2ABF5E9900A00848 /* AppAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0729EC42F000DF52BE /* AppAudioController.swift */; };
+		50CFBE7E2ABF5E9E00A00848 /* LiveAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */; };
+		50CFBE7F2ABF5E9F00A00848 /* LiveAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6229E0733F002754E5 /* LiveAudioPlayer.swift */; };
+		50CFBE802ABF5EA300A00848 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847532A1E6A930002007A /* LocationManager.swift */; };
+		50CFBE812ABF5EA400A00848 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847532A1E6A930002007A /* LocationManager.swift */; };
+		50CFBE822ABF5EA900A00848 /* RouteChangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */; };
+		50CFBE832ABF5EAA00A00848 /* RouteChangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5C29E0305A002754E5 /* RouteChangeHandler.swift */; };
+		50CFBE842ABF5EAF00A00848 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */; };
+		50CFBE852ABF5EB000A00848 /* StreamBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6429E1EA7D002754E5 /* StreamBuffer.swift */; };
+		50CFBE862ABF5EB900A00848 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
+		50CFBE872ABF5EBA00A00848 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
+		50CFBE882ABF5EC100A00848 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923803BC29D5CCF6001BADF2 /* Array.swift */; };
+		50CFBE892ABF5EC200A00848 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923803BC29D5CCF6001BADF2 /* Array.swift */; };
+		50CFBE8A2ABF5EC500A00848 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
+		50CFBE8B2ABF5EC600A00848 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
+		50CFBE8C2ABF5F2600A00848 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AC29F5664800D92281 /* Double.swift */; };
+		50CFBE8D2ABF5F2600A00848 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7529E33896002754E5 /* JSONDecoder.swift */; };
+		50CFBE8E2ABF5F2600A00848 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3829DB09E7002754E5 /* Date.swift */; };
+		50CFBE8F2ABF5F2600A00848 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5729C73E7A00582B66 /* String.swift */; };
+		50CFBE902ABF5F2800A00848 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AC29F5664800D92281 /* Double.swift */; };
+		50CFBE912ABF5F2800A00848 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7529E33896002754E5 /* JSONDecoder.swift */; };
+		50CFBE922ABF5F2800A00848 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3829DB09E7002754E5 /* Date.swift */; };
+		50CFBE932ABF5F2800A00848 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5729C73E7A00582B66 /* String.swift */; };
+		50CFBE942ABF5F3B00A00848 /* CheckUrlExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A8229E4992F002754E5 /* CheckUrlExists.swift */; };
+		50CFBE952ABF5F3B00A00848 /* addApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */; };
+		50CFBE962ABF5F3B00A00848 /* CheckMemoryAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */; };
+		50CFBE972ABF5F3B00A00848 /* FetchAudiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */; };
+		50CFBE982ABF5F3B00A00848 /* fetchRadioStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7129E33250002754E5 /* fetchRadioStations.swift */; };
+		50CFBE992ABF5F3B00A00848 /* imageBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0329E8968700DF52BE /* imageBrightness.swift */; };
+		50CFBE9A2ABF5F3B00A00848 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
+		50CFBE9B2ABF5F3B00A00848 /* selectAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */; };
+		50CFBE9C2ABF5F3B00A00848 /* ConfigureAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */; };
+		50CFBE9D2ABF5F3B00A00848 /* LinkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4029DB4899002754E5 /* LinkProcessor.swift */; };
+		50CFBE9E2ABF5F3B00A00848 /* ConfigurePlayingInfro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0929EC45A600DF52BE /* ConfigurePlayingInfro.swift */; };
+		50CFBE9F2ABF5F3C00A00848 /* CheckUrlExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A8229E4992F002754E5 /* CheckUrlExists.swift */; };
+		50CFBEA02ABF5F3C00A00848 /* addApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BAC89E2A307A3D006E82DF /* addApprovedStations.swift */; };
+		50CFBEA12ABF5F3C00A00848 /* CheckMemoryAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */; };
+		50CFBEA22ABF5F3C00A00848 /* FetchAudiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */; };
+		50CFBEA32ABF5F3C00A00848 /* fetchRadioStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7129E33250002754E5 /* fetchRadioStations.swift */; };
+		50CFBEA42ABF5F3C00A00848 /* imageBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0329E8968700DF52BE /* imageBrightness.swift */; };
+		50CFBEA52ABF5F3C00A00848 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
+		50CFBEA62ABF5F3C00A00848 /* selectAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A5429E01FAD002754E5 /* selectAudioOutput.swift */; };
+		50CFBEA72ABF5F3C00A00848 /* ConfigureAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */; };
+		50CFBEA82ABF5F3C00A00848 /* LinkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4029DB4899002754E5 /* LinkProcessor.swift */; };
+		50CFBEA92ABF5F3C00A00848 /* ConfigurePlayingInfro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0929EC45A600DF52BE /* ConfigurePlayingInfro.swift */; };
+		50CFBEAA2ABF5F4900A00848 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4729DC5625002754E5 /* AudioPlayer.swift */; };
+		50CFBEAB2ABF5F4A00A00848 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4729DC5625002754E5 /* AudioPlayer.swift */; };
+		50CFBEAE2ABF5F5700A00848 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */; };
+		50CFBEB02ABF5F5E00A00848 /* RightToLeftSliderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */; };
+		50CFBEB12ABF5F5E00A00848 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */; };
+		50CFBEB22ABF5F5E00A00848 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6F29E33213002754E5 /* RadioStation.swift */; };
+		50CFBEB32ABF5F5F00A00848 /* RightToLeftSliderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AE29F56DD500D92281 /* RightToLeftSliderStyle.swift */; };
+		50CFBEB42ABF5F5F00A00848 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */; };
+		50CFBEB52ABF5F5F00A00848 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6F29E33213002754E5 /* RadioStation.swift */; };
+		50CFBEB62ABF5F6600A00848 /* RadioStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7329E33292002754E5 /* RadioStationView.swift */; };
+		50CFBEB72ABF5F6600A00848 /* LivePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6029E07302002754E5 /* LivePlayerView.swift */; };
+		50CFBEB82ABF5F6600A00848 /* ProgramsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBDFD29E86BF600DF52BE /* ProgramsListView.swift */; };
+		50CFBEB92ABF5F6600A00848 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3E29DB371F002754E5 /* LinkButton.swift */; };
+		50CFBEBA2ABF5F6600A00848 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6C29E32431002754E5 /* SearchView.swift */; };
+		50CFBEBB2ABF5F6600A00848 /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
+		50CFBEBC2ABF5F6600A00848 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */; };
+		50CFBEBD2ABF5F6600A00848 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
+		50CFBEBE2ABF5F6600A00848 /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C520422A1F9859008E50E1 /* LocationPermissionView.swift */; };
+		50CFBEBF2ABF5F6600A00848 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3A29DB23AB002754E5 /* ImageLoader.swift */; };
+		50CFBEC02ABF5F6600A00848 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
+		50CFBEC12ABF5F6600A00848 /* ColoredProgramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */; };
+		50CFBEC22ABF5F6700A00848 /* RadioStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A7329E33292002754E5 /* RadioStationView.swift */; };
+		50CFBEC32ABF5F6700A00848 /* LivePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6029E07302002754E5 /* LivePlayerView.swift */; };
+		50CFBEC42ABF5F6700A00848 /* ProgramsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBDFD29E86BF600DF52BE /* ProgramsListView.swift */; };
+		50CFBEC52ABF5F6700A00848 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3E29DB371F002754E5 /* LinkButton.swift */; };
+		50CFBEC62ABF5F6700A00848 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A6C29E32431002754E5 /* SearchView.swift */; };
+		50CFBEC72ABF5F6700A00848 /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
+		50CFBEC82ABF5F6700A00848 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */; };
+		50CFBEC92ABF5F6700A00848 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
+		50CFBECA2ABF5F6700A00848 /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C520422A1F9859008E50E1 /* LocationPermissionView.swift */; };
+		50CFBECB2ABF5F6700A00848 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3A29DB23AB002754E5 /* ImageLoader.swift */; };
+		50CFBECC2ABF5F6700A00848 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
+		50CFBECD2ABF5F6700A00848 /* ColoredProgramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
@@ -39,7 +134,6 @@
 		92E59A3D29DB33D5002754E5 /* ColoredProgramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */; };
 		92E59A3F29DB371F002754E5 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3E29DB371F002754E5 /* LinkButton.swift */; };
 		92E59A4129DB4899002754E5 /* LinkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4029DB4899002754E5 /* LinkProcessor.swift */; };
-		92E59A4329DB5EEA002754E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */; };
 		92E59A4529DC31EC002754E5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
 		92E59A4829DC5625002754E5 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4729DC5625002754E5 /* AudioPlayer.swift */; };
 		92E59A4B29DC566F002754E5 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4A29DC566F002754E5 /* AudioPlayerView.swift */; };
@@ -66,6 +160,22 @@
 		50C4990F2A2C8D1D00797C12 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		50C499112A2C935100797C12 /* RadioStationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationData.swift; sourceTree = "<group>"; };
 		50C520422A1F9859008E50E1 /* LocationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionView.swift; sourceTree = "<group>"; };
+		50CFBE382ABDAE1100A00848 /* tvRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CFBE3A2ABDAE1100A00848 /* tvRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvRadioApp.swift; sourceTree = "<group>"; };
+		50CFBE3C2ABDAE1100A00848 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50CFBE3E2ABDAE1400A00848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50CFBE412ABDAE1400A00848 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50CFBE462ABDB14800A00848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50CFBE522ABDC76500A00848 /* radioTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = radioTVApp.swift; sourceTree = "<group>"; };
+		50CFBE542ABDC76500A00848 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50CFBE592ABDC76800A00848 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50CFBE622ABDC7DD00A00848 /* radioTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = radioTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CFBE642ABDC7DD00A00848 /* radioTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = radioTVApp.swift; sourceTree = "<group>"; };
+		50CFBE662ABDC7DD00A00848 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50CFBE682ABDC7E000A00848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50CFBE6B2ABDC7E000A00848 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50CFBE6D2ABDC7E000A00848 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		50CFBE702ABDC7E000A00848 /* radioTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = radioTV.xcdatamodel; sourceTree = "<group>"; };
 		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
@@ -112,6 +222,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50CFBE352ABDAE1100A00848 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CFBE5F2ABDC7DD00A00848 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				509E61602ABF774000B81C6F /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92AB2A6E29C3A49100EFF179 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,11 +248,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		509E615E2ABF774000B81C6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50CFBE392ABDAE1100A00848 /* tvRadio */ = {
+			isa = PBXGroup;
+			children = (
+				50CFBE462ABDB14800A00848 /* Info.plist */,
+				50CFBE3A2ABDAE1100A00848 /* tvRadioApp.swift */,
+				50CFBE3C2ABDAE1100A00848 /* ContentView.swift */,
+				50CFBE3E2ABDAE1400A00848 /* Assets.xcassets */,
+				50CFBE402ABDAE1400A00848 /* Preview Content */,
+			);
+			path = tvRadio;
+			sourceTree = "<group>";
+		};
+		50CFBE402ABDAE1400A00848 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				50CFBE412ABDAE1400A00848 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50CFBE512ABDC76500A00848 /* radioTV */ = {
+			isa = PBXGroup;
+			children = (
+				50CFBE522ABDC76500A00848 /* radioTVApp.swift */,
+				50CFBE542ABDC76500A00848 /* ContentView.swift */,
+				50CFBE582ABDC76800A00848 /* Preview Content */,
+			);
+			path = radioTV;
+			sourceTree = "<group>";
+		};
+		50CFBE582ABDC76800A00848 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				50CFBE592ABDC76800A00848 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50CFBE632ABDC7DD00A00848 /* radioTV */ = {
+			isa = PBXGroup;
+			children = (
+				50CFBE642ABDC7DD00A00848 /* radioTVApp.swift */,
+				50CFBE662ABDC7DD00A00848 /* ContentView.swift */,
+				50CFBE682ABDC7E000A00848 /* Assets.xcassets */,
+				50CFBE6D2ABDC7E000A00848 /* Persistence.swift */,
+				50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */,
+				50CFBE6A2ABDC7E000A00848 /* Preview Content */,
+			);
+			path = radioTV;
+			sourceTree = "<group>";
+		};
+		50CFBE6A2ABDC7E000A00848 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				50CFBE6B2ABDC7E000A00848 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		92AB2A6829C3A49100EFF179 = {
 			isa = PBXGroup;
 			children = (
 				92AB2A7329C3A49100EFF179 /* beRadio */,
+				50CFBE392ABDAE1100A00848 /* tvRadio */,
+				50CFBE512ABDC76500A00848 /* radioTV */,
+				50CFBE632ABDC7DD00A00848 /* radioTV */,
 				92AB2A7229C3A49100EFF179 /* Products */,
+				509E615E2ABF774000B81C6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				92AB2A7129C3A49100EFF179 /* beRadio.app */,
+				50CFBE382ABDAE1100A00848 /* tvRadio.app */,
+				50CFBE622ABDC7DD00A00848 /* radioTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,6 +451,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		50CFBE372ABDAE1100A00848 /* tvRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50CFBE452ABDAE1400A00848 /* Build configuration list for PBXNativeTarget "tvRadio" */;
+			buildPhases = (
+				50CFBE342ABDAE1100A00848 /* Sources */,
+				50CFBE352ABDAE1100A00848 /* Frameworks */,
+				50CFBE362ABDAE1100A00848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tvRadio;
+			productName = tvRadio;
+			productReference = 50CFBE382ABDAE1100A00848 /* tvRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50CFBE612ABDC7DD00A00848 /* radioTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50CFBE722ABDC7E000A00848 /* Build configuration list for PBXNativeTarget "radioTV" */;
+			buildPhases = (
+				50CFBE5E2ABDC7DD00A00848 /* Sources */,
+				50CFBE5F2ABDC7DD00A00848 /* Frameworks */,
+				50CFBE602ABDC7DD00A00848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = radioTV;
+			packageProductDependencies = (
+				509E615F2ABF774000B81C6F /* SwiftSoup */,
+			);
+			productName = radioTV;
+			productReference = 50CFBE622ABDC7DD00A00848 /* radioTV.app */;
+			productType = "com.apple.product-type.application";
+		};
 		92AB2A7029C3A49100EFF179 /* beRadio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92AB2A8529C3A49100EFF179 /* Build configuration list for PBXNativeTarget "beRadio" */;
@@ -281,9 +515,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					50CFBE372ABDAE1100A00848 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					50CFBE612ABDC7DD00A00848 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					92AB2A7029C3A49100EFF179 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -306,16 +546,35 @@
 			projectRoot = "";
 			targets = (
 				92AB2A7029C3A49100EFF179 /* beRadio */,
+				50CFBE372ABDAE1100A00848 /* tvRadio */,
+				50CFBE612ABDC7DD00A00848 /* radioTV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50CFBE362ABDAE1100A00848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CFBE422ABDAE1400A00848 /* Preview Assets.xcassets in Resources */,
+				50CFBEAE2ABF5F5700A00848 /* Preview Assets.xcassets in Resources */,
+				50CFBE3F2ABDAE1400A00848 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CFBE602ABDC7DD00A00848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92AB2A6F29C3A49100EFF179 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E59A4329DB5EEA002754E5 /* LaunchScreen.storyboard in Resources */,
+				509E61622AC033C400B81C6F /* LaunchScreen.storyboard in Resources */,
 				92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */,
 				92AB2A7E29C3A49100EFF179 /* Assets.xcassets in Resources */,
 			);
@@ -324,6 +583,110 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50CFBE342ABDAE1100A00848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CFBEA62ABF5F3C00A00848 /* selectAudioOutput.swift in Sources */,
+				50CFBE9F2ABF5F3C00A00848 /* CheckUrlExists.swift in Sources */,
+				50CFBEB22ABF5F5E00A00848 /* RadioStation.swift in Sources */,
+				50CFBE822ABF5EA900A00848 /* RouteChangeHandler.swift in Sources */,
+				50CFBE7C2ABF5E9800A00848 /* AppAudioController.swift in Sources */,
+				50CFBEA52ABF5F3C00A00848 /* extract.swift in Sources */,
+				50CFBE772ABF5E6C00A00848 /* RadioStationData.swift in Sources */,
+				50CFBEA92ABF5F3C00A00848 /* ConfigurePlayingInfro.swift in Sources */,
+				50CFBE8E2ABF5F2600A00848 /* Date.swift in Sources */,
+				50CFBE4B2ABDC71300A00848 /* ContentView.swift in Sources */,
+				50CFBEBD2ABF5F6600A00848 /* Full programs view.swift in Sources */,
+				50CFBEC02ABF5F6600A00848 /* SafariView.swift in Sources */,
+				50CFBEC12ABF5F6600A00848 /* ColoredProgramButton.swift in Sources */,
+				50CFBE8A2ABF5EC500A00848 /* Color.swift in Sources */,
+				50CFBE792ABF5E8C00A00848 /* beRadioApp.swift in Sources */,
+				50CFBEA82ABF5F3C00A00848 /* LinkProcessor.swift in Sources */,
+				50CFBE8C2ABF5F2600A00848 /* Double.swift in Sources */,
+				50CFBE802ABF5EA300A00848 /* LocationManager.swift in Sources */,
+				50CFBEB92ABF5F6600A00848 /* LinkButton.swift in Sources */,
+				50CFBEA12ABF5F3C00A00848 /* CheckMemoryAvailability.swift in Sources */,
+				50CFBE7A2ABF5E9300A00848 /* ApprovedStations.swift in Sources */,
+				50CFBEB72ABF5F6600A00848 /* LivePlayerView.swift in Sources */,
+				50CFBEBA2ABF5F6600A00848 /* SearchView.swift in Sources */,
+				50CFBEBE2ABF5F6600A00848 /* LocationPermissionView.swift in Sources */,
+				50CFBE7E2ABF5E9E00A00848 /* LiveAudioPlayer.swift in Sources */,
+				50CFBEB02ABF5F5E00A00848 /* RightToLeftSliderStyle.swift in Sources */,
+				50CFBE862ABF5EB900A00848 /* ExportAllTransactionsIntent.swift in Sources */,
+				50CFBEA72ABF5F3C00A00848 /* ConfigureAudioSession.swift in Sources */,
+				50CFBEB82ABF5F6600A00848 /* ProgramsListView.swift in Sources */,
+				50CFBEBF2ABF5F6600A00848 /* ImageLoader.swift in Sources */,
+				50CFBEA22ABF5F3C00A00848 /* FetchAudiUrl.swift in Sources */,
+				50CFBEA42ABF5F3C00A00848 /* imageBrightness.swift in Sources */,
+				50CFBE882ABF5EC100A00848 /* Array.swift in Sources */,
+				50CFBE8D2ABF5F2600A00848 /* JSONDecoder.swift in Sources */,
+				50CFBEAA2ABF5F4900A00848 /* AudioPlayer.swift in Sources */,
+				50CFBEBB2ABF5F6600A00848 /* AddLinkView.swift in Sources */,
+				50CFBEA32ABF5F3C00A00848 /* fetchRadioStations.swift in Sources */,
+				50CFBE8F2ABF5F2600A00848 /* String.swift in Sources */,
+				50CFBEBC2ABF5F6600A00848 /* AudioPlayerView.swift in Sources */,
+				50CFBE3B2ABDAE1100A00848 /* tvRadioApp.swift in Sources */,
+				50CFBEA02ABF5F3C00A00848 /* addApprovedStations.swift in Sources */,
+				50CFBEB12ABF5F5E00A00848 /* CustomAlertView.swift in Sources */,
+				50CFBE842ABF5EAF00A00848 /* StreamBuffer.swift in Sources */,
+				50CFBEB62ABF5F6600A00848 /* RadioStationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CFBE5E2ABDC7DD00A00848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CFBECD2ABF5F6700A00848 /* ColoredProgramButton.swift in Sources */,
+				50CFBE942ABF5F3B00A00848 /* CheckUrlExists.swift in Sources */,
+				50CFBEB52ABF5F5F00A00848 /* RadioStation.swift in Sources */,
+				50CFBE9B2ABF5F3B00A00848 /* selectAudioOutput.swift in Sources */,
+				50CFBE962ABF5F3B00A00848 /* CheckMemoryAvailability.swift in Sources */,
+				50CFBE952ABF5F3B00A00848 /* addApprovedStations.swift in Sources */,
+				50CFBE902ABF5F2800A00848 /* Double.swift in Sources */,
+				50CFBE852ABF5EB000A00848 /* StreamBuffer.swift in Sources */,
+				50CFBE972ABF5F3B00A00848 /* FetchAudiUrl.swift in Sources */,
+				50CFBE9A2ABF5F3B00A00848 /* extract.swift in Sources */,
+				50CFBEC62ABF5F6700A00848 /* SearchView.swift in Sources */,
+				50CFBE932ABF5F2800A00848 /* String.swift in Sources */,
+				50CFBE762ABF5E6700A00848 /* RadioStationData.swift in Sources */,
+				50CFBE992ABF5F3B00A00848 /* imageBrightness.swift in Sources */,
+				50CFBEC22ABF5F6700A00848 /* RadioStationView.swift in Sources */,
+				50CFBEAB2ABF5F4A00A00848 /* AudioPlayer.swift in Sources */,
+				50CFBE9C2ABF5F3B00A00848 /* ConfigureAudioSession.swift in Sources */,
+				50CFBE6E2ABDC7E000A00848 /* Persistence.swift in Sources */,
+				50CFBEB42ABF5F5F00A00848 /* CustomAlertView.swift in Sources */,
+				50CFBE752ABF5A9900A00848 /* ContentView.swift in Sources */,
+				50CFBEC92ABF5F6700A00848 /* Full programs view.swift in Sources */,
+				50CFBEC32ABF5F6700A00848 /* LivePlayerView.swift in Sources */,
+				50CFBE812ABF5EA400A00848 /* LocationManager.swift in Sources */,
+				50CFBEB32ABF5F5F00A00848 /* RightToLeftSliderStyle.swift in Sources */,
+				50CFBE8B2ABF5EC600A00848 /* Color.swift in Sources */,
+				50CFBEC42ABF5F6700A00848 /* ProgramsListView.swift in Sources */,
+				50CFBE9D2ABF5F3B00A00848 /* LinkProcessor.swift in Sources */,
+				50CFBE7D2ABF5E9900A00848 /* AppAudioController.swift in Sources */,
+				50CFBE892ABF5EC200A00848 /* Array.swift in Sources */,
+				50CFBE712ABDC7E000A00848 /* radioTV.xcdatamodeld in Sources */,
+				50CFBE832ABF5EAA00A00848 /* RouteChangeHandler.swift in Sources */,
+				50CFBE872ABF5EBA00A00848 /* ExportAllTransactionsIntent.swift in Sources */,
+				50CFBE912ABF5F2800A00848 /* JSONDecoder.swift in Sources */,
+				50CFBE782ABF5E8C00A00848 /* beRadioApp.swift in Sources */,
+				50CFBE652ABDC7DD00A00848 /* radioTVApp.swift in Sources */,
+				50CFBE922ABF5F2800A00848 /* Date.swift in Sources */,
+				50CFBECA2ABF5F6700A00848 /* LocationPermissionView.swift in Sources */,
+				50CFBECB2ABF5F6700A00848 /* ImageLoader.swift in Sources */,
+				50CFBE982ABF5F3B00A00848 /* fetchRadioStations.swift in Sources */,
+				50CFBE9E2ABF5F3B00A00848 /* ConfigurePlayingInfro.swift in Sources */,
+				50CFBECC2ABF5F6700A00848 /* SafariView.swift in Sources */,
+				50CFBEC52ABF5F6700A00848 /* LinkButton.swift in Sources */,
+				50CFBE7B2ABF5E9300A00848 /* ApprovedStations.swift in Sources */,
+				50CFBEC72ABF5F6700A00848 /* AddLinkView.swift in Sources */,
+				50CFBEC82ABF5F6700A00848 /* AudioPlayerView.swift in Sources */,
+				50CFBE7F2ABF5E9F00A00848 /* LiveAudioPlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92AB2A6D29C3A49100EFF179 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,10 +742,143 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		50CFBE432ABDAE1400A00848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tvRadio/Preview Content\"";
+				DEVELOPMENT_TEAM = NRTGJB9J65;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tvRadio/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Morphicode.TV.tvRadio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		50CFBE442ABDAE1400A00848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tvRadio/Preview Content\"";
+				DEVELOPMENT_TEAM = NRTGJB9J65;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tvRadio/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Morphicode.TV.tvRadio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50CFBE732ABDC7E000A00848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"radioTV/Preview Content\"";
+				DEVELOPMENT_TEAM = NRTGJB9J65;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Morphicode.TV.radioTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		50CFBE742ABDC7E000A00848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"radioTV/Preview Content\"";
+				DEVELOPMENT_TEAM = NRTGJB9J65;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Morphicode.TV.radioTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		92AB2A8329C3A49100EFF179 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -442,6 +938,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -527,12 +1024,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 			};
 			name = Debug;
 		};
@@ -573,18 +1070,36 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50CFBE452ABDAE1400A00848 /* Build configuration list for PBXNativeTarget "tvRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CFBE432ABDAE1400A00848 /* Debug */,
+				50CFBE442ABDAE1400A00848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50CFBE722ABDC7E000A00848 /* Build configuration list for PBXNativeTarget "radioTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CFBE732ABDC7E000A00848 /* Debug */,
+				50CFBE742ABDC7E000A00848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		92AB2A6C29C3A49100EFF179 /* Build configuration list for PBXProject "beRadio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -617,6 +1132,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		509E615F2ABF774000B81C6F /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92AB2A8829C3A9CB00EFF179 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		92AB2A8929C3A9CB00EFF179 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 92AB2A8829C3A9CB00EFF179 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
@@ -625,6 +1145,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50CFBE702ABDC7E000A00848 /* radioTV.xcdatamodel */,
+			);
+			currentVersion = 50CFBE702ABDC7E000A00848 /* radioTV.xcdatamodel */;
+			path = radioTV.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
