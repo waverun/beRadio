@@ -55,7 +55,7 @@ struct AsyncImage: View {
                     .resizable()
             }
         }
-        .onChange(of: url) { newValue in
+        .onChange(of: url) { newValue, _ in
             loader.update(url: newValue)
         }
     }

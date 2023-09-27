@@ -63,7 +63,7 @@ struct AudioPlayerView: View {
                                 if audioUrl.absoluteString.hasPrefix("/") {
                                     AsyncImage(url: imageSrc)
                                         .frame(width: 240, height: 240)
-                                        .onChange(of: self.imageSrc) { newValue in
+                                        .onChange(of: self.imageSrc) { newValue, _ in
                                             currentImageSrc = newValue
                                             print("currentImageSrc: \(currentImageSrc ?? "no value")")
                                         }
@@ -71,7 +71,7 @@ struct AudioPlayerView: View {
                                 else {
                                     AsyncImage(url: imageSrc)
                                         .frame(width: 120, height: 120)
-                                        .onChange(of: self.imageSrc) { newValue in
+                                        .onChange(of: self.imageSrc) { newValue, _ in
                                             currentImageSrc = newValue
                                             print("currentImageSrc: \(currentImageSrc ?? "no value")")
                                         }

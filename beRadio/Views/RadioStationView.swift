@@ -143,7 +143,7 @@ struct RadioStationsView: View {
                 }
             }
         }
-        .onChange(of: isPresented) { value in
+        .onChange(of: isPresented) { value, _ in
             if !value {
                 self.presentationMode.wrappedValue.dismiss()
             }

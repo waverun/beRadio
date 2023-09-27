@@ -137,7 +137,7 @@ struct fullProgramsView: View {
                     }
 #endif
                 }
-                .onChange(of: selectedURL) { newValue in
+                .onChange(of: selectedURL) { newValue, _ in
                     showSafariView = newValue != nil
                 }
                 .toolbar {
