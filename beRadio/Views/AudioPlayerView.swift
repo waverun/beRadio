@@ -25,6 +25,12 @@ struct AudioPlayerView: View {
 
     let onAppearAction: (() -> Void)?
     
+#if os(tvOS)
+    let frameWidth = 140.0
+#else
+    let frameWidth = 70.0
+#endif
+
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
         self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
         _audioUrl = url
@@ -91,7 +97,7 @@ struct AudioPlayerView: View {
                                         }
 
                                         Text("\(audioPlayer.currentProgressString)")
-                                            .frame(width: 70, alignment: .leading)
+                                            .frame(width: frameWidth, alignment: .leading)
                                             .foregroundColor(.white)
 
                                         Button(action: {
@@ -105,7 +111,7 @@ struct AudioPlayerView: View {
                                         }
 
                                         Text("\(audioPlayer.totalDurationString)")
-                                            .frame(width: 70, alignment: .trailing)
+                                            .frame(width: frameWidth, alignment: .trailing)
                                             .foregroundColor(.white)
 
                                         Button(action: {
@@ -145,8 +151,11 @@ struct AudioPlayerView: View {
                             .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
                                 currentProgress = newValue
                             }
+#else
+                            Spacer()
 #endif
                         }
+                        #if !os(tvOS)
                         let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
                         Spacer()
                             .frame(height: availableSpace / 4)
@@ -165,6 +174,7 @@ struct AudioPlayerView: View {
                         .cornerRadius(8)
 
                         Spacer()
+                        #endif
                     }
                     Spacer()
                 }
