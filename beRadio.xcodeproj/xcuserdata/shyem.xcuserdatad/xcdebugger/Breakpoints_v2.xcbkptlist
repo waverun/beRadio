@@ -499,8 +499,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
             landmarkName = "removeLinks(atOffsets:)"
             landmarkType = "7">
             <Locations>
@@ -563,8 +563,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -860,9 +860,9 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "deleteItems(offsets:)"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "addApprovedStations()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1611,8 +1611,10 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392">
+            startingLineNumber = "401"
+            endingLineNumber = "401"
+            landmarkName = "itemExists(station:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1689,8 +1691,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1705,8 +1707,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1768,8 +1770,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1832,8 +1834,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1992,8 +1994,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "deleteItems(offsets:)"
             landmarkType = "7">
             <Locations>
@@ -2055,8 +2057,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "addStation(_:showMessage:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2071,8 +2073,8 @@
             filePath = "beRadio/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "addStation(_:showMessage:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2139,6 +2141,38 @@
                   offsetFromSymbolStart = "2450">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "535E96E4-6EC2-4D45-9AC5-148EDE926307"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8244042D-CBD7-46E2-9270-EF7B4E7DF752"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Structs/RemovalConfirmationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

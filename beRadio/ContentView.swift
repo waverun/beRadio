@@ -10,6 +10,8 @@ struct ContentView: View {
     @ObservedObject var locationManager = LocationManager()
     #else
     @State var isEditing: Bool = false
+    @State private var showingDeletionAlert = false
+    @State private var itemToDelete: Item? // Replace ItemType with your actual data type
     #endif
 
     @State private var title = "beRadio"
@@ -97,26 +99,27 @@ struct ContentView: View {
                         searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
                     }) { item in
                         HStack {
+                            #if os(tvOS)
+                            if isEditing {
+                                Image(systemName: "trash") // Deletion symbol
+                                    .foregroundColor(.red) // Set the color to red
+                            }
+                            #endif
                             if let url = item.favicon {
                                 AsyncImage(url: url)
                                     .frame(width: 60, height: 60) // Adjust the size as needed
                             }
-                            //                            if let homepage = item.homepage,
-                            //                               let homePageUrl = URL(string: homepage),
-                            //                               let name = item.name {
-                            //                                Button(name) {
-                            //                                    if UIApplication.shared.canOpenURL(homePageUrl) {
-                            //                                        UIApplication.shared.open(homePageUrl)
-                            //                                    }
-                            //                                }
-                            //                            }
-                            //                            }
-                            
-                            //                            Do not remove: its the link to the player or programs
                             NavigationLink {
                                 switch true {
-                                        //                                case  links.isEmpty :
-                                        //                                    Text("Loading...")
+#if os(tvOS)
+                                    case isEditing :
+                                        RemovalConfirmationView(stationName: item.name ?? "") {
+                                            if let indexToRemove = items.firstIndex(where: { $0.id == item.id }) {
+                                                let indexSet = IndexSet(arrayLiteral: indexToRemove)
+                                                deleteItems(offsets: indexSet)
+                                            }
+                                        }
+#endif
 #if DEBUG
                                     case item.url == "https://cdn.cybercdn.live/103FM/Live/icecast.audio" :
                                         ProgramsListView(links: links,
@@ -148,6 +151,12 @@ struct ContentView: View {
                             } label: {
                                 Text(item.name ?? "New station")
                             }
+//#if os(tvOS)
+//                            .onTapGesture {
+//                                self.itemToDelete = item
+//                                self.showingDeletionAlert = true
+//                            }
+//#endif
                         }
                     }
                     .onDelete(perform: deleteItems)
@@ -232,7 +241,7 @@ struct ContentView: View {
                 }
                 .onAppear {
                     print("List: onAppear")
-                    addApprovedStations()
+//                    addApprovedStations()
 #if DEBUG
                     getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
                         DispatchQueue.main.async {
