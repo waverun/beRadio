@@ -8,6 +8,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     #if !os(tvOS)
     @ObservedObject var locationManager = LocationManager()
+    #else
+    @State var isEditing: Bool = false
     #endif
 
     @State private var title = "beRadio"
@@ -83,6 +85,13 @@ struct ContentView: View {
         ZStack {
             NavigationView {
                 List {
+                    #if os(tvOS)
+                    Button(action: {
+                        isEditing.toggle()
+                    }) {
+                        Text(isEditing ? "Cancel" : "Edit")
+                    }
+                    #endif
                     //                    ForEach(items) { item in
                     ForEach(items.filter { item in
                         searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
