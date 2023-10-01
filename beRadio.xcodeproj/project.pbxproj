@@ -21,14 +21,11 @@
 		50CFBE422ABDAE1400A00848 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CFBE412ABDAE1400A00848 /* Preview Assets.xcassets */; };
 		50CFBE4B2ABDC71300A00848 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7B29C3A49100EFF179 /* ContentView.swift */; };
 		50CFBE652ABDC7DD00A00848 /* radioTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE642ABDC7DD00A00848 /* radioTVApp.swift */; };
-		50CFBE6E2ABDC7E000A00848 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6D2ABDC7E000A00848 /* Persistence.swift */; };
-		50CFBE712ABDC7E000A00848 /* radioTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */; };
 		50CFBE752ABF5A9900A00848 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7B29C3A49100EFF179 /* ContentView.swift */; };
 		50CFBE762ABF5E6700A00848 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
 		50CFBE772ABF5E6C00A00848 /* RadioStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C499112A2C935100797C12 /* RadioStationData.swift */; };
 		50CFBE782ABF5E8C00A00848 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
 		50CFBE792ABF5E8C00A00848 /* beRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7429C3A49100EFF179 /* beRadioApp.swift */; };
-		50CFBE7A2ABF5E9300A00848 /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
 		50CFBE7B2ABF5E9300A00848 /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
 		50CFBE7C2ABF5E9800A00848 /* AppAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0729EC42F000DF52BE /* AppAudioController.swift */; };
 		50CFBE7D2ABF5E9900A00848 /* AppAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEBE0729EC42F000DF52BE /* AppAudioController.swift */; };
@@ -109,6 +106,10 @@
 		50CFBECB2ABF5F6700A00848 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3A29DB23AB002754E5 /* ImageLoader.swift */; };
 		50CFBECC2ABF5F6700A00848 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
 		50CFBECD2ABF5F6700A00848 /* ColoredProgramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */; };
+		50DB1FF22AC710EE00C3C48C /* beRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */; };
+		50DB1FF42AC7150400C3C48C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
+		50DB1FF52AC7159100C3C48C /* RemovalConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C33A762AC45AED00A98E3F /* RemovalConfirmationView.swift */; };
+		50DB1FFB2AC9A1BD00C3C48C /* radioTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
@@ -120,7 +121,7 @@
 		92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */; };
 		92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7B29C3A49100EFF179 /* ContentView.swift */; };
 		92AB2A7E29C3A49100EFF179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A7D29C3A49100EFF179 /* Assets.xcassets */; };
-		92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */; };
+		92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A8129C3A49100EFF179 /* Preview Assets.xcassets */; platformFilter = ios; };
 		92AB2A8A29C3A9CB00EFF179 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92AB2A8929C3A9CB00EFF179 /* SwiftSoup */; };
 		92AB2A8D29C3AA9C00EFF179 /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A8C29C3AA9C00EFF179 /* extract.swift */; };
 		92ADFC5529C7321700582B66 /* Full programs view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADFC5429C7321700582B66 /* Full programs view.swift */; };
@@ -177,6 +178,8 @@
 		50CFBE6B2ABDC7E000A00848 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50CFBE6D2ABDC7E000A00848 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		50CFBE702ABDC7E000A00848 /* radioTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = radioTV.xcdatamodel; sourceTree = "<group>"; };
+		50DB1FF62AC9726D00C3C48C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50DB1FF92AC9921500C3C48C /* radioTV.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = radioTV.xcassets; sourceTree = "<group>"; };
 		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
@@ -279,9 +282,11 @@
 		50CFBE512ABDC76500A00848 /* radioTV */ = {
 			isa = PBXGroup;
 			children = (
+				50DB1FF62AC9726D00C3C48C /* Info.plist */,
 				50CFBE522ABDC76500A00848 /* radioTVApp.swift */,
 				50CFBE542ABDC76500A00848 /* ContentView.swift */,
 				50CFBE582ABDC76800A00848 /* Preview Content */,
+				50DB1FF92AC9921500C3C48C /* radioTV.xcassets */,
 			);
 			path = radioTV;
 			sourceTree = "<group>";
@@ -608,7 +613,6 @@
 				50CFBE802ABF5EA300A00848 /* LocationManager.swift in Sources */,
 				50CFBEB92ABF5F6600A00848 /* LinkButton.swift in Sources */,
 				50CFBEA12ABF5F3C00A00848 /* CheckMemoryAvailability.swift in Sources */,
-				50CFBE7A2ABF5E9300A00848 /* ApprovedStations.swift in Sources */,
 				50CFBEB72ABF5F6600A00848 /* LivePlayerView.swift in Sources */,
 				50CFBEBA2ABF5F6600A00848 /* SearchView.swift in Sources */,
 				50CFBEBE2ABF5F6600A00848 /* LocationPermissionView.swift in Sources */,
@@ -644,6 +648,7 @@
 				50CFBEB52ABF5F5F00A00848 /* RadioStation.swift in Sources */,
 				50CFBE9B2ABF5F3B00A00848 /* selectAudioOutput.swift in Sources */,
 				50CFBE962ABF5F3B00A00848 /* CheckMemoryAvailability.swift in Sources */,
+				50DB1FFB2AC9A1BD00C3C48C /* radioTV.xcdatamodeld in Sources */,
 				50CFBE952ABF5F3B00A00848 /* addApprovedStations.swift in Sources */,
 				50CFBE902ABF5F2800A00848 /* Double.swift in Sources */,
 				50CFBE852ABF5EB000A00848 /* StreamBuffer.swift in Sources */,
@@ -652,23 +657,24 @@
 				50CFBEC62ABF5F6700A00848 /* SearchView.swift in Sources */,
 				50CFBE932ABF5F2800A00848 /* String.swift in Sources */,
 				50CFBE762ABF5E6700A00848 /* RadioStationData.swift in Sources */,
+				50DB1FF52AC7159100C3C48C /* RemovalConfirmationView.swift in Sources */,
 				50CFBE992ABF5F3B00A00848 /* imageBrightness.swift in Sources */,
 				50CFBEC22ABF5F6700A00848 /* RadioStationView.swift in Sources */,
+				50DB1FF42AC7150400C3C48C /* Persistence.swift in Sources */,
 				50CFBEAB2ABF5F4A00A00848 /* AudioPlayer.swift in Sources */,
 				50CFBE9C2ABF5F3B00A00848 /* ConfigureAudioSession.swift in Sources */,
-				50CFBE6E2ABDC7E000A00848 /* Persistence.swift in Sources */,
 				50CFBEB42ABF5F5F00A00848 /* CustomAlertView.swift in Sources */,
 				50CFBE752ABF5A9900A00848 /* ContentView.swift in Sources */,
 				50CFBEC92ABF5F6700A00848 /* Full programs view.swift in Sources */,
 				50CFBEC32ABF5F6700A00848 /* LivePlayerView.swift in Sources */,
 				50CFBE812ABF5EA400A00848 /* LocationManager.swift in Sources */,
+				50DB1FF22AC710EE00C3C48C /* beRadio.xcdatamodeld in Sources */,
 				50CFBEB32ABF5F5F00A00848 /* RightToLeftSliderStyle.swift in Sources */,
 				50CFBE8B2ABF5EC600A00848 /* Color.swift in Sources */,
 				50CFBEC42ABF5F6700A00848 /* ProgramsListView.swift in Sources */,
 				50CFBE9D2ABF5F3B00A00848 /* LinkProcessor.swift in Sources */,
 				50CFBE7D2ABF5E9900A00848 /* AppAudioController.swift in Sources */,
 				50CFBE892ABF5EC200A00848 /* Array.swift in Sources */,
-				50CFBE712ABDC7E000A00848 /* radioTV.xcdatamodeld in Sources */,
 				50CFBE832ABF5EAA00A00848 /* RouteChangeHandler.swift in Sources */,
 				50CFBE872ABF5EBA00A00848 /* ExportAllTransactionsIntent.swift in Sources */,
 				50CFBE912ABF5F2800A00848 /* JSONDecoder.swift in Sources */,
@@ -815,16 +821,22 @@
 		50CFBE732ABDC7E000A00848 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"radioTV/Preview Content\"";
-				DEVELOPMENT_TEAM = NRTGJB9J65;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = NRTGJB9J65;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = radioTV/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -833,8 +845,10 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Morphicode.TV.radioTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = tvOS;
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -847,16 +861,22 @@
 		50CFBE742ABDC7E000A00848 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"radioTV/Preview Content\"";
-				DEVELOPMENT_TEAM = NRTGJB9J65;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = NRTGJB9J65;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = radioTV/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -865,8 +885,10 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Morphicode.TV.radioTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = tvOS;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -928,6 +950,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -982,6 +1005,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -992,14 +1016,18 @@
 		92AB2A8629C3A49100EFF179 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BrandAssets;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 13;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"beRadio/Preview Content\"";
-				DEVELOPMENT_TEAM = NRTGJB9J65;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = NRTGJB9J65;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1018,13 +1046,15 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = tvOS;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1038,14 +1068,18 @@
 		92AB2A8729C3A49100EFF179 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BrandAssets;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 13;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"beRadio/Preview Content\"";
-				DEVELOPMENT_TEAM = NRTGJB9J65;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = NRTGJB9J65;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1064,13 +1098,15 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beRadio.beRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = tvOS;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

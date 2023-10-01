@@ -66,22 +66,57 @@ struct AudioPlayerView: View {
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.secondary)
                             if let imageSrc = currentImageSrc {
-                                if audioUrl.absoluteString.hasPrefix("/") {
-                                    AsyncImage(url: imageSrc)
-                                        .frame(width: 240, height: 240)
-                                        .onChange(of: self.imageSrc) { newValue, _ in
-                                            currentImageSrc = newValue
-                                            print("currentImageSrc: \(currentImageSrc ?? "no value")")
-                                        }
+                                if #available(iOS 17, *) {
+                                    switch true {
+                                        case audioUrl.absoluteString.hasPrefix("/"):
+                                            AsyncImage(url: imageSrc)
+                                                .frame(width: 240, height: 240)
+                                                .onChange(of: self.imageSrc) { newValue, _ in
+                                                    currentImageSrc = newValue
+                                                    print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                }
+                                        default:
+                                            AsyncImage(url: imageSrc)
+                                                .frame(width: 120, height: 120)
+                                                .onChange(of: self.imageSrc) { newValue, _ in
+                                                    currentImageSrc = newValue
+                                                    print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                }
+                                    }
+                                } else {
+                                    switch true {
+                                        case audioUrl.absoluteString.hasPrefix("/"):
+                                            AsyncImage(url: imageSrc)
+                                                .frame(width: 240, height: 240)
+                                                .onChange(of: self.imageSrc) { newValue in
+                                                    currentImageSrc = newValue
+                                                    print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                }
+                                        default:
+                                            AsyncImage(url: imageSrc)
+                                                .frame(width: 120, height: 120)
+                                                .onChange(of: self.imageSrc) { newValue in
+                                                    currentImageSrc = newValue
+                                                    print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                }
+                                    }
                                 }
-                                else {
-                                    AsyncImage(url: imageSrc)
-                                        .frame(width: 120, height: 120)
-                                        .onChange(of: self.imageSrc) { newValue, _ in
-                                            currentImageSrc = newValue
-                                            print("currentImageSrc: \(currentImageSrc ?? "no value")")
-                                        }
-                                }
+//                                if audioUrl.absoluteString.hasPrefix("/") {
+//                                    AsyncImage(url: imageSrc)
+//                                        .frame(width: 240, height: 240)
+//                                        .onChange(of: self.imageSrc) { newValue, _ in
+//                                            currentImageSrc = newValue
+//                                            print("currentImageSrc: \(currentImageSrc ?? "no value")")
+//                                        }
+//                                }
+//                                else {
+//                                    AsyncImage(url: imageSrc)
+//                                        .frame(width: 120, height: 120)
+//                                        .onChange(of: self.imageSrc) { newValue, _ in
+//                                            currentImageSrc = newValue
+//                                            print("currentImageSrc: \(currentImageSrc ?? "no value")")
+//                                        }
+//                                }
                             }
                             HStack {
                                 VStack {

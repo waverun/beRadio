@@ -1,20 +1,20 @@
+////
+////  radioTVApp.swift
+////  radioTV
+////
+////  Created by shay moreno on 22/09/2023.
+////
 //
-//  radioTVApp.swift
-//  radioTV
+//import SwiftUI
 //
-//  Created by shay moreno on 22/09/2023.
+//@main
+//struct radioTVApp: App {
+//    let persistenceController = PersistenceController.shared
 //
-
-import SwiftUI
-
-@main
-struct radioTVApp: App {
-    let persistenceController = PersistenceController.shared
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
-    }
-}
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//        }
+//    }
+//}

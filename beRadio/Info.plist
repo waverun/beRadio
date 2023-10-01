@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Cfbundleicon</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -11,6 +13,8 @@
 	<array>
 		<string>GoForwardIntent</string>
 	</array>
+	<key>TVTopShelfPrimaryImageWide</key>
+	<string>Icon-App-60x60@3x.png</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
