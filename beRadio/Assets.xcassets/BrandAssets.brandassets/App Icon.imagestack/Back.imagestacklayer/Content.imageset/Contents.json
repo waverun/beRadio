@@ -2,17 +2,13 @@
   "images" : [
     {
       "filename" : "beRadio-400x240.png",
-      "idiom" : "universal",
+      "idiom" : "tv",
       "scale" : "1x"
     },
     {
-      "filename" : "beRadio-800x480.png",
-      "idiom" : "universal",
+      "filename" : "beRadio-400x240 1.png",
+      "idiom" : "tv",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
     }
   ],
   "info" : {
