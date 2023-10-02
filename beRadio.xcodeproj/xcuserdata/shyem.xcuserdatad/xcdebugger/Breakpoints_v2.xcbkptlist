@@ -502,7 +502,7 @@
             startingLineNumber = "332"
             endingLineNumber = "332"
             landmarkName = "removeLinks(atOffsets:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "BD6FB432-0E0F-4C26-B098-46BD691B09AA - 6ab89a6e7e00c8df"
@@ -863,7 +863,7 @@
             startingLineNumber = "367"
             endingLineNumber = "367"
             landmarkName = "addApprovedStations()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1613,8 +1613,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "404"
             endingLineNumber = "404"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "itemExists(station:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1997,7 +1997,7 @@
             startingLineNumber = "362"
             endingLineNumber = "362"
             landmarkName = "deleteItems(offsets:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "E8133C09-54D0-4147-986E-3D679884852D - dc39ed9a2e7e68ae"
@@ -2060,7 +2060,7 @@
             startingLineNumber = "384"
             endingLineNumber = "384"
             landmarkName = "addStation(_:showMessage:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2076,7 +2076,7 @@
             startingLineNumber = "381"
             endingLineNumber = "381"
             landmarkName = "addStation(_:showMessage:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2267,6 +2267,38 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDFCA53A-32A7-4895-8872-AFAE195A5395"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25A27CBE-2A70-4693-961F-044F4AF1AE73"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Views/RadioStationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

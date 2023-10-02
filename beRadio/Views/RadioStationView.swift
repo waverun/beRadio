@@ -115,7 +115,7 @@ struct RadioStationsView: View {
                             Button(action: {
                                 radioStationsData.selectedStation = station
                                 onDone(station)
-//                                isPresented = false
+                                isPresented = false
 //                                radioStationsData.showingActionSheet = true
                             }) {
                                 HStack {
@@ -144,7 +144,7 @@ struct RadioStationsView: View {
             }
         }
         .onChange(of: isPresented) { value, _ in
-            if !value {
+            if value { // Its the oldValue
                 self.presentationMode.wrappedValue.dismiss()
             }
         }

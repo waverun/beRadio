@@ -106,11 +106,11 @@
 		50CFBECB2ABF5F6700A00848 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3A29DB23AB002754E5 /* ImageLoader.swift */; };
 		50CFBECC2ABF5F6700A00848 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A4429DC31EC002754E5 /* SafariView.swift */; };
 		50CFBECD2ABF5F6700A00848 /* ColoredProgramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E59A3C29DB33D5002754E5 /* ColoredProgramButton.swift */; };
+		50D1B6E72ACB3F80000ABF21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB2A7D29C3A49100EFF179 /* Assets.xcassets */; };
 		50DB1FF22AC710EE00C3C48C /* beRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7829C3A49100EFF179 /* beRadio.xcdatamodeld */; };
 		50DB1FF42AC7150400C3C48C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
 		50DB1FF52AC7159100C3C48C /* RemovalConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C33A762AC45AED00A98E3F /* RemovalConfirmationView.swift */; };
 		50DB1FFB2AC9A1BD00C3C48C /* radioTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */; };
-		50DB1FFE2AC9DE5B00C3C48C /* AssetsTVos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50DB1FFC2AC9DE2D00C3C48C /* AssetsTVos.xcassets */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
@@ -583,7 +583,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50DB1FFE2AC9DE5B00C3C48C /* AssetsTVos.xcassets in Resources */,
+				50D1B6E72ACB3F80000ABF21 /* Assets.xcassets in Resources */,
 				92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1018,7 +1018,7 @@
 		92AB2A8629C3A49100EFF179 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = BrandAssets;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
@@ -1070,7 +1070,7 @@
 		92AB2A8729C3A49100EFF179 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = BrandAssets;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
