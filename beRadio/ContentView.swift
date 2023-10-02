@@ -92,7 +92,7 @@ struct ContentView: View {
                         isEditing.toggle()
                     }) {
                         Text(isEditing ? "Cancel" : "Edit")
-                    }
+                    }.disabled(items.isEmpty)
                     #endif
                     //                    ForEach(items) { item in
                     ForEach(items.filter { item in
@@ -117,6 +117,9 @@ struct ContentView: View {
                                             if let indexToRemove = items.firstIndex(where: { $0.id == item.id }) {
                                                 let indexSet = IndexSet(arrayLiteral: indexToRemove)
                                                 deleteItems(offsets: indexSet)
+                                                if items.isEmpty {
+                                                    isEditing = false
+                                                }
                                             }
                                         }
 #endif
