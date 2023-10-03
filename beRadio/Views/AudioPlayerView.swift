@@ -4,7 +4,7 @@ import AVFoundation
 var gAudioPlayerView: AudioPlayerView?
 
 struct AudioPlayerView: View {
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
 
     @State private var currentProgress: Double = 0
     
@@ -218,17 +218,17 @@ struct AudioPlayerView: View {
             }
 //            .edgesIgnoringSafeArea(.all)
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-            Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack(spacing: 0) {
-                Text("Back")
-                Image(systemName: "chevron.right") // SF Symbols arrow
-            }
-        }
-        )
+//        .navigationBarBackButtonHidden(true)
+//        .navigationBarItems(leading:
+//            Button(action: {
+//            self.presentationMode.wrappedValue.dismiss()
+//        }) {
+//            HStack(spacing: 0) {
+//                Text("Back")
+//                Image(systemName: "chevron.right") // SF Symbols arrow
+//            }
+//        }
+//        )
         .onAppear {
             currentImageSrc = imageSrc
             if let action = onAppearAction {

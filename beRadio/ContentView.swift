@@ -142,7 +142,7 @@ struct ContentView: View {
                                             let url = URL(string: urlString) {
                                             //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
                                             AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
-                                                .navigationBarTitle("beRadio", displayMode: .inline)
+//                                                .navigationBarTitle("beRadio", displayMode: .inline)
 //                                                .navigationBarHidden(true)
                                                 .onAppear {
                                                     DispatchQueue.main.async {
@@ -271,7 +271,7 @@ struct ContentView: View {
             }
             .navigationViewStyle(.stack) // add this line after your NavigationView
         }
-        .environment(\.layoutDirection, .rightToLeft)
+        .environment(\.layoutDirection, .leftToRight)
 #if !os(tvOS)
         .navigationBarTitle("beRadio", displayMode: .inline)
 #endif
