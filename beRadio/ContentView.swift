@@ -262,7 +262,7 @@ struct ContentView: View {
 #endif
                 }
 #if !os(tvOS)
-                .onChange(of: locationManager.authorizationStatus) { newStatus in
+                .onChange(of: locationManager.authorizationStatus) { oldStatus, newStatus in
                     isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
                 }
                 .navigationBarTitle(title, displayMode: .inline)

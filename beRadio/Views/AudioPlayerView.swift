@@ -181,10 +181,10 @@ struct AudioPlayerView: View {
                             })
                             .tint(.secondary)
                             .padding(.horizontal)
-                            .onChange(of: currentProgress) {newValue in
+                            .onChange(of: currentProgress) {oldValue, newValue in
                                 audioPlayer.setCurrentProgressString(time: newValue)
                             }
-                            .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
+                            .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { oldValue, newValue in
                                 currentProgress = newValue
                             }
 #else
@@ -216,19 +216,7 @@ struct AudioPlayerView: View {
                 }
                 .edgesIgnoringSafeArea(.bottom)
             }
-//            .edgesIgnoringSafeArea(.all)
         }
-//        .navigationBarBackButtonHidden(true)
-//        .navigationBarItems(leading:
-//            Button(action: {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }) {
-//            HStack(spacing: 0) {
-//                Text("Back")
-//                Image(systemName: "chevron.right") // SF Symbols arrow
-//            }
-//        }
-//        )
         .onAppear {
             currentImageSrc = imageSrc
             if let action = onAppearAction {

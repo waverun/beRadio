@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "beRadio-400x240.png",
+      "idiom" : "tv"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
