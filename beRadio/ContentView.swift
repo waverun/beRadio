@@ -142,6 +142,8 @@ struct ContentView: View {
                                             let url = URL(string: urlString) {
                                             //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
                                             AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
+                                                .navigationBarTitle("beRadio", displayMode: .inline)
+//                                                .navigationBarHidden(true)
                                                 .onAppear {
                                                     DispatchQueue.main.async {
                                                         audioUrl = url

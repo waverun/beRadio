@@ -4,7 +4,8 @@ import AVFoundation
 var gAudioPlayerView: AudioPlayerView?
 
 struct AudioPlayerView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
+
     @State private var currentProgress: Double = 0
     
     //    let skipIntervals = [15, 30, 60, 120, 240, 480]
@@ -217,6 +218,17 @@ struct AudioPlayerView: View {
             }
 //            .edgesIgnoringSafeArea(.all)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+            Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack(spacing: 0) {
+                Text("Back")
+                Image(systemName: "chevron.right") // SF Symbols arrow
+            }
+        }
+        )
         .onAppear {
             currentImageSrc = imageSrc
             if let action = onAppearAction {
