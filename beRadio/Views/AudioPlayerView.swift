@@ -34,7 +34,12 @@ struct AudioPlayerView: View {
 
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
         print("AudioPlayerView init title \(title)")
-        self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
+        switch true {
+            case gAudioPlayer == nil :
+            self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
+            default:
+                self.audioPlayer = gAudioPlayer!
+        }
         _audioUrl = url
         self.imageSrc = image
         _heading = date

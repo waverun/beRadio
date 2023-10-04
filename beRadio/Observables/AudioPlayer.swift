@@ -14,8 +14,12 @@ class AudioPlayer: ObservableObject {
         }
     }
 
-    @Published var isPlaying = false
-    
+    @Published var isPlaying = false {
+        didSet {
+            print("AudioPlayer isPlaying: \(isPlaying)")
+        }
+    }
+
     @Published var currentProgressString: String = "00:00"
     @Published var totalDurationString: String = "00:00"
     @Published var shouldUpdateTotalDuration: Bool = true // For stoppting the update when moving the slider.
