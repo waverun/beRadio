@@ -6,7 +6,14 @@ var gAudioPlayer: AudioPlayer?
 var gPlayer: AVPlayer?
 
 class AudioPlayer: ObservableObject {
-    var player: AVPlayer?
+    var player: AVPlayer? {
+        didSet {
+            if player == nil {
+                print("AudioPlayer player is now nil")
+            }
+        }
+    }
+
     @Published var isPlaying = false
     
     @Published var currentProgressString: String = "00:00"
@@ -93,6 +100,7 @@ class AudioPlayer: ObservableObject {
 
         player?.pause()
         player = nil
+        gPlayer = nil
         currentProgressString = "00:00"
         totalDurationString = "00:00"
     }
@@ -214,6 +222,7 @@ class AudioPlayer: ObservableObject {
 
     func pause() {
         player?.pause()
+        gPlayer?.pause()
         isPlaying = false
         updateNowPlayingInfoElapsedPlaybackTime()
         shouldUpdateTime = false

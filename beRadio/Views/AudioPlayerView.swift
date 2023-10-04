@@ -11,7 +11,7 @@ struct AudioPlayerView: View {
     //    let skipIntervals = [15, 30, 60, 120, 240, 480]
     
     @ObservedObject var audioPlayer: AudioPlayer
-    
+
     @StateObject private var routeChangeHandler = RouteChangeHandler()
     
     @Binding private var audioUrl: URL
@@ -33,6 +33,7 @@ struct AudioPlayerView: View {
 #endif
 
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
+        print("AudioPlayerView init title \(title)")
         self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
         _audioUrl = url
         self.imageSrc = image
@@ -44,6 +45,10 @@ struct AudioPlayerView: View {
         gAudioPlayerView = self
     }
     
+    func play() {
+        
+    }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
