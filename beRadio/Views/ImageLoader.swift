@@ -55,9 +55,15 @@ struct AsyncImage: View {
                     .resizable()
             }
         }
-        .onChange(of: url) { newValue, _ in
+#if targetEnvironment(macCatalyst)
+        .onChange(of: url) { newValue in
             loader.update(url: newValue)
         }
+#else
+        .onChange(of: url) { oldValue, newValue in
+            loader.update(url: newValue)
+        }
+#endif
     }
 }
 

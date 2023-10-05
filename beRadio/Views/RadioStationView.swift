@@ -143,11 +143,19 @@ struct RadioStationsView: View {
                 }
             }
         }
+#if targetEnvironment(macCatalyst)
+        .onChange(of: isPresented) { value in
+            if !isPresented {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
+#else
         .onChange(of: isPresented) { value, _ in
             if value { // Its the oldValue
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
+#endif
 #if !os(tvOS)
         .navigationBarTitleDisplayMode(.inline)
 #endif

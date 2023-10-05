@@ -137,15 +137,21 @@ struct fullProgramsView: View {
                     }
 #endif
                 }
+#if targetEnvironment(macCatalyst)
+                .onChange(of: selectedURL) { newValue in
+                    showSafariView = newValue != nil
+                }
+#else
                 .onChange(of: selectedURL) { newValue, _ in
                     showSafariView = newValue != nil
                 }
+#endif
                 .toolbar {
-    #if os(iOS)
+#if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
                     }
-    #endif
+#endif
                 }
             }
         }

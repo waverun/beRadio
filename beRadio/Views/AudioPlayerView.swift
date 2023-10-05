@@ -82,17 +82,31 @@ struct AudioPlayerView: View {
                                         case audioUrl.absoluteString.hasPrefix("/"):
                                             AsyncImage(url: imageSrc)
                                                 .frame(width: 240, height: 240)
+#if targetEnvironment(macCatalyst)
+                                                .onChange(of: self.imageSrc) { newValue in
+                                                    currentImageSrc = newValue
+                                                    print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                }
+#else
                                                 .onChange(of: self.imageSrc) { newValue, _ in
                                                     currentImageSrc = newValue
                                                     print("currentImageSrc: \(currentImageSrc ?? "no value")")
                                                 }
+#endif
                                         default:
                                             AsyncImage(url: imageSrc)
                                                 .frame(width: 120, height: 120)
+#if targetEnvironment(macCatalyst)
+                                                .onChange(of: self.imageSrc) { newValue in
+                                                    currentImageSrc = newValue
+                                                    print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                }
+#else
                                                 .onChange(of: self.imageSrc) { newValue, _ in
                                                     currentImageSrc = newValue
                                                     print("currentImageSrc: \(currentImageSrc ?? "no value")")
                                                 }
+#endif
                                     }
                                 } else {
                                     switch true {
@@ -191,12 +205,21 @@ struct AudioPlayerView: View {
                             })
                             .tint(.secondary)
                             .padding(.horizontal)
+#if targetEnvironment(macCatalyst)
+                            .onChange(of: currentProgress) {newValue in
+                                audioPlayer.setCurrentProgressString(time: newValue)
+                            }
+                            .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { newValue in
+                                currentProgress = newValue
+                            }
+#else
                             .onChange(of: currentProgress) {oldValue, newValue in
                                 audioPlayer.setCurrentProgressString(time: newValue)
                             }
                             .onChange(of: audioPlayer.currentProgressString.timeStringToDouble()) { oldValue, newValue in
                                 currentProgress = newValue
                             }
+#endif
 #else
                             Spacer()
 #endif

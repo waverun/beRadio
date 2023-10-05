@@ -23,12 +23,17 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         predicate: NSPredicate(format: "isItemDeleted == %@", NSNumber(value: false)),
         animation: .default)
-    private var items: FetchedResults<Item>
+    var items: FetchedResults<Item>
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
-    private var deletedItems: FetchedResults<Item>
+    var deletedItems: FetchedResults<Item>
+    var filteredItems: [Item] {
+        return items.filter {
+            searchText.isEmpty || $0.name?.localizedStandardContains(searchText) == true
+        }
+    }
 
     let radioStationsData = RadioStationData()
 
@@ -55,7 +60,6 @@ struct ContentView: View {
         [Color.blue, Color.gray],
         [Color.blue, Color.purple],
         [Color.purple, Color.red],
-//        [Color.secondary, Color.white],
         [Color.orange, Color.yellow],
         [Color.pink, Color.blue],
         [Color.green, Color.orange],
@@ -94,10 +98,10 @@ struct ContentView: View {
                         Text(isEditing ? "Cancel" : "Edit")
                     }.disabled(items.isEmpty)
                     #endif
-                    //                    ForEach(items) { item in
-                    ForEach(items.filter { item in
-                        searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
-                    }) { item in
+//                    ForEach(items.filter { item in
+//                        searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
+//                    }) { item in
+                    ForEach(filteredItems) { item in
                         HStack {
                             #if os(tvOS)
                             if isEditing {
@@ -140,10 +144,7 @@ struct ContentView: View {
                                     default :
                                         if  let urlString = item.url,
                                             let url = URL(string: urlString) {
-                                            //                                        AudioPlayerView(url: url, image: item.favicon, date: item.name ?? "Radio", isLive: true)
                                             AudioPlayerView(url: $audioUrl, image: item.favicon, date: $heading, isLive: $isLive, title: item.name ?? "Radio", artist: "Live")
-//                                                .navigationBarTitle("beRadio", displayMode: .inline)
-//                                                .navigationBarHidden(true)
                                                 .onAppear {
                                                     DispatchQueue.main.async {
                                                         audioUrl = url
@@ -156,12 +157,6 @@ struct ContentView: View {
                             } label: {
                                 Text(item.name ?? "New station")
                             }
-//#if os(tvOS)
-//                            .onTapGesture {
-//                                self.itemToDelete = item
-//                                self.showingDeletionAlert = true
-//                            }
-//#endif
                         }
                     }
                     .onDelete(perform: deleteItems)
@@ -262,9 +257,15 @@ struct ContentView: View {
 #endif
                 }
 #if !os(tvOS)
+#if targetEnvironment(macCatalyst)
+                .onChange(of: locationManager.authorizationStatus) { newStatus in
+                    isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
+                }
+#else
                 .onChange(of: locationManager.authorizationStatus) { oldStatus, newStatus in
                     isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
                 }
+#endif
                 .navigationBarTitle(title, displayMode: .inline)
 #endif
                 Text("Select an item")
