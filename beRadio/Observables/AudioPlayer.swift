@@ -388,4 +388,9 @@ class AudioPlayer: ObservableObject {
             }
         }
     }
+    
+    @objc func handlePlayPause() {
+        // Handle the play/pause media key event
+        self.isPlaying.toggle()
+    }
 }

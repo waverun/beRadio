@@ -169,7 +169,6 @@ struct AudioPlayerView: View {
                                                 .frame(width: 50, height: 50)
                                                 .tint(.white)
                                         }
-
                                         Text("\(audioPlayer.totalDurationString)")
                                             .frame(width: frameWidth, alignment: .trailing)
                                             .foregroundColor(.white)
