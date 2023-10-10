@@ -2,6 +2,8 @@ import SwiftUI
 import Combine
 import Foundation
 
+var gDominantColors = ThreadSafeDict<String, [Color]>()
+
 class ImageLoader: ObservableObject {
     @Published var image: UIImage?
     private var cancellable: AnyCancellable?
@@ -27,6 +29,10 @@ class ImageLoader: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 self?.image = $0
+                if let currentUrl = self?.currentUrl,
+                   let image = self?.image {
+                    gDominantColors[currentUrl] = getDominantColors(in: image)
+                }
             }
     }
 }

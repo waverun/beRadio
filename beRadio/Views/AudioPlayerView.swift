@@ -4,16 +4,16 @@ import AVFoundation
 var gAudioPlayerView: AudioPlayerView?
 
 struct AudioPlayerView: View {
-//    @Environment(\.presentationMode) var presentationMode
 
-    @State private var currentProgress: Double = 0
-    
+    @State var currentProgress: Double = 0
+//    let dominantColors = [Color.red, Color.yellow]
+
     //    let skipIntervals = [15, 30, 60, 120, 240, 480]
     
     @ObservedObject var audioPlayer: AudioPlayer
 
     @StateObject private var routeChangeHandler = RouteChangeHandler()
-    
+
     @Binding private var audioUrl: URL
     private var imageSrc: String?
     @Binding private var heading: String
@@ -36,7 +36,7 @@ struct AudioPlayerView: View {
         print("AudioPlayerView init title \(title)")
         switch true {
             case gAudioPlayer == nil :
-            self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
+                self.audioPlayer = AudioPlayer(isLive: isLive.wrappedValue, albumArt: image, title: title, artist: artist)
             default:
                 self.audioPlayer = gAudioPlayer!
         }
@@ -48,8 +48,12 @@ struct AudioPlayerView: View {
         self.artist = artist
         self.onAppearAction = onAppearAction
         gAudioPlayerView = self
+//        if let image = image,
+//           let imageUrl = URL(string: image) {
+//            imageLoader.loadDominantColors(from: imageUrl)
+//        }
     }
-    
+
     func play() {
         
     }
@@ -57,7 +61,7 @@ struct AudioPlayerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                RadialGradient(gradient: Gradient(colors: [.red, .yellow]), center: .center, startRadius: 5, endRadius: 500)
+                RadialGradient(gradient: Gradient(colors: gDominantColors[imageSrc ?? ""] ?? [Color.red, Color.yellow]), center: .center, startRadius: 5, endRadius: 500)
                     .scaleEffect(1.5)
                     .ignoresSafeArea()
 //                LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .clear]), startPoint: .top, endPoint: .bottom)
