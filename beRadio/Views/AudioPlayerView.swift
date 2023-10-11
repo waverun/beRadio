@@ -74,12 +74,11 @@ struct AudioPlayerView: View {
                         VStack {
                             Spacer()
                                 .frame(height: 50) // Adjust the height value as needed
-
                             Text(heading)
                                 .font(.system(size: 24)) // Adjust the size value as needed
                                 .bold()
                                 .multilineTextAlignment(.center)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(gPlayerTextColor[imageSrc ?? ""])
                             if let imageSrc = currentImageSrc {
                                 if #available(iOS 17, *) {
                                     switch true {

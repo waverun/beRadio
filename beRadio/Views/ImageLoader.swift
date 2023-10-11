@@ -3,6 +3,7 @@ import Combine
 import Foundation
 
 var gDominantColors = ThreadSafeDict<String, [Color]>()
+var gPlayerTextColor = ThreadSafeDict<String, Color>()
 
 class ImageLoader: ObservableObject {
     @Published var image: UIImage?
@@ -31,7 +32,10 @@ class ImageLoader: ObservableObject {
                 self?.image = $0
                 if let currentUrl = self?.currentUrl,
                    let image = self?.image {
-                    gDominantColors[currentUrl] = getDominantColors(in: image)
+                    if let dominantColors = getDominantColors(in: image) {
+                        gDominantColors[currentUrl] = dominantColors
+                        gPlayerTextColor[currentUrl] = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? Color(.black) : Color(.systemGray2)
+                    }
                 }
             }
     }
