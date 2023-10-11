@@ -11,6 +11,10 @@ struct AudioPlayerView: View {
     //    let skipIntervals = [15, 30, 60, 120, 240, 480]
     
     @ObservedObject var audioPlayer: AudioPlayer
+    @ObservedObject var colorManager = sharedColorManager
+
+    @State private var dominantColors: [Color] = [Color.red, Color.yellow]  // Default values
+    @State private var playerTextColor: Color = Color.black  // Default value
 
     @StateObject private var routeChangeHandler = RouteChangeHandler()
 
@@ -61,7 +65,8 @@ struct AudioPlayerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                RadialGradient(gradient: Gradient(colors: gDominantColors[imageSrc ?? ""] ?? [Color.red, Color.yellow]), center: .center, startRadius: 5, endRadius: 500)
+//                RadialGradient(gradient: Gradient(colors: gDominantColors[imageSrc ?? ""] ?? [Color.red, Color.yellow]), center: .center, startRadius: 5, endRadius: 500)
+                RadialGradient(gradient: Gradient(colors: dominantColors), center: .center, startRadius: 5, endRadius: 500)
                     .scaleEffect(1.5)
                     .ignoresSafeArea()
 //                LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .clear]), startPoint: .top, endPoint: .bottom)
@@ -78,7 +83,8 @@ struct AudioPlayerView: View {
                                 .font(.system(size: 24)) // Adjust the size value as needed
                                 .bold()
                                 .multilineTextAlignment(.center)
-                                .foregroundColor(gPlayerTextColor[imageSrc ?? ""])
+//                                .foregroundColor(gPlayerTextColor[imageSrc ?? ""])
+                                .foregroundColor(playerTextColor)
                             if let imageSrc = currentImageSrc {
                                 if #available(iOS 17, *) {
                                     switch true {
@@ -250,6 +256,16 @@ struct AudioPlayerView: View {
                     Spacer()
                 }
                 .edgesIgnoringSafeArea(.bottom)
+            }
+            .onReceive(colorManager.$dominantColorsDict) { dict in
+                if let colors = dict[self.imageSrc ?? ""] {
+                    self.dominantColors = colors
+                }
+            }
+            .onReceive(colorManager.$playerTextColorDict) { dict in
+                if let color = dict[self.imageSrc ?? ""] {
+                    self.playerTextColor = color
+                }
             }
         }
         .onAppear {
