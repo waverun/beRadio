@@ -235,7 +235,7 @@ struct AudioPlayerView: View {
                             Spacer()
 #endif
                         }
-                        #if !os(tvOS)
+#if !os(tvOS) && !targetEnvironment(macCatalyst)
                         let availableSpace = geometry.size.height - geometry.safeAreaInsets.bottom - geometry.size.width / 2
                         Spacer()
                             .frame(height: availableSpace / 4)
@@ -254,7 +254,7 @@ struct AudioPlayerView: View {
                         .cornerRadius(8)
 
                         Spacer()
-                        #endif
+#endif
                     }
                     Spacer()
                 }
