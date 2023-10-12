@@ -2,12 +2,13 @@ import SwiftUI
 import Combine
 import Foundation
 
-var gDominantColors = ThreadSafeDict<String, [Color]>()
-var gPlayerTextColor = ThreadSafeDict<String, Color>()
+//var gDominantColors = ThreadSafeDict<String, [Color]>()
+//var gPlayerTextColor = ThreadSafeDict<String, Color>()
 
 class ColorManager: ObservableObject {
     @Published var dominantColorsDict: [String: [Color]] = [:]
     @Published var playerTextColorDict: [String: Color] = [:]
+    @Published var imageDict: [String: UIImage] = [:]
 
     func updateColors(for url: String, dominantColors: [Color], playerTextColor: Color) {
         DispatchQueue.main.async {
@@ -34,6 +35,12 @@ class ImageLoader: ObservableObject {
         }
         
         currentUrl = url
+
+        if  let currentUrl = currentUrl,
+            let currentImage = sharedColorManager.imageDict[currentUrl] {
+            image = currentImage
+        }
+
         cancellable?.cancel()
         
         guard let url = URL(string: url) else { return }
@@ -46,6 +53,7 @@ class ImageLoader: ObservableObject {
                 self?.image = $0
                 if let currentUrl = self?.currentUrl,
                    let image = self?.image {
+                    sharedColorManager.imageDict[currentUrl] = image
                     DispatchQueue.global(qos: .background).async {
                         if let dominantColors = getDominantColors(in: image) {
                             DispatchQueue.main.async {

@@ -95,12 +95,12 @@ struct AudioPlayerView: View {
 #if targetEnvironment(macCatalyst)
                                                     .onChange(of: self.imageSrc) { newValue in
                                                         currentImageSrc = newValue
-                                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                        print("currentImageSrc1: \(currentImageSrc ?? "no value")")
                                                     }
 #else
-                                                    .onChange(of: self.imageSrc) { newValue, _ in
+                                                    .onChange(of: self.imageSrc) { oldValue, newValue in
                                                         currentImageSrc = newValue
-                                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                        print("currentImageSrc2: \(currentImageSrc ?? "no value")")
                                                     }
 #endif
                                             default:
@@ -109,12 +109,12 @@ struct AudioPlayerView: View {
 #if targetEnvironment(macCatalyst)
                                                     .onChange(of: self.imageSrc) { newValue in
                                                         currentImageSrc = newValue
-                                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                        print("currentImageSrc3: \(currentImageSrc ?? "no value")")
                                                     }
 #else
-                                                    .onChange(of: self.imageSrc) { newValue, _ in
+                                                    .onChange(of: self.imageSrc) { oldValue, newValue in
                                                         currentImageSrc = newValue
-                                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                        print("currentImageSrc4: \(currentImageSrc ?? "no value")")
                                                     }
 #endif
                                         }
@@ -125,14 +125,14 @@ struct AudioPlayerView: View {
                                                     .frame(width: 240, height: 240)
                                                     .onChange(of: self.imageSrc) { newValue in
                                                         currentImageSrc = newValue
-                                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                        print("currentImageSrc5: \(currentImageSrc ?? "no value")")
                                                     }
                                             default:
                                                 AsyncImage(url: imageSrc)
                                                     .frame(width: 120, height: 120)
                                                     .onChange(of: self.imageSrc) { newValue in
                                                         currentImageSrc = newValue
-                                                        print("currentImageSrc: \(currentImageSrc ?? "no value")")
+                                                        print("currentImageSrc6: \(currentImageSrc ?? "no value")")
                                                     }
                                         }
                                     }
@@ -263,6 +263,11 @@ struct AudioPlayerView: View {
             .onReceive(colorManager.$dominantColorsDict) { dict in
                 if let colors = dict[self.imageSrc ?? ""] {
                     self.dominantColors = colors
+                }
+            }
+            .onReceive(colorManager.$playerTextColorDict) { dict in
+                if let color = dict[self.imageSrc ?? ""] {
+                    self.playerTextColor = color
                 }
             }
             .onReceive(colorManager.$playerTextColorDict) { dict in
