@@ -57,8 +57,9 @@ class ImageLoader: ObservableObject {
                     DispatchQueue.global(qos: .background).async {
                         if let dominantColors = getDominantColors(in: image) {
                             DispatchQueue.main.async {
-                                let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? Color(.black.opacity(0.8)) : .white.opacity(0.8)
-                                sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors, playerTextColor: playerTextColor)
+                                let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
+
+                                sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors, playerTextColor: playerTextColor.opacity(0.8))
                             }
                         }
                     }

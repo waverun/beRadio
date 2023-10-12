@@ -105,6 +105,7 @@ class AudioPlayer: ObservableObject {
         player?.pause()
         player = nil
         gPlayer = nil
+        gAudioPlayer = nil
         currentProgressString = "00:00"
         totalDurationString = "00:00"
     }
