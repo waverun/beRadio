@@ -6,6 +6,8 @@ import CoreLocation
 struct ContentView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
+
+    @ObservedObject var colorManager = sharedColorManager
     #if !os(tvOS)
     @ObservedObject var locationManager = LocationManager()
     #else
@@ -54,6 +56,8 @@ struct ContentView: View {
     @State private var isRadioStationsViewPresented = true
     @State private var searchText = ""
 
+    @State var stationColors: [(station: String, colors: [Color])] = []
+
     let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
 
     let colors: [[Color]] = [
@@ -101,7 +105,8 @@ struct ContentView: View {
 //                    ForEach(items.filter { item in
 //                        searchText.isEmpty || item.name?.localizedStandardContains(searchText) == true
 //                    }) { item in
-                    ForEach(filteredItems) { item in
+//                    ForEach(filteredItems) { item in
+                    ForEach(Array(zip(items, stationColors)), id: \.0) { item, stationColor in
                         HStack {
                             #if os(tvOS)
                             if isEditing {
@@ -155,7 +160,18 @@ struct ContentView: View {
                                         }
                                 }
                             } label: {
-                                Text(item.name ?? "New station")
+                                ZStack {
+                                    RadialGradient(
+                                        gradient: Gradient(colors: stationColor.colors),
+                                        center: .center,
+                                        startRadius: 0,
+                                        endRadius: 200
+                                    )
+                                    .edgesIgnoringSafeArea(.all)
+                                    .cornerRadius(10)
+                                    Text(item.name ?? "New station")
+                                    .foregroundColor(.white)
+                                }
                             }
                         }
                     }
@@ -241,6 +257,19 @@ struct ContentView: View {
                 }
                 .onAppear {
                     print("List: onAppear")
+                    for item in items {
+                        if let urlString = item.favicon {
+                            stationColors.append((urlString, [Color.red, Color.yellow]))
+                        }
+                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                        stationColors = []
+//                        for item in items {
+//                            if let urlString = item.url {
+//                                stationColors.append((urlString, [Color.black, Color.white]))
+//                            }
+//                        }
+//                    }
 //                    addApprovedStations()
 #if DEBUG
                     getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
@@ -255,6 +284,15 @@ struct ContentView: View {
                     locationManager.checkLocationAuthorization()
                     isAuthorized = locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse
 #endif
+                }
+                .onReceive(colorManager.$dominantColorsDict) { dict in
+                    print("ContentView onReceive dict.count \(dict.count)")
+                    for station in dict.keys {
+                        if let index = stationColors.firstIndex(where: { $0.station == station }) {
+                            print("Found index:", index)  // Output will be 2
+                            stationColors[index].colors = dict[station] ?? [.red, .yellow]
+                        }
+                    }
                 }
 #if !os(tvOS)
 #if targetEnvironment(macCatalyst)
@@ -357,6 +395,11 @@ struct ContentView: View {
         withAnimation {
             offsets.map { items[$0] }.forEach { item in
                 item.isItemDeleted = true
+                if let index = stationColors.firstIndex(where: { $0.station == item.favicon }) {
+                    print("Found index:", index)  // Output will be 2
+                    stationColors.remove(at: index)
+                }
+
             }
             do {
                 try viewContext.save()
@@ -401,6 +444,10 @@ struct ContentView: View {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
         isRadioStationsViewPresented = false
+
+        if let favicon = newItem.favicon {
+            stationColors.append((favicon, [.red, .yellow]))
+        }
     }
 
     private func itemExists(station: RadioStation) -> Bool {
