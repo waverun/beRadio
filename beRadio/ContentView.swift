@@ -259,7 +259,12 @@ struct ContentView: View {
                     print("List: onAppear")
                     for item in items {
                         if let urlString = item.favicon {
-                            stationColors.append((urlString, [Color.red, Color.yellow]))
+                            var colors = [Color.red, Color.yellow]
+                            if let colorsData = item.colors,
+                                let colorsFromData = dataToColors(data: colorsData) {
+                                colors = colorsFromData
+                            }
+                            stationColors.append((urlString, colors))
                         }
                     }
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
@@ -291,8 +296,13 @@ struct ContentView: View {
                         if let index = stationColors.firstIndex(where: { $0.station == station }) {
                             print("Found index:", index)  // Output will be 2
                             stationColors[index].colors = dict[station] ?? [.red, .yellow]
+
+                            if let colors = colorsToData(colors: stationColors[index].colors) {
+                                items[index].colors = colors
+                            }
                         }
                     }
+                    saveItems()
                 }
 #if !os(tvOS)
 #if targetEnvironment(macCatalyst)
@@ -401,12 +411,16 @@ struct ContentView: View {
                 }
 
             }
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            saveItems()
+        }
+    }
+
+    func saveItems() {
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 
@@ -434,6 +448,9 @@ struct ContentView: View {
         newItem.favicon = station.favicon
         newItem.homepage = station.homepage
         newItem.isItemDeleted = false
+        if let index = stationColors.firstIndex(where: { $0.station == newItem.favicon }) {
+            newItem.colors = colorsToData(colors: stationColors[index].colors)
+        }
 
         do {
             try viewContext.save()
@@ -452,5 +469,19 @@ struct ContentView: View {
 
     private func itemExists(station: RadioStation) -> Bool {
         return items.contains(where: { $0.url == station.url })
+    }
+
+    // Convert an array of Colors to Data
+    func colorsToData(colors: [Color]) -> Data? {
+        let codableColors = colors.map { CodableColor(UIColor($0)) }
+        return try? JSONEncoder().encode(codableColors)
+    }
+
+    // Convert Data back to an array of Colors
+    func dataToColors(data: Data) -> [Color]? {
+        guard let decodedColors = try? JSONDecoder().decode([CodableColor].self, from: data) else {
+            return nil
+        }
+        return decodedColors.map { Color($0.color) }
     }
 }
