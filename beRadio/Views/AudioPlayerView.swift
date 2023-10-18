@@ -199,9 +199,11 @@ struct AudioPlayerView: View {
                             }
 #if !os(tvOS)
                             Slider(value: $currentProgress,
-                                   in: 0...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
+                                   in: max(0, $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration)...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
                                    onEditingChanged: { isEditing in
-                                print("slider: \(isEditing)")
+                                let startSlider = $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration
+                                print("AudioPlayerView slider startSlider: \(startSlider)")
+                                print("AudioPlayerView slider: \(isEditing) timeStringToDouble() \($audioPlayer.totalDurationString.wrappedValue.timeStringToDouble())")
                                 if isEditing {
                                     audioPlayer.shouldUpdateTotalDuration = false
                                     isCurrentlyPlaying = audioPlayer.isPlaying

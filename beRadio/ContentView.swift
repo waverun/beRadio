@@ -176,49 +176,50 @@ struct ContentView: View {
                         }
                     }
                     .onDelete(perform: deleteItems)
-                    NavigationLink {
-//                        var country = ""
-//                        var state = ""
-#if os(tvOS)
-//                        country = NSLocale.current.regionCode ?? ""
-//                        state = ""
-#else
-                        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-//                            country = locationManager.currentCountry
-//                            state = locationManager.currentState
-                        }
-                        //                    }
-                        else {
-                            LocationPermissionView(locationManager: locationManager)
-                        }
-#endif
-                        RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: "country", state: "state") { station in
-                            addItem(station)
-                        }
-                    } label: {
-                        ZStack {
-                            //                            LinearGradient(
-                            //                                gradient: Gradient(colors: [.red, .blue]),
-                            //                                startPoint: .top,
-                            //                                endPoint: .bottom
-                            //                            )
-                            RadialGradient(
-                                gradient: Gradient(colors: [.red, .blue]),
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: 200
-                            )
-                            //                            AngularGradient(
-                            //                                gradient: Gradient(colors: [.red, .blue]),
-                            //                                center: .center,
-                            //                                angle: .degrees(45)
-                            //                            )
-                            .edgesIgnoringSafeArea(.all)
-                            .cornerRadius(10) // Adjust the corner radius as needed
-                            Text("Local stations")
-                                .foregroundColor(.white)
-                        }
-                    }
+//                    This is Local stations link:
+//                    NavigationLink { // Local Stations
+////                        var country = ""
+////                        var state = ""
+//#if os(tvOS)
+////                        country = NSLocale.current.regionCode ?? ""
+////                        state = ""
+//#else
+//                        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
+////                            country = locationManager.currentCountry
+////                            state = locationManager.currentState
+//                        }
+//                        //                    }
+//                        else {
+//                            LocationPermissionView(locationManager: locationManager)
+//                        }
+//#endif
+//                        RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, localStations: true, country: "country", state: "state") { station in
+//                            addItem(station)
+//                        }
+//                    } label: {
+//                        ZStack {
+//                            //                            LinearGradient(
+//                            //                                gradient: Gradient(colors: [.red, .blue]),
+//                            //                                startPoint: .top,
+//                            //                                endPoint: .bottom
+//                            //                            )
+//                            RadialGradient(
+//                                gradient: Gradient(colors: [.red, .blue]),
+//                                center: .center,
+//                                startRadius: 0,
+//                                endRadius: 200
+//                            )
+//                            //                            AngularGradient(
+//                            //                                gradient: Gradient(colors: [.red, .blue]),
+//                            //                                center: .center,
+//                            //                                angle: .degrees(45)
+//                            //                            )
+//                            .edgesIgnoringSafeArea(.all)
+//                            .cornerRadius(10) // Adjust the corner radius as needed
+//                            Text("Local stations")
+//                                .foregroundColor(.white)
+//                        }
+//                    }
                     ForEach(Array(zip(genres, colors)), id: \.0) { genre, colors1 in
                         NavigationLink {
                             RadioStationsView(radioStationsData: radioStationsData, isPresented: $isRadioStationsViewPresented, approvedStations: ApprovedStations.shared.approvedStations, genre: genre, colors: colors1) { station in

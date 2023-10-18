@@ -23,6 +23,7 @@ class AudioPlayer: ObservableObject {
     @Published var currentProgressString: String = "00:00"
     @Published var totalDurationString: String = "00:00"
     @Published var shouldUpdateTotalDuration: Bool = true // For stoppting the update when moving the slider.
+    @Published var bufferDuration: TimeInterval = 0
 
     private var shouldUpdateTime: Bool = true
     private var albumArt: String?
@@ -134,7 +135,7 @@ class AudioPlayer: ObservableObject {
             do {
                 let asset = AVURLAsset(url: url)
                 let item = AVPlayerItem(asset: asset)
-                let bufferDuration: TimeInterval = getAvailableBufferSize(seconds: 7200)
+                bufferDuration = getAvailableBufferSize(seconds: 7200)
                 print("bufferDuration: \(bufferDuration)")
                 item.preferredForwardBufferDuration = bufferDuration
 
@@ -298,6 +299,7 @@ class AudioPlayer: ObservableObject {
     private func updateCurrentProgressString() {
         if let currentTime = player?.currentTime() {
             currentProgressString = timeFormatter.string(from: currentTime.seconds) ?? "00:00"
+            print("AudioPlayer updateCurrentProgressString currentProgressString: \(currentProgressString)")
         }
     }
     
