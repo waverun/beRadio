@@ -24,11 +24,12 @@ class AudioPlayer: ObservableObject {
     @Published var totalDurationString: String = "00:00"
     @Published var shouldUpdateTotalDuration: Bool = true // For stoppting the update when moving the slider.
     @Published var bufferDuration: TimeInterval = 0
+    @Published var bufferDurationString = ""
 
-    private var shouldUpdateTime: Bool = true
-    private var albumArt: String?
-    private var title, artist: String
-    private var isLive: Bool
+    var shouldUpdateTime: Bool = true
+    var albumArt: String?
+    var title, artist: String
+    var isLive: Bool
     
     init(isLive: Bool, albumArt: String?, title: String, artist: String) {
         self.isLive = isLive
@@ -49,6 +50,10 @@ class AudioPlayer: ObservableObject {
             timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] _ in
                 guard let self = self else { return }
                 self.updateTotalDurationString()
+                if let _bufferDuration = calcBufferDuration() {
+                    bufferDuration = _bufferDuration.backwardBuffer + _bufferDuration.forwardBuffer
+                    bufferDurationString = timeFormatter.string(from: bufferDuration) ?? "--:--"
+                }
             }
         }
     }
@@ -111,20 +116,20 @@ class AudioPlayer: ObservableObject {
         totalDurationString = "00:00"
     }
 
-    func getAvailableBufferSize(seconds: TimeInterval) -> TimeInterval {
-        if checkMemoryAvailability(bufferSize: seconds) {
-            return seconds
-        }
-        var seconds = seconds / 2
-        if checkMemoryAvailability(bufferSize: seconds) {
-            return seconds
-        }
-        seconds /= 2
-        if checkMemoryAvailability(bufferSize: seconds) {
-            return seconds
-        }
-        return TimeInterval(600)
-    }
+//    func getAvailableBufferSize(seconds: TimeInterval) -> TimeInterval {
+//        if checkMemoryAvailability(bufferSize: seconds) {
+//            return seconds
+//        }
+//        var seconds = seconds / 2
+//        if checkMemoryAvailability(bufferSize: seconds) {
+//            return seconds
+//        }
+//        seconds /= 2
+//        if checkMemoryAvailability(bufferSize: seconds) {
+//            return seconds
+//        }
+//        return TimeInterval(600)
+//    }
 
     func play(url: URL? = nil) {
         var isNewPlayer = false
@@ -135,7 +140,8 @@ class AudioPlayer: ObservableObject {
             do {
                 let asset = AVURLAsset(url: url)
                 let item = AVPlayerItem(asset: asset)
-                bufferDuration = getAvailableBufferSize(seconds: 7200)
+//                bufferDuration = getAvailableBufferSize(seconds: 7200)
+                bufferDuration = 60
                 print("bufferDuration: \(bufferDuration)")
                 item.preferredForwardBufferDuration = bufferDuration
 
@@ -371,6 +377,7 @@ class AudioPlayer: ObservableObject {
                                 if shouldUpdateTotalDuration {
                                     totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
                                     print("totalDurationString \(totalDurationString)")
+                                    _ = calcBufferDuration()
                                 }
                             }
                         }
@@ -395,5 +402,26 @@ class AudioPlayer: ObservableObject {
     @objc func handlePlayPause() {
         // Handle the play/pause media key event
         self.isPlaying.toggle()
+    }
+
+    func calcBufferDuration() -> (backwardBuffer: Float64, forwardBuffer: Float64)? {
+        if let playerItem = player?.currentItem,
+           let timeRange = playerItem.loadedTimeRanges.first?.timeRangeValue {
+            let startSeconds = CMTimeGetSeconds(timeRange.start)
+            let durationSeconds = CMTimeGetSeconds(timeRange.duration)
+            let currentPlayheadSeconds = CMTimeGetSeconds(playerItem.currentTime())
+
+            let bufferStart = startSeconds
+            let bufferEnd = startSeconds + durationSeconds
+
+            let backwardBuffer = currentPlayheadSeconds - bufferStart
+            let forwardBuffer = bufferEnd - currentPlayheadSeconds
+
+            print("Backward buffer: \(backwardBuffer) seconds")
+            print("Forward buffer: \(forwardBuffer) seconds")
+
+            return (backwardBuffer, forwardBuffer)
+        }
+        return nil
     }
 }

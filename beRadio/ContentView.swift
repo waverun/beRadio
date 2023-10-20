@@ -292,18 +292,7 @@ struct ContentView: View {
 #endif
                 }
                 .onReceive(colorManager.$dominantColorsDict) { dict in
-                    print("ContentView onReceive dict.count \(dict.count)")
-                    for station in dict.keys {
-                        if let index = stationColors.firstIndex(where: { $0.station == station }) {
-                            print("Found index:", index)  // Output will be 2
-                            stationColors[index].colors = dict[station] ?? [.red, .yellow]
-
-                            if let colors = colorsToData(colors: stationColors[index].colors) {
-                                items[index].colors = colors
-                            }
-                        }
-                    }
-                    saveItems()
+                    onReceiveDominantColors(dict: dict)
                 }
 #if !os(tvOS)
 #if targetEnvironment(macCatalyst)
@@ -335,6 +324,25 @@ struct ContentView: View {
         }
     }
     
+    func onReceiveDominantColors(dict: [String : [Color]]) {
+        print("ContentView onReceive dict.count \(dict.count)")
+        for station in dict.keys {
+            let indexes = stationColors.enumerated().compactMap { (index, element) in
+                return element.station == station ? index : nil
+            }
+            for index in indexes {
+//            if let index = stationColors.firstIndex(where: { $0.station == station }) {
+                print("Found index:", index)  // Output will be 2
+                stationColors[index].colors = dict[station] ?? [.red, .yellow]
+
+                if let colors = colorsToData(colors: stationColors[index].colors) {
+                    items[index].colors = colors
+                }
+            }
+        }
+        saveItems()
+    }
+
     private func clearAllUrls() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Link.fetchRequest()
         

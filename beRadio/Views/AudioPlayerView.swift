@@ -198,26 +198,30 @@ struct AudioPlayerView: View {
                                 }
                             }
 #if !os(tvOS)
-                            Slider(value: $currentProgress,
-                                   in: max(0, $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration)...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
-                                   onEditingChanged: { isEditing in
-                                let startSlider = $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration
-                                print("AudioPlayerView slider startSlider: \(startSlider)")
-                                print("AudioPlayerView slider: \(isEditing) timeStringToDouble() \($audioPlayer.totalDurationString.wrappedValue.timeStringToDouble())")
-                                if isEditing {
-                                    audioPlayer.shouldUpdateTotalDuration = false
-                                    isCurrentlyPlaying = audioPlayer.isPlaying
-                                    audioPlayer.pause()
-                                } else {
-                                    audioPlayer.seekToNewTime(currentProgress.toCMTime())
-                                    if isCurrentlyPlaying {
-                                        audioPlayer.play()
+                            VStack {
+                                Slider(value: $currentProgress,
+                                       in: max(0, $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration)...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
+                                       onEditingChanged: { isEditing in
+                                    let startSlider = $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration
+                                    print("AudioPlayerView slider startSlider: \(startSlider)")
+                                    print("AudioPlayerView slider: \(isEditing) timeStringToDouble() \($audioPlayer.totalDurationString.wrappedValue.timeStringToDouble())")
+                                    if isEditing {
+                                        audioPlayer.shouldUpdateTotalDuration = false
+                                        isCurrentlyPlaying = audioPlayer.isPlaying
+                                        audioPlayer.pause()
+                                    } else {
+                                        audioPlayer.seekToNewTime(currentProgress.toCMTime())
+                                        if isCurrentlyPlaying {
+                                            audioPlayer.play()
+                                        }
+                                        //                                audioPlayer.shouldUpdateTotalDuration = true
                                     }
-                                    //                                audioPlayer.shouldUpdateTotalDuration = true
-                                }
-                            })
-                            .tint(.secondary)
-                            .padding(.horizontal)
+                                })
+                                .tint(.secondary)
+                                .padding(.horizontal)
+//                                Text(audioPlayer.bufferDurationString)
+//                                .multilineTextAlignment(.center)
+                            }
 #if targetEnvironment(macCatalyst)
                             .onChange(of: currentProgress) {newValue in
                                 audioPlayer.setCurrentProgressString(time: newValue)
