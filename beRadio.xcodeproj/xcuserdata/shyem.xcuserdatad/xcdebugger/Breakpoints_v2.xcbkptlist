@@ -42,8 +42,8 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "update(url:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,8 +58,8 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "update(url:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,8 +74,8 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "update(url:_:)"
             landmarkType = "7">
             <Locations>
@@ -122,8 +122,8 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "update(url:_:)"
             landmarkType = "7">
             <Locations>
@@ -250,10 +250,10 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "init()"
-            landmarkType = "7">
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "ColorManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -282,10 +282,10 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "dominantColorsBeingCalculatedFor"
-            landmarkType = "24">
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "ColorManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -298,10 +298,10 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "dominantColorsBeingCalculatedFor"
-            landmarkType = "24">
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "ColorManager"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "DCB0FE70-D958-4633-91E0-D6E5E8BC5E22 - 254704623e118a7a"
@@ -346,10 +346,10 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "dominantColorsBeingCalculatedFor"
-            landmarkType = "24">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "ColorManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -362,8 +362,8 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "update(url:_:)"
             landmarkType = "7">
             <Locations>
@@ -410,10 +410,10 @@
             filePath = "beRadio/Views/ImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "init()"
-            landmarkType = "7">
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "ColorManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

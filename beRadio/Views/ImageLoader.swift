@@ -7,16 +7,17 @@ import Foundation
 let sharedColorManager = ColorManager()
 
 class ColorManager: ObservableObject {
-    @AppStorage("dominantColorsBeingCalculatedForString") private var dominantColorsBeingCalculatedForString: String = ""
+//    @AppStorage("dominantColorsBeingCalculatedForString") private var dominantColorsBeingCalculatedForString: String = ""
 
-    var dominantColorsBeingCalculatedFor: Set<String> {
-        get {
-            Set(dominantColorsBeingCalculatedForString.split(separator: ",").map { String($0) })
-        }
-        set {
-            dominantColorsBeingCalculatedForString = newValue.joined(separator: ",")
-        }
-    }
+    var dominantColorsBeingCalculatedFor = Set<String>()
+//    {
+//        get {
+//            Set(dominantColorsBeingCalculatedForString.split(separator: ",").map { String($0) })
+//        }
+//        set {
+//            dominantColorsBeingCalculatedForString = newValue.joined(separator: ",")
+//        }
+//    }
 
 
     @Published var dominantColorsDict: [String: [Color]] = [:]
@@ -25,11 +26,11 @@ class ColorManager: ObservableObject {
     @Published var imageDict: [String: UIImage] = [:]
 
 
-    init() {
-        if !dominantColorsBeingCalculatedForString.isEmpty {
-            dominantColorsBeingCalculatedFor = Set(dominantColorsBeingCalculatedForString.split(separator: ",").map { String($0) })
-        }
-    }
+//    init() {
+//        if !dominantColorsBeingCalculatedForString.isEmpty {
+//            dominantColorsBeingCalculatedFor = Set(dominantColorsBeingCalculatedForString.split(separator: ",").map { String($0) })
+//        }
+//    }
 
     func updateColors(for url: String, dominantColors: [Color]) {
         DispatchQueue.main.async {
@@ -76,9 +77,9 @@ class ImageLoader: ObservableObject {
                     sharedColorManager.imageDict[currentUrl] = image
                     if shouldGetDominantColors,
                        sharedColorManager.dominantColorsDict [currentUrl] == nil ||
-                        sharedColorManager.dominantColorsDict [currentUrl]!.isEmpty {
-//                       !sharedColorManager.dominantColorsBeingCalculatedFor.contains(currentUrl) {
-//                        sharedColorManager.dominantColorsBeingCalculatedFor.insert(currentUrl)
+                        sharedColorManager.dominantColorsDict [currentUrl]!.isEmpty,
+                       !sharedColorManager.dominantColorsBeingCalculatedFor.contains(currentUrl) {
+                        sharedColorManager.dominantColorsBeingCalculatedFor.insert(currentUrl)
                         DispatchQueue.global(qos: .background).async {
                             print("ImageLoader update DispatchQueue.global")
                             if let dominantColors = getDominantColors(in: image),
