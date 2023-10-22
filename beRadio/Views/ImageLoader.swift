@@ -3,7 +3,6 @@ import Combine
 import Foundation
 
 //var gDominantColors = ThreadSafeDict<String, [Color]>()
-//var gPlayerTextColor = ThreadSafeDict<String, Color>()
 
 class ColorManager: ObservableObject {
     @Published var dominantColorsDict: [String: [Color]] = [:]
@@ -55,7 +54,8 @@ class ImageLoader: ObservableObject {
                    let image = self?.image {
                     sharedColorManager.imageDict[currentUrl] = image
                     DispatchQueue.global(qos: .background).async {
-                        if let dominantColors = getDominantColors(in: image) {
+                        if let dominantColors = getDominantColors(in: image),
+                           dominantColors.count > 1 {
                             DispatchQueue.main.async {
                                 let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
 

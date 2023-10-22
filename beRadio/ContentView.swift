@@ -258,12 +258,17 @@ struct ContentView: View {
                 }
                 .onAppear {
                     print("List: onAppear")
-                    for item in items {
-                        if let urlString = item.favicon {
+                    if stationColors.isEmpty {
+                        for item in items {
                             var colors = [Color.red, Color.yellow]
-                            if let colorsData = item.colors,
-                                let colorsFromData = dataToColors(data: colorsData) {
-                                colors = colorsFromData
+                            var urlString = ""
+                            if let favicon = item.favicon {
+                                urlString = favicon
+                                if let colorsData = item.colors,
+                                   let colorsFromData = dataToColors(data: colorsData) {
+                                    colors = colorsFromData
+                                    colorManager.dominantColorsDict[urlString] = colors
+                                }
                             }
                             stationColors.append((urlString, colors))
                         }
@@ -332,7 +337,8 @@ struct ContentView: View {
             }
             for index in indexes {
 //            if let index = stationColors.firstIndex(where: { $0.station == station }) {
-                print("Found index:", index)  // Output will be 2
+                print("Found index:", index, "stationColors.count:", stationColors.count)
+
                 stationColors[index].colors = dict[station] ?? [.red, .yellow]
 
                 if let colors = colorsToData(colors: stationColors[index].colors) {

@@ -284,6 +284,9 @@ struct AudioPlayerView: View {
         }
         .onAppear {
             currentImageSrc = imageSrc
+            if let imageSrc = currentImageSrc {
+                dominantColors = colorManager.dominantColorsDict[imageSrc] ?? [.red, .yellow]
+            }
             if let action = onAppearAction {
                 action()
             }
