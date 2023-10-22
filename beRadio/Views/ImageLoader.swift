@@ -24,11 +24,11 @@ class ImageLoader: ObservableObject {
     private var cancellable: AnyCancellable?
     private var currentUrl: String?
 
-    init(url: String) {
-        update(url: url)
+    init(url: String, _ shouldGetDominantColors: Bool) {
+        update(url: url, shouldGetDominantColors)
     }
 
-    func update(url: String) {
+    func update(url: String, _ shouldGetDominantColors: Bool) {
         if currentUrl == url {
             return
         }
@@ -53,13 +53,17 @@ class ImageLoader: ObservableObject {
                 if let currentUrl = self?.currentUrl,
                    let image = self?.image {
                     sharedColorManager.imageDict[currentUrl] = image
-                    DispatchQueue.global(qos: .background).async {
-                        if let dominantColors = getDominantColors(in: image),
-                           dominantColors.count > 1 {
-                            DispatchQueue.main.async {
-                                let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
+                    if shouldGetDominantColors,
+                       sharedColorManager.dominantColorsDict [currentUrl] == nil {
+                        DispatchQueue.global(qos: .background).async {
+                            print("ImageLoader update DispatchQueue.global")
+                            if let dominantColors = getDominantColors(in: image),
+                               dominantColors.count > 1 {
+                                DispatchQueue.main.async {
+                                    let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
 
-                                sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors, playerTextColor: playerTextColor.opacity(0.8))
+                                    sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors, playerTextColor: playerTextColor.opacity(0.8))
+                                }
                             }
                         }
                     }
@@ -78,11 +82,13 @@ class ImageLoader: ObservableObject {
 
 struct AsyncImage: View {
     @StateObject private var loader: ImageLoader
-    private let url: String
+    let url: String
+    let shouldGetDominantColors: Bool
 
-    init(url: String) {
+    init(url: String, shouldGetDominantColors: Bool = true) {
         self.url = url
-        _loader = StateObject(wrappedValue: ImageLoader(url: url))
+        self.shouldGetDominantColors = shouldGetDominantColors
+        _loader = StateObject(wrappedValue: ImageLoader(url: url, shouldGetDominantColors))
     }
     
     var body: some View {
@@ -102,11 +108,11 @@ struct AsyncImage: View {
         }
 #if targetEnvironment(macCatalyst)
         .onChange(of: url) { newValue in
-            loader.update(url: newValue)
+            loader.update(url: newValue, shouldGetDominantColors)
         }
 #else
         .onChange(of: url) { oldValue, newValue in
-            loader.update(url: newValue)
+            loader.update(url: newValue, shouldGetDominantColors)
         }
 #endif
     }

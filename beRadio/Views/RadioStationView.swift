@@ -120,7 +120,7 @@ struct RadioStationsView: View {
                             }) {
                                 HStack {
                                     if let urlString = station.favicon {
-                                        AsyncImage(url: urlString)
+                                        AsyncImage(url: urlString, shouldGetDominantColors: false)
                                             .frame(width: 60, height: 60) // Adjust the size as needed
                                     }
                                     HStack {

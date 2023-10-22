@@ -478,7 +478,7 @@ struct ContentView: View {
         isRadioStationsViewPresented = false
 
         if let favicon = newItem.favicon {
-            stationColors.append((favicon, [.red, .yellow]))
+            stationColors.append((favicon, colorManager.dominantColorsDict[favicon] ?? [.red, .yellow]))
         }
     }
 
