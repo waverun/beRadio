@@ -57,6 +57,7 @@ struct ContentView: View {
     @State private var searchText = ""
 
     @State var stationColors: [(station: String, colors: [Color])] = []
+    @State var gradientColors: [Color] = []
 
     let genres = ["Search Stations", "Pop", "Rock","50s", "Country", "Jazz", "Blues", "60s", "Reggae", "Hip Hop", "Classical", "70s","Latin", "Bluegrass", "Soul", "Punk", "80s", "Metal", "Gospel", "90s", "EDM", "Folk", "Disco", "Funk", "New Age"]
 
@@ -172,6 +173,18 @@ struct ContentView: View {
                                     Text(item.name ?? "New station")
                                     .foregroundColor(.white)
                                 }
+//                                .onAppear {
+////                                    gradientColors = stationColor.colors!.isEmpty ? [Color.red, .yellow] : stationColor.colors
+////                                    let defaultColors: [Color] = [Color.red, .yellow]
+//                                    let actualColors = stationColor.colors
+//                                    if !actualColors.isEmpty {
+////                                        gradientColors = actualColors
+//                                        stationColors.colors[urlString] = [.red, .yellow]
+//                                    }
+////                                    else {
+////                                        gradientColors = defaultColors
+////                                    }
+//                                }
                             }
                         }
                     }
@@ -260,28 +273,42 @@ struct ContentView: View {
                     print("List: onAppear")
                     if stationColors.isEmpty {
                         for item in items {
-                            var colors = [Color.red, Color.yellow]
+//                            var colors = [Color.red, Color.yellow]
+                            var colors: [Color] = []
                             var urlString = ""
                             if let favicon = item.favicon {
                                 urlString = favicon
                                 if let colorsData = item.colors,
                                    let colorsFromData = dataToColors(data: colorsData) {
                                     colors = colorsFromData
-                                    colorManager.dominantColorsDict[urlString] = colors
+                                    if colors.contains(.red) {
+                                        print("colors are red and yellow")
+                                    }
+                                    switch true {
+                                        case colorManager.dominantColorsBeingCalculatedFor.contains(urlString) :
+                                            // For getting the colors again in case the operation of detecting the dominant colors which takes a long time was aborted due to exit app.
+                                            colorManager.dominantColorsBeingCalculatedFor.remove(urlString)
+                                        default:
+                                            print("Content view onAppear colors", colors)
+                                            colorManager.dominantColorsDict[urlString] = colors
+                                    }
                                 }
+                            }
+                            if colors.isEmpty {
+                                colors = [.red, .yellow]
                             }
                             stationColors.append((urlString, colors))
                         }
                     }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//                        stationColors = []
-//                        for item in items {
-//                            if let urlString = item.url {
-//                                stationColors.append((urlString, [Color.black, Color.white]))
-//                            }
-//                        }
-//                    }
-//                    addApprovedStations()
+                    //                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    //                        stationColors = []
+                    //                        for item in items {
+                    //                            if let urlString = item.url {
+                    //                                stationColors.append((urlString, [Color.black, Color.white]))
+                    //                            }
+                    //                        }
+                    //                    }
+                    //                    addApprovedStations()
 #if DEBUG
                     getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/program/[^\"]+\\.aspx)\"") { extractedLinks in
                         DispatchQueue.main.async {
@@ -339,9 +366,12 @@ struct ContentView: View {
 //            if let index = stationColors.firstIndex(where: { $0.station == station }) {
                 print("Found index:", index, "stationColors.count:", stationColors.count)
 
+//                stationColors[index].colors = dict[station] ?? [.red, .yellow]
                 stationColors[index].colors = dict[station] ?? [.red, .yellow]
 
-                if let colors = colorsToData(colors: stationColors[index].colors) {
+                let colorsForData = dict[station] ?? []
+//                if let colors = colorsToData(colors: stationColors[index].colors) {
+                if let colors = colorsToData(colors: colorsForData) {
                     items[index].colors = colors
                 }
             }
@@ -463,9 +493,9 @@ struct ContentView: View {
         newItem.favicon = station.favicon
         newItem.homepage = station.homepage
         newItem.isItemDeleted = false
-        if let index = stationColors.firstIndex(where: { $0.station == newItem.favicon }) {
-            newItem.colors = colorsToData(colors: stationColors[index].colors)
-        }
+//        if let index = stationColors.firstIndex(where: { $0.station == newItem.favicon }) {
+//            newItem.colors = colorsToData(colors: stationColors[index].colors)
+//        }
 
         do {
             try viewContext.save()
@@ -478,6 +508,7 @@ struct ContentView: View {
         isRadioStationsViewPresented = false
 
         if let favicon = newItem.favicon {
+//            stationColors.append((favicon, colorManager.dominantColorsDict[favicon] ?? [.red, .yellow]))
             stationColors.append((favicon, colorManager.dominantColorsDict[favicon] ?? [.red, .yellow]))
         }
     }

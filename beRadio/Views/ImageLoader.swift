@@ -4,20 +4,41 @@ import Foundation
 
 //var gDominantColors = ThreadSafeDict<String, [Color]>()
 
+let sharedColorManager = ColorManager()
+
 class ColorManager: ObservableObject {
+    @AppStorage("dominantColorsBeingCalculatedForString") private var dominantColorsBeingCalculatedForString: String = ""
+
+    var dominantColorsBeingCalculatedFor: Set<String> {
+        get {
+            Set(dominantColorsBeingCalculatedForString.split(separator: ",").map { String($0) })
+        }
+        set {
+            dominantColorsBeingCalculatedForString = newValue.joined(separator: ",")
+        }
+    }
+
+
     @Published var dominantColorsDict: [String: [Color]] = [:]
+//    @Published var dominantColorsBeingCalculatedFor = Set<String>()
     @Published var playerTextColorDict: [String: Color] = [:]
     @Published var imageDict: [String: UIImage] = [:]
 
-    func updateColors(for url: String, dominantColors: [Color], playerTextColor: Color) {
+
+    init() {
+        if !dominantColorsBeingCalculatedForString.isEmpty {
+            dominantColorsBeingCalculatedFor = Set(dominantColorsBeingCalculatedForString.split(separator: ",").map { String($0) })
+        }
+    }
+
+    func updateColors(for url: String, dominantColors: [Color]) {
         DispatchQueue.main.async {
             self.dominantColorsDict[url] = dominantColors
+            let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
             self.playerTextColorDict[url] = playerTextColor
         }
     }
 }
-
-let sharedColorManager = ColorManager()
 
 class ImageLoader: ObservableObject {
     @Published var image: UIImage?
@@ -54,15 +75,18 @@ class ImageLoader: ObservableObject {
                    let image = self?.image {
                     sharedColorManager.imageDict[currentUrl] = image
                     if shouldGetDominantColors,
-                       sharedColorManager.dominantColorsDict [currentUrl] == nil {
+                       sharedColorManager.dominantColorsDict [currentUrl] == nil ||
+                        sharedColorManager.dominantColorsDict [currentUrl]!.isEmpty {
+//                       !sharedColorManager.dominantColorsBeingCalculatedFor.contains(currentUrl) {
+//                        sharedColorManager.dominantColorsBeingCalculatedFor.insert(currentUrl)
                         DispatchQueue.global(qos: .background).async {
                             print("ImageLoader update DispatchQueue.global")
                             if let dominantColors = getDominantColors(in: image),
                                dominantColors.count > 1 {
                                 DispatchQueue.main.async {
-                                    let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
-
-                                    sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors, playerTextColor: playerTextColor.opacity(0.8))
+//                                    let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
+                                    sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors)
+                                    sharedColorManager.dominantColorsBeingCalculatedFor.remove(currentUrl)
                                 }
                             }
                         }

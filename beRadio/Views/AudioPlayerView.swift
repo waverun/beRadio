@@ -13,7 +13,8 @@ struct AudioPlayerView: View {
     @ObservedObject var audioPlayer: AudioPlayer
     @ObservedObject var colorManager = sharedColorManager
 
-    @State private var dominantColors: [Color] = [Color.red, Color.yellow]  // Default values
+//    @State private var dominantColors: [Color] = [Color.red, Color.yellow]  // Default values
+    @State private var dominantColors: [Color] = []  // Default values
     @State private var playerTextColor: Color = Color.black  // Default value
 
     @StateObject private var routeChangeHandler = RouteChangeHandler()
@@ -285,7 +286,8 @@ struct AudioPlayerView: View {
         .onAppear {
             currentImageSrc = imageSrc
             if let imageSrc = currentImageSrc {
-                dominantColors = colorManager.dominantColorsDict[imageSrc] ?? [.red, .yellow]
+//                dominantColors = colorManager.dominantColorsDict[imageSrc] ?? [.red, .yellow]
+                dominantColors = colorManager.dominantColorsDict[imageSrc] ?? []
             }
             if let action = onAppearAction {
                 action()
