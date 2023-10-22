@@ -161,18 +161,18 @@ struct ContentView: View {
                                         }
                                 }
                             } label: {
-                                ZStack {
-                                    RadialGradient(
-                                        gradient: Gradient(colors: stationColor.colors),
-                                        center: .center,
-                                        startRadius: 0,
-                                        endRadius: 200
-                                    )
-                                    .edgesIgnoringSafeArea(.all)
-                                    .cornerRadius(10)
+//                                ZStack {
+//                                    RadialGradient(
+//                                        gradient: Gradient(colors: stationColor.colors),
+//                                        center: .center,
+//                                        startRadius: 0,
+//                                        endRadius: 200
+//                                    )
+//                                    .edgesIgnoringSafeArea(.all)
+//                                    .cornerRadius(10)
                                     Text(item.name ?? "New station")
-                                    .foregroundColor(.white)
-                                }
+//                                    .foregroundColor(.white)
+//                                }
 //                                .onAppear {
 ////                                    gradientColors = stationColor.colors!.isEmpty ? [Color.red, .yellow] : stationColor.colors
 ////                                    let defaultColors: [Color] = [Color.red, .yellow]
