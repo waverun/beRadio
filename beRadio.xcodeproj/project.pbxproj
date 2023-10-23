@@ -10,6 +10,7 @@
 		5037A76A2A3268E600E03ADA /* ApprovedStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037A7692A3268E500E03ADA /* ApprovedStations.swift */; };
 		5071C3A22ADC033B0065805E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071C3A12ADC033A0065805E /* UIColor.swift */; };
 		5071C3A42ADC04400065805E /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071C3A32ADC04400065805E /* CodableColor.swift */; };
+		5071C3A92AE6BCC10065805E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */; };
 		507C43222AD5AEDB00D824DB /* getDominantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C43212AD5AEDB00D824DB /* getDominantColors.swift */; };
 		507C43282AD5D90400D824DB /* ThreadSafeDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C43272AD5D90400D824DB /* ThreadSafeDict.swift */; };
 		509E61602ABF774000B81C6F /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 509E615F2ABF774000B81C6F /* SwiftSoup */; };
@@ -668,6 +669,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5071C3A92AE6BCC10065805E /* LaunchScreen.storyboard in Resources */,
 				50D1B6E72ACB3F80000ABF21 /* Assets.xcassets in Resources */,
 				92AB2A8229C3A49100EFF179 /* Preview Assets.xcassets in Resources */,
 			);
@@ -1192,7 +1194,7 @@
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"beRadio/Preview Content\"";
 				DEVELOPMENT_TEAM = NRTGJB9J65;
@@ -1241,7 +1243,7 @@
 				CODE_SIGN_ENTITLEMENTS = beRadio/beRadio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"beRadio/Preview Content\"";
 				DEVELOPMENT_TEAM = NRTGJB9J65;
