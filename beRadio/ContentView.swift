@@ -360,6 +360,9 @@ struct ContentView: View {
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Excellent Choice"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
+//        .onDisappear {
+//            showingAlert = false
+//        }
     }
     
     func onReceiveDominantColors(dict: [String : [Color]]) {
@@ -520,7 +523,7 @@ struct ContentView: View {
     }
 
     private func itemExists(station: RadioStation) -> Bool {
-        return items.contains(where: { $0.url == station.url })
+        return items.contains(where: { $0.url == station.url && $0.favicon == station.favicon })
     }
 
     // Convert an array of Colors to Data

@@ -48,6 +48,12 @@ func fetchRadioStations(approvedStations: [RadioStation], genre: String, name: S
         return false
     }
 
+    func removeEmptyUrl(stations: [RadioStation]) -> [RadioStation] {
+        return stations.filter { element in
+            !element.url.isEmpty
+        }
+    }
+
     var encodedSearchString = ""
     var name = name
     var country = country
@@ -104,6 +110,8 @@ func fetchRadioStations(approvedStations: [RadioStation], genre: String, name: S
                     }
 
                     stations.append(contentsOf: approvedStations)
+
+                    stations = removeEmptyUrl(stations: stations)
 
                     search = search.trimmingCharacters(in: .whitespaces)
                     if !search.isEmpty {
