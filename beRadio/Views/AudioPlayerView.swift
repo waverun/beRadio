@@ -85,7 +85,13 @@ struct AudioPlayerView: View {
                                 .bold()
                                 .multilineTextAlignment(.center)
 //                                .foregroundColor(gPlayerTextColor[imageSrc ?? ""])
-                                .foregroundColor(playerTextColor)
+                                .foregroundColor(.white.opacity(0.5))
+//                                .foregroundColor(playerTextColor)
+                                .padding(EdgeInsets(top: 6, leading: 10, bottom: 8, trailing: 10)) // Add padding
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20) // Rounded rectangle with corner radius 10
+                                        .fill(Color.black.opacity(0.2)) // Fill with black color at 0.2 opacity
+                                )
                             ZStack {
                                 if let imageSrc = currentImageSrc {
                                     if #available(iOS 17, *) {
