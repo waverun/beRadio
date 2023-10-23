@@ -268,8 +268,11 @@ struct AudioPlayerView: View {
                 .edgesIgnoringSafeArea(.bottom)
             }
             .onReceive(colorManager.$dominantColorsDict) { dict in
-                if let colors = dict[self.imageSrc ?? ""] {
+                if let colors = dict[self.imageSrc ?? ""],
+                   !colors.isEmpty {
                     self.dominantColors = colors
+                } else {
+                    self.dominantColors = [.red, .yellow]
                 }
             }
             .onReceive(colorManager.$playerTextColorDict) { dict in
@@ -288,6 +291,9 @@ struct AudioPlayerView: View {
             if let imageSrc = currentImageSrc {
 //                dominantColors = colorManager.dominantColorsDict[imageSrc] ?? [.red, .yellow]
                 dominantColors = colorManager.dominantColorsDict[imageSrc] ?? []
+                if dominantColors.isEmpty {
+                    dominantColors = [.red, .yellow]
+                }
             }
             if let action = onAppearAction {
                 action()
