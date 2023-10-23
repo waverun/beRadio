@@ -34,7 +34,7 @@ struct AudioPlayerView: View {
 #if os(tvOS)
     let frameWidth = 140.0
 #else
-    let frameWidth = 70.0
+    let frameWidth = 80.0
 #endif
 
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
