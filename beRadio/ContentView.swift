@@ -27,6 +27,12 @@ struct ContentView: View {
         animation: .default)
     var items: FetchedResults<Item>
 
+    #if os(iOS)
+    let endRadius = 100.0
+    #else
+    let endRadius = 200.0
+    #endif
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
@@ -161,18 +167,18 @@ struct ContentView: View {
                                         }
                                 }
                             } label: {
-//                                ZStack {
-//                                    RadialGradient(
-//                                        gradient: Gradient(colors: stationColor.colors),
-//                                        center: .center,
-//                                        startRadius: 0,
-//                                        endRadius: 200
-//                                    )
-//                                    .edgesIgnoringSafeArea(.all)
-//                                    .cornerRadius(10)
+                                ZStack {
+                                    RadialGradient(
+                                        gradient: Gradient(colors: stationColor.colors),
+                                        center: .center,
+                                        startRadius: 0,
+                                        endRadius: endRadius
+                                    )
+                                    .edgesIgnoringSafeArea(.all)
+                                    .cornerRadius(10)
                                     Text(item.name ?? "New station")
-//                                    .foregroundColor(.white)
-//                                }
+                                    .foregroundColor(.white)
+                                }
 //                                .onAppear {
 ////                                    gradientColors = stationColor.colors!.isEmpty ? [Color.red, .yellow] : stationColor.colors
 ////                                    let defaultColors: [Color] = [Color.red, .yellow]
