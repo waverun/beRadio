@@ -116,20 +116,20 @@ class AudioPlayer: ObservableObject {
         totalDurationString = "00:00"
     }
 
-//    func getAvailableBufferSize(seconds: TimeInterval) -> TimeInterval {
-//        if checkMemoryAvailability(bufferSize: seconds) {
-//            return seconds
-//        }
-//        var seconds = seconds / 2
-//        if checkMemoryAvailability(bufferSize: seconds) {
-//            return seconds
-//        }
-//        seconds /= 2
-//        if checkMemoryAvailability(bufferSize: seconds) {
-//            return seconds
-//        }
-//        return TimeInterval(600)
-//    }
+    func getAvailableBufferSize(seconds: TimeInterval) -> TimeInterval {
+        if checkMemoryAvailability(bufferSize: seconds) {
+            return seconds
+        }
+        var seconds = seconds / 2
+        if checkMemoryAvailability(bufferSize: seconds) {
+            return seconds
+        }
+        seconds /= 2
+        if checkMemoryAvailability(bufferSize: seconds) {
+            return seconds
+        }
+        return TimeInterval(600)
+    }
 
     func play(url: URL? = nil) {
         var isNewPlayer = false
@@ -140,8 +140,8 @@ class AudioPlayer: ObservableObject {
             do {
                 let asset = AVURLAsset(url: url)
                 let item = AVPlayerItem(asset: asset)
-//                bufferDuration = getAvailableBufferSize(seconds: 7200)
-                bufferDuration = 60
+                bufferDuration = getAvailableBufferSize(seconds: 3600)
+//                bufferDuration = 1800
                 print("bufferDuration: \(bufferDuration)")
                 item.preferredForwardBufferDuration = bufferDuration
 
