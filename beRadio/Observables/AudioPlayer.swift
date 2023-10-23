@@ -140,7 +140,7 @@ class AudioPlayer: ObservableObject {
             do {
                 let asset = AVURLAsset(url: url)
                 let item = AVPlayerItem(asset: asset)
-                bufferDuration = getAvailableBufferSize(seconds: 3600)
+                bufferDuration = getAvailableBufferSize(seconds: 1800)
 //                bufferDuration = 1800
                 print("bufferDuration: \(bufferDuration)")
                 item.preferredForwardBufferDuration = bufferDuration
