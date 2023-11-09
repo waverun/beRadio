@@ -424,4 +424,15 @@ class AudioPlayer: ObservableObject {
         }
         return nil
     }
+
+    func removeRemoteCommandCenterTargets() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        // Remove targets for all commands
+        commandCenter.playCommand.removeTarget(nil)
+        commandCenter.pauseCommand.removeTarget(nil)
+        commandCenter.togglePlayPauseCommand.removeTarget(nil)
+        commandCenter.skipForwardCommand.removeTarget(nil)
+        commandCenter.skipBackwardCommand.removeTarget(nil)
+    }
 }

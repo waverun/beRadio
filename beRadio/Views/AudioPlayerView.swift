@@ -35,6 +35,21 @@ struct AudioPlayerView: View {
     let frameWidth = 140.0
 #else
     let frameWidth = 80.0
+
+    var sliderRange: ClosedRange<Double> {
+        let totalDuration = audioPlayer.totalDurationString.timeStringToDouble()
+        let startSlider = max(0, totalDuration - audioPlayer.bufferDuration)
+
+        // Using switch true to determine the range based on isLive
+        switch true {
+            case isLive:
+                // If isLive is true, return a different range
+                return startSlider...totalDuration
+            default:
+                // Default case for when isLive is false
+                return 0...totalDuration
+        }
+    }
 #endif
 
     init(url: Binding<URL>, image: String?, date: Binding<String>, isLive: Binding<Bool>, title: String, artist: String, onAppearAction: (() -> Void)? = nil) {
@@ -207,7 +222,8 @@ struct AudioPlayerView: View {
 #if !os(tvOS)
                             VStack {
                                 Slider(value: $currentProgress,
-                                       in: max(0, $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration)...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
+                                       in: sliderRange,
+//                                       in: max(0, $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration)...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
                                        onEditingChanged: { isEditing in
                                     let startSlider = $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration
                                     print("AudioPlayerView slider startSlider: \(startSlider)")
@@ -226,8 +242,6 @@ struct AudioPlayerView: View {
                                 })
                                 .tint(.secondary)
                                 .padding(.horizontal)
-//                                Text(audioPlayer.bufferDurationString)
-//                                .multilineTextAlignment(.center)
                             }
 #if targetEnvironment(macCatalyst)
                             .onChange(of: currentProgress) {newValue in
@@ -309,6 +323,7 @@ struct AudioPlayerView: View {
             gAudioPlayerView = nil
             audioPlayer.pause()
             audioPlayer.removePlayer()
+            audioPlayer.removeRemoteCommandCenterTargets()
         }
         .environment(\.layoutDirection, .leftToRight)
     }
