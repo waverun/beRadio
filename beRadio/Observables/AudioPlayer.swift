@@ -377,7 +377,7 @@ class AudioPlayer: ObservableObject {
                                 if shouldUpdateTotalDuration {
                                     totalDurationString = timeFormatter.string(from: bufferedDuration) ?? "--:--"
                                     print("totalDurationString \(totalDurationString)")
-                                    _ = calcBufferDuration()
+//                                    _ = calcBufferDuration()
                                 }
                             }
                         }

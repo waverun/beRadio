@@ -225,6 +225,9 @@ struct AudioPlayerView: View {
                                        in: sliderRange,
 //                                       in: max(0, $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration)...$audioPlayer.totalDurationString.wrappedValue.timeStringToDouble(),
                                        onEditingChanged: { isEditing in
+                                    if let bufferDuration = audioPlayer.calcBufferDuration() { // bufferDuration is calculated every second when updating total duration in AudioPlayer, but it is not always in sync when using the slider, especially when starting to play:
+                                        audioPlayer.bufferDuration = bufferDuration.backwardBuffer + bufferDuration.forwardBuffer
+                                    }
                                     let startSlider = $audioPlayer.totalDurationString.wrappedValue.timeStringToDouble() - audioPlayer.bufferDuration
                                     print("AudioPlayerView slider startSlider: \(startSlider)")
                                     print("AudioPlayerView slider: \(isEditing) timeStringToDouble() \($audioPlayer.totalDurationString.wrappedValue.timeStringToDouble())")
