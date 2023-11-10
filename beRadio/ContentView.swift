@@ -21,8 +21,14 @@ struct ContentView: View {
     @State private var showLivePlayerView: Bool = false
     @State private var showingLocalStationsView = false
 
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+//        predicate: NSPredicate(format: "isItemDeleted == %@", NSNumber(value: false)),
+//        animation: .default)
+//    var items: FetchedResults<Item>
+
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.order, ascending: true)],
         predicate: NSPredicate(format: "isItemDeleted == %@", NSNumber(value: false)),
         animation: .default)
     var items: FetchedResults<Item>
@@ -195,6 +201,7 @@ struct ContentView: View {
                         }
                     }
                     .onDelete(perform: deleteItems)
+                    .onMove(perform: moveItems) // Add this line for enabling the move functionality
 //                    This is Local stations link:
 //                    NavigationLink { // Local Stations
 ////                        var country = ""
@@ -277,6 +284,9 @@ struct ContentView: View {
                 }
                 .onAppear {
                     print("List: onAppear")
+                    if items.count > 1 && items[0].order == 0 && items[1].order == 0 {
+                        updateOrderForExistingItems()
+                    }
                     if stationColors.isEmpty {
                         for item in items {
 //                            var colors = [Color.red, Color.yellow]
@@ -538,5 +548,42 @@ struct ContentView: View {
             return nil
         }
         return decodedColors.map { Color($0.color) }
+    }
+
+    func updateOrderForExistingItems() {
+        let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            let existingItems = try viewContext.fetch(fetchRequest)
+            for (index, item) in existingItems.enumerated() {
+                item.order = Int16(index)
+            }
+            try viewContext.save()
+        } catch {
+            // Handle the error appropriately
+        }
+    }
+
+    private func moveItems(from source: IndexSet, to destination: Int) {
+        // Create a temporary array to represent the new order
+        var reorderedItems = Array(items)
+
+        // Reorder the temporary array
+        reorderedItems.move(fromOffsets: source, toOffset: destination)
+
+        // Update the order of items in Core Data
+        for (index, item) in reorderedItems.enumerated() {
+            // Assuming 'order' is an attribute in your Core Data model
+            item.order = Int16(index)
+        }
+
+        // Save the changes to Core Data
+        do {
+            try viewContext.save()
+        } catch {
+            // Handle the error appropriately
+        }
+
+        // Update the stationColors array
+        stationColors.move(fromOffsets: source, toOffset: destination)
     }
 }
