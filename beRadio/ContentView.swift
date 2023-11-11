@@ -470,14 +470,36 @@ struct ContentView: View {
             offsets.map { items[$0] }.forEach { item in
                 item.isItemDeleted = true
                 if let index = stationColors.firstIndex(where: { $0.station == item.favicon }) {
-                    print("Found index:", index)  // Output will be 2
+                    print("Found index:", index)
                     stationColors.remove(at: index)
                 }
+            }
 
+            // After deletion, update the order of the remaining items
+            var index = 0
+            for item in items {
+                if !item.isItemDeleted {
+                    item.order = Int16(index)
+                    index += 1
+                }
             }
             saveItems()
         }
     }
+
+//    private func deleteItems(offsets: IndexSet) {
+//        withAnimation {
+//            offsets.map { items[$0] }.forEach { item in
+//                item.isItemDeleted = true
+//                if let index = stationColors.firstIndex(where: { $0.station == item.favicon }) {
+//                    print("Found index:", index)  // Output will be 2
+//                    stationColors.remove(at: index)
+//                }
+//
+//            }
+//            saveItems()
+//        }
+//    }
 
     func saveItems() {
         do {
@@ -512,6 +534,7 @@ struct ContentView: View {
         newItem.favicon = station.favicon
         newItem.homepage = station.homepage
         newItem.isItemDeleted = false
+        newItem.order = Int16(items.count)
 //        if let index = stationColors.firstIndex(where: { $0.station == newItem.favicon }) {
 //            newItem.colors = colorsToData(colors: stationColors[index].colors)
 //        }
