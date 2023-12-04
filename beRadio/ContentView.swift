@@ -365,7 +365,7 @@ struct ContentView: View {
         .onAppear {
             print("ZStak: onAppear")
 //            addApprovedStations()
-            configureAudioSession()
+//            configureAudioSession()
         }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Excellent Choice"), message: Text(alertMessage), dismissButton: .default(Text("OK")))

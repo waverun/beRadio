@@ -6,6 +6,9 @@ var gAudioPlayer: AudioPlayer?
 var gPlayer: AVPlayer?
 
 class AudioPlayer: ObservableObject {
+    var currentURL: URL!
+    var currentRoute: String?
+
     var player: AVPlayer? {
         didSet {
             if player == nil {
@@ -37,6 +40,8 @@ class AudioPlayer: ObservableObject {
         self.title = title
         self.artist = artist
         setupRemoteCommandCenter()
+        configureAudioSession()
+        addAudioSessionObservers()
     }
 
     func seekToStart() {
@@ -136,6 +141,7 @@ class AudioPlayer: ObservableObject {
         
         if player == nil,
            let url = url {
+            currentURL = url
             isNewPlayer = true
             do {
                 let asset = AVURLAsset(url: url)
@@ -155,6 +161,14 @@ class AudioPlayer: ObservableObject {
             }
         }
         
+//        do {
+//            try AVAudioSession.sharedInstance().setActive(true)
+//        } catch {
+//            print("Error activating audio session: \(error)")
+//        }
+
+        currentRoute = getCurrentPortName()
+
         player?.play()
         isPlaying = true
         
@@ -177,6 +191,14 @@ class AudioPlayer: ObservableObject {
         MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = 1
     }
   
+    func getCurrentPortName() -> String? {
+        let outputs = AVAudioSession.sharedInstance().currentRoute.outputs
+        if !outputs.isEmpty {
+            return outputs[0].portName
+        }
+        return nil
+    }
+
     func configureNowPlayingInfo(title: String, artist: String, albumArtURL: String? = nil) async {
         var nowPlayingInfo = [String: Any]()
         
@@ -434,5 +456,96 @@ class AudioPlayer: ObservableObject {
         commandCenter.togglePlayPauseCommand.removeTarget(nil)
         commandCenter.skipForwardCommand.removeTarget(nil)
         commandCenter.skipBackwardCommand.removeTarget(nil)
+    }
+
+    func addAudioSessionObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleAudioSessionInterruption),
+                                               name: AVAudioSession.interruptionNotification,
+                                               object: AVAudioSession.sharedInstance())
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleAudioRouteChange),
+                                               name: AVAudioSession.routeChangeNotification,
+                                               object: AVAudioSession.sharedInstance())
+    }
+
+    // Handle audio session interruptions
+    @objc private func handleAudioSessionInterruption(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+            return
+        }
+
+        switch type {
+            case .began:
+                // Interruption began, update your UI accordingly
+                pause()
+            case .ended:
+                // Interruption ended, resume playback if necessary
+                if let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt {
+                    let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+                    if options.contains(.shouldResume) {
+                        play()
+                    }
+                }
+            default: break
+        }
+    }
+
+    var enter = false
+
+    @objc private func handleAudioRouteChange(notification: Notification) {
+        if isLive {
+            let isPlaying = player?.timeControlStatus == .playing
+            removePlayer()
+//            player?.pause()
+//            player = nil
+
+//            switch true {
+//                case isPlaying:
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        removePlayer()
+                        play(url: currentURL)
+                        if !isPlaying {
+                            player?.pause()
+                        }
+                        // Re-initialize the player with the live stream URL
+//                        self.setupPlayerForLiveStream()
+//                        self.player?.play()
+//                        self.isPlaying = true
+//                    }
+//                default:
+//                    self.setupPlayerForLiveStream()
+            }
+        }
+    }
+
+    func setupPlayerForLiveStream() {
+        let liveStreamURL = currentURL
+
+        let asset = AVURLAsset(url: liveStreamURL!)
+        let item = AVPlayerItem(asset: asset)
+        player = AVPlayer(playerItem: item)
+
+        resetAndStartTimeObserver()
+    }
+
+    func resetAndStartTimeObserver() {
+        // Remove existing time observer if it exists
+        if let timeObserverToken = timeObserverToken {
+            player?.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
+        }
+
+        // Start the time observer for the new player instance
+        startUpdatingTotalDuration()
+    }
+
+    // Remember to remove observers when the object is deinitialized
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
