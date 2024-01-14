@@ -470,6 +470,29 @@ class AudioPlayer: ObservableObject {
                                                object: AVAudioSession.sharedInstance())
     }
 
+//    @objc func handleAudioRouteChange(notification: Notification) {
+//        guard let userInfo = notification.userInfo,
+//              let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
+//              let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
+//            return
+//        }
+//
+//        switch reason {
+//            case .newDeviceAvailable:
+//                print("New device available")
+//                // Handle new device
+//            case .oldDeviceUnavailable:
+//                print("Old device unavailable")
+//                // Handle old device unavailability
+//            case .categoryChange:
+//                print("Category change")
+//                // Handle category change
+//                // Add other cases as needed
+//            default:
+//                print("Other route change")
+//        }
+//    }
+
     // Handle audio session interruptions
     @objc private func handleAudioSessionInterruption(notification: Notification) {
         guard let userInfo = notification.userInfo,
@@ -496,32 +519,94 @@ class AudioPlayer: ObservableObject {
 
     var enter = false
 
+//    @objc private func handleAudioRouteChange(notification: Notification) {
+//        if isLive {
+////            let isPlaying = player?.timeControlStatus == .playing
+////            removePlayer()
+//            player?.pause()
+//
+//                    DispatchQueue.main.async { [weak self] in
+//                        guard let self = self else { return }
+//                        sleep(2)
+//                        player?.play()
+////                        removePlayer()
+////                        play(url: currentURL)
+////                        if !isPlaying {
+////                            player?.pause()
+////                        }
+//            }
+//        }
+//    }    
+
+//    @objc private func handleAudioRouteChange(notification: Notification) {
+//        if isLive {
+//            player?.pause()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+//                        guard let self = self else { return }
+//                        player?.play()
+//            }
+//        }
+//    }
+
+    private var audioRouteChangeWorkItem: DispatchWorkItem?
+
     @objc private func handleAudioRouteChange(notification: Notification) {
         if isLive {
-            let isPlaying = player?.timeControlStatus == .playing
-            removePlayer()
-//            player?.pause()
-//            player = nil
+            player?.pause()
 
-//            switch true {
-//                case isPlaying:
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        removePlayer()
-                        play(url: currentURL)
-                        if !isPlaying {
-                            player?.pause()
-                        }
-                        // Re-initialize the player with the live stream URL
-//                        self.setupPlayerForLiveStream()
-//                        self.player?.play()
-//                        self.isPlaying = true
-//                    }
-//                default:
-//                    self.setupPlayerForLiveStream()
+            // Cancel the existing work item if it has not yet executed
+            audioRouteChangeWorkItem?.cancel()
+
+            // Create a new work item
+            let workItem = DispatchWorkItem { [weak self] in
+                guard let self = self else { return }
+                // Refreshing the AVPlayer's current item
+                if let currentItem = self.player?.currentItem {
+                    self.player?.replaceCurrentItem(with: nil)
+                    self.player?.replaceCurrentItem(with: currentItem)
+                }
+
+
+                self.player?.play()
             }
+
+            // Save the new work item
+            audioRouteChangeWorkItem = workItem
+
+            // Execute the work item after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: workItem)
         }
     }
+
+//    @objc private func handleAudioRouteChange(notification: Notification) {
+//        guard isLive, let userInfo = notification.userInfo,
+//              let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
+//              let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
+//            return
+//        }
+//
+//        switch reason {
+//            case .newDeviceAvailable, .oldDeviceUnavailable:
+//                // Handle the route change for live streaming
+//                DispatchQueue.main.async { [weak self] in
+//                    guard let self = self else { return }
+//
+//                    self.player?.pause()
+//
+//                    // Refreshing the AVPlayer's current item
+//                    if let currentItem = self.player?.currentItem {
+//                        self.player?.replaceCurrentItem(with: nil)
+//                        self.player?.replaceCurrentItem(with: currentItem)
+//                    }
+//
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                        self.player?.play()
+//                    }
+//                }
+//            default:
+//                break
+//        }
+//    }
 
     func setupPlayerForLiveStream() {
         let liveStreamURL = currentURL
