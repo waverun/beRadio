@@ -4,6 +4,7 @@ import MediaPlayer
 
 var gAudioPlayer: AudioPlayer?
 var gPlayer: AVPlayer?
+let networkMonitor = NetworkMonitor()
 
 class AudioPlayer: ObservableObject {
     var currentURL: URL!
@@ -117,6 +118,7 @@ class AudioPlayer: ObservableObject {
         player = nil
         gPlayer = nil
         gAudioPlayer = nil
+        networkMonitor.stopMonitoring()
         currentProgressString = "00:00"
         totalDurationString = "00:00"
     }
@@ -152,6 +154,7 @@ class AudioPlayer: ObservableObject {
                 item.preferredForwardBufferDuration = bufferDuration
 
                 player = AVPlayer(playerItem: item)
+                networkMonitor.startMonitoring()
                 gAudioPlayer = self
                 gPlayer = player
                 try AVAudioSession.sharedInstance().setCategory(.playback)
@@ -550,7 +553,7 @@ class AudioPlayer: ObservableObject {
 
     private var audioRouteChangeWorkItem: DispatchWorkItem?
 
-    @objc private func handleAudioRouteChange(notification: Notification) {
+    @objc func handleAudioRouteChange(notification: Notification? = nil) {
         if isLive {
             player?.pause()
 
@@ -565,8 +568,35 @@ class AudioPlayer: ObservableObject {
                     self.player?.replaceCurrentItem(with: nil)
                     self.player?.replaceCurrentItem(with: currentItem)
                 }
+                if isPlaying {
+                    self.player?.play()
+                }
+            }
 
+            // Save the new work item
+            audioRouteChangeWorkItem = workItem
 
+            // Execute the work item after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: workItem)
+        }
+    }
+
+    @objc func handleNetworkIsAvailabel() {
+        if isLive {
+            player?.pause()
+
+            // Cancel the existing work item if it has not yet executed
+            audioRouteChangeWorkItem?.cancel()
+
+            // Create a new work item
+            let workItem = DispatchWorkItem { [weak self] in
+                guard let self = self else { return }
+                // Refreshing the AVPlayer's current item
+//                if let currentItem = self.player?.currentItem {
+//                    self.player?.replaceCurrentItem(with: nil)
+//                    self.player?.replaceCurrentItem(with: currentItem)
+//                }
+                setupPlayerForLiveStream()
                 self.player?.play()
             }
 
@@ -613,21 +643,27 @@ class AudioPlayer: ObservableObject {
 
         let asset = AVURLAsset(url: liveStreamURL!)
         let item = AVPlayerItem(asset: asset)
-        player = AVPlayer(playerItem: item)
 
-        resetAndStartTimeObserver()
-    }
-
-    func resetAndStartTimeObserver() {
-        // Remove existing time observer if it exists
         if let timeObserverToken = timeObserverToken {
             player?.removeTimeObserver(timeObserverToken)
             self.timeObserverToken = nil
         }
 
-        // Start the time observer for the new player instance
+        player = AVPlayer(playerItem: item)
+
         startUpdatingTotalDuration()
     }
+
+//    func resetAndStartTimeObserver() {
+//        // Remove existing time observer if it exists
+//        if let timeObserverToken = timeObserverToken {
+//            player?.removeTimeObserver(timeObserverToken)
+//            self.timeObserverToken = nil
+//        }
+//
+//        // Start the time observer for the new player instance
+//        startUpdatingTotalDuration()
+//    }
 
     // Remember to remove observers when the object is deinitialized
     deinit {
