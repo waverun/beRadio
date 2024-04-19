@@ -332,6 +332,24 @@ struct ContentView: View {
                             //                        clearAllUrls()
                             addLinks(urls: extractedLinks)
                         }
+
+                        getHtmlContent(url: "https://103fm.maariv.co.il/programs/", search: "href=\"(/programs/program.aspx)\\?[^\"]+=[^\"]+\"") { hrefLinks in
+                            DispatchQueue.main.async {
+                                for hrefLink in hrefLinks {
+                                    if let link = extractStringEnclosedInQuotes(from: hrefLink) {
+                                        let url = "https://103fm.maariv.co.il" + link
+                                        getHtmlContent(url: url, search: "<h1[^>]*>([^<]+)</h1>") { programNames in
+                                            if programNames.count > 0 {
+                                                let programName = programNames[0]
+                                                print("programName:", programName)
+                                                let linkAndName = link + "@" + programName
+                                                addLinks(urls: [linkAndName])
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
 #endif
 #if !os(tvOS)

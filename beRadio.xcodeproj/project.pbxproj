@@ -124,6 +124,7 @@
 		50DB1FF52AC7159100C3C48C /* RemovalConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C33A762AC45AED00A98E3F /* RemovalConfirmationView.swift */; };
 		50DB1FFB2AC9A1BD00C3C48C /* radioTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
+		50E7670A2BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E767092BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
 		922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */; };
 		922672AD29F5664800D92281 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922672AC29F5664800D92281 /* Double.swift */; };
@@ -206,6 +207,7 @@
 		50DB1FF92AC9921500C3C48C /* radioTV.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = radioTV.xcassets; sourceTree = "<group>"; };
 		50DB1FFC2AC9DE2D00C3C48C /* AssetsTVos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AssetsTVos.xcassets; path = beRadio/AssetsTVos.xcassets; sourceTree = "<group>"; };
 		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		50E767092BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extractStringEnclosedInQuotes.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		922672A629F1A8CF00D92281 /* ExportAllTransactionsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAllTransactionsIntent.swift; sourceTree = "<group>"; };
 		922672AC29F5664800D92281 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				92E59A4C29DC5D08002754E5 /* ConfigureAudioSession.swift */,
 				92BEBE0929EC45A600DF52BE /* ConfigurePlayingInfro.swift */,
 				92AB2A8C29C3AA9C00EFF179 /* extract.swift */,
+				50E767092BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift */,
 				92E59A5229DFF8DD002754E5 /* FetchAudiUrl.swift */,
 				92E59A7129E33250002754E5 /* fetchRadioStations.swift */,
 				92BEBE0329E8968700DF52BE /* imageBrightness.swift */,
@@ -814,6 +817,7 @@
 				5071C3A42ADC04400065805E /* CodableColor.swift in Sources */,
 				50C33A772AC45AED00A98E3F /* RemovalConfirmationView.swift in Sources */,
 				92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */,
+				50E7670A2BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
 				50B847542A1E6A940002007A /* LocationManager.swift in Sources */,
 				92ADFC5829C73E7A00582B66 /* String.swift in Sources */,

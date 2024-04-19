@@ -67,7 +67,7 @@ struct fullProgramsView: View {
     @State private var selectedURL: URL?
     
     @State private var programs: [ExtractedData] = []
-    @State private var title = ""
+//    @State private var title = ""
     
 //    @State private var showAudioPlayerView: Bool = false
     static private var selectedAudioUrl: URL?
@@ -82,13 +82,14 @@ struct fullProgramsView: View {
     @State private var isLive: Bool = false
 
     let link: String
-    
+    let title: String
+
     var body: some View {
         VStack {
             if programs.isEmpty {
                 Text("Loading...").onAppear {
                     LinkProcessor.processLink(link) { (processedTitle, extractedPrograms) in
-                        title = processedTitle
+//                        title = processedTitle
                         programs = extractedPrograms
                     }
                 }

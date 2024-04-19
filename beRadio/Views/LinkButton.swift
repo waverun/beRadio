@@ -11,7 +11,7 @@ struct LinkButton: View {
         // Add your logic to process the link and update the button color
         // This will be similar to the logic in ColoredProgramButton, but will
         // be applied to the link lines.
-        LinkProcessor.processLink(link) { (processedTitle, extractedPrograms) in
+            LinkProcessor.processLink(link) { (processedTitle, extractedPrograms) in
 //            title = processedTitle
             let programs = extractedPrograms
 //            switch true {

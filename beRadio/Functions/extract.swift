@@ -90,8 +90,9 @@ func extractLinks(htmlContent: String, search: String, completion: (([String]) -
         var links: [String] = []
         
         for match in matches {
-            if let range = Range(match.range(at: 1), in: htmlContent) {
+            if let range = (search.contains("program.aspx") ? Range(match.range, in: htmlContent) : Range(match.range(at: 1), in: htmlContent)) {
                 let link = String(htmlContent[range])
+                print("link:", link)
                 links.append(link.replacingOccurrences(of: "-", with: " "))
             }
         }

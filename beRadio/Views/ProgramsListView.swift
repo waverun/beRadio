@@ -47,10 +47,21 @@ struct ProgramsListView: View {
 //            }
             ForEach(links, id: \.self) { link in
                 if !removedLinks.contains(where: { $0.url == link.url }) {
-                    NavigationLink(destination: fullProgramsView(link: link.url!)) {
-                        let text = link.url!.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-                        
-                        LinkButton(label: text, link: link.url!) { _ in }
+                    if var url = link.url {
+                        let text = getUrlOrTitle(url: url, part: 1)
+                        let url = getUrlOrTitle(url: url, part: 0)
+                        NavigationLink(destination: fullProgramsView(link: url, title: text)) {
+//                            if url.contains("@") {
+//                                let urlParts = url.components(separatedBy: "@")
+//                                if urlParts.count > 0 {
+//                                    text = urlParts[1]
+//                                    url = urlParts[0]
+//                                }
+//                            } else {
+//                                text = url.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
+//                            }
+                            return LinkButton(label: text, link: url) { _ in }
+                        }
                     }
                 }
             }
@@ -74,5 +85,18 @@ struct ProgramsListView: View {
                 }
             }
         }
+    }
+
+    func getUrlOrTitle(url: String, part: Int) -> String { // part 0 is url. 1 is title.
+        if url.contains("@") {
+            let urlParts = url.components(separatedBy: "@")
+            if urlParts.count > part {
+                return urlParts[part]
+            }
+        }
+        if part == 0 {
+            return url
+        }
+        return url.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
     }
 }
