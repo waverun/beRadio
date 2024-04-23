@@ -43,6 +43,31 @@ func extractDatesAndLinks(html: String) -> [ExtractedData] {
     return result
 }
 
+func extractPodcastLinks(html: String) -> [ExtractedData] {
+//    let datePattern = "התוכנית המלאה \\d\\d\\.\\d\\d\\.\\d\\d"
+    let datePattern = "\"segment_date_txt\">\\d{2}/\\d{2}/\\d{4}"
+
+    let dates = getDates(html: html, pattern: datePattern)
+    
+//    let links = getLinks(html: html, pattern: #"(?<=<a href=")[^"]*(?=" id="mainPageSegmentsRpt_fullShowLink_\d+")"#)
+    let links = getLinks(html: html, pattern: #"(?<=<a href=")[^"]*(?=" id="oldMainPageSegmentsRpt_segmentLink_\d+")"#)
+
+//    var images = extractLinks(htmlContent: html, search:  #"<img src="(?:https?://[^/]+)?(/download/programs/(FullShowImg_\d+_\d+_\d+_|imgNewTop_\d+)\.jpg)"#)
+    var images = extractLinks(htmlContent: html, search:  #"class=\"segment_picture\"><img src=\"https:\/\/103fm\.maariv\.co\.il(/download[^\"]+)""#)
+
+    if images.count == 0 {
+        images = extractImages(html: html, search: #"(?<=https:\/\/103fm\.maariv\.co\.il)\/download\/programs\/imgNewTop_\d+\.jpg"#)
+    }
+    
+    var result: [ExtractedData] = []
+
+    for ((date, link), image) in zip(zip(dates, links), images) {
+        result.append(ExtractedData(date: date, link: link, image: image))
+    }
+
+    return result
+}
+
 func getLinks(html: String, pattern: String) -> [String] {
     let regex = try! NSRegularExpression(pattern: pattern, options: [])
 

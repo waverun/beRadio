@@ -63,23 +63,23 @@ struct ProgramNavLink: View {
 }
 
 struct fullProgramsView: View {
-    @State private var showSafariView: Bool = false
-    @State private var selectedURL: URL?
+    @State var showSafariView: Bool = false
+    @State var selectedURL: URL?
     
-    @State private var programs: [ExtractedData] = []
+    @State var programs: [ExtractedData] = []
 //    @State private var title = ""
     
 //    @State private var showAudioPlayerView: Bool = false
-    static private var selectedAudioUrl: URL?
-    static private var selectedAudioImage: String?
-    static private var selectedAudioDate: String?
+    static var selectedAudioUrl: URL?
+    static var selectedAudioImage: String?
+    static var selectedAudioDate: String?
 
 //    private static let audioPlayer = AudioPlayer(isLive: false)
 
-    @State private var audioUrl: URL = URL(string: "https://example.com/audio.mp3")!
-    @State private var imageSrc: String? = "https://example.com/image.jpg"
-    @State private var heading: String = "Some Heading"
-    @State private var isLive: Bool = false
+    @State var audioUrl: URL = URL(string: "https://example.com/audio.mp3")!
+    @State var imageSrc: String? = "https://example.com/image.jpg"
+    @State var heading: String = "Some Heading"
+    @State var isLive: Bool = false
 
     let link: String
     let title: String
