@@ -3,8 +3,8 @@ import SwiftUI
 struct RadioStationsView: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var isPresented: Bool
-    
-//    @ObservedObject var radioStationsData = RadioStationData()
+
+    //    @ObservedObject var radioStationsData = RadioStationData()
     @ObservedObject var radioStationsData: RadioStationData
 
     @State private var showNoStationFound = false
@@ -26,20 +26,22 @@ struct RadioStationsView: View {
     var onDone: (RadioStation) -> Void
 
     init(radioStationsData: RadioStationData, isPresented: Binding<Bool>, approvedStations: [RadioStation], genre: String = "", colors: [Color]? = nil, localStations: Bool = false, country: String = "", state: String = "", onDone: @escaping (RadioStation) -> Void) {
-//        radioStationsData.searchQuery = ""
+        //        radioStationsData.searchQuery = ""
         self.onDone = onDone
         self.localStations = localStations
         self.country = country
         self.state = state
         self.genre = genre
-        var colors = colors == nil ? [.blue, .purple] : colors!
+        var colors = colors == nil ? [.blue, .purple, .red] : colors!
         colors = [Color.adaptiveBlack] + colors
         self.gradientLight = Gradient(colors: colors)
-        self.gradientDark =  Gradient(stops: [
-            .init(color: colors[0], location: 0),
-            .init(color: colors[1], location: 0.4),
-            .init(color: colors[2], location: 1)
-        ])
+        if colors.count > 2 {
+            self.gradientDark =  Gradient(stops: [
+                .init(color: colors[0], location: 0),
+                .init(color: colors[1], location: 0.4),
+                .init(color: colors[2], location: 1)
+            ])
+        }
 
         switch true {
             case localStations: title = "Local Stations"
@@ -116,7 +118,7 @@ struct RadioStationsView: View {
                                 radioStationsData.selectedStation = station
                                 onDone(station)
                                 isPresented = false
-//                                radioStationsData.showingActionSheet = true
+                                //                                radioStationsData.showingActionSheet = true
                             }) {
                                 HStack {
                                     if let urlString = station.favicon {

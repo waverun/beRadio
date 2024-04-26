@@ -107,8 +107,11 @@ class ApprovedStations {
         for line in lines {
             // Split the line into components
             let components = line.split(separator: "    ", maxSplits: 1)
+            guard components.count > 1 else { continue }
             // Get the station name and url
-            let name = String(components[0].split(separator: ") ")[1])
+            let nameParts = components[0].split(separator: ") ")
+            guard nameParts.count > 1 else { continue }
+            let name = String(nameParts[1])
             let url = String(components[1])
 
             // Add a new RadioStation to approvedStations

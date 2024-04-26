@@ -10,7 +10,11 @@ extension Color {
     })
 
     func toUIColor() -> UIColor {
-        let components = self.cgColor!.components!
-        return UIColor(red: components[0], green: components[1], blue: components[2], alpha: components[3])
+        if let cgColor = cgColor,
+           let components = self.cgColor!.components,
+           components.count > 3 {
+            return UIColor(red: components[0], green: components[1], blue: components[2], alpha: components[3])
+        }
+        return .gray
     }
 }

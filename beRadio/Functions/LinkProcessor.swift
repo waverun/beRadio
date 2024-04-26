@@ -11,18 +11,18 @@ class LinkProcessor {
     static func getPodcastDate(_ date: String) -> String {
         if let dateStr = date.extract(regexp: "(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/(19\\d\\d|20\\d\\d)$"),
            let date = dateStr.toDate(format: "dd/MM/yyyy") {
-           return date.relativeDate()
+            return date.relativeDate()
         }
         return "unknown"
     }
-    
+
     static func processLink(_ link: String, completion: @escaping (String, [ExtractedData]) -> Void) {
         var title = ""
         var programs: [ExtractedData] = []
-        
+
         // Add your logic here to process the link and return the desired output
         title = link.replacingOccurrences(of: "/program/", with: "").replacingOccurrences(of: ".aspx", with: "")
-        
+
 
         getHtmlContent(url: "https://103fm.maariv.co.il" + link.replacingOccurrences(of: " ", with: "-")) { htmlContent in
             let radioProgram = "תוכנית רדיו -"
@@ -38,7 +38,7 @@ class LinkProcessor {
             let matches = regex.matches(in: htmlContent, options: [], range: range)
 
             if matches.isEmpty || htmlContent.contains("<title>ורדה רזיאל ז'קונט - תוכנית רדיו | 103fm</title>") || htmlContent.contains("<title>הרב אפרים בן צבי - תוכנית רדיו | 103fm</title>") || htmlContent.contains("<title>הכול פתוח - תוכנית רדיו עם אמנון רגב | 103fm</title>") {
-//            if !(htmlContent.contains(radioProgram) || htmlContent.contains(morningProgram)) {
+                //            if !(htmlContent.contains(radioProgram) || htmlContent.contains(morningProgram)) {
                 getPodcasts(htmlContent: htmlContent) { programs in
                     completion(title, programs)
                 }
@@ -54,6 +54,7 @@ class LinkProcessor {
                 getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0], search: #"(?<=href=")(/programs/complete_episodes\.aspx\?[^"]+)(?=">תוכניות מלאות</a>)"#) { extractedLink in
                     if extractedLink.count == 1 {
                         getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLink[0]) { htmlContent in
+                            guard htmlContent.count > 0 else { return }
                             programs = extractDatesAndLinks(html: htmlContent[0])
                             programs = programs.map { program -> ExtractedData in
                                 var updatedProgram = program

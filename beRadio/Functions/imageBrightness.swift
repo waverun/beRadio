@@ -4,6 +4,10 @@ import SwiftUI
 func averageColor(of image: UIImage) -> UIColor {
     var bitmap = [UInt8](repeating: 0, count: 4)
 
+    guard let cgImage = image.cgImage else {
+        return .gray  // Handle the case where UIImage does not have a CGImage
+    }
+
     // Create a 1x1 pixel context
     let context = CGContext(data: &bitmap,
                             width: 1,
@@ -47,9 +51,7 @@ func avoidBlackBackground(of image: UIImage) -> Bool {
 func getBrightness(of color: Color) -> CGFloat? {
     var brightness: CGFloat = 0.0
     let uiColor = color.toUIColor()
-    guard uiColor.getHue(nil, saturation: nil, brightness: &brightness, alpha: nil) else {
-        return nil  // Unable to get brightness
-    }
+    uiColor.getHue(nil, saturation: nil, brightness: &brightness, alpha: nil)
     return brightness
 }
 
