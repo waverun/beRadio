@@ -85,21 +85,12 @@ class ImageLoader: ObservableObject {
                             if let dominantColors = getDominantColors(in: image),
                                dominantColors.count > 1 {
                                 DispatchQueue.main.async {
-//                                    let playerTextColor = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? .black : Color(.white)
                                     sharedColorManager.updateColors(for: currentUrl, dominantColors: dominantColors)
                                     sharedColorManager.dominantColorsBeingCalculatedFor.remove(currentUrl)
                                 }
                             }
                         }
                     }
-//                    DispatchQueue.global(qos: .background).async {
-//                        if let dominantColors = getDominantColors(in: image) {
-//                            DispatchQueue.main.async {
-//                                gDominantColors[currentUrl] = dominantColors
-//                                gPlayerTextColor[currentUrl] = dominantColors.count > 1 && isBrightColor(of: dominantColors[0]) ? Color(.black) : Color(.systemGray2)
-//                            }
-//                        }
-//                    }
                 }
             }
     }

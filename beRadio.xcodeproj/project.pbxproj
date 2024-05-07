@@ -123,6 +123,7 @@
 		50DB1FF42AC7150400C3C48C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB2A7629C3A49100EFF179 /* Persistence.swift */; };
 		50DB1FF52AC7159100C3C48C /* RemovalConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C33A762AC45AED00A98E3F /* RemovalConfirmationView.swift */; };
 		50DB1FFB2AC9A1BD00C3C48C /* radioTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50CFBE6F2ABDC7E000A00848 /* radioTV.xcdatamodeld */; };
+		50DF984C2BEA2F1500B56FD1 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DF984B2BEA2F1500B56FD1 /* UIImage.swift */; };
 		50E5AD182A154F270083DC04 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5AD172A154F270083DC04 /* Color.swift */; };
 		50E7670A2BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E767092BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift */; };
 		92038E7D29D9D786008EDC1B /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92038E7C29D9D786008EDC1B /* AddLinkView.swift */; };
@@ -206,6 +207,7 @@
 		50DB1FF62AC9726D00C3C48C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50DB1FF92AC9921500C3C48C /* radioTV.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = radioTV.xcassets; sourceTree = "<group>"; };
 		50DB1FFC2AC9DE2D00C3C48C /* AssetsTVos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AssetsTVos.xcassets; path = beRadio/AssetsTVos.xcassets; sourceTree = "<group>"; };
+		50DF984B2BEA2F1500B56FD1 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		50E5AD172A154F270083DC04 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		50E767092BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extractStringEnclosedInQuotes.swift; sourceTree = "<group>"; };
 		92038E7C29D9D786008EDC1B /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				92E59A7529E33896002754E5 /* JSONDecoder.swift */,
 				92ADFC5729C73E7A00582B66 /* String.swift */,
 				5071C3A12ADC033A0065805E /* UIColor.swift */,
+				50DF984B2BEA2F1500B56FD1 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				5071C3A42ADC04400065805E /* CodableColor.swift in Sources */,
 				50C33A772AC45AED00A98E3F /* RemovalConfirmationView.swift in Sources */,
 				92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */,
+				50DF984C2BEA2F1500B56FD1 /* UIImage.swift in Sources */,
 				50E7670A2BC7FEEE00C104AB /* extractStringEnclosedInQuotes.swift in Sources */,
 				92AB2A7C29C3A49100EFF179 /* ContentView.swift in Sources */,
 				50B847542A1E6A940002007A /* LocationManager.swift in Sources */,

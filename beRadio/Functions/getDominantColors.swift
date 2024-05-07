@@ -88,9 +88,94 @@ import SwiftUI
 //    return centroids.map { Color(UIColor(red: $0[0], green: $0[1], blue: $0[2], alpha: 1)) }
 //}
 
-func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
+//func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
+//    print("getDominantColors: Start")
+//    guard let cgImage = image.cgImage else {
+//        print("getDominantColors: Image is nil")
+//        return nil
+//    }
+//
+//    let width = cgImage.width
+//    let height = cgImage.height
+//    let colorSpace = CGColorSpaceCreateDeviceRGB()
+//    var rawData = [UInt8](repeating: 0, count: width * height * 4)
+//    let bytesPerPixel = 4
+//    let bytesPerRow = bytesPerPixel * width
+//    let bitsPerComponent = 8
+//    let bitmapInfo: UInt32 = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
+//
+//    guard let context = CGContext(data: &rawData, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+//        print("getDominantColors: Context is nil")
+//        return nil
+//    }
+//
+//    context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+//
+//    var colorSum = [[CGFloat]](repeating: [0, 0, 0], count: k)
+//    var clusterCount = [Int](repeating: 0, count: k)
+//    var previousCentroids = [[CGFloat]]()
+//    var centroids = [[CGFloat]](repeating: [CGFloat.random(in: 0...1), CGFloat.random(in: 0...1), CGFloat.random(in: 0...1)], count: k)
+//
+//    while previousCentroids != centroids {
+//        previousCentroids = centroids
+//        centroids = [[CGFloat]](repeating: [0, 0, 0], count: k)
+//        colorSum = [[CGFloat]](repeating: [0, 0, 0], count: k)
+//        clusterCount = [Int](repeating: 0, count: k)
+//
+//        for y in 0..<height {
+//            for x in 0..<width {
+//                let byteIndex = (bytesPerRow * y) + x * bytesPerPixel
+//                let red = CGFloat(rawData[byteIndex]) / 255
+//                let green = CGFloat(rawData[byteIndex + 1]) / 255
+//                let blue = CGFloat(rawData[byteIndex + 2]) / 255
+//
+//                var bestCentroidIndex = 0
+//                var bestDistance = CGFloat.infinity
+//                for (index, centroid) in centroids.enumerated() {
+//                    guard centroid.count > 2 else { continue }
+//                    let distance = pow(red - centroid[0], 2) + pow(green - centroid[1], 2) + pow(blue - centroid[2], 2)
+//                    if distance < bestDistance {
+//                        bestDistance = distance
+//                        bestCentroidIndex = index
+//                    }
+//                }
+//                guard colorSum.count > bestCentroidIndex,
+//                      colorSum[bestCentroidIndex].count > 2 else { continue }
+//                colorSum[bestCentroidIndex][0] += red
+//                colorSum[bestCentroidIndex][1] += green
+//                colorSum[bestCentroidIndex][2] += blue
+//                clusterCount[bestCentroidIndex] += 1
+//            }
+//        }
+//
+//        for (index, count) in clusterCount.enumerated() {
+//            guard colorSum.count > index,
+//                  colorSum[index].count > 2 else { continue }
+//            if count > 0 {
+//                centroids[index] = [colorSum[index][0] / CGFloat(count), colorSum[index][1] / CGFloat(count), colorSum[index][2] / CGFloat(count)]
+//            }
+//        }
+//    }
+//
+//    print("getDominantColors: End")
+//
+//    return centroids.compactMap { centroid in
+//        guard centroid.count >= 3 else { return nil }
+//        return Color(UIColor(red: centroid[0], green: centroid[1], blue: centroid[2], alpha: 1))
+//    }
+//}
+
+func getDominantColors(in image: UIImage, k: Int = 2, sampleRate: Int = 2) -> [Color]? {
     print("getDominantColors: Start")
-    guard let cgImage = image.cgImage else {
+
+    // Resize image to reduce size
+    let scale = 0.5
+    guard let resizedImage = image.resized(toWidth: CGFloat(image.size.width * scale)) else {
+        print("getDominantColors: Failed to resize image")
+        return nil
+    }
+
+    guard let cgImage = resizedImage.cgImage else {
         print("getDominantColors: Image is nil")
         return nil
     }
@@ -102,7 +187,7 @@ func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
     let bytesPerPixel = 4
     let bytesPerRow = bytesPerPixel * width
     let bitsPerComponent = 8
-    let bitmapInfo: UInt32 = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
+    let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
 
     guard let context = CGContext(data: &rawData, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
         print("getDominantColors: Context is nil")
@@ -122,8 +207,8 @@ func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
         colorSum = [[CGFloat]](repeating: [0, 0, 0], count: k)
         clusterCount = [Int](repeating: 0, count: k)
 
-        for y in 0..<height {
-            for x in 0..<width {
+        for y in stride(from: 0, to: height, by: sampleRate) {
+            for x in stride(from: 0, to: width, by: sampleRate) {
                 let byteIndex = (bytesPerRow * y) + x * bytesPerPixel
                 let red = CGFloat(rawData[byteIndex]) / 255
                 let green = CGFloat(rawData[byteIndex + 1]) / 255
@@ -132,15 +217,13 @@ func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
                 var bestCentroidIndex = 0
                 var bestDistance = CGFloat.infinity
                 for (index, centroid) in centroids.enumerated() {
-                    guard centroid.count > 2 else { continue }
                     let distance = pow(red - centroid[0], 2) + pow(green - centroid[1], 2) + pow(blue - centroid[2], 2)
                     if distance < bestDistance {
                         bestDistance = distance
                         bestCentroidIndex = index
                     }
                 }
-                guard colorSum.count > bestCentroidIndex,
-                      colorSum[bestCentroidIndex].count > 2 else { continue }
+
                 colorSum[bestCentroidIndex][0] += red
                 colorSum[bestCentroidIndex][1] += green
                 colorSum[bestCentroidIndex][2] += blue
@@ -149,8 +232,6 @@ func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
         }
 
         for (index, count) in clusterCount.enumerated() {
-            guard colorSum.count > index,
-                  colorSum[index].count > 2 else { continue }
             if count > 0 {
                 centroids[index] = [colorSum[index][0] / CGFloat(count), colorSum[index][1] / CGFloat(count), colorSum[index][2] / CGFloat(count)]
             }
@@ -159,7 +240,6 @@ func getDominantColors(in image: UIImage, k: Int = 2) -> [Color]? {
 
     print("getDominantColors: End")
 
-    //    return centroids.map { Color(UIColor(red: $0[0], green: $0[1], blue: $0[2], alpha: 1)) }
     return centroids.compactMap { centroid in
         guard centroid.count >= 3 else { return nil }
         return Color(UIColor(red: centroid[0], green: centroid[1], blue: centroid[2], alpha: 1))

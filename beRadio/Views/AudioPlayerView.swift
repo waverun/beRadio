@@ -13,7 +13,6 @@ struct AudioPlayerView: View {
     @ObservedObject var audioPlayer: AudioPlayer
     @ObservedObject var colorManager = sharedColorManager
 
-//    @State private var dominantColors: [Color] = [Color.red, Color.yellow]  // Default values
     @State private var dominantColors: [Color] = []  // Default values
     @State private var playerTextColor: Color = Color.black  // Default value
 
@@ -68,10 +67,6 @@ struct AudioPlayerView: View {
         self.artist = artist
         self.onAppearAction = onAppearAction
         gAudioPlayerView = self
-//        if let image = image,
-//           let imageUrl = URL(string: image) {
-//            imageLoader.loadDominantColors(from: imageUrl)
-//        }
     }
 
     func play() {
@@ -81,14 +76,9 @@ struct AudioPlayerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-//                RadialGradient(gradient: Gradient(colors: gDominantColors[imageSrc ?? ""] ?? [Color.red, Color.yellow]), center: .center, startRadius: 5, endRadius: 500)
                 RadialGradient(gradient: Gradient(colors: dominantColors), center: .center, startRadius: 5, endRadius: 500)
                     .scaleEffect(1.5)
                     .ignoresSafeArea()
-//                LinearGradient(gradient: Gradient(colors: [.adaptiveBlack, .clear]), startPoint: .top, endPoint: .bottom)
-//                    .frame(height: UIScreen.main.bounds.height / 2)
-//                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 8)
-//                    .ignoresSafeArea()
                 HStack {
                     Spacer()
                     VStack {
@@ -99,9 +89,7 @@ struct AudioPlayerView: View {
                                 .font(.system(size: 24)) // Adjust the size value as needed
                                 .bold()
                                 .multilineTextAlignment(.center)
-//                                .foregroundColor(gPlayerTextColor[imageSrc ?? ""])
                                 .foregroundColor(.white.opacity(0.5))
-//                                .foregroundColor(playerTextColor)
                                 .padding(EdgeInsets(top: 6, leading: 10, bottom: 8, trailing: 10)) // Add padding
                                 .background(
                                     RoundedRectangle(cornerRadius: 20) // Rounded rectangle with corner radius 10
@@ -306,6 +294,12 @@ struct AudioPlayerView: View {
             .onReceive(colorManager.$playerTextColorDict) { dict in
                 if let color = dict[self.imageSrc ?? ""] {
                     self.playerTextColor = color
+                }
+            }
+            .onChange(of: imageSrc) {
+                if let colors = colorManager.dominantColorsDict[self.imageSrc ?? ""],
+                   !colors.isEmpty {
+                    self.dominantColors = colors
                 }
             }
         }
