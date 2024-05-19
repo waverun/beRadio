@@ -271,10 +271,10 @@ struct ContentView: View {
                 //                .sheet(isPresented: $showLivePlayerView) {
                 //                    AudioPlayerView(url: URL(string: "https://cdn.cybercdn.live/103FM/Live/icecast.audio")!, image: nil, date: "103 FM", isLive: true)
                 //                }
-                //                .sheet(isPresented: $showingAddLinkView) {
-                //                    //                                AddLinkView(links: $links)
-                //                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
-                //                }
+                .sheet(isPresented: $showingAddLinkView) {
+                    //                                AddLinkView(links: $links)
+                    AddLinkView(links: .constant(Array(links)), removedLinks: .constant(Array(removedLinks)))
+                }
                 .toolbar {
 #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -520,14 +520,16 @@ struct ContentView: View {
 //    }
 
     func saveItems() {
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        viewContext.perform {
+            do {
+                try self.viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
     }
-
+    
     private func addApprovedStations() {
         for station in ApprovedStations.shared.approvedStations {
             let isDeleted = deletedItems.contains { $0.url == station.url }
