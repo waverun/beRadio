@@ -45,15 +45,16 @@ class LinkProcessor {
                 return
             }
 
-            getHtmlContent(url: "https://103fm.maariv.co.il" + link.replacingOccurrences(of: " ", with: "-"), search: #"href="([^"]+)">תוכניות מלאות</a>"#) { extractedLinks in
+//            getHtmlContent(url: "https://103fm.maariv.co.il" + link.replacingOccurrences(of: " ", with: "-"), search: #"href="([^"]+)">תוכניות מלאות</a>"#) { extractedLinks in
+            _ = extractLinks(htmlContent: htmlContent, search: #"href="([^"]+)">תוכניות מלאות</a>"#) { extractedLinks in
                 guard extractedLinks.count == 1 else {
                     print("\(extractedLinks.count) extracted. Should be only 1")
                     return
                 }
 
-                getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0], search: #"(?<=href=")(/programs/complete_episodes\.aspx\?[^"]+)(?=">תוכניות מלאות</a>)"#) { extractedLink in
-                    if extractedLink.count == 1 {
-                        getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLink[0]) { htmlContent in
+//                getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0], search: #"(?<=href=")(/programs/complete_episodes\.aspx\?[^"]+)(?=">תוכניות מלאות</a>)"#) { extractedLink in
+//                    if extractedLink.count == 1 {
+                        getHtmlContent(url: "https://103fm.maariv.co.il" + extractedLinks[0].replacingOccurrences(of: " ", with: "-")) { htmlContent in
                             guard htmlContent.count > 0 else { return }
                             programs = extractDatesAndLinks(html: htmlContent[0])
                             programs = programs.map { program -> ExtractedData in
@@ -63,8 +64,8 @@ class LinkProcessor {
                             }
                             completion(title, programs)
                             return
-                        }
-                    }
+//                        }
+//                    }
                 }
             }
         }
