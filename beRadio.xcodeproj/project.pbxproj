@@ -12,6 +12,7 @@
 		5071C3A22ADC033B0065805E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071C3A12ADC033A0065805E /* UIColor.swift */; };
 		5071C3A42ADC04400065805E /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071C3A32ADC04400065805E /* CodableColor.swift */; };
 		5071C3A92AE6BCC10065805E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E59A4229DB5EEA002754E5 /* LaunchScreen.storyboard */; };
+		5074F06A2C0789B30010489B /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0692C0789B30010489B /* URL.swift */; };
 		507C43222AD5AEDB00D824DB /* getDominantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C43212AD5AEDB00D824DB /* getDominantColors.swift */; };
 		507C43282AD5D90400D824DB /* ThreadSafeDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C43272AD5D90400D824DB /* ThreadSafeDict.swift */; };
 		509E61602ABF774000B81C6F /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 509E615F2ABF774000B81C6F /* SwiftSoup */; };
@@ -172,6 +173,7 @@
 		505C1A512B5862F1008068F3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		5071C3A12ADC033A0065805E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5071C3A32ADC04400065805E /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
+		5074F0692C0789B30010489B /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		507C43212AD5AEDB00D824DB /* getDominantColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getDominantColors.swift; sourceTree = "<group>"; };
 		507C43272AD5D90400D824DB /* ThreadSafeDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeDict.swift; sourceTree = "<group>"; };
 		50B847162A1B777F0002007A /* CheckMemoryAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMemoryAvailability.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				92ADFC5729C73E7A00582B66 /* String.swift */,
 				5071C3A12ADC033A0065805E /* UIColor.swift */,
 				50DF984B2BEA2F1500B56FD1 /* UIImage.swift */,
+				5074F0692C0789B30010489B /* URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				92AB2A7A29C3A49100EFF179 /* beRadio.xcdatamodeld in Sources */,
 				922672A729F1A8CF00D92281 /* ExportAllTransactionsIntent.swift in Sources */,
 				5071C3A42ADC04400065805E /* CodableColor.swift in Sources */,
+				5074F06A2C0789B30010489B /* URL.swift in Sources */,
 				50C33A772AC45AED00A98E3F /* RemovalConfirmationView.swift in Sources */,
 				92E59A5529E01FAD002754E5 /* selectAudioOutput.swift in Sources */,
 				50DF984C2BEA2F1500B56FD1 /* UIImage.swift in Sources */,

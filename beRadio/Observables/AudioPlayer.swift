@@ -143,10 +143,10 @@ class AudioPlayer: ObservableObject {
         
         if player == nil,
            let url = url {
-            currentURL = url
+           currentURL = url.replaceSpacesWithHyphens()
             isNewPlayer = true
             do {
-                let asset = AVURLAsset(url: url)
+                let asset = AVURLAsset(url: currentURL)
                 let item = AVPlayerItem(asset: asset)
                 bufferDuration = getAvailableBufferSize(seconds: 1800)
 //                bufferDuration = 1800
