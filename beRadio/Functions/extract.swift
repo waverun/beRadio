@@ -105,7 +105,7 @@ func getDates(html: String, pattern: String) -> [String] {
     return dates
 }
 
-func extractLinks(htmlContent: String, search: String, completion: (([String]) -> Void)? = nil) -> [String] {
+func extractLinks(htmlContent: String, search: String, replace: Bool = true, completion: (([String]) -> Void)? = nil) -> [String] {
     let pattern = search
     
     do {
@@ -116,9 +116,12 @@ func extractLinks(htmlContent: String, search: String, completion: (([String]) -
         
         for match in matches {
             if let range = (search.contains("program.aspx") ? Range(match.range, in: htmlContent) : Range(match.range(at: 1), in: htmlContent)) {
-                let link = String(htmlContent[range])
+                var link = String(htmlContent[range])
+                if replace {
+                    link = link.replacingOccurrences(of: "-", with: " ")
+                }
                 print("link:", link)
-                links.append(link.replacingOccurrences(of: "-", with: " "))
+                links.append(link)
             }
         }
         

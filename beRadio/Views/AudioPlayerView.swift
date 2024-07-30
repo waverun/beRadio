@@ -60,6 +60,7 @@ struct AudioPlayerView: View {
                 self.audioPlayer = gAudioPlayer!
         }
         _audioUrl = url
+        print("AudioPlayerView url:", url)
         self.imageSrc = image
         _heading = date
         _isLive = isLive
