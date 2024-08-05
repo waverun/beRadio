@@ -178,36 +178,6 @@
             endingLineNumber = "4"
             landmarkName = "fetchAudioUrl(link:completion:)"
             landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "922A2D05-B924-4DC3-A1A1-0FBD9A390C97 - fe3a9beb43309d90"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "beRadio.fetchAudioUrl(link: Swift.String, completion: (Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "beRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/FetchAudiUrl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "4"
-                  endingLineNumber = "4">
-               </Location>
-               <Location
-                  uuid = "922A2D05-B924-4DC3-A1A1-0FBD9A390C97 - a3fec1386ba12c3b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in beRadio.fetchAudioUrl(link: Swift.String, completion: (Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "beRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/FetchAudiUrl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "5"
-                  endingLineNumber = "5">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -777,38 +747,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "fetchAudioUrlFromIframe(link:completion:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "CE68CE6E-E24B-4C78-9923-5EC73452C9BB - 6e8e316695666fb1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "beRadio.fetchAudioUrlFromIframe(link: Swift.String, completion: (Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "beRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/FetchAudiUrl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15">
-               </Location>
-               <Location
-                  uuid = "CE68CE6E-E24B-4C78-9923-5EC73452C9BB - 80d0c5d37b1d9f46"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in beRadio.fetchAudioUrlFromIframe(link: Swift.String, completion: (Swift.Optional&lt;Foundation.URL&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "beRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shyem/Desktop/Projects/beRadio/beRadio/Functions/FetchAudiUrl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17">
-               </Location>
-            </Locations>
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -839,8 +779,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "fetchAudioUrlFromIframe(link:completion:)"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -855,6 +795,86 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9BB2B4A-8462-47CB-92A2-301AD2743F70"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/FetchAudiUrl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "993F4752-6E35-4065-A2F2-E4B5824B77CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/FetchAudiUrl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "976DA419-6E1A-4ADB-ADD7-3312723E77B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/FetchAudiUrl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "362BE10A-AD86-4F66-B2F9-02B50F783124"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/FetchAudiUrl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "fetchAudioUrl(link:completion:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8C85D62-7A8A-43A4-B7AE-0BE91B701336"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "beRadio/Functions/FetchAudiUrl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "fetchAudioUrlFromIframe(link:completion:)"
             landmarkType = "9">
          </BreakpointContent>
