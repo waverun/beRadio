@@ -1,11 +1,19 @@
 import Foundation
 class LinkProcessor {
+//    static func getRelativeDate(_ date: String) -> String {
+//        if let dateStr = date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
+//           let date = dateStr.toDate(format: "dd.MM.yy") {
+//            return date.relativeDate()
+//        }
+//        return "unknown"
+//    }
+
     static func getRelativeDate(_ date: String) -> String {
-        if let dateStr = date.extract(regexp: "\\d{2}\\.\\d{2}\\.\\d{2}"),
-           let date = dateStr.toDate(format: "dd.MM.yy") {
+        if let dateStr = date.extract(regexp: "\\d{1,2}\\.\\d{1,2}\\.\\d{2}"),
+           let date = dateStr.toDate(format: "d.M.yy") {
             return date.relativeDate()
         }
-        return "unknown"
+        return "Unknown date"
     }
 
     static func getPodcastDate(_ date: String) -> String {

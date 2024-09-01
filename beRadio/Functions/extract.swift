@@ -22,8 +22,9 @@ struct ExtractedData: Identifiable {
 import Foundation
 
 func extractDatesAndLinks(html: String) -> [ExtractedData] {
-    let datePattern = "התוכנית המלאה \\d\\d\\.\\d\\d\\.\\d\\d"
-
+//    let datePattern = "התוכנית המלאה \\d\\d\\.\\d\\d\\.\\d\\d"
+    let datePattern = "התוכנית המלאה \\d{1,2}\\.\\d{1,2}\\.\\d{2}"
+    
     let dates = getDates(html: html, pattern: datePattern)
     
     let links = getLinks(html: html, pattern: #"(?<=<a href=")[^"]*(?=" id="mainPageSegmentsRpt_fullShowLink_\d+")"#)
