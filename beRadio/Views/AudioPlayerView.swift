@@ -28,6 +28,9 @@ struct AudioPlayerView: View {
     @State private var currentImageSrc: String?
     @State private var isCurrentlyPlaying = false
 
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var navigationController: NavigationController  // Add this
+
     let onAppearAction: (() -> Void)?
     
 #if os(tvOS)
@@ -185,6 +188,7 @@ struct AudioPlayerView: View {
 
                                         Button(action: {
                                             audioPlayer.isPlaying ? audioPlayer.pause() : audioPlayer.play(url: audioUrl)
+                                            navigationController.isComingFromAudioPlayerView = !audioPlayer.isPlaying // Set the flag
                                         }) {
                                             Image(systemName: audioPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
                                                 .resizable()

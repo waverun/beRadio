@@ -22,6 +22,8 @@ struct ProgramNavLink: View {
     @Binding private var heading: String
     @Binding private var isLive: Bool
 
+    @EnvironmentObject var navigationController: NavigationController  // Add this
+
     init(label: String, link: String, imageUrl: String? = nil, color: UIColor = .gray, audioUrl: Binding<URL>, imageSrc: Binding<String?>, heading: Binding<String>, isLive: Binding<Bool>, title: String) {
         self.label = label
         self.link = link
@@ -62,6 +64,10 @@ struct ProgramNavLink: View {
     }
 }
 
+class NavigationController: ObservableObject {
+    @Published var isComingFromAudioPlayerView: Bool = false
+}
+
 struct fullProgramsView: View {
     @State var showSafariView: Bool = false
     @State var selectedURL: URL?
@@ -80,6 +86,9 @@ struct fullProgramsView: View {
     @State var imageSrc: String? = "https://example.com/image.jpg"
     @State var heading: String = "Some Heading"
     @State var isLive: Bool = false
+
+    @EnvironmentObject var navigationController: NavigationController  // Add this
+    @Environment(\.presentationMode) var presentationMode  // Use this to dismiss the view
 
     let link: String
     let title: String
@@ -153,6 +162,14 @@ struct fullProgramsView: View {
                         EditButton()
                     }
 #endif
+                }
+            }
+        }
+        .onAppear {
+            if navigationController.isComingFromAudioPlayerView {
+                navigationController.isComingFromAudioPlayerView = false  // Reset the flag
+                DispatchQueue.main.async {
+                    presentationMode.wrappedValue.dismiss()  // Dismiss this view
                 }
             }
         }

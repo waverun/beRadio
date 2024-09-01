@@ -136,6 +136,8 @@ struct ProgramsListView: View {
     @State private var orderedLinks: [Link] = []
     @State private var searchText: String = ""
 
+    @EnvironmentObject var navigationController: NavigationController  // Add this
+
     var filteredLinks: [Link] {
         if searchText.isEmpty {
             return orderedLinks
@@ -215,6 +217,7 @@ struct ProgramsListView: View {
             title = "103 FM"
             loadOrder()
             orderedLinks = orderedLinks.isEmpty ? Array(links) : mergeLinks()
+            navigationController.isComingFromAudioPlayerView = false  // Set the flag
         }
     }
 

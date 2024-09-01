@@ -1,9 +1,12 @@
 import SwiftUI
 
+var gNavigationController = NavigationController()
+
 @main
 struct beRadioApp: App {
     let persistenceController = PersistenceController.shared
-    
+//    var navigationController = NavigationController()
+
     @UIApplicationDelegateAdaptor(AppAudioController.self) var appDelegate
     
     init() {
@@ -21,8 +24,10 @@ struct beRadioApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(gNavigationController)
                 .background(RemoteControlReceiver())
         }
+        
 #if !os(tvOS)
         .commands {
             CommandGroup(replacing: .appInfo) {

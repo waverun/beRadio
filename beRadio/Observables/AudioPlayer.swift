@@ -30,6 +30,8 @@ class AudioPlayer: ObservableObject {
     @Published var bufferDuration: TimeInterval = 0
     @Published var bufferDurationString = ""
 
+//    private var navigationController: NavigationController  // Add this
+
     var shouldUpdateTime: Bool = true
     var albumArt: String?
     var title, artist: String
@@ -40,9 +42,23 @@ class AudioPlayer: ObservableObject {
         self.albumArt = albumArt
         self.title = title
         self.artist = artist
+//        self.navigationController = navigationController
         setupRemoteCommandCenter()
         configureAudioSession()
         addAudioSessionObservers()
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+
+    @objc func playerDidFinishPlaying(_ notification: Notification) {
+        print("Player finished playing")
+
+        // Perform any action you want when the player finishes playing
+        // For example, reset the player or update the UI
+        seekToStart()
+        pause()
+        gNavigationController.isComingFromAudioPlayerView = true // Set the flag
+
+        // Add any additional logic you need
     }
 
     func seekToStart() {
