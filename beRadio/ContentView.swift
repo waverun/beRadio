@@ -367,7 +367,13 @@ struct ContentView: View {
                 }
 #else
                 .onChange(of: locationManager.authorizationStatus) { oldStatus, newStatus in
-                    isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
+
+//                    isAuthorized = newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse
+                    if newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse {
+                        isAuthorized = true
+                    } else {
+                        isAuthorized = false
+                    }
                 }
 #endif
                 .navigationBarTitle(title, displayMode: .inline)
